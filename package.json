@@ -6,16 +6,25 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "remotion studio src/index.ts",
-    "render": "remotion render src/index.ts HelloWorld out/video.mp4"
+    "render": "remotion render src/index.ts HelloWorld out/video.mp4",
+    "render:demo": "remotion render src/index.ts MotionDemo out/motion-demo.mp4"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@remotion/cli": "^4.0.543",
+    "@remotion/cli": "4.0.543",
+    "@remotion/google-fonts": "4.0.543",
+    "@remotion/lottie": "4.0.543",
+    "@remotion/motion-blur": "4.0.543",
+    "@remotion/noise": "4.0.543",
+    "@remotion/paths": "4.0.543",
+    "@remotion/shapes": "4.0.543",
+    "@remotion/transitions": "4.0.543",
+    "lottie-web": "5.13.0",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
-    "remotion": "^4.0.543"
+    "remotion": "4.0.543"
   },
   "devDependencies": {
     "@types/react": "^19.3.0",
