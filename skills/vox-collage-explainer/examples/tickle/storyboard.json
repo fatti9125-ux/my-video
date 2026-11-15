@@ -1,0 +1,72 @@
+{
+  "title": "Why you can't tickle yourself",
+  "source": "Blakemore, Wolpert & Frith, Nature Neuroscience (1998)",
+  "voice": "audio/vo.mp3",
+  "beats": [
+    {
+      "type": "subject",
+      "line": "You can't tickle yourself.",
+      "subject": "man",
+      "points": { "face": [645, 195], "fingers": [553, 545] },
+      "fig": "FIG. 01",
+      "title": ["Self-tickle", "Result:"],
+      "title_cues": [null, "yourself-12"],
+      "note": { "text": "nothing.", "cue": "yourself-4", "arrow_to": "face" },
+      "annotate": [
+        { "marks": "fingers", "cue": 8 },
+        { "circle": "face", "size": [100, 124], "cue": "tickle-4" }
+      ],
+      "wiggle": { "from": 6, "to": 48 },
+      "clipping": {
+        "headline": "Why can’t we tickle ourselves?",
+        "dek": "The brain predicts its own touch, scientists find",
+        "body": "Volunteers at University College London rated a touch they made themselves as less tickly than the same touch delivered by a robot. Brain scans showed weaker responses in touch areas of the cortex when the touch was self-made. When a short delay was added between the movement and the touch, it began to feel tickly again — the brain’s prediction no longer matched."
+      },
+      "prop": "feather"
+    },
+    {
+      "type": "diagram",
+      "enter": "wipe",
+      "line": "Your brain sends your cerebellum a copy of every move.",
+      "image": "brain",
+      "points": { "motor": [615, 62], "cereb": [862, 522] },
+      "fig": "FIG. 02",
+      "title": ["The efference", "copy."],
+      "title_cues": [6, "copy"],
+      "note": { "text": "a copy of\nevery move", "cue": "copy" },
+      "arrows": [
+        { "path": [[615, 70], [650, 330], [790, 470], [778, 700], [790, 880]], "cue": "sends-4", "spark": true },
+        { "path": [[702, 330], [910, 90], [1280, 230], [1150, 470], [980, 460]], "cue": "copy-6", "dashed": true }
+      ],
+      "circles": [{ "at": "cereb", "size": [152, 96], "cue": "cerebellum-2", "label": "CEREBELLUM" }],
+      "tags": [{ "text": "MOTOR CORTEX", "at": "motor", "cue": "brain" }],
+      "prop": "neuron"
+    },
+    {
+      "type": "chart",
+      "line": "It predicts the touch... and turns it down.",
+      "fig": "FIG. 03",
+      "title": "What you feel",
+      "series": [
+        { "values": "burst", "style": "highlight", "cue": "predicts", "label": { "text": "predicted", "at": 0.2, "dy": -228 } },
+        { "values": "burst", "noise": 0.18, "style": "ink", "cue": "touch-2", "tag": "FELT",
+          "morph": [{ "scale": 0.55, "cue": "and+2" }, { "scale": 0.25, "cue": "and+8" }, { "scale": 0.06, "cue": "and+14" }] }
+      ],
+      "note": { "text": "turned down.", "cue": "turns", "arrow_to": [1, 0.65] },
+      "prop": "stopwatch"
+    },
+    {
+      "type": "closer",
+      "line": "Tickling needs surprise.",
+      "subject": "laugh",
+      "points": { "hands": [870, 455] },
+      "headline": ["TICKLING", "NEEDS"],
+      "headline_cues": ["Tickling", "needs"],
+      "ransom": "SURPRISE.",
+      "ransom_cue": "surprise",
+      "annotate": [{ "circle": "hands", "size": [109, 78], "cue": "surprise+4" }],
+      "note": { "text": "not you.", "cue": "surprise+12" },
+      "prop": "feather"
+    }
+  ]
+}

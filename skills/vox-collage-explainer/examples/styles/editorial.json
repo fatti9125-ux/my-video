@@ -1,0 +1,145 @@
+{
+  "_note": "Layout reference only: numbers and claims are placeholders. Research and source real copy before use.",
+  "title": "Editorial test",
+  "style": "editorial",
+  "source": "Test",
+  "voice": "audio/vo.mp3",
+  "hud": {
+    "label": "BORROWED SINCE YOU HIT PLAY",
+    "rate": 77105,
+    "prefix": "$",
+    "from_beat": 2,
+    "cue": 2
+  },
+  "beats": [
+    {
+      "type": "counter",
+      "line": "Before this video ends America will borrow two million dollars.",
+      "caption": "_Before this video ends,_ / America will *borrow*",
+      "label": "Borrowed since you hit play",
+      "number": {
+        "from": 0,
+        "to": 308420,
+        "prefix": "$",
+        "cue": "America",
+        "dur": 60,
+        "ease": "linear"
+      },
+      "icon": "money",
+      "progress": {
+        "cue": "America",
+        "fill": 0.35
+      },
+      "stamp": {
+        "text": "OVER $2 MILLION",
+        "sub": "BY THE END",
+        "cue": "two"
+      }
+    },
+    {
+      "type": "stacks",
+      "enter": "blur",
+      "line": "The national debt is forty trillion dollars, about one hundred seventeen thousand for every American.",
+      "prop": "money",
+      "count": 8,
+      "rows": 2,
+      "cue": 2,
+      "headline": "$40 TRILLION",
+      "headline_cue": "forty",
+      "units": {
+        "cue": "about",
+        "cols": 22,
+        "rows": 6,
+        "highlight": 70,
+        "headline": "!$117,000!",
+        "caption": "_for every American_",
+        "caption_cue": "every"
+      }
+    },
+    {
+      "type": "linechart",
+      "enter": "slide",
+      "line": "And it is speeding up.",
+      "caption": "And it's *speeding up.*",
+      "values": [
+        1,
+        1.2,
+        1.1,
+        1.5,
+        2,
+        2.4,
+        3,
+        4.2,
+        6,
+        9,
+        14,
+        20,
+        28,
+        40
+      ],
+      "xlabels": [
+        "1800",
+        "1900",
+        "2000",
+        "2025"
+      ],
+      "ref": {
+        "value": 20,
+        "text": "$20 TRILLION"
+      },
+      "tag": {
+        "from": 1801,
+        "to": 2025
+      },
+      "cue": 2,
+      "dur": 40,
+      "events": [
+        {
+          "at": 0.45,
+          "text": "World War II"
+        }
+      ]
+    },
+    {
+      "type": "bars",
+      "enter": "glitch",
+      "line": "Interest is now the government's biggest bill.",
+      "caption": "the government's *biggest bill*",
+      "items": [
+        {
+          "label": "Social Security",
+          "value": 1.6
+        },
+        {
+          "label": "Medicare",
+          "value": 1.1
+        },
+        {
+          "label": "Defense",
+          "value": 0.9
+        },
+        {
+          "label": "Interest",
+          "value": 1.8,
+          "highlight": true
+        }
+      ],
+      "promote": {
+        "cue": "biggest"
+      },
+      "stamp": {
+        "text": "BIGGEST BILL"
+      }
+    },
+    {
+      "type": "flip",
+      "enter": "shape",
+      "line": "By twenty forty eight it doubles.",
+      "label": "BY",
+      "from": 2026,
+      "to": 2048,
+      "cue": "twenty",
+      "note": "it ~doubles~ !doubles.!"
+    }
+  ]
+}

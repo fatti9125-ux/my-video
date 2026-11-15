@@ -1,0 +1,22 @@
+{
+  "name": "vox-collage-engine",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "studio": "remotion studio src/index.ts"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.517",
+    "@remotion/google-fonts": "4.0.517",
+    "remotion": "4.0.517",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "p5": "2.2.3",
+    "p5.brush": "2.2.3",
+    "puppeteer-core": "24.25.0"
+  },
+  "devDependencies": {
+    "@types/react": "19.2.7",
+    "typescript": "5.9.3"
+  }
+}

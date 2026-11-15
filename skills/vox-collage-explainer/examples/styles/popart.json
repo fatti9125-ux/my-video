@@ -1,0 +1,129 @@
+{
+  "_note": "Layout reference only: numbers and claims are placeholders. Research and source real copy before use.",
+  "title": "Popart test",
+  "style": "popart",
+  "voice": "audio/vo.mp3",
+  "beats": [
+    {
+      "type": "burst",
+      "line": "Some films get inside your head",
+      "subject": "head",
+      "split": "inside",
+      "rays_cue": 2,
+      "props": [
+        {
+          "name": "knife",
+          "at": [
+            420,
+            300
+          ],
+          "size": 300,
+          "rot": -20
+        },
+        {
+          "name": "eye",
+          "at": [
+            1500,
+            280
+          ],
+          "size": 160
+        },
+        {
+          "name": "mouth",
+          "at": [
+            1450,
+            820
+          ],
+          "size": 260,
+          "rot": 12
+        }
+      ]
+    },
+    {
+      "type": "hero",
+      "enter": {
+        "type": "zoom",
+        "at": [
+          1500,
+          280
+        ]
+      },
+      "line": "It starts at a lonely motel",
+      "subject": "person",
+      "side": "center",
+      "plate": {
+        "kind": "circle",
+        "color": "accent",
+        "r": 330,
+        "dy": -80,
+        "streaks": true
+      },
+      "cam": {
+        "tilt": [
+          14,
+          -10,
+          3,
+          -2
+        ],
+        "push": 0.06
+      },
+      "caption": null
+    },
+    {
+      "type": "tunnel",
+      "enter": "glitch",
+      "line": "And he is always watching",
+      "subject": "person",
+      "caption": "No one will be admitted after the start."
+    },
+    {
+      "type": "hero",
+      "enter": "iris",
+      "dark": true,
+      "line": "Screaming never stops",
+      "subject": "head",
+      "side": "center",
+      "max_h": 700,
+      "plate": {
+        "kind": "glow",
+        "color": "accent2",
+        "r": 380,
+        "opacity": 0.35
+      },
+      "props": [
+        {
+          "name": "mouth",
+          "at": [
+            420,
+            540
+          ],
+          "size": 380
+        },
+        {
+          "name": "mouth",
+          "at": [
+            1500,
+            540
+          ],
+          "size": 380
+        }
+      ],
+      "shapes": [
+        {
+          "kind": "ring",
+          "at": [
+            420,
+            540
+          ],
+          "r": 300,
+          "color": "accent3",
+          "thick": 3,
+          "pulse": {
+            "hz": 1.5,
+            "amp": 0.06
+          }
+        }
+      ]
+    }
+  ]
+}

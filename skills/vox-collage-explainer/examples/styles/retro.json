@@ -1,0 +1,118 @@
+{
+  "_note": "Layout reference only: numbers and claims are placeholders. Research and source real copy before use.",
+  "title": "Retro test",
+  "style": "retro",
+  "voice": "audio/vo.mp3",
+  "beats": [
+    {
+      "type": "pan",
+      "line": "In nineteen twenty eight in a busy city lab",
+      "scene": "skyline",
+      "pan": 600,
+      "shapes": [
+        {
+          "kind": "semi",
+          "at": [
+            1250,
+            760
+          ],
+          "r": 330,
+          "color": "accent3",
+          "drift": {
+            "x": -200
+          }
+        },
+        {
+          "kind": "tri",
+          "at": [
+            260,
+            900
+          ],
+          "r": 90,
+          "color": "accent3"
+        }
+      ],
+      "mover": {
+        "name": "car",
+        "size": 380,
+        "cue": 0
+      },
+      "number": {
+        "from": 1,
+        "to": 1928,
+        "cue": "nineteen",
+        "x": 1450,
+        "y": 120
+      },
+      "label": {
+        "text": "Accidental Discovery",
+        "cue": "busy",
+        "x": 640,
+        "y": 560
+      }
+    },
+    {
+      "type": "hero",
+      "enter": "cut",
+      "bg": "lime",
+      "line": "Scientist Alexander Fleming",
+      "subject": "person",
+      "side": "right",
+      "plate": {
+        "kind": "ring",
+        "at": "face",
+        "r": 150,
+        "color": "accent",
+        "thick": 34,
+        "cue": "Alexander"
+      },
+      "points": {
+        "face": [
+          640,
+          210
+        ]
+      },
+      "behind": false,
+      "caption": "Scientist / !Alexander! / Fleming",
+      "caption_size": 110
+    },
+    {
+      "type": "split",
+      "enter": "shape",
+      "line": "He noticed something strange",
+      "panel": "red",
+      "subject": "person",
+      "caption": "He noticed / +Something+ / ^Strange^",
+      "caption_size": 70
+    },
+    {
+      "type": "callouts",
+      "enter": "blur",
+      "bg": "cream",
+      "line": "Mold was killing the bacteria",
+      "image": "dish",
+      "labels": [
+        {
+          "text": "Mold",
+          "at": [
+            600,
+            450
+          ],
+          "dx": 360,
+          "dy": -200,
+          "cue": "Mold"
+        },
+        {
+          "text": "Bacteria",
+          "at": [
+            330,
+            400
+          ],
+          "dx": -200,
+          "dy": -120,
+          "cue": "bacteria"
+        }
+      ]
+    }
+  ]
+}

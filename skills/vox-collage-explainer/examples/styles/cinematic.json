@@ -1,0 +1,68 @@
+{
+  "_note": "Layout reference only: numbers and claims are placeholders. Research and source real copy before use.",
+  "title": "Cinematic test",
+  "style": "cinematic",
+  "voice": "audio/vo.mp3",
+  "beats": [
+    {
+      "type": "hero",
+      "line": "This creator started with nothing",
+      "subject": "person",
+      "side": "center",
+      "anim": "rise",
+      "plate": {
+        "kind": "circle",
+        "color": "dark",
+        "r": 420,
+        "dy": 200,
+        "anim": "grow",
+        "cue": "creator"
+      },
+      "back_props": [
+        {
+          "name": "money",
+          "at": [
+            520,
+            330
+          ],
+          "size": 560,
+          "rot": -4,
+          "anim": "left",
+          "cue": "started",
+          "drift": {
+            "x": 60
+          }
+        }
+      ]
+    },
+    {
+      "type": "hero",
+      "enter": "cut",
+      "line": "Now his channel is the biggest",
+      "subject": "person",
+      "side": "center",
+      "pill": {
+        "text": "THE CHANNEL",
+        "cue": "channel",
+        "x": 300,
+        "y": 360
+      },
+      "darken": "biggest"
+    },
+    {
+      "type": "hero",
+      "enter": "dark",
+      "dark": true,
+      "line": "Worth a billion dollars",
+      "subject": "person",
+      "side": "center",
+      "number": {
+        "to": 1000000000,
+        "prefix": "$",
+        "cue": "billion",
+        "size": 150,
+        "y": 210
+      }
+    }
+  ]
+}
