@@ -1,4 +1,4 @@
-# Vox-style collage explainer (a Claude skill)
+# Vox style motion graphics (a Claude skill)
 
 Give Claude a topic, and it makes a short animated explainer in one of five styles: `vox` (the default), `editorial` (newspaper data explainer with rolling counters, charts and a live ticker), `popart` (surreal grid-paper collage with heads that split open and glitch cuts), `cinematic` (dark B&W creator promo with glowing numbers) and `retro` (mid-century flat-colour collage with parallax pans and sticker labels). The default look is a hand-made mixed-media collage: black-and-white halftone cut-outs, yellow paint, ink notes drawn with p5.brush, grid paper, newspaper clippings and ransom-note type. Claude researches the topic, writes a fact-checked script, generates the narration and pictures, and renders an MP4.
 
@@ -10,7 +10,8 @@ Give Claude a topic, and it makes a short animated explainer in one of five styl
 
 ## Install
 
-- **Claude Code / Claude desktop (Code tab):** unzip `vox-collage-explainer.skill` into `~/.claude/skills/` (you should end up with `~/.claude/skills/vox-collage-explainer/SKILL.md`), or ask Claude to install the `.skill` file for you.
+- **This repo:** it is already installed as a project skill at `.claude/skills/vox-style-motion-graphics/`. Claude Code picks it up automatically in this repo; run it with `/vox-style-motion-graphics <topic>` or just ask for a Vox-style video.
+- **Other projects / Claude desktop (Code tab):** unzip `vox-style-motion-graphics.skill` into `~/.claude/skills/` (you should end up with `~/.claude/skills/vox-style-motion-graphics/SKILL.md`), or ask Claude to install the `.skill` file for you.
 - **Claude apps with skill upload:** upload the `.skill` file in Settings → Capabilities → Skills.
 
 Claude does the rest on first use: it runs `scripts/vox.py setup`, which installs the render engine into `~/.vox-collage-explainer` (about 1 minute).

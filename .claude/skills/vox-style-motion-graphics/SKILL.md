@@ -1,9 +1,11 @@
 ---
-name: vox-collage-explainer
-description: Turn any topic into a short animated explainer video, end to end, in one of five collage styles (Vox paper collage, newspaper data editorial, surreal pop-art collage, cinematic creator, retro mid-century). Claude researches the topic, writes a fact-checked voiceover script, generates the narration and archival-style collage images, then renders a hand-made mixed-media animation (black-and-white halftone cut-outs, yellow paint blocks, ink notes drawn with p5.brush, grid paper, newspaper clippings, ransom-note type, stop-motion feel) to an MP4 with Remotion. Use this whenever someone asks for a Vox-style video, a data explainer with live counters and charts, a pop-art or surreal collage edit, a cinematic creator or brand promo, a retro or vintage collage story, an explainer animation, a collage or paper-cut-out style video, a short science, history or "why does X happen" video, an animated reel or short about a topic, or says "make a video about" some subject, even if they don't say "Vox" or name any tool.
+name: vox-style-motion-graphics
+description: Turn any topic into a short animated explainer video, end to end, in one of five collage styles (Vox paper collage, newspaper data editorial, surreal pop-art collage, cinematic creator, retro mid-century). Claude researches the topic, writes a fact-checked voiceover script, generates the narration and archival-style collage images, then renders a hand-made mixed-media animation (black-and-white halftone cut-outs, yellow paint blocks, ink notes drawn with p5.brush, grid paper, newspaper clippings, ransom-note type, stop-motion feel) to an MP4 with Remotion. Use this whenever someone says "vox style motion graphics" or asks for a Vox-style video, a data explainer with live counters and charts, a pop-art or surreal collage edit, a cinematic creator or brand promo, a retro or vintage collage story, an explainer animation, a collage or paper-cut-out style video, a short science, history or "why does X happen" video, an animated reel or short about a topic, or says "make a video about" some subject, even if they don't say "Vox" or name any tool.
 ---
 
-# Vox-style collage explainer
+# Vox style motion graphics
+
+Invoke with `/vox-style-motion-graphics <topic or request>`, or just ask for a video in one of the styles below. In this repo the skill lives at `.claude/skills/vox-style-motion-graphics` (that is `SKILL_DIR`).
 
 The user gives a topic. You deliver a finished MP4 (1920x1080, H.264/AAC, default ~10 s) in the house collage style, plus the script and sources. The user should not have to do anything else: install, research, write, generate and render yourself, and only stop to ask when something genuinely needs their decision (for example, approving a download from a website, or spending a lot of credits).
 
