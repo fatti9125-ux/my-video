@@ -53,6 +53,16 @@ Likeness comes from 4–6 **likeness keys** per person, exaggerated 20–40%:
 - Main characters: Neutral, Speaking (open mouth), Reaction or Surprised (round "o" mouth, raised brows). Ensemble characters get two heads each.
 - For talking, alternate **Neutral ↔ Speaking every 4–6 frames**, as an instant head swap with no tween. Use Reaction on beats.
 
+### Attachment (non-negotiable)
+Limbs always grow out of the body.
+- Shoulders sit just inside the torso's side edge under the collar, with the arm stroke starting behind the jacket.
+- Legs come out from under the hem.
+- The chin rests on the collar.
+- Hands end the forearm stroke; feet end the shin stroke.
+- Props sit in a hand.
+
+No part may ever float free or show a gap (see the "Attachment rule" in SKILL.md and `check_rig.py`).
+
 ## 4. Hands, feet and props
 - **Hands** are 3–5 ink strokes, not mitts:
   - `relaxed`: fingers down

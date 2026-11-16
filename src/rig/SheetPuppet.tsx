@@ -11,7 +11,7 @@ import { continueRender, delayRender, staticFile } from "remotion";
  * hands are PNG stroke-hands rotated to the forearm.
  */
 export type HandShape = "relaxed" | "open" | "point" | "grip" | "none";
-export type ArmPose = { shoulder: number; elbow: number; hand?: HandShape }; // degrees; 0 = hanging straight down, + = swing outward/up
+export type ArmPose = { shoulder: number; elbow: number; hand?: HandShape; front?: boolean }; // degrees; 0 = hanging straight down, + = swing outward/up; front = draw over the torso (holding props across the body)
 export type RigDef = {
   dir: string;                       // folder under public/
   partScale: number;                 // sheet-part px -> pose units
@@ -99,10 +99,14 @@ export const SheetPuppet: React.FC<PuppetProps> = ({
       <Limb x={-rig.hipX} y={rig.hipY} a1={step} a2={-Math.max(0, step) * 0.6} l1={rig.thigh} l2={rig.shin} w={rig.line} ink={ink} foot={-1} />
       <Limb x={rig.hipX} y={rig.hipY} a1={-step} a2={-Math.max(0, -step) * 0.6} l1={rig.thigh} l2={rig.shin} w={rig.line} ink={ink} foot={1} />
       <g transform={`translate(0 ${bob + lift}) rotate(${lean} 0 ${rig.hipY})`}>
-        {arm(-1, armL)}
-        {arm(1, armR)}
+        {/* ATTACHMENT RULE: arms are rooted INSIDE the torso silhouette and drawn behind it,
+            so they always emerge from the body; `front` arms are drawn over it instead. */}
+        {!armL.front && arm(-1, armL)}
+        {!armR.front && arm(1, armR)}
         <image href={torsoSrc} x={(-rig.torsoSize[0] * s) / 2} y={rig.torsoTop} width={rig.torsoSize[0] * s} height={rig.torsoSize[1] * s} preserveAspectRatio="xMidYMin meet" />
         {props}
+        {armL.front && arm(-1, armL)}
+        {armR.front && arm(1, armR)}
         <g transform={`rotate(${headTilt} 0 ${rig.chinY - 10})`}>
           <image href={headSrc} x={(rig.headOffsetX ?? 0) - (rig.headSize[0] * s) / 2} y={rig.chinY - rig.headSize[1] * s}
             width={rig.headSize[0] * s} height={rig.headSize[1] * s} preserveAspectRatio="xMidYMax meet" />

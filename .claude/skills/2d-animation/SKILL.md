@@ -9,6 +9,23 @@ This repo is a **Remotion** project (`src/Root.tsx`, 1920x1080 @ 30 fps; `npm ru
 
 The house style is documented in `references/explainer-style-guide.md` (derived from a frame-by-frame study of a 23-min comedy history explainer). **Read it before designing or building anything.** Characters follow `references/character-style-guide.md` (house character style from the user's model sheets: likeness caricatures, head ≈47% of height, ink strokes, Quill the owl narrator). **Read it before making or rigging any character.**
 
+## Attachment rule — nothing floats (applies to EVERY character, body part and prop)
+
+Every body part must stay visibly connected to its parent in **every frame** of the animation — at rest, at the extremes of every motion, and in every in-between:
+- **Arms** start at a shoulder joint placed **inside** the torso silhouette (≥4 units in from the edge) and are drawn **behind** the torso, so they always emerge from the body. An arm that crosses in front of the body (holding a prop, hand on chest) uses `front: true` and still starts from that inside joint.
+- **Hands** sit on the wrist end of their forearm. Never show a hand whose arm is hidden: if the arm runs behind the torso, either swing it out so the arm is visible leading to the hand, or tuck the hand away too.
+- **Legs** start at hip joints **inside** the torso, above the hem (hidden under the jacket), and end exactly on the ground line (hipY + thigh + shin = 0). Feet attach to the ankle end of the shin.
+- **Head** overlaps the torso/collar (chin below the torso top). There must be no gap and no visible neck unless the sheet draws one. Head tilt rotates around the chin/neck pivot so the head never slides off the body.
+- **Props** are parented to the hand that holds them (`grip` hand, position from `armEnd()`), never placed independently in screen space.
+- **Wings, tails, ears, hats and glasses** (e.g. Quill) are anchored by their root to the body or head and move with that parent.
+- Joints rotate and parts never translate apart. Squash, stretch or bobbing apply to the whole parent group, so children follow.
+
+**Enforce it:**
+1. Run `python3 -I .claude/skills/2d-animation/scripts/check_rig.py <RIG_NAME>` after creating or editing any `RigDef` or `ARM_POSES`, and fix every FAIL using the suggested values. It checks the joints against the real part PNG alpha, the chin overlap, the ground contact, and that each arm pose reads as one connected piece.
+2. When an animation drives angles beyond the presets (waves, swings, walk cycles), check the extreme angles too.
+3. Render stills at full resolution and zoom in on the shoulders, hips, wrists and neck before rendering the full video.
+4. The same rule applies to hand-built SVG characters (`Person`, `Emu` in `src/EmuWar/Characters.tsx`): limb strokes start inside the body shape.
+
 ## Mode C — Characters (sheets, rigs, likeness)
 
 **C1. The user provides a character sheet (preferred — sheets are canon, never redraw them):**
@@ -16,7 +33,7 @@ The house style is documented in `references/explainer-style-guide.md` (derived 
 2. `python3 -I .claude/skills/2d-animation/scripts/extract_parts.py detect <sheet> public/characters/<name> --min 400` → Read `_boxes.png` (numbered blobs).
 3. Write `public/characters/<name>/parts.json` mapping names → blob numbers (or `[x,y,w,h]`), using the standard names: `pose_front|pose_three_quarter|pose_profile|pose_<story>`, `head_neutral|head_speaking|head_reaction`, `torso_front|torso_three_quarter`, `hand_relaxed|hand_open|hand_point|hand_grip`, `prop_<thing>`; then `extract_parts.py cut <sheet> public/characters/<name> parts.json`. Labels under drawings are stripped automatically; transparent sheets keep their alpha, white-paper sheets get the paper keyed out.
 4. Review all parts on a coloured background (montage) before use.
-5. Add a `RigDef` in `src/rig/characters.ts` (measure on a gridded `pose_front`: `torsoTop`, `chinY`, shoulders, hips, limb lengths, `partScale` ≈ pose-head-width / head-png-width), then check side-by-side in the `RigTest` composition (sheet pose vs puppet) and iterate until they match.
+5. Add a `RigDef` in `src/rig/characters.ts` (measure on a gridded `pose_front`: `torsoTop`, `chinY`, shoulders, hips, limb lengths, `partScale` ≈ pose-head-width / head-png-width), run `check_rig.py` until it reports OK (attachment rule above), then check side-by-side in the `RigTest` composition (sheet pose vs puppet) and iterate until they match.
 6. Animate with `<SheetPuppet>` (`src/rig/SheetPuppet.tsx`): head swaps for expressions/lip-flap (neutral↔speaking every 4–6 f), `ARM_POSES` presets (down, hips, wave, point, shrug, hold), `walk` phase, `headTilt`/`bob` idle, `props` slot. For big story beats, hard-cut to the sheet's full `pose_<story>` PNG instead of puppeting.
    Gerald Ford is fully cut and rigged (`GERALD_FORD`); Nixon, Kissinger, the courtroom ensemble and Quill have `_boxes.png` ready — cut them when first needed.
 
