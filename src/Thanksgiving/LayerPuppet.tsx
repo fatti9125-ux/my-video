@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 import { continueRender, delayRender, staticFile, useCurrentFrame } from "remotion";
 import META from "./rigmeta.json";
 
@@ -28,7 +28,30 @@ export const ARMS = {
   shrug: { s: 50, e: 75 },
   hips: { s: 40, e: -95 },
   folded: { s: 12, e: -140, front: true },
+  explain: { s: 70, e: 35 },   // reference "talking" pose: both arms up and out, hands open
+  lift: { s: 95, e: 40 },
 } as Record<string, Arm>;
+
+/** VO envelope for the current shot: every puppet with `speak` lip-syncs to it. */
+export const TalkContext = createContext<{ env: number[]; offset: number }>({ env: [], offset: 0 });
+
+/**
+ * Reference-style mouth timing (measured frame-by-frame on the reference video):
+ * whole-head swaps, each mouth state HELD 3-5 frames (never flicker every frame or every 2),
+ * open/closed alternating while the voice is loud, mouth CLOSED through pauses.
+ * Returns { open, accent } — accent = first frame of an open block (drive a small nod).
+ */
+const BLOCKS = [4, 3, 5, 4, 3, 5, 4, 4, 3, 5];
+export const mouthAt = (f: number, env: number[], offset: number) => {
+  let start = 0, k = 0;
+  while (start + BLOCKS[k % BLOCKS.length] <= f) { start += BLOCKS[k % BLOCKS.length]; k++; }
+  const len = BLOCKS[k % BLOCKS.length];
+  let sum = 0;
+  for (let j = 0; j < len; j++) sum += env[Math.floor(((start + j) / 30 + offset) * 100)] ?? 0;
+  const loud = sum / len >= 3;
+  const open = loud && k % 2 === 0;
+  return { open, accent: open && f === start, loud };
+};
 
 export type PuppetProps = {
   char: string;
@@ -36,6 +59,8 @@ export type PuppetProps = {
   head?: string;                 // "Neutral" | "Talking" | "Skeptical" | ... (falls back to first available)
   talk?: boolean | number[];     // true = flap every 4 f; or a 100 Hz loudness envelope (0..9) to flap on voice
   talkOffset?: number;           // seconds into the envelope at this Sequence's frame 0
+  speak?: boolean;               // lip-sync to the shot's VO (TalkContext) + talking body language
+  fall?: number;                 // 0..1 fall-over gag: tips over around the feet, then legs/arms flail
   blink?: boolean;
   armL?: Arm; armR?: Arm;
   walk?: number;                 // walk phase in radians
@@ -101,9 +126,10 @@ const Chain: React.FC<{ char: string; segs: Part[]; angles: number[]; end?: Part
 
 export const LayerPuppet: React.FC<PuppetProps> = ({
   char, x, y, height = 520, flip = false, head = "Neutral", talk, talkOffset = 0, blink = true,
-  armL = ARMS.rest as Arm, armR = ARMS.rest as Arm, walk, tilt = 0, bob = 0, children,
+  armL = ARMS.rest as Arm, armR = ARMS.rest as Arm, walk, tilt = 0, bob = 0, children, speak, fall = 0,
 }) => {
   const f = useCurrentFrame();
+  const ctx = useContext(TalkContext);
   const c = M[char];
   const P = c.parts;
   const L = layout(char);
@@ -113,20 +139,31 @@ export const LayerPuppet: React.FC<PuppetProps> = ({
   // head choice: talking flap, blinks, else requested expression
   let h = heads.includes(`${head}_head`) ? `${head}_head` : heads.includes("Neutral_head") ? "Neutral_head" : heads[0];
   let open = false;
-  if (Array.isArray(talk)) {
-    const i = Math.floor((f / 30 + talkOffset) * 100);
-    open = (talk[i] ?? 0) >= 4 && Math.floor(f / 3) % 2 === 0;
-  } else if (talk) open = Math.floor(f / 4) % 2 === 0;
+  let accent = false, loud = false;
+  if (speak) ({ open, accent, loud } = mouthAt(f, ctx.env, ctx.offset));
+  else if (Array.isArray(talk)) ({ open, accent, loud } = mouthAt(f, talk, talkOffset));
+  else if (talk) open = Math.floor(f / 4) % 2 === 0;
   if (open && heads.includes("Talking_head")) h = "Talking_head";
   else if (blink && heads.includes("Blinking_head") && f % 97 >= 93) h = "Blinking_head";
   const hp = P[h];
 
   const k = height / L.figH;
-  const step = walk === undefined ? 0 : Math.sin(walk) * 20;
+  const fl = fall > 0.999;
+  const step = fl ? Math.sin(f * 1.1) * 28 : walk === undefined ? 0 : Math.sin(walk) * 20;
   const lift = walk === undefined ? 0 : -Math.abs(Math.cos(walk)) * 5;
   const breathe = Math.sin(f / 22) * 1.2;
+  // talking body language (reference): arms never freeze — small every-frame wobble on both joints,
+  // a quick head nod + body bob on each open-mouth accent, settles back over ~4 frames
+  const talking = speak || Array.isArray(talk);
+  const nod = talking && loud ? Math.max(0, 1 - ((f % 4) / 4)) * (accent || open ? 1 : 0) : 0;
 
-  const arm = (side: "left" | "right", a: Arm) => {
+  const arm = (side: "left" | "right", aIn: Arm) => {
+    // a talking character whose arms were left at rest gestures instead (reference: arms up while speaking)
+    const a0 = talking && aIn === ARMS.rest ? ARMS.explain : aIn;
+    const ph = side === "left" ? 0 : 1.7;
+    const a: Arm = fl ? { s: 120 + Math.sin(f * 0.9 + ph) * 35, e: 30 + Math.sin(f * 1.3 + ph) * 25 }
+      : talking ? { ...a0, s: a0.s + Math.sin(f * 0.55 + ph) * 4 + (loud ? Math.sin(f * 0.9 + ph) * 3 : 0), e: a0.e + Math.sin(f * 0.8 + ph) * 6 }
+      : { ...a0, s: a0.s + Math.sin(f / 15 + ph) * 1.5 };
     const sgn = side === "left" ? 1 : -1; // SVG rotate(+) swings a hanging limb toward -x (the left side's outward)
     const sh = side === "left" ? L.shoulderL : L.shoulderR;
     const swing = walk === undefined ? 0 : -Math.sin(walk) * 12 * sgn;
@@ -146,17 +183,17 @@ export const LayerPuppet: React.FC<PuppetProps> = ({
   };
 
   return (
-    <g transform={`translate(${x} ${y}) scale(${flip ? -k : k} ${k}) translate(${-L.cx} ${-L.ground})`}>
+    <g transform={`translate(${x} ${y}) scale(${flip ? -k : k} ${k}) translate(${-L.cx} ${-L.ground}) rotate(${-fall * 100} ${L.cx} ${L.ground - 10})`}>
       {leg("left", step)}
       {leg("right", -step)}
-      <g transform={`translate(0 ${bob + lift + breathe * 0.3})`}>
+      <g transform={`translate(0 ${bob + lift + breathe * 0.3 - nod * 4})`}>
         {!armL.front && arm("left", armL)}
         {!armR.front && arm("right", armR)}
         <Img char={char} p={P.torso} x={L.T[0]} y={L.T[1]} />
         {children}
         {armL.front && arm("left", armL)}
         {armR.front && arm("right", armR)}
-        <g transform={`rotate(${tilt + breathe * 0.4} ${L.cx} ${L.chinY})`}>
+        <g transform={`rotate(${tilt + breathe * 0.4 - nod * 2.5 + (talking ? Math.sin(f / 11) * 1.5 : 0)} ${L.cx} ${L.chinY})`}>
           <Img char={char} p={hp} x={L.cx - hp.chin![0]} y={L.chinY - hp.chin![1]} />
         </g>
       </g>
@@ -168,12 +205,13 @@ export const LayerPuppet: React.FC<PuppetProps> = ({
 const Q = M.quill;
 export type QuillProps = { x: number; y: number; height?: number; flip?: boolean; talk?: number[]; talkOffset?: number; wings?: "rest" | "open"; gesture?: number; three?: boolean; tilt?: number };
 
-export const QuillPuppet: React.FC<QuillProps> = ({ x, y, height = 520, flip = false, talk, talkOffset = 0, wings = "rest", gesture = 0, three = false, tilt = 0 }) => {
+export const QuillPuppet: React.FC<QuillProps> = ({ x, y, height = 520, flip = false, talk, talkOffset, wings = "rest", gesture = 0, three = false, tilt = 0 }) => {
   const f = useCurrentFrame();
+  const ctx = useContext(TalkContext);
   const P = Q.parts, pos = Q.pos;
   usePreload(Object.values(P).map((p) => staticFile(`thanksgiving/quill/${p.file}.png`)));
-  const i = Math.floor((f / 30 + talkOffset) * 100);
-  const open = talk ? (talk[i] ?? 0) >= 4 && Math.floor(f / 3) % 2 === 0 : false;
+  const m = mouthAt(f, talk ?? ctx.env, talkOffset ?? ctx.offset);
+  const open = m.open;
   const head = open ? "Speaking_head" : f % 103 >= 99 ? "Blink_head" : "Neutral_head";
   const at = (n: string) => pos[n] ?? pos[n.charAt(0).toUpperCase() + n.slice(1)];
   const ground = pos.feet[1] + P.feet.bbox[3];
@@ -181,7 +219,7 @@ export const QuillPuppet: React.FC<QuillProps> = ({ x, y, height = 520, flip = f
   const k = height / (ground - top);
   const cx = pos.front_vest[0] + P.front_vest.size[0] / 2;
   const breathe = Math.sin(f / 20) * 2;
-  const flap = Math.sin(f / 5) * gesture;
+  const flap = Math.sin(f / 5) * gesture + (m.loud ? Math.sin(f * 0.7) * 4 : 0) - (m.accent ? 6 : 0);
   const vest = three ? "three_quarter_vest" : "front_vest";
   const wing = (n: string, pivot: [number, number], ang: number) => {
     const p = P[n]; const o = at(n);

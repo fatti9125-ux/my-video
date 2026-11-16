@@ -8,7 +8,7 @@ import {
   Barrel, BigText, Book, Bubble, CalendarPage, ChurchState, Constitution, LetterStack, Mark, Pie, Proclamation,
   PropImg, Scoreboard, SplitWar, StateGrid,
 } from "./Graphics";
-import { ARMS, LayerPuppet, QuillPuppet } from "./LayerPuppet";
+import { ARMS, LayerPuppet, QuillPuppet, TalkContext } from "./LayerPuppet";
 
 /**
  * "Every President's Thanksgiving Explained" — Chapters 1-3 (cold open skipped).
@@ -57,11 +57,17 @@ const Q = (start: number, props: Partial<React.ComponentProps<typeof QuillPuppet
   <QuillPuppet x={960} y={1010} height={640} talk={VO_ENV} talkOffset={start} {...props} />
 );
 
+const MadisonBeat: React.FC = () => {
+  const f = useCurrentFrame();
+  return f < 70 ? <LayerPuppet char="james_madison" x={880} y={1030} height={600} speak />
+    : <Pose c="james_madison" f="05_Presenting_the_proclamation" x={880} y={1040} h={640} />;
+};
+
 const SHOTS: Shot[] = [
   // ===== CHAPTER 1: GEORGE WASHINGTON — THE FIRST ONE =====
   { a: g1(36.05), b: g1(38.64), sfx: [[0, "thud", 0.8]], el: () => (
     <>
-      <Camera dur={80} to={1.05}><Svg bg={<B.FederalHall />}><LayerPuppet char="george_washington" x={960} y={1010} height={560} /></Svg></Camera>
+      <Camera dur={80} to={1.05}><Svg bg={<B.FederalHall />}><LayerPuppet char="george_washington" x={960} y={1010} height={560} speak /></Svg></Camera>
       <NameCard text="George Washington" sub="1 · The First One" />
     </>) },
   { a: g1(38.64), b: g1(40.54), sfx: [[0, "whoosh", 0.5], [4, "pop"]], el: () => (
@@ -77,14 +83,16 @@ const SHOTS: Shot[] = [
   { a: g1(42.08), b: g1(44.39), sfx: [[0, "whoosh", 0.4], [30, "boing", 0.5]], el: () => {
     const Hop: React.FC = () => { const f = useCurrentFrame(); return (
       <>{[260, 700, 1220, 1660].map((x, i) => (
-        <g key={x} transform={`translate(0 ${f > 30 ? -Math.abs(Math.sin(f / 4 + i)) * 50 : 0})`}>
-          <Pose c="congressional_delegate" f="04_Voting_aye" x={x} y={1050} h={500} flip={i % 2 === 1} />
+        <g key={x} transform={`translate(0 ${f > 30 && i !== 3 ? -Math.abs(Math.sin(f / 4 + i)) * 50 : 0})`}>
+          {i === 3 && f > 30
+            ? <LayerPuppet char="congressional_delegate" x={x} y={960} height={470} fall={Math.min(1, (f - 30) / 4)} />
+            : <Pose c="congressional_delegate" f="04_Voting_aye" x={x} y={1050} h={500} flip={i % 2 === 1} />}
         </g>))}</>); };
     return (<><Camera dur={70} to={1.06}><Svg bg={<B.Chamber />}><Hop /><Mark x={960} y={360} ch="!" at={32} /></Svg></Camera><Caption text="Maybe too excited" at={34} size={80} /></>);
   } },
   { a: g1(44.39), b: g1(51.34), sfx: [[0, "whoosh", 0.4], [8, "pop"], [70, "paper", 0.7], [110, "pop"]], el: () => {
     const Boud: React.FC = () => { const f = useCurrentFrame(); return f < 100
-      ? <Pose c="elias_boudinot" f="04_Holding_the_petition" x={900} y={1030} h={640} />
+      ? <LayerPuppet char="elias_boudinot" x={900} y={1030} height={600} speak />
       : <Pose c="elias_boudinot" f="05_Presenting_the_petition" x={900} y={1030} h={640} />; };
     return (
       <>
@@ -101,7 +109,7 @@ const SHOTS: Shot[] = [
     // the letter is part of the finished "carrying a letter" drawing, so it stays in his hand
     const Walk: React.FC = () => { const f = useCurrentFrame(); return (
       <g transform={`translate(0 ${-Math.abs(Math.sin(f / 4)) * 10})`}><Pose c="congressional_delegate" f="05_Carrying_a_letter" x={240 + f * 9} y={1040} h={520} /></g>); };
-    return (<><Camera dur={85} to={1.04}><Svg bg={<B.FederalHall />}><Walk /><LayerPuppet char="george_washington" x={1560} y={1030} height={560} flip armR={ARMS.hips} armL={ARMS.hips} /></Svg></Camera><Caption text="Congress agrees" at={4} pos="top" /></>);
+    return (<><Camera dur={85} to={1.04}><Svg bg={<B.FederalHall />}><Walk /><LayerPuppet char="george_washington" x={1560} y={1030} height={560} flip speak armR={ARMS.hips} armL={ARMS.hips} /></Svg></Camera><Caption text="Congress agrees" at={4} pos="top" /></>);
   } },
   { a: g1(54.16), b: g1(58.98), sfx: [[0, "whoosh", 0.4], [10, "scribble", 0.8], [36, "pop"]], el: () => (
     <>
@@ -117,7 +125,7 @@ const SHOTS: Shot[] = [
     </>) },
   { a: g1(63.16), b: g1(66.18), sfx: [[0, "whoosh", 0.4], [24, "thud", 1]], el: () => (
     <>
-      <Camera dur={90} to={1.05}><Svg bg={<B.FederalHall />}><LayerPuppet char="george_washington" x={700} y={1020} height={600} head="Neutral" armR={ARMS.wave} armL={ARMS.hips} /></Svg></Camera>
+      <Camera dur={90} to={1.05}><Svg bg={<B.FederalHall />}><LayerPuppet char="george_washington" x={700} y={1020} height={600} head="Neutral" speak armR={ARMS.wave} armL={ARMS.hips} /></Svg></Camera>
       <StampCard lines={["THE FIRST", "NATIONAL", "THANKSGIVING"]} at={24} x={1350} y={360} rotate={-9} />
     </>) },
   { a: g1(66.18), b: g1(69.04), sfx: [[0, "whoosh", 0.5], [20, "pop"]], el: (st) => (
@@ -145,7 +153,7 @@ const SHOTS: Shot[] = [
     <>
       <Camera dur={180} to={1.06} panX={-40}><Svg bg={<B.Hills />}>
         <Barrel x={1480} y={900} at={50} s={0.9} /><Barrel x={1700} y={930} at={56} s={0.75} />
-        <LayerPuppet char="george_washington" x={720} y={1030} height={560} armR={ARMS.point} armL={ARMS.hips} />
+        <LayerPuppet char="george_washington" x={720} y={1030} height={560} speak armR={ARMS.point} armL={ARMS.hips} />
         <Proclamation x={300} y={560} w={330} title="DECREE" at={20} />
       </Svg></Camera>
       <Caption text="1795" at={6} pos="top" size={120} />
@@ -174,13 +182,13 @@ const SHOTS: Shot[] = [
   { a: O2, b: g2(3.2), sfx: [[0, "thud", 0.8]], el: () => (
     <>
       <Camera dur={95} to={1.05}><Svg bg={<B.Study />}>
-        <LayerPuppet char="john_adams" x={620} y={1020} height={560} />
+        <LayerPuppet char="john_adams" x={620} y={1020} height={560} speak />
         <LayerPuppet char="thomas_jefferson" x={1300} y={1020} height={570} flip head="Disapproving" armL={ARMS.folded} armR={ARMS.folded} />
       </Svg></Camera>
       <NameCard text="Adams & Jefferson" sub="2 · The One Who Said No" />
     </>) },
   { a: g2(3.2), b: g2(5.34), sfx: [[0, "whoosh", 0.4], [6, "pop"]], el: () => (
-    <><Camera dur={64} to={1.05}><Svg bg={<B.Study />}><Pose c="john_adams" f="05_Presenting_the_proclamation" x={900} y={1040} h={640} /></Svg></Camera><Caption text="John Adams" at={6} pos="top" /></>) },
+    <><Camera dur={64} from={1.4} to={1.46} originX="47%" originY="42%"><Svg bg={<B.Study />}><LayerPuppet char="john_adams" x={900} y={1030} height={600} speak armR={ARMS.lift} /></Svg></Camera><Caption text="John Adams" at={6} pos="top" /></>) },
   { a: g2(5.34), b: g2(8.34), sfx: [[0, "paper", 0.6], [40, "pop"], [64, "pop"]], el: () => (
     <>
       <Camera dur={90} to={1.05}><Svg bg={<B.Study />}><Pose c="john_adams" f="04_Reading_the_proclamation" x={960} y={1040} h={660} /></Svg></Camera>
@@ -215,7 +223,7 @@ const SHOTS: Shot[] = [
   { a: g2(23.08), b: g2(30.39), sfx: [[0, "whoosh", 0.4], [6, "pop"], [24, "pop"], [70, "scribble", 0.6]], el: () => (
     <>
       <Camera dur={219} to={1.06}><Svg bg={<B.Study sepia />} tex={0.3}>
-        <LayerPuppet char="thomas_jefferson" x={700} y={1020} height={580} head="Talking" armR={ARMS.wave} />
+        <LayerPuppet char="thomas_jefferson" x={700} y={1020} height={580} speak armR={ARMS.wave} />
         <Proclamation x={1380} y={540} w={420} title="THANKSGIVING" year="Virginia, 1779" at={60} />
       </Svg></Camera>
       <Caption text="1779" at={6} pos="top" size={120} />
@@ -248,7 +256,7 @@ const SHOTS: Shot[] = [
       <Camera dur={72} to={1.05}><Svg bg={<B.Study />}>
         <Proclamation x={1250} y={540} w={460} title="EXPLANATION" at={2} />
         <PropImg name="Quill_and_Inkpot" x={1560} y={820} w={200} at={0} />
-        <LayerPuppet char="thomas_jefferson" x={560} y={1030} height={560} head="Talking" armR={ARMS.point} />
+        <LayerPuppet char="thomas_jefferson" x={560} y={1030} height={560} speak armR={ARMS.point} />
       </Svg></Camera>
       <Caption text="Drafts an explanation" at={10} />
     </>) },
@@ -270,7 +278,7 @@ const SHOTS: Shot[] = [
     </>) },
   { a: g2(48.47), b: g2(52.96), sfx: [[0, "whoosh", 0.5], [6, "pop"], [24, "pop"]], el: () => (
     <>
-      <Camera dur={135} to={1.05}><Svg bg={<B.Study />}><Pose c="james_madison" f="05_Presenting_the_proclamation" x={880} y={1040} h={640} /></Svg></Camera>
+      <Camera dur={135} to={1.05}><Svg bg={<B.Study />}><MadisonBeat /></Svg></Camera>
       <Caption text="James Madison" at={6} pos="top" />
       <Caption text="1815 · Brought it back" at={24} size={64} color="#ffd96a" />
     </>) },
@@ -296,12 +304,12 @@ const SHOTS: Shot[] = [
   // ===== CHAPTER 3: SARAH JOSEPHA HALE — THE WOMAN WHO WOULD NOT STOP =====
   { a: g2(63.12), b: g2(65.91), sfx: [[0, "thud", 0.8]], el: () => (
     <>
-      <Camera dur={84} to={1.05}><Svg bg={<B.EditorOffice />}><LayerPuppet char="sarah_josepha_hale" x={960} y={1020} height={560} head="Determined" /></Svg></Camera>
+      <Camera dur={84} to={1.05}><Svg bg={<B.EditorOffice />}><LayerPuppet char="sarah_josepha_hale" x={960} y={1020} speak height={560} head="Determined" /></Svg></Camera>
       <NameCard text="Sarah Josepha Hale" sub="3 · The Woman Who Would Not Stop" />
     </>) },
   { a: g2(65.91), b: g2(70.62), sfx: [[0, "whoosh", 0.4], [20, "pop"], [40, "pop"]], el: () => (
     <>
-      <Camera dur={141} to={1.05} panX={-30}><Svg bg={<B.Village />}><LayerPuppet char="sarah_josepha_hale" x={900} y={1030} height={540} armR={ARMS.wave} /></Svg></Camera>
+      <Camera dur={141} to={1.05} panX={-30}><Svg bg={<B.Village />}><LayerPuppet char="sarah_josepha_hale" x={900} y={1030} speak height={540} armR={ARMS.wave} /></Svg></Camera>
       <Caption text="Sarah Josepha Hale" at={6} pos="top" />
       <Caption text="New Hampshire · 1788" at={40} size={64} color="#ffd96a" />
     </>) },
@@ -331,7 +339,7 @@ const SHOTS: Shot[] = [
     </>) },
   { a: g2(84.0), b: g2(86.15), sfx: [[0, "whoosh", 0.4], [6, "pop"]], el: () => (
     <>
-      <Camera dur={65} to={1.06} originY="40%"><Svg bg={<B.EditorOffice />}><LayerPuppet char="sarah_josepha_hale" x={960} y={1030} height={600} head="Determined" armR={ARMS.raise} /></Svg></Camera>
+      <Camera dur={65} from={1.35} to={1.42} originY="45%"><Svg bg={<B.EditorOffice />}><LayerPuppet char="sarah_josepha_hale" x={960} y={1030} speak height={600} head="Determined" armR={ARMS.raise} /></Svg></Camera>
       <Caption text="Education for women" at={6} />
     </>) },
   { a: g2(86.15), b: g2(90.64), sfx: [[0, "whoosh", 0.4], [6, "pop"]], el: () => (
@@ -342,7 +350,7 @@ const SHOTS: Shot[] = [
     <><Camera dur={30} from={1.06} to={1.1} originY="35%"><Svg bg={<B.Studio />}><Pose c="quill" f="06_Side_eye" x={960} y={1030} h={680} /></Svg></Camera><Caption text="Yes. That one." at={0} /></>) },
   { a: g2(91.62), b: g2(94.72), sfx: [[0, "whoosh", 0.4], [30, "pop"]], el: () => (
     <>
-      <Camera dur={93} to={1.05}><Svg bg={<B.EditorOffice />}><LayerPuppet char="sarah_josepha_hale" x={760} y={1030} height={580} head="Triumphant" armR={ARMS.wave} />
+      <Camera dur={93} to={1.05}><Svg bg={<B.EditorOffice />}><LayerPuppet char="sarah_josepha_hale" x={760} y={1030} speak height={580} head="Triumphant" armR={ARMS.wave} />
         <PropImg name="Bread_Basket" x={1420} y={760} w={320} at={20} bob /></Svg></Camera>
       <Caption text="Her passion project" at={6} pos="top" />
       <Caption text="Thanksgiving" at={30} size={110} color="#ffd96a" />
@@ -404,7 +412,7 @@ const SHOTS: Shot[] = [
       <StampCard lines={["YES", "(IN 5 DAYS)"]} at={10} x={1400} y={380} rotate={-9} ink="#1f8a3a" />
     </>) },
   { a: g2(125.46), b: 187.6, sfx: [[0, "whoosh", 0.4], [4, "pop"], [40, "pop"], [90, "boing", 0.5]], el: () => {
-    const Head: React.FC = () => { const f = useCurrentFrame(); return <LayerPuppet char="sarah_josepha_hale" x={960} y={1050} height={560} head={f < 80 ? "Tired" : "Skeptical"} armL={ARMS.hips} armR={ARMS.hips} />; };
+    const Head: React.FC = () => { const f = useCurrentFrame(); return <LayerPuppet char="sarah_josepha_hale" x={960} y={1050} height={560} speak head={f < 80 ? "Tired" : "Skeptical"} armL={ARMS.hips} armR={ARMS.hips} />; };
     return (<Camera dur={185} to={1.05}><Svg bg={<B.EditorOffice />}>
       <Scoreboard x={420} y={330} label="YEARS OF NO" value="17" at={4} />
       <Scoreboard x={1500} y={330} label="DAYS OF YES" value="5" at={40} />
@@ -426,7 +434,7 @@ export const Thanksgiving: React.FC = () => (
       const from = Math.round(s.a * FPS), to = Math.round(s.b * FPS);
       return (
         <Sequence key={i} from={from} durationInFrames={Math.max(1, to - from)}>
-          {s.el(s.a)}
+          <TalkContext.Provider value={{ env: VO_ENV, offset: s.a }}>{s.el(s.a)}</TalkContext.Provider>
           {(s.sfx ?? []).map(([at, name, vol], j) => (
             <Sequence key={j} from={at} durationInFrames={60}><Audio src={staticFile(`thanksgiving/sfx/${name}.wav`)} volume={vol ?? 0.55} /></Sequence>
           ))}

@@ -30,6 +30,37 @@ Every body part must stay visibly connected to its parent in **every frame** of 
 3. Render stills at full resolution and zoom in on the shoulders, hips, wrists and neck before rendering the full video.
 4. The same rule applies to hand-built SVG characters (`Person`, `Emu` in `src/EmuWar/Characters.tsx`): limb strokes start inside the body shape.
 
+## Character animation rules (measured frame by frame on the reference video)
+
+Characters must never stand frozen. In the reference, on-screen characters "perform" the narration even though the narrator is speaking:
+
+1. **Lip-sync on whoever the shot is about.**
+   - That character's mouth flaps to the VO; everyone else keeps their mouth closed.
+   - Mouths are whole-head swaps (neutral ↔ talking). Each state is **held 3–5 frames**, measured as open 3, closed 4, open 5…, never every 1–2 frames.
+   - The mouth is **closed through pauses** in the voice.
+   - Implemented as `mouthAt()` and `speak` in `src/Thanksgiving/LayerPuppet.tsx`. The shot wrapper passes the VO envelope and offset through `TalkContext`.
+2. **Talking body language.**
+   - A talking character raises both arms into an "explaining" pose (`ARMS.explain`, `ARMS.lift`). The arms **wobble every frame**: shoulder about ±4–7°, elbow about ±6°.
+   - Each open-mouth accent gets a small head nod and body bob that settle over about 4 frames.
+   - Expressions (brows) are **held** while talking. Only the mouth changes.
+3. **Idle is never zero.** Characters always have breathing and a slow head sway (±1.5°), and every shot also has the slow camera push. Per-frame difference in the reference is never 0 inside a shot.
+4. **Big actions are fast and then held.**
+   - Falls, hits and jumps are 2–4 frame tweens (`fall` prop: tip over 100° in 4 f) into a held pose with **limbs flailing** (legs and arms keep wiggling).
+   - Hits get a 1–2 frame red smear.
+   - Pose changes are hard swaps or cuts, never slow in-betweens.
+5. **Close-ups for talking.** Talking beats are often framed head-and-shoulders (camera pushed in to about 1.3–1.6× on the face). Wide shots carry crowds and setups.
+6. **Stamps** enter **full-screen at about 3× scale and slam to their corner in 3 frames**. The scene behind dims to about 45% and stays dim while the stamp holds (`StampCard`).
+7. **Pose cutouts are short.** Finished story-pose drawings cannot lip-sync. Use them for 1–3 s action beats (signing, handing out beer, refusing). For longer talking beats, use a `LayerPuppet` with `speak`, then cut to the pose for the action (as in `MadisonBeat`).
+
+Every new episode must meet these rules before the user previews it.
+
+## Live preview before rendering
+
+Never render the final video without first giving the user a live preview:
+1. Run `npx remotion studio src/index.ts --port 3000` in the background, then call `report_preview_port` with port 3000 (name "studio").
+2. Tell the user the composition id to open (e.g. `ThanksgivingCh1to3`). They can scrub, play with audio and request changes. Studio hot-reloads every code edit.
+3. Render 1080p **only after the user approves** the preview.
+
 ## Mode C — Characters (sheets, rigs, likeness)
 
 **C1. The user provides a character sheet (preferred — sheets are canon, never redraw them):**
@@ -74,14 +105,14 @@ Used for "Every President's Thanksgiving" (`src/Thanksgiving/`, composition `Tha
 5. **Shots.** One entry per script sentence in `SHOTS`, `{ a, b, el, sfx }`, in global seconds. House grammar:
    - **Chapter headings:** darkened name card ("NAME" + "N · SUBTITLE") over the first shot, held while the heading is read.
    - **Every shot:** a slow camera push; fact captions in Montserrat caps; grunge rubber-stamp punchlines; blue info plates for abstract beats.
-   - **Characters:** finished pose cutouts for story beats, `LayerPuppet` for walking/gesturing/expression swaps, `QuillPuppet` for the host, with the beak flapping on the VO envelope.
+   - **Characters:** follow the *Character animation rules* above. The shot's subject is a `LayerPuppet` with `speak` (lip-sync plus gestures); finished pose cutouts are only for short action beats. `QuillPuppet` hosts, and his beak flaps on the same mouth timing.
    - **Sound:** one SFX per beat (whoosh on cut, pop on caption, thud on stamp, paper/scribble for letters, ding for the scoreboard); music bed at about 0.09 under the VO.
 6. **Backgrounds** (`src/Thanksgiving/Backgrounds.tsx`): painted SVG sets.
    - Interiors: Studio (Quill), Chamber, Study (`sepia` for flashbacks), EditorOffice, LincolnOffice, Prison.
    - Exteriors: FederalHall, Chapel, Hills, Village.
    - Plate: PlateBg.
    - Reuse and extend them; keep the soft painted look (gradients, light beams, texture, vignette).
-7. **Review.** Render a quarter-scale draft, then pull one mid-frame per shot into contact sheets and fix overlaps and overflowing text. Then render key puppet frames at full resolution and zoom into the joints. Only then render 1080p.
+7. **Review.** Render a quarter-scale draft, then pull one mid-frame per shot into contact sheets and fix overlaps and overflowing text. Then render key puppet frames at full resolution and zoom into the joints. Then start the **live preview** (Remotion Studio) and wait for the user's go-ahead before rendering 1080p.
 
 ## Mode A — Analyze a reference video
 

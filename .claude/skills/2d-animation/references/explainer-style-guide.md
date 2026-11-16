@@ -103,3 +103,23 @@ The darkened version of any of these is used for the name cards.
 5. **Graphics:** white bold all-caps sans with a shadow for facts, darkened name cards for about 0.8 s, and grunge rubber-stamp punchline cards that pop in with a thud.
 6. **Mixed media:** add sepia-graded archival photos with grain and a vignette.
 7. **Audio:** use one energetic VO with tight compression at about −16 LUFS, a ducked mono music bed, and one SFX hit per gag: boom, whoosh, pop, or stamp-thud.
+
+## 9. Character animation, measured frame by frame (second pass)
+
+From 30 fps frame strips of talking, gesturing, fall and stamp moments:
+
+- **Talking:**
+  - Mouth swaps are held 3–5 frames (example run at 30 fps: open ×3, closed ×4, open ×5, closed ×4…).
+  - The mouth is closed in pauses, and the brows stay locked to the expression.
+  - Per-frame change is 4–12 while talking, never 0.
+- **Gestures:**
+  - Talking characters hold arms up and out.
+  - Arms jitter slightly every frame (per-frame change 2–8 on an arm crop), and the head gives tiny nods on accents.
+- **Two-shots:** only the speaker animates their mouth. The listener holds, with eye or brow changes at most.
+- **Falls and gags:**
+  - Tip-over in about 3 frames, then held upside-down or on the ground with legs and arms wiggling for the rest of the shot.
+  - The stamp lands during the hold.
+- **Stamps:**
+  - Frame 0 fills the screen (text larger than the frame).
+  - By frame 3 it has settled to its spot, with the scene darkened behind it.
+- **Close-ups:** many talking beats are head-and-shoulders crops; wide shots are for setups, crowds and the eagle-mascot reactions.

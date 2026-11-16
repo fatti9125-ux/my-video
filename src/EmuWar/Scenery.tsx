@@ -141,11 +141,17 @@ export const Caption: React.FC<{ text: string; at?: number; pos?: "top" | "botto
 export const StampCard: React.FC<{ lines: string[]; at: number; x: number; y: number; rotate?: number; ink?: string; bg?: string }> = ({ lines, at, x, y, rotate = -9, ink = "#d92b2b", bg = "rgba(255,255,255,0.85)" }) => {
   const f = useCurrentFrame(); const { fps } = useVideoConfig();
   if (f < at) return null;
-  const s = spring({ frame: f - at, fps, config: { damping: 11, stiffness: 320, mass: 0.6 } });
-  const scale = interpolate(s, [0, 1], [1.6, 1]);
+  // Reference grammar: the stamp enters FULL-SCREEN (scale ~3.2, centred) and slams down to its
+  // corner in ~3 frames; the scene behind dims to ~45% and stays dimmed while the stamp holds.
+  const t = Math.min(1, (f - at) / 3);
+  const e = 1 - (1 - t) ** 2;
+  const scale = interpolate(e, [0, 1], [3.2, 1]);
+  const cx = interpolate(e, [0, 1], [960, x]), cy = interpolate(e, [0, 1], [540, y]);
   const w = 760, lh = 82, h = lines.length * lh + 70;
+  void fps; void spring;
   return (
     <svg viewBox="0 0 1920 1080" width={1920} height={1080} style={{ position: "absolute", inset: 0 }}>
+      <rect width={1920} height={1080} fill="#000" opacity={0.55 * Math.min(1, (f - at + 1) / 2)} />
       <defs>
         <filter id="grunge" x="-10%" y="-10%" width="120%" height="120%">
           <feTurbulence type="fractalNoise" baseFrequency="0.06 0.5" numOctaves={3} seed={11} result="n" />
@@ -153,7 +159,7 @@ export const StampCard: React.FC<{ lines: string[]; at: number; x: number; y: nu
           <feComposite in="SourceGraphic" in2="holes" operator="out" />
         </filter>
       </defs>
-      <g transform={`translate(${x} ${y}) rotate(${rotate}) scale(${scale})`} opacity={Math.min(1, s * 3)}>
+      <g transform={`translate(${cx} ${cy}) rotate(${rotate}) scale(${scale})`}>
         <rect x={-w / 2} y={-h / 2} width={w} height={h} rx={10} fill={bg} />
         <g filter="url(#grunge)">
           <rect x={-w / 2 + 14} y={-h / 2 + 14} width={w - 28} height={h - 28} rx={8} fill="none" stroke={ink} strokeWidth={14} />
