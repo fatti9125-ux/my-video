@@ -1,0 +1,11 @@
+{
+  "pose_front": 0, "pose_three_quarter": 1, "pose_profile": 3,
+  "pose_nominated": 17, "pose_oath": 19, "pose_president": 20,
+  "head_neutral": 6, "head_speaking": 8, "head_reaction": 9,
+  "torso_front": 10, "torso_three_quarter": 11,
+  "arm_l_upper": 12, "arm_l_fore": 14, "arm_r_upper": 15, "arm_r_fore": 16,
+  "hand_relaxed": 24, "hand_open": 26, "hand_point": 28, "hand_grip": 29,
+  "leg_l_thigh": 32, "leg_l_shin": 34, "leg_r_thigh": 36, "leg_r_shin": 37,
+  "foot_l": 40, "foot_r": 43,
+  "prop_nomination_paper": 39, "prop_oath_book": 47, "prop_briefcase": 41
+}

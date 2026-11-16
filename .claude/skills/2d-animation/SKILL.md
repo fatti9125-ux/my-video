@@ -1,13 +1,30 @@
 ---
 name: 2d-animation
-description: 2D cartoon explainer animation for this Remotion repo. Use when the user asks to analyze an animation/video's style (frame by frame, characters, backgrounds, graphics, sound effects), or to design, script, storyboard or build 2D animated explainer scenes, characters, backgrounds, title cards, stamps or sound plans in that style. Triggers: "2d animation", "analyze this animation", "animation style", "make a scene/character/episode in this style", Google Drive or video links to study.
+description: 2D cartoon explainer animation for this Remotion repo. Use when the user asks to analyze an animation/video's style (frame by frame, characters, backgrounds, graphics, sound effects), sends character/model sheets to analyze, cut or rig, asks for historical figures as caricature characters, or wants to design, script, storyboard or build 2D animated explainer scenes, characters, backgrounds, title cards, stamps or sound plans in that style. Triggers: "2d animation", "character sheet", "model sheet", "rig this character", presidents/politicians as cartoons, "analyze this animation", "animation style", "make a scene/character/episode in this style", Google Drive or video links to study.
 ---
 
 # 2D Animation (explainer-cartoon style)
 
 This repo is a **Remotion** project (`src/Root.tsx`, 1920x1080 @ 30 fps; `npm run dev`, `npx remotion render src/index.ts <Id> out/<name>.mp4`). Installed helpers: `@remotion/shapes`, `@remotion/paths`, `@remotion/transitions`, `@remotion/noise`, `@remotion/motion-blur`, `@remotion/lottie`, `@remotion/google-fonts`.
 
-The house style is documented in `references/explainer-style-guide.md` (derived from a frame-by-frame study of a 23-min comedy history explainer). **Read it before designing or building anything.**
+The house style is documented in `references/explainer-style-guide.md` (derived from a frame-by-frame study of a 23-min comedy history explainer). **Read it before designing or building anything.** Characters follow `references/character-style-guide.md` (house character style from the user's model sheets: likeness caricatures, head ≈47% of height, ink strokes, Quill the owl narrator). **Read it before making or rigging any character.**
+
+## Mode C — Characters (sheets, rigs, likeness)
+
+**C1. The user provides a character sheet (preferred — sheets are canon, never redraw them):**
+1. Save it to `public/characters/sheets/<name>.<ext>`.
+2. `python3 -I .claude/skills/2d-animation/scripts/extract_parts.py detect <sheet> public/characters/<name> --min 400` → Read `_boxes.png` (numbered blobs).
+3. Write `public/characters/<name>/parts.json` mapping names → blob numbers (or `[x,y,w,h]`), using the standard names: `pose_front|pose_three_quarter|pose_profile|pose_<story>`, `head_neutral|head_speaking|head_reaction`, `torso_front|torso_three_quarter`, `hand_relaxed|hand_open|hand_point|hand_grip`, `prop_<thing>`; then `extract_parts.py cut <sheet> public/characters/<name> parts.json`. Labels under drawings are stripped automatically; transparent sheets keep their alpha, white-paper sheets get the paper keyed out.
+4. Review all parts on a coloured background (montage) before use.
+5. Add a `RigDef` in `src/rig/characters.ts` (measure on a gridded `pose_front`: `torsoTop`, `chinY`, shoulders, hips, limb lengths, `partScale` ≈ pose-head-width / head-png-width), then check side-by-side in the `RigTest` composition (sheet pose vs puppet) and iterate until they match.
+6. Animate with `<SheetPuppet>` (`src/rig/SheetPuppet.tsx`): head swaps for expressions/lip-flap (neutral↔speaking every 4–6 f), `ARM_POSES` presets (down, hips, wave, point, shrug, hold), `walk` phase, `headTilt`/`bob` idle, `props` slot. For big story beats, hard-cut to the sheet's full `pose_<story>` PNG instead of puppeting.
+   Gerald Ford is fully cut and rigged (`GERALD_FORD`); Nixon, Kissinger, the courtroom ensemble and Quill have `_boxes.png` ready — cut them when first needed.
+
+**C2. No sheet — build the likeness from reference:**
+1. Find public-domain reference portraits (official portraits / Wikimedia Commons) with WebSearch; if the image host is blocked, propose `upload.wikimedia.org` / `commons.wikimedia.org` via the environment tools or ask the user to upload photos.
+2. List 4–6 likeness keys (hairline/hair mass, nose shape, brows, jaw/jowls, glasses, ears) and exaggerate them 20–40% on the house head template (see the guide's table for format).
+3. Draw as layered SVG matching the sheet conventions (head, torso, stroke limbs, 3 expressions), render a turnaround still, show the user, iterate.
+4. Be honest: hand-built SVG caricatures are approximate; for exact matches ask the user for a sheet (C1). Caricature real public figures respectfully (educational/comedy), never private individuals.
 
 ## Mode A — Analyze a reference video
 
