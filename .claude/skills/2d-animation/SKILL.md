@@ -31,4 +31,10 @@ Follow the style guide; key rules:
 - **Archival look**: sepia filter + grain + vignette for photo plates.
 - **Sound plan**: single VO is king; ducked music bed; one SFX per gag/cut (whoosh on moves, pop on text, thud on stamp, boom on impacts); mix mono-ish, target −16 LUFS. Use `<Audio>`/`<Sequence>` to place SFX on exact frames; list needed SFX if files are missing.
 
+Reusable pieces already in the repo (start from these):
+- `src/EmuWar/Characters.tsx` — `Person` (bean puppet: hats, moustache, brows/eyes/mouth swaps, arms, sweat, tears) and `Emu` (walk cycle, peck, smug).
+- `src/EmuWar/Scenery.tsx` — `Camera` (push/pan/shake), `Outback` painted BG, `Plate`, `NameCard`, `Caption`, `StampCard`, `SpeechBubble`, `MuzzleFlash`, `DustPuffs`.
+- `src/fonts.ts` — Montserrat 800 / Oswald 700 loaded from `public/fonts` (Google Fonts is blocked in the cloud sandbox; don't use `@remotion/google-fonts`).
+- SFX: `python3 -I .claude/skills/2d-animation/scripts/make_sfx.py public/sfx <seconds>` → whoosh, thud, pop, gunburst, squawk, boing, sad_trombone, music_bed. No TTS is installed, so without user-supplied VO, carry information with captions.
+
 Workflow: script → shot list (timecodes, shot type, characters, BG, text, SFX) → build components under `src/<ProjectName>/` → register a `<Composition>` in `src/Root.tsx` → render a short check (`--frames=0-90`) and inspect stills before full render → commit and push.
