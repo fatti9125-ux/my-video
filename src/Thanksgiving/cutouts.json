@@ -1,0 +1,640 @@
+{
+"abraham_lincoln": {
+"01_Front_view": [
+213,
+420
+],
+"02_Three_quarter_neutral": [
+178,
+340
+],
+"03_Right_profile": [
+202,
+406
+],
+"04_Reading_Hale_s_letter": [
+193,
+338
+],
+"05_Approving_Hale_s_request": [
+253,
+341
+],
+"06_Neutral_head": [
+259,
+313
+],
+"07_Front_torso": [
+201,
+185
+],
+"08_Talking_head": [
+302,
+337
+],
+"09_Skeptical_head": [
+302,
+339
+],
+"10_Blinking_head": [
+302,
+340
+]
+},
+"congressional_delegate": {
+"01_Front_view": [
+234,
+401
+],
+"02_Three_quarter_neutral": [
+186,
+327
+],
+"03_Right_profile": [
+215,
+403
+],
+"04_Voting_aye": [
+254,
+326
+],
+"05_Carrying_a_letter": [
+220,
+328
+],
+"06_Neutral_head": [
+277,
+306
+],
+"07_Front_torso": [
+287,
+283
+],
+"08_Reaction_head": [
+282,
+287
+]
+},
+"debtor": {
+"01_Front_view": [
+239,
+395
+],
+"02_Three_quarter_neutral": [
+206,
+325
+],
+"03_Right_profile": [
+224,
+393
+],
+"04_Reaching_for_food": [
+320,
+316
+],
+"05_Holding_beer_and_bread": [
+292,
+324
+],
+"06_Neutral_head": [
+293,
+293
+],
+"07_Front_torso": [
+277,
+228
+],
+"08_Reaction_head": [
+283,
+264
+]
+},
+"elias_boudinot": {
+"01_Front_view": [
+238,
+413
+],
+"02_Three_quarter_neutral": [
+205,
+329
+],
+"03_Right_profile": [
+217,
+418
+],
+"04_Holding_the_petition": [
+252,
+330
+],
+"05_Presenting_the_petition": [
+273,
+329
+],
+"06_Neutral_head": [
+274,
+267
+],
+"07_Front_torso": [
+224,
+185
+],
+"08_Talking_head": [
+333,
+322
+],
+"09_Skeptical_head": [
+333,
+324
+],
+"10_Blinking_head": [
+334,
+324
+]
+},
+"franklin_pierce": {
+"01_Front_view": [
+258,
+404
+],
+"02_Three_quarter_neutral": [
+216,
+335
+],
+"03_Right_profile": [
+236,
+407
+],
+"04_Considering_the_petition": [
+222,
+333
+],
+"05_Neutral_head": [
+289,
+315
+],
+"06_Front_torso": [
+202,
+172
+]
+},
+"george_washington": {
+"01_Front_view": [
+258,
+414
+],
+"02_Three_quarter_neutral": [
+225,
+330
+],
+"03_Right_profile": [
+234,
+418
+],
+"04_Signing_the_proclamation": [
+274,
+326
+],
+"05_Handing_out_beer": [
+302,
+326
+],
+"06_Neutral_head": [
+309,
+279
+],
+"07_Front_torso": [
+229,
+188
+],
+"08_Talking_head": [
+333,
+321
+],
+"09_Skeptical_head": [
+333,
+323
+],
+"10_Blinking_head": [
+334,
+326
+]
+},
+"james_buchanan": {
+"01_Front_view": [
+243,
+407
+],
+"02_Three_quarter_neutral": [
+214,
+339
+],
+"03_Right_profile": [
+227,
+410
+],
+"04_Considering_the_petition": [
+227,
+336
+],
+"05_Neutral_head": [
+280,
+324
+],
+"06_Front_torso": [
+198,
+185
+]
+},
+"james_madison": {
+"01_Front_view": [
+234,
+394
+],
+"02_Three_quarter_neutral": [
+206,
+331
+],
+"03_Right_profile": [
+215,
+391
+],
+"04_Holding_the_proclamation": [
+250,
+330
+],
+"05_Presenting_the_proclamation": [
+289,
+332
+],
+"06_Neutral_head": [
+265,
+266
+],
+"07_Front_torso": [
+224,
+180
+],
+"08_Talking_head": [
+313,
+296
+],
+"09_Skeptical_head": [
+313,
+297
+],
+"10_Blinking_head": [
+315,
+300
+]
+},
+"john_adams": {
+"01_Front_view": [
+288,
+401
+],
+"02_Three_quarter_neutral": [
+234,
+320
+],
+"03_Right_profile": [
+254,
+405
+],
+"04_Reading_the_proclamation": [
+266,
+318
+],
+"05_Presenting_the_proclamation": [
+317,
+320
+],
+"06_Neutral_head": [
+293,
+246
+],
+"07_Front_torso": [
+231,
+180
+],
+"08_Talking_head": [
+344,
+305
+],
+"09_Skeptical_head": [
+345,
+306
+],
+"10_Blinking_head": [
+344,
+308
+]
+},
+"levi_lincoln_sr": {
+"01_Front_view": [
+239,
+395
+],
+"02_Three_quarter_neutral": [
+211,
+336
+],
+"03_Right_profile": [
+208,
+393
+],
+"04_Warning": [
+273,
+334
+],
+"05_Advising": [
+212,
+335
+],
+"06_Stern_head": [
+294,
+284
+],
+"07_Front_torso": [
+216,
+183
+],
+"08_Talking_head": [
+320,
+309
+],
+"09_Skeptical_head": [
+320,
+312
+],
+"10_Blinking_head": [
+320,
+313
+]
+},
+"millard_fillmore": {
+"01_Front_view": [
+256,
+404
+],
+"02_Three_quarter_neutral": [
+217,
+337
+],
+"03_Right_profile": [
+238,
+408
+],
+"04_Considering_the_petition": [
+235,
+331
+],
+"05_Neutral_head": [
+285,
+319
+],
+"06_Front_torso": [
+209,
+173
+]
+},
+"quill": {
+"01_Neutral": [
+319,
+369
+],
+"02_Pointing_while_presenting": [
+329,
+369
+],
+"03_Beer_mug_reaction": [
+330,
+369
+],
+"04_Scoreboard": [
+317,
+369
+],
+"05_Surprised": [
+384,
+367
+],
+"06_Side_eye": [
+294,
+360
+],
+"07_Reading_letters": [
+328,
+359
+],
+"08_Presenting_the_envelope": [
+392,
+358
+],
+"09_Torso": [
+291,
+237
+],
+"10_Neutral_head": [
+277,
+255
+],
+"11_Blink_head": [
+279,
+256
+],
+"12_Speaking_head": [
+279,
+256
+],
+"13_Blank_head_base": [
+349,
+315
+],
+"14_Vest_torso": [
+307,
+270
+],
+"15_Three_quarter_vest": [
+314,
+272
+],
+"16_Tail": [
+326,
+238
+],
+"17_Left_rest_wing": [
+233,
+270
+],
+"18_Right_rest_wing": [
+234,
+266
+],
+"19_Left_open_wing": [
+322,
+251
+],
+"20_Right_open_wing": [
+329,
+244
+],
+"21_Spectacles": [
+331,
+122
+],
+"22_Closed_beak": [
+138,
+164
+],
+"23_Open_beak": [
+151,
+185
+],
+"24_Legs_and_feet": [
+262,
+225
+]
+},
+"sarah_josepha_hale": {
+"01_Front_view": [
+227,
+403
+],
+"02_Three_quarter_neutral": [
+210,
+337
+],
+"03_Right_profile": [
+214,
+405
+],
+"04_Writing_with_a_quill": [
+273,
+338
+],
+"05_Editing_a_magazine": [
+248,
+337
+],
+"06_Holding_letters": [
+234,
+338
+],
+"07_Tired_at_work": [
+255,
+336
+],
+"08_Holding_the_reply": [
+286,
+336
+],
+"09_Presenting_the_petition": [
+265,
+336
+],
+"10_Young_Hale_in_mourning": [
+225,
+334
+],
+"11_Neutral_head": [
+278,
+320
+],
+"12_Determined_head": [
+283,
+320
+],
+"13_Tired_head": [
+278,
+322
+],
+"14_Triumphant_head": [
+284,
+324
+],
+"15_Front_torso": [
+200,
+175
+],
+"16_Talking_head": [
+322,
+323
+],
+"17_Skeptical_head": [
+321,
+325
+],
+"18_Blinking_head": [
+321,
+325
+]
+},
+"thomas_jefferson": {
+"01_Front_view": [
+244,
+413
+],
+"02_Three_quarter_neutral": [
+195,
+331
+],
+"03_Right_profile": [
+225,
+417
+],
+"04_Refusing": [
+249,
+330
+],
+"05_Setting_aside_a_page": [
+259,
+329
+],
+"06_Disapproving_head": [
+268,
+261
+],
+"07_Front_torso": [
+221,
+181
+],
+"08_Talking_head": [
+330,
+313
+],
+"09_Skeptical_head": [
+332,
+316
+],
+"10_Blinking_head": [
+333,
+316
+]
+},
+"zachary_taylor": {
+"01_Front_view": [
+241,
+402
+],
+"02_Three_quarter_neutral": [
+206,
+335
+],
+"03_Right_profile": [
+230,
+408
+],
+"04_Considering_the_petition": [
+221,
+328
+],
+"05_Neutral_head": [
+286,
+309
+],
+"06_Front_torso": [
+210,
+174
+]
+}
+}

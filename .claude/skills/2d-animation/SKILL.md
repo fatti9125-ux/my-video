@@ -47,6 +47,42 @@ Every body part must stay visibly connected to its parent in **every frame** of 
 3. Draw as layered SVG matching the sheet conventions (head, torso, stroke limbs, 3 expressions), render a turnaround still, show the user, iterate.
 4. Be honest: hand-built SVG caricatures are approximate; for exact matches ask the user for a sheet (C1). Caricature real public figures respectfully (educational/comedy), never private individuals.
 
+## Mode D — Episode from script + voiceover + layered character packs (the production pipeline)
+
+Used for "Every President's Thanksgiving" (`src/Thanksgiving/`, composition `ThanksgivingCh1to3`). Repeat it for later chapters.
+
+1. **Inputs.**
+   - Read the script (`.docx`: unzip, read `word/document.xml` text).
+   - Note the VO files and their durations.
+   - Unzip the character pack into the scratchpad. Each character folder has `Cutouts/` (finished poses, heads, torso) and `Puppet_Layers/` (`Rig_*.png` parts + `Positions_720px.csv`). Shared props are in `Shared_Props/`.
+   - Copy only the PNGs/CSV into `public/<project>/<character>/` and the props into `public/<project>/props/`. Never commit PSDs or 8K sheets: they are references, palette-mode upscales with no extra detail.
+2. **VO → timings (no ASR is available here).**
+   - Write one script line per sentence/beat for each audio file, then run `python3 -I .claude/skills/2d-animation/scripts/align_script.py <audio> <lines.txt> <out.json>`.
+   - It maps the script's syllables onto detected syllable peaks and snaps line ends to breaths. It also writes `<out>.env.json`, a 100 Hz loudness envelope for beak/mouth flaps.
+   - Check chapter starts by reading the loudness envelope around the predicted heading (look for the pause pattern), and trim with ffmpeg `-ss`.
+   - Accuracy is ±0.5 s, fine for shot cuts. Say so to the user.
+3. **Rig metadata.**
+   - `python3 -I .claude/skills/2d-animation/scripts/layer_rig_meta.py public/<project> src/<Project>/rigmeta.json` measures every part: limb joint ends, the head's chin, and the torso outline.
+   - The CSV positions are only *proposals*. Assembled raw, the head floats above the collar and the arms sit outside the coat, which breaks the attachment rule. `LayerPuppet` re-lays the parts:
+     - the chin overlaps the collar;
+     - shoulders sit 12 px inside the torso edge, hips under the hem;
+     - each limb is a **nested joint chain** (shoulder > upper arm > elbow > forearm > wrist > hand; hip > thigh > knee > shin > ankle > foot), so parts cannot detach.
+4. **Attachment check.**
+   - Run `python3 -I .claude/skills/2d-animation/scripts/check_layer_rig.py public/<project> src/<Project>/rigmeta.json src/<Project>/LayerPuppet.tsx`. Every character must report OK for every `ARMS` preset.
+   - Wide coats need about 36° of shoulder swing for a hanging arm to emerge from the coat.
+   - Props that must be *held* while moving come from the finished pose cutouts (e.g. "Carrying a letter"), never floated next to a puppet.
+5. **Shots.** One entry per script sentence in `SHOTS`, `{ a, b, el, sfx }`, in global seconds. House grammar:
+   - **Chapter headings:** darkened name card ("NAME" + "N · SUBTITLE") over the first shot, held while the heading is read.
+   - **Every shot:** a slow camera push; fact captions in Montserrat caps; grunge rubber-stamp punchlines; blue info plates for abstract beats.
+   - **Characters:** finished pose cutouts for story beats, `LayerPuppet` for walking/gesturing/expression swaps, `QuillPuppet` for the host, with the beak flapping on the VO envelope.
+   - **Sound:** one SFX per beat (whoosh on cut, pop on caption, thud on stamp, paper/scribble for letters, ding for the scoreboard); music bed at about 0.09 under the VO.
+6. **Backgrounds** (`src/Thanksgiving/Backgrounds.tsx`): painted SVG sets.
+   - Interiors: Studio (Quill), Chamber, Study (`sepia` for flashbacks), EditorOffice, LincolnOffice, Prison.
+   - Exteriors: FederalHall, Chapel, Hills, Village.
+   - Plate: PlateBg.
+   - Reuse and extend them; keep the soft painted look (gradients, light beams, texture, vignette).
+7. **Review.** Render a quarter-scale draft, then pull one mid-frame per shot into contact sheets and fix overlaps and overflowing text. Then render key puppet frames at full resolution and zoom into the joints. Only then render 1080p.
+
 ## Mode A — Analyze a reference video
 
 1. **Get the file.** Drive links: `curl -sSL -o <dir>/video.mp4 "https://drive.usercontent.google.com/download?id=<FILE_ID>&export=download&confirm=t"` into a fresh scratchpad folder (hosts `drive.usercontent.google.com`, `drive.google.com` are allowed in the "2d animation" environment). If blocked, check proxy status and propose the host via environment tools.

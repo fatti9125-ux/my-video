@@ -100,6 +100,23 @@ def sad_trombone():
     return np.concatenate(parts)
 
 
+def paper():
+    n = t(0.5); x = rng.standard_normal(len(n))
+    am = (np.abs(np.sin(2 * np.pi * 7 * n)) ** 0.5) * np.exp(-n * 4)
+    return (x - lowpass(x, 0.08)) * am
+
+
+def scribble():
+    n = t(0.9); x = rng.standard_normal(len(n))
+    am = (0.5 + 0.5 * np.sign(np.sin(2 * np.pi * 9 * n + 3 * np.sin(2 * np.pi * 2 * n)))) * env(len(n), 0.02, 0.1)
+    return (x - lowpass(x, 0.3)) * am * 0.6
+
+
+def ding():
+    n = t(1.4)
+    return (np.sin(2 * np.pi * 1318 * n) + 0.5 * np.sin(2 * np.pi * 1975 * n) + 0.25 * np.sin(2 * np.pi * 2637 * n)) * np.exp(-n * 3.5)
+
+
 def music_bed(seconds=30, bpm=128):
     beat = 60 / bpm; total = np.zeros(int(SR * seconds) + SR)
     # C - G - Am - F, oom-pah bass + staccato pluck melody + light shaker
@@ -129,7 +146,8 @@ def music_bed(seconds=30, bpm=128):
 if __name__ == "__main__":
     out = sys.argv[1]; secs = float(sys.argv[2]) if len(sys.argv) > 2 else 30
     for name, fn in [("whoosh", whoosh), ("thud", thud), ("pop", pop), ("gunburst", gunburst),
-                     ("squawk", squawk), ("boing", boing), ("sad_trombone", sad_trombone)]:
+                     ("squawk", squawk), ("boing", boing), ("sad_trombone", sad_trombone),
+                     ("paper", paper), ("scribble", scribble), ("ding", ding)]:
         save(f"{out}/{name}.wav", fn())
     save(f"{out}/music_bed.wav", music_bed(secs), peak=0.7)
     print("wrote SFX kit to", out)
