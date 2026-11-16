@@ -1,8 +1,6 @@
-import { loadFont } from "@remotion/google-fonts/Montserrat";
 import { noise2D } from "@remotion/noise";
 import { AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
-
-const { fontFamily } = loadFont("normal", { weights: ["800"], subsets: ["latin"] });
+import { MONTSERRAT as fontFamily } from "../fonts";
 
 const WORDS = ["Motion", "Graphics", "in", "Remotion"];
 
