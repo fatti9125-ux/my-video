@@ -26,10 +26,16 @@ export type RigDef = {
   upperArm: number; foreArm: number;
   hipX: number; hipY: number; thigh: number; shin: number;
   line: number; ink?: string;
-  hands?: Partial<Record<HandShape, string>>;
-  handPointsUp?: HandShape[];        // hand PNGs drawn fingers-up in the sheet (others are fingers-down)
-  handSize?: number;                 // hand width in puppet units
+  hands?: Partial<Record<HandShape, HandDef>>;
+  handScale?: number;                // hand PNG px -> puppet units (sheet hands are drawn larger than on the body)
 };
+
+/** A hand PNG and where it joins the arm: `anchor` = the wrist pixel (ON the ink, where the
+ *  fingers converge); `dir` = direction wrist -> fingertips in the PNG, in degrees using the
+ *  limb convention (0 = down, 90 = right, 180 = up, -90 = left). The wrist pixel is pinned to
+ *  the forearm's end and the hand is rotated to continue the forearm's tangent, so it can
+ *  never detach, whatever the arm does. */
+export type HandDef = { file: string; size: [number, number]; anchor: [number, number]; dir: number };
 
 export type PuppetProps = {
   rig: RigDef;
@@ -43,23 +49,29 @@ export type PuppetProps = {
 
 const rad = (d: number) => (d * Math.PI) / 180;
 
+/** Geometry of a 2-bone limb drawn as one quadratic through the joint. Angles from straight down, + toward +x. */
+export const limbGeometry = (x: number, y: number, a1: number, a2: number, l1: number, l2: number) => {
+  const jx = x + Math.sin(rad(a1)) * l1, jy = y + Math.cos(rad(a1)) * l1;
+  const ex = jx + Math.sin(rad(a1 + a2)) * l2, ey = jy + Math.cos(rad(a1 + a2)) * l2;
+  const cx = 2 * jx - (x + ex) / 2, cy = 2 * jy - (y + ey) / 2; // control so the curve passes through the joint
+  const tangent = (Math.atan2(ex - cx, ey - cy) * 180) / Math.PI; // direction of the stroke as it arrives at the end
+  return { jx, jy, ex, ey, cx, cy, tangent };
+};
+
 const Limb: React.FC<{ x: number; y: number; a1: number; a2: number; l1: number; l2: number; w: number; ink: string; foot?: number }> = ({ x, y, a1, a2, l1, l2, w, ink, foot }) => {
-  // angles measured from straight down; positive rotates toward +x
-  const ex = x + Math.sin(rad(a1)) * l1, ey = y + Math.cos(rad(a1)) * l1;
-  const wx = ex + Math.sin(rad(a1 + a2)) * l2, wy = ey + Math.cos(rad(a1 + a2)) * l2;
+  const g = limbGeometry(x, y, a1, a2, l1, l2);
   return (
     <g>
-      {/* quadratic whose curve passes through the elbow/knee: control = 2*joint - midpoint(ends) */}
-      <path d={`M ${x} ${y} Q ${2 * ex - (x + wx) / 2} ${2 * ey - (y + wy) / 2} ${wx} ${wy}`} fill="none" stroke={ink} strokeWidth={w} strokeLinecap="round" strokeLinejoin="round" />
-      {foot !== undefined && <path d={`M ${wx} ${wy} l ${foot * 16} 3`} stroke={ink} strokeWidth={w} strokeLinecap="round" />}
+      <path d={`M ${x} ${y} Q ${g.cx} ${g.cy} ${g.ex} ${g.ey}`} fill="none" stroke={ink} strokeWidth={w} strokeLinecap="round" strokeLinejoin="round" />
+      {foot !== undefined && <path d={`M ${g.ex} ${g.ey} l ${foot * 16} 3`} stroke={ink} strokeWidth={w} strokeLinecap="round" />}
     </g>
   );
 };
 
-export const armEnd = (sx: number, sy: number, p: ArmPose, l1: number, l2: number, side: -1 | 1) => {
-  const a1 = p.shoulder * side, a2 = p.elbow * side;
-  const ex = sx + Math.sin(rad(a1)) * l1, ey = sy + Math.cos(rad(a1)) * l1;
-  return { x: ex + Math.sin(rad(a1 + a2)) * l2, y: ey + Math.cos(rad(a1 + a2)) * l2, angle: a1 + a2 };
+/** Wrist position + forearm tangent for an arm pose (use it to parent props to a hand). */
+export const armEnd = (rig: RigDef, p: ArmPose, side: -1 | 1) => {
+  const g = limbGeometry(side * rig.shoulderX, rig.shoulderY, p.shoulder * side, p.elbow * side, rig.upperArm, rig.foreArm);
+  return { x: g.ex, y: g.ey, angle: g.tangent };
 };
 
 export const SheetPuppet: React.FC<PuppetProps> = ({
@@ -76,17 +88,19 @@ export const SheetPuppet: React.FC<PuppetProps> = ({
 
   const arm = (side: -1 | 1, p: ArmPose) => {
     const sx = side * rig.shoulderX, sy = rig.shoulderY;
-    const end = armEnd(sx, sy, p, rig.upperArm, rig.foreArm, side);
+    const end = armEnd(rig, p, side);
     const hand = p.hand && p.hand !== "none" ? rig.hands?.[p.hand] : undefined;
-    const hs = rig.handSize ?? 22;
+    const k = rig.handScale ?? 0.5;
+    // pin the wrist pixel to the forearm end; rotate so the hand continues the forearm tangent.
+    // Left side is mirrored (scale -1), so its local angle is negated.
+    const theta = hand ? hand.dir - side * end.angle : 0;
     return (
       <g>
         <Limb x={sx} y={sy} a1={p.shoulder * side} a2={p.elbow * side} l1={rig.upperArm} l2={rig.foreArm} w={rig.line} ink={ink} />
         {hand && (
-          <g transform={`translate(${end.x} ${end.y}) rotate(${-end.angle}) scale(${side === -1 ? -1 : 1} 1)`}>
-            <g transform={`rotate(${rig.handPointsUp?.includes(p.hand!) ? 180 : 0} 0 ${hs / 2})`}>
-              <image href={staticFile(`${rig.dir}/${hand}.png`)} x={-hs / 2} y={-2} width={hs} height={hs} preserveAspectRatio="xMidYMin meet" />
-            </g>
+          <g transform={`translate(${end.x} ${end.y}) scale(${side} 1) rotate(${theta})`}>
+            <image href={staticFile(`${rig.dir}/${hand.file}.png`)} x={-hand.anchor[0] * k} y={-hand.anchor[1] * k}
+              width={hand.size[0] * k} height={hand.size[1] * k} />
           </g>
         )}
       </g>
@@ -119,7 +133,7 @@ export const SheetPuppet: React.FC<PuppetProps> = ({
 // SVG <image> isn't awaited by Remotion, so hold the render until every part of the rig is decoded.
 const loaded = new Set<string>();
 const usePreload = (rig: RigDef) => {
-  const urls = [...Object.values(rig.heads), ...Object.values(rig.torsos), ...Object.values(rig.hands ?? {})]
+  const urls = [...Object.values(rig.heads), ...Object.values(rig.torsos), ...Object.values(rig.hands ?? {}).map((h) => h!.file)]
     .map((f) => staticFile(`${rig.dir}/${f}.png`)).filter((u) => !loaded.has(u));
   const [handle] = useState(() => (urls.length ? delayRender(`Loading rig ${rig.dir}`) : null));
   useEffect(() => {

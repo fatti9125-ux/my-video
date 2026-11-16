@@ -12,9 +12,14 @@ export const GERALD_FORD: RigDef = {
   shoulderX: 44, shoulderY: -183, upperArm: 56, foreArm: 48,
   hipX: 29, hipY: -100, thigh: 52, shin: 48,
   line: 6.5,
-  hands: { relaxed: "hand_relaxed", open: "hand_open", point: "hand_point", grip: "hand_grip" },
-  handPointsUp: ["open"],
-  handSize: 24,
+  // anchor = wrist pixel on the ink where the fingers converge; dir = wrist -> fingertips (0 down, 90 right, 180 up)
+  hands: {
+    relaxed: { file: "hand_relaxed", size: [32, 39], anchor: [16, 3], dir: 0 },
+    open: { file: "hand_open", size: [46, 42], anchor: [17, 38], dir: 160 },
+    point: { file: "hand_point", size: [58, 40], anchor: [4, 26], dir: 112 },
+    grip: { file: "hand_grip", size: [41, 41], anchor: [4, 27], dir: 105 },
+  },
+  handScale: 0.55,
 };
 
 // Reusable arm presets (angles: 0 = hanging down, + = outward/up; elbow relative to upper arm).

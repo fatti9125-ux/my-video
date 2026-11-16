@@ -58,7 +58,8 @@ Limbs always grow out of the body.
 - Shoulders sit just inside the torso's side edge under the collar, with the arm stroke starting behind the jacket.
 - Legs come out from under the hem.
 - The chin rests on the collar.
-- Hands end the forearm stroke; feet end the shin stroke.
+- Hands end the forearm stroke, pinned at the wrist, and follow it through every talking gesture.
+- Feet end the shin stroke.
 - Props sit in a hand.
 
 No part may ever float free or show a gap (see the "Attachment rule" in SKILL.md and `check_rig.py`).

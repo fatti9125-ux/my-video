@@ -82,6 +82,19 @@ def main():
     ground = hy + thigh + shin
     report(abs(ground) <= 3, f"legs end at y={ground:.1f} (ground = 0)", f"thigh+shin = {-hy:.0f}")
 
+    # Hands: each hand PNG's wrist anchor must sit ON the ink (so it is glued to the forearm end),
+    # and the declared size must match the file (otherwise the anchor lands off the drawing).
+    hands = re.findall(r'(\w+):\s*\{\s*file:\s*"([^"]+)",\s*size:\s*\[(\d+),\s*(\d+)\],\s*anchor:\s*\[(\d+),\s*(\d+)\]', b)
+    if not hands:
+        report(False, "no hands declared with {file, size, anchor, dir}", "measure each hand's wrist pixel on a gridded zoom")
+    for hname, hfile, w, h, ax, ay in hands:
+        im = Image.open(f"public/{d}/{hfile}.png"); al = np.asarray(im)[..., 3] > 100
+        w, h, ax, ay = int(w), int(h), int(ax), int(ay)
+        report(im.size == (w, h), f"hand '{hname}' size {im.size} matches declared {(w, h)}", f"size: [{im.size[0]}, {im.size[1]}]")
+        y0, y1, x0, x1 = max(0, ay - 1), ay + 2, max(0, ax - 1), ax + 2
+        on_ink = al[y0:y1, x0:x1].any() if 0 <= ax < im.size[0] and 0 <= ay < im.size[1] else False
+        report(bool(on_ink), f"hand '{hname}' wrist anchor ({ax},{ay}) is on the ink", "move the anchor onto the stroke where the fingers converge")
+
     # Arm poses: arms are drawn BEHIND the torso. A pose is "floating" if the visible part
     # of arm+hand is broken into pieces, or the hand shows while (almost) no arm leads to it.
     ua, fa = num(b, "upperArm"), num(b, "foreArm"); hs = num(b, "handSize") or 22
