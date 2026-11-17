@@ -4,3 +4,6 @@ hale_letter.jpg	File:Letter-SarahHaletoLincoln.jpg	Public domain	https://commons
 godeys_cover.jpg	File:GodeysLadysBookCoverJune1867.jpg	Public domain	https://commons.wikimedia.org/wiki/File:GodeysLadysBookCoverJune1867.jpg
 polk.jpg	File:James K Polk (3x4 cropped).jpg	Public domain	https://commons.wikimedia.org/wiki/File:James_K_Polk_(3x4_cropped).jpg
 amend12.jpg	File:12th Amendment Pg1of1 AC.jpg	Public domain	https://commons.wikimedia.org/wiki/File:12th_Amendment_Pg1of1_AC.jpg
+grace_rebecca.jpg	File:Grace Coolidge and Rebecca.jpg	Public domain	https://commons.wikimedia.org/wiki/File:Grace_Coolidge_and_Rebecca.jpg
+constitution.jpg	File:Constitution of the United States WDL2708.jpg	Public domain	https://commons.wikimedia.org/wiki/File:Constitution_of_the_United_States_WDL2708.jpg
+lincoln_procl.jpg	File:President Abraham Lincoln%27s Thanksgiving Day Proclamation of October 3, 1863 (page 1 of 3) (4131303701).jpg	Public domain	https://commons.wikimedia.org

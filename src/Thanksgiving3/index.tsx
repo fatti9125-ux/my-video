@@ -282,7 +282,7 @@ const SHOTS: Shot[] = [
   { a: 77.27, b: 80.17, sfx: [[Math.round((78.74 - 77.27) * FPS), "paper", 0.15]], el: (t) => (
     <>
       <Swap t={t(78.74)} a={<Cam dur={44} to={1.04}><Svg bg={<B.Hills />}><Rig c="george_washington" pose="solemn_with_quill" x={960} y={1030} h={580} stress /></Svg></Cam>}
-        b={<Arch src="wash_1795" dur={45} focus={[50, 25]} zoom={[1.02, 1.12]} />} />
+        b={<Cam dur={45} to={1.05}><Svg bg={<B.Hills />}><Rig c="george_washington" pose="signing_proclamation" x={960} y={1030} h={600} /></Svg></Cam>} />
       <Cap text="1795" pos="top" at={t(77.48)} />
     </>) },
   { a: 80.17, b: 82.65, sfx: [[Math.round((80.37 - 80.17) * FPS) + 8, "sub_thump", 0.25], [Math.round((80.74 - 80.17) * FPS) + 8, "sub_thump", 0.22]], el: (t) => (
