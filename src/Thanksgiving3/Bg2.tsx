@@ -160,20 +160,20 @@ export const Avenue: React.FC<{ stop?: boolean }> = ({ stop }) => {
 /** California ranch from above-ish: hills, ranch house, a plane towing a banner. */
 export const RanchBanner: React.FC<{ text: string }> = ({ text }) => {
   const f = useCurrentFrame();
-  const px = 2100 - f * 9;
+  const px = 620 - f * 3;
   return (
     <g>
       <rect width={1920} height={1080} fill="url(#tg-sky)" />
       <path d="M 0 700 Q 500 560 1000 660 T 1920 620 L 1920 1080 L 0 1080 Z" fill="#a7a35a" />
       <path d="M 0 820 Q 600 740 1200 800 T 1920 790 L 1920 1080 L 0 1080 Z" fill="#8f8a46" />
       <g transform="translate(1200 760)"><rect x={0} y={0} width={260} height={110} fill="#f1e6cf" stroke="#1d1712" strokeWidth={6} /><path d="M -20 0 L 130 -70 L 280 0 Z" fill="#8a3a2a" stroke="#1d1712" strokeWidth={6} /></g>
-      <g transform={`translate(${px} 230)`}>
+      {text && <g transform={`translate(${px} 230)`}>
         <path d="M 0 0 L 90 -20 L 120 0 L 90 20 Z" fill="#e8e8e8" stroke="#1d1712" strokeWidth={5} />
         <rect x={20} y={-50} width={20} height={100} fill="#c0392b" stroke="#1d1712" strokeWidth={4} />
         <line x1={120} y1={0} x2={200} y2={0} stroke="#1d1712" strokeWidth={3} />
-        <rect x={200} y={-38} width={text.length * 30 + 40} height={76} fill="#fbf6ea" stroke="#1d1712" strokeWidth={5} />
-        <text x={220} y={14} fontFamily="Montserrat" fontWeight={800} fontSize={40} fill="#c0392b">{text}</text>
-      </g>
+        <rect x={200} y={-38} width={text.length * 25 + 40} height={76} fill="#fbf6ea" stroke="#1d1712" strokeWidth={5} />
+        <text x={220} y={14} fontFamily="Montserrat" fontWeight={800} fontSize={34} fill="#c0392b">{text}</text>
+      </g>}
     </g>
   );
 };

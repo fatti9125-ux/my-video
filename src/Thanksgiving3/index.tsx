@@ -360,7 +360,7 @@ const SHOTS: Shot[] = [
     <Cam dur={57} to={1.04}><Svg bg={<B.PlateBg />}><ChurchState at={2} /></Svg></Cam>) },
   { a: g2(19.78), b: g2(24.3), sfx: [[Math.round((g2(21.84) - g2(19.78)) * FPS), "sub_thump", 0.15], [Math.round((g2(21.84) - g2(19.78)) * FPS) + 14, "sub_thump", 0.15]], el: (t) => (
     <>
-      <Cam dur={136} to={1.05}><Svg bg={<B.PlateBg />}><ChurchState at={0} wallFrom={t(g2(21.84))} /></Svg></Cam>
+      <Cam dur={136} to={1.05}><Svg bg={<B.PlateBg />}><ChurchState at={-30} wallFrom={t(g2(21.84))} /></Svg></Cam>
       <Cap text={'"A wall of separation"'} at={t(g2(21.84))} />
     </>) },
   { a: g2(24.3), b: g2(25.14), sfx: [[Math.round((g2(24.53) - g2(24.3)) * FPS), "pop", 0.12]], el: (t) => (

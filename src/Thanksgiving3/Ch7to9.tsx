@@ -1,7 +1,7 @@
 import React from "react";
 import { useCurrentFrame } from "remotion";
 import * as B from "../Thanksgiving/Backgrounds";
-import { BigText, CalendarPage, StateGrid } from "../Thanksgiving/Graphics";
+import { BigText, CalendarPage } from "../Thanksgiving/Graphics";
 import { Avenue, DiningRoom, OvalOffice, SkyScroll, TrainCar, WhiteHouseLawn } from "./Bg2";
 import { Board, Episode, epDuration, makeAlign, Over, Shot, Steps, Svg, Swap } from "./Episode";
 import { Arch, Cam, Cap, Card, Note, PopIn, Puff, QMarks, Quill, Rig, Speed, Spr, Stamp, Tag } from "./Kit";
@@ -33,8 +33,8 @@ const SHOTS: Shot[] = [
   </>) },
   { a: ln(2), sfx: [[F(wd(2, "flown") - ln(2)), "whoosh", 0.15]], el: (t, dur) => (<>
     <Cam dur={dur} to={1.04}><Svg bg={<SkyScroll />}>
-      <Speed x={1150} y={560} at={t(wd(2, "flown"))} frames={8} dir={-1} />
-      <Spr s="Poses/supreme_ii/jaunty_in_flying_gear" x={960} y={880} h={600} at={t(wd(2, "flown"))} enter={{ from: "right", frames: 8 }} stress />
+      <Speed x={1150} y={560} at={0} frames={8} dir={-1} />
+      <Spr s="Poses/supreme_ii/jaunty_in_flying_gear" x={960} y={880} h={600} enter={{ from: "right", frames: 8 }} stress />
     </Svg></Cam>
     <Cap text="1921 · Supreme the Second" at={t(wd(2, "supreme"))} />
   </>) },
@@ -115,8 +115,8 @@ const SHOTS: Shot[] = [
     <Cap text="November 1926" pos="top" at={t(wd(25, "november"))} />
     <Cap text="Nitta Yuma, Mississippi" at={t(wd(25, "nitta"))} />
   </>) },
-  { a: ln(26), sfx: Array.from({ length: 12 }, (_, i) => [F(wd(26, "served") - ln(26)) + i * 2, "type_tick", 0.06] as [number, string, number]), el: (t, dur) => (
-    <Cam dur={dur} to={1.04}><Svg bg={<WhiteHouseLawn />} dim={0.5}><Note x={960} y={540} text="Serve for Thanksgiving!" at={t(wd(26, "served"))} w={1100} /></Svg></Cam>) },
+  { a: ln(26), sfx: Array.from({ length: 12 }, (_, i) => [2 + i * 2, "type_tick", 0.06] as [number, string, number]), el: (t, dur) => (
+    <Cam dur={dur} to={1.04}><Svg bg={<WhiteHouseLawn />} dim={0.5}><Note x={960} y={540} text="Serve for Thanksgiving!" at={2} w={1100} /></Svg></Cam>) },
   { a: ln(27), el: (t, dur) => (<>
     <Cam dur={dur} from={1.2} to={1.25} ox="64%" oy="78%"><Svg bg={<WhiteHouseLawn />}><Spr s="Poses/rebecca/startled_in_shipping_crate" x={1250} y={990} h={360} /></Svg></Cam>
     <Cap text={'"Toothsome flavor"'} at={t(wd(27, "toothsome"))} />
@@ -251,13 +251,19 @@ const SHOTS: Shot[] = [
     <Cap text="Football coaches complained" at={t(wd(63, "football"))} />
   </>) },
   { a: ln(64), el: (t, dur) => {
-    const n23 = 22, n30 = 23;
-    const labels = [...Array(n23).fill("23"), ...Array(n30).fill("30"), "BOTH", "BOTH", "BOTH"];
+    const G: React.FC = () => {
+      const f = useCurrentFrame();
+      const t1 = t(wd(65, "twenty")), t2 = t(wd(66, "twenty")), t3 = t(wd(67, "three"));
+      return <>{Array.from({ length: 48 }, (_, i) => {
+        const col = i < 22 ? (f >= t1 ? "#9fd88a" : "#dfe4ea") : i < 45 ? (f >= t2 ? "#f6c98a" : "#dfe4ea") : (f >= t3 ? "#d7a6f0" : "#dfe4ea");
+        const lab = i < 22 ? (f >= t1 ? "23" : "") : i < 45 ? (f >= t2 ? "30" : "") : (f >= t3 ? "BOTH" : "");
+        const x = 210 + (i % 12) * 125, y = 330 + Math.floor(i / 12) * 125;
+        return <g key={i} transform={`translate(${x} ${y})`}><rect x={-54} y={-48} width={108} height={96} rx={12} fill={col} stroke="#1d1712" strokeWidth={5} /><text y={14} textAnchor="middle" fontFamily="Montserrat" fontWeight={800} fontSize={lab.length > 2 ? 26 : 38} fill="#1d1712">{lab}</text></g>;
+      })}</>;
+    };
     return (<>
-      <Cam dur={dur} to={1.03}><Svg bg={<B.PlateBg />}>
-        <StateGrid labels={labels} at={t(wd(65, "twenty")) - 2} cols={12} color={(i) => (i < n23 ? "#d8f0c8" : i < n23 + n30 ? "#f6d7a8" : "#e7c6f0")} />
-      </Svg></Cam>
-      <Cap text="States could not agree" pos="top" at={2} until={t(wd(65, "twenty"))} />
+      <Cam dur={dur} to={1.03}><Svg bg={<B.PlateBg />}><G /></Svg></Cam>
+      <Cap text="The states could not agree" pos="top" at={2} until={t(wd(65, "twenty"))} />
       <Cap text="22 states: Nov 23" pos="top" at={t(wd(65, "twenty"))} until={t(wd(66, "twenty"))} />
       <Cap text="23 states: Nov 30" pos="top" at={t(wd(66, "twenty"))} until={t(wd(67, "three"))} />
       <Cap text="Texas, Colorado, Mississippi: both" pos="top" at={t(wd(67, "three"))} size={60} />
