@@ -1,145 +1,177 @@
 ---
 name: 2d-animation
-description: 2D cartoon explainer animation for this Remotion repo. Use when the user asks to analyze an animation/video's style (frame by frame, characters, backgrounds, graphics, sound effects), sends character/model sheets to analyze, cut or rig, asks for historical figures as caricature characters, or wants to design, script, storyboard or build 2D animated explainer scenes, characters, backgrounds, title cards, stamps or sound plans in that style. Triggers: "2d animation", "character sheet", "model sheet", "rig this character", presidents/politicians as cartoons, "analyze this animation", "animation style", "make a scene/character/episode in this style", Google Drive or video links to study.
+description: 2D cartoon history-explainer animation for this Remotion repo, in the house style measured frame by frame from the user's 18 reference clips ("Every Presidential Last" style), with Quill the owl playing the reference's "Flappy" mascot role. Use when the user asks to make or fix animated scenes or episodes, characters, expressions, talking/walking/war/slapstick animation, archive photo shots, maps, charts, timelines, captions, name cards, LAST stamps, FX or SFX; when they send character sheets or layered character packs to cut or rig; when they want historical figures as caricatures; or when they ask to analyze a reference animation. Triggers: "2d animation", "make chapter/scene/episode", "character sheet", "rig", "flappy", "Quill", "stamp", "map", "archive", "analyze this animation", Drive/video links to study.
 ---
 
-# 2D Animation (explainer-cartoon style)
+# 2D Animation: house style + production pipeline
 
-This repo is a **Remotion** project (`src/Root.tsx`, 1920x1080 @ 30 fps; `npm run dev`, `npx remotion render src/index.ts <Id> out/<name>.mp4`). Installed helpers: `@remotion/shapes`, `@remotion/paths`, `@remotion/transitions`, `@remotion/noise`, `@remotion/motion-blur`, `@remotion/lottie`, `@remotion/google-fonts`.
+This repo is a **Remotion** project (`src/Root.tsx`, 1920×1080 @ 30 fps).
+- **Preview:** `npx remotion studio src/index.ts --port 3000`.
+- **Render:** `npx remotion render src/index.ts <Id> out/<name>.mp4`.
+- **Fonts:** come from `src/fonts.ts` (Montserrat 800, Oswald 700, bundled in `public/fonts`). Google Fonts is blocked in the cloud sandbox.
 
-The house style is documented in `references/explainer-style-guide.md` (derived from a frame-by-frame study of a 23-min comedy history explainer). **Read it before designing or building anything.** Characters follow `references/character-style-guide.md` (house character style from the user's model sheets: likeness caricatures, head ≈47% of height, ink strokes, Quill the owl narrator). **Read it before making or rigging any character.**
+**Before building anything, read the references:**
+| File | What it holds |
+|---|---|
+| `references/style-bible.md` | **The house style.** Measured frame by frame from the 18 reference clips: acting, expressions, talk/walk/war/slapstick timing, entrances, camera, Flappy→Quill, text, the LAST stamp, maps/charts/timelines, transitions, FX library, archive treatment, backgrounds, sound. Every recipe has frame counts. Look up the section for the beat you're building and match it exactly |
+| `references/clip-notes.md` | The raw per-clip observations (timestamps, frame numbers) behind the bible. Open it to see how a specific effect was used in context |
+| `references/character-style-guide.md` | The user's own character sheets: likeness caricatures, proportions, Quill's design |
 
-## Attachment rule — nothing floats (applies to EVERY character, body part and prop)
+## The style in one screen (details and frame counts in style-bible.md)
 
-Every body part must stay visibly connected to its parent in **every frame** of the animation — at rest, at the extremes of every motion, and in every in-between:
-- **Arms** start at a shoulder joint placed **inside** the torso silhouette (≥4 units in from the edge) and are drawn **behind** the torso, so they always emerge from the body. An arm that crosses in front of the body (holding a prop, hand on chest) uses `front: true` and still starts from that inside joint.
-- **Hands are glued to the arm's end in every frame, especially while talking or gesturing**, when arms move the most.
-  - Every hand part declares its **wrist anchor**: the pixel on the ink where the fingers converge. It also declares its finger direction and its exact PNG size: `{ file, size, anchor, dir }` in the `RigDef`.
-  - The puppet pins that anchor pixel to the forearm's end point and rotates the hand to continue the forearm's **curve tangent**. The hand moves *with* the arm and can never drift, gap or point the wrong way.
-  - Never place a hand by bounding box, padding or a guessed offset; that is what makes hands float.
-  - Never show a hand whose arm is hidden. If the arm runs behind the torso, swing it out so the arm visibly leads to the hand, or tuck the hand away too.
-- **Legs** start at hip joints **inside** the torso, above the hem (hidden under the jacket), and end exactly on the ground line (hipY + thigh + shin = 0). Feet attach to the ankle end of the shin.
-- **Head** overlaps the torso/collar (chin below the torso top). There must be no gap and no visible neck unless the sheet draws one. Head tilt rotates around the chin/neck pivot so the head never slides off the body.
-- **Props** are parented to the hand that holds them (`grip` hand, position from `armEnd()`), never placed independently in screen space.
-- **Wings, tails, ears, hats and glasses** (e.g. Quill) are anchored by their root to the body or head and move with that parent.
-- Joints rotate and parts never translate apart. Squash, stretch or bobbing apply to the whole parent group, so children follow.
+- **Motion:** everything moves on 1s (fire on 2s). Every shot slowly pushes or pans. Expressions, mouths and poses are **1-frame swaps**; violent actions are **FX smears plus a swap to the result**, never animated in-betweens. Comedy is **deadpan**.
+- **Talking:** only the speaker's mouth moves, in **3–5-frame open/closed holds** with 2 closed variants. The mouth is closed in pauses and the brows are locked. Listeners hold and react **about 4 frames after** each beat.
+- **Expressions:**
+  - Sweat drops (worry), tears, red anger vein, red "?" marks, pink blush.
+  - "X X" eyes plus a spirit whoosh (death); a grey-purple tint on one character (sulking).
+  - Shocked: huge round eyes with tiny pupils.
+- **Walking:** 16-frame stride with a 2–3% body bob and no lip movement. Tracking walks scroll the background; crowds walk in 2–3 depth rows.
+- **War:**
+  - Armies are grids of duplicated sprites.
+  - Red jagged muzzle blasts (2–3 f) and impacts (2–4 f); a red spiky splat (4–5 f) when someone is shot.
+  - Ducking uses white speed lines (3 f). Pull-back reveals take 9 f.
+- **Slapstick:** a red crescent smear (6 f) for a kick or punch, then a 1-frame swap to fallen with **legs flailing every frame**. The get-up is a 1-frame swap.
+- **Camera:** emphasis push-ins of 4–12 f land on the gag; reveal pans of about 36 f; a 5 f re-frame to a close-up before a stamp.
+- **Quill = Flappy:** in story scenes **Quill's beak stays closed**. He is the small (70–80% height) reactor, peeker, presenter (glasses plus pointer), companion and skeptic, often cropped in the bottom-left foreground. His signatures are the sweat drop and the side-eye. He lip-syncs **only** when narrating to camera in his studio.
+- **Text:**
+  - **Captions:** white Montserrat ExtraBold caps with a thin black outline and a shadow, **hard on/off**, swapped in place. Dates and places bottom-centre, years top-centre.
+  - **Name cards:** the shot darkened about 70%, 1–2 s, then a hard cut back.
+  - **Bubbles:** pop in 4 f with **typewriter text at about 15 characters/second**; shout bubbles are spiky.
+- **LAST stamp:**
+  - **Entry:** frame 0 at about 3× size, settling to a corner in **5–6 frames, ease-out**, rotated −3 to −15°.
+  - **Background:** darkens about 40% over 6–8 f *after* landing; the character reacts about 4 f later.
+  - **Variants:** red ink with no box on light scenes; white ink with a translucent dark box on dark scenes.
+  - **Sound and exit:** a sub-bass thump on landing; it holds or fades out over 4–6 f.
+- **Graphics:**
+  - **Maps:** mottled blue water, beige land with white coastline rings, red target fill or a colour cross-fade fill, pins and waving flag icons, sprite armies marching, an 18 f zoom into a region.
+  - **Charts:** red-up and blue-down zig-zag arrows drawing on in 10–12 f.
+  - **Money:** stacks dropping in 8 f.
+  - **Timelines:** head icons on a dark-teal plate, popping in over 7 f with overshoot.
+  - **Placement:** over the **dimmed location backdrop**.
+- **Archive:** portraits in a small centred box on black; engravings full-frame with a thick black vignette. Sepia or black-and-white, grain, scratches and flicker, always a slow push. Occasionally **cartoon eyes and mouth are composited on the photo** to make it talk. Cut hard from archive to cartoon.
+- **Backgrounds:** painted, softer and more detailed than the characters, with **heavy motivated lighting** (candle glow, moonlight, light beams, spotlights). Vehicles are more detailed than the characters.
+- **Sound:** −16 to −17.5 LUFS, near mono, one narrator. The music bed sits about 18 dB under the VO and never goes silent, except a drop-out just before a reveal. Each SFX lands on the visual's frame:
+  - **Sub-bass thump:** stamp, kick or punch.
+  - **Gunshot:** boom plus crack.
+  - **Engulfed in fire:** a fire whoomp.
+  - **Vehicle crash-in:** rumble plus whoosh.
+  - **Deadpan gags:** no SFX at all.
+
+## Attachment rule: nothing floats (every character, body part and prop)
+
+Every body part must stay visibly connected to its parent in **every frame**: at rest, at the extremes of every motion, and in every in-between.
+- **Arms:** start at a shoulder joint placed **inside** the torso silhouette (at least 4 units in from the edge) and are drawn **behind** the torso. An arm crossing in front of the body uses `front: true` and still starts from that joint.
+- **Hands:** **glued to the arm's end, especially while talking or gesturing.**
+  - Each hand declares its wrist anchor (the pixel on the ink where the fingers converge), its finger direction and its exact PNG size: `{ file, size, anchor, dir }`.
+  - The puppet pins the anchor to the forearm's end and continues the forearm's curve tangent. Never place a hand by bounding box or a guessed offset.
+  - Never show a hand whose arm is hidden.
+- **Legs:** start at hip joints inside the torso, above the hem, and end exactly on the ground line. Feet attach to the ankle end.
+- **Head:** overlaps the collar (the chin below the torso top), with no gap and no neck unless the sheet draws one. Tilt rotates around the chin pivot.
+- **Props:** parented to the hand that holds them; never placed independently. Wings, tails, hats and glasses are anchored to their parent.
+- **Joints:** rotate; parts never translate apart. Squash and bob apply to the whole parent group.
 
 **Enforce it:**
-1. Run `python3 -I .claude/skills/2d-animation/scripts/check_rig.py <RIG_NAME>` after creating or editing any `RigDef` or `ARM_POSES`, and fix every FAIL using the suggested values. It checks the joints against the real part PNG alpha, the chin overlap, the ground contact, the hand wrist anchors (on the ink, size matches the file), and that each arm pose reads as one connected piece.
-2. When an animation drives angles beyond the presets (waves, swings, walk cycles), check the extreme angles too.
-3. Render stills at full resolution and zoom in on the shoulders, hips, wrists and neck before rendering the full video.
-4. The same rule applies to hand-built SVG characters (`Person`, `Emu` in `src/EmuWar/Characters.tsx`): limb strokes start inside the body shape.
+1. Run `python3 -I .claude/skills/2d-animation/scripts/check_rig.py <RIG>` (sheet rigs) or `check_layer_rig.py` (layered packs, Mode D) after any rig or pose change, and fix every FAIL.
+2. Check the extreme angles of any custom motion.
+3. Render full-resolution stills and zoom into the shoulders, hips, wrists and neck before the full render.
 
-## Character animation rules (measured frame by frame on the reference video)
+## Live preview before rendering (always)
 
-Characters must never stand frozen. In the reference, on-screen characters "perform" the narration even though the narrator is speaking:
+1. Run `npx remotion studio src/index.ts --port 3000` in the background and call `report_preview_port` with port 3000 (name "studio").
+2. Also render a **half-resolution preview** (`--scale=0.5 --crf=28`) and send it with `SendUserFile`, because the Studio may not open in the app.
+3. Render 1080p **only after the user approves** the preview. Normalise the audio to −16 LUFS (`ffmpeg -c:v copy -af loudnorm=I=-16:TP=-1.5:LRA=9`).
 
-1. **Lip-sync on whoever the shot is about.**
-   - That character's mouth flaps to the VO; everyone else keeps their mouth closed.
-   - Mouths are whole-head swaps (neutral ↔ talking). Each state is **held 3–5 frames**, measured as open 3, closed 4, open 5…, never every 1–2 frames.
-   - The mouth is **closed through pauses** in the voice.
-   - Implemented as `mouthAt()` and `speak` in `src/Thanksgiving/LayerPuppet.tsx`. The shot wrapper passes the VO envelope and offset through `TalkContext`.
-2. **Talking body language.**
-   - A talking character raises both arms into an "explaining" pose (`ARMS.explain`, `ARMS.lift`). The arms **wobble every frame**: shoulder about ±4–7°, elbow about ±6°.
-   - Each open-mouth accent gets a small head nod and body bob that settle over about 4 frames.
-   - Expressions (brows) are **held** while talking. Only the mouth changes.
-3. **Idle is never zero.** Characters always have breathing and a slow head sway (±1.5°), and every shot also has the slow camera push. Per-frame difference in the reference is never 0 inside a shot.
-4. **Big actions are fast and then held.**
-   - Falls, hits and jumps are 2–4 frame tweens (`fall` prop: tip over 100° in 4 f) into a held pose with **limbs flailing** (legs and arms keep wiggling).
-   - Hits get a 1–2 frame red smear.
-   - Pose changes are hard swaps or cuts, never slow in-betweens.
-5. **Close-ups for talking.** Talking beats are often framed head-and-shoulders (camera pushed in to about 1.3–1.6× on the face). Wide shots carry crowds and setups.
-6. **Stamps** enter **full-screen at about 3× scale and slam to their corner in 3 frames**. The scene behind dims to about 45% and stays dim while the stamp holds (`StampCard`).
-7. **Pose cutouts are short.** Finished story-pose drawings cannot lip-sync. Use them for 1–3 s action beats (signing, handing out beer, refusing). For longer talking beats, use a `LayerPuppet` with `speak`, then cut to the pose for the action (as in `MadisonBeat`).
-
-Every new episode must meet these rules before the user previews it.
-
-## Live preview before rendering
-
-Never render the final video without first giving the user a live preview:
-1. Run `npx remotion studio src/index.ts --port 3000` in the background, then call `report_preview_port` with port 3000 (name "studio").
-2. Tell the user the composition id to open (e.g. `ThanksgivingCh1to3`). They can scrub, play with audio and request changes. Studio hot-reloads every code edit.
-3. Render 1080p **only after the user approves** the preview.
-
-## Mode C — Characters (sheets, rigs, likeness)
-
-**C1. The user provides a character sheet (preferred — sheets are canon, never redraw them):**
-1. Save it to `public/characters/sheets/<name>.<ext>`.
-2. `python3 -I .claude/skills/2d-animation/scripts/extract_parts.py detect <sheet> public/characters/<name> --min 400` → Read `_boxes.png` (numbered blobs).
-3. Write `public/characters/<name>/parts.json` mapping names → blob numbers (or `[x,y,w,h]`), using the standard names: `pose_front|pose_three_quarter|pose_profile|pose_<story>`, `head_neutral|head_speaking|head_reaction`, `torso_front|torso_three_quarter`, `hand_relaxed|hand_open|hand_point|hand_grip`, `prop_<thing>`; then `extract_parts.py cut <sheet> public/characters/<name> parts.json`. Labels under drawings are stripped automatically; transparent sheets keep their alpha, white-paper sheets get the paper keyed out.
-4. Review all parts on a coloured background (montage) before use.
-5. Add a `RigDef` in `src/rig/characters.ts` (measure on a gridded `pose_front`: `torsoTop`, `chinY`, shoulders, hips, limb lengths, `partScale` ≈ pose-head-width / head-png-width), measure each hand's wrist anchor and finger direction on a 5x gridded zoom of the hand PNGs, run `check_rig.py` until it reports OK (attachment rule above), render the `HandTest` composition (every hand, both sides, an angle sweep) and zoom in on the wrists, then check side-by-side in the `RigTest` composition (sheet pose vs puppet) and iterate until they match.
-6. Animate with `<SheetPuppet>` (`src/rig/SheetPuppet.tsx`): head swaps for expressions/lip-flap (neutral↔speaking every 4–6 f), `ARM_POSES` presets (down, hips, wave, point, shrug, hold), `walk` phase, `headTilt`/`bob` idle, `props` slot. For big story beats, hard-cut to the sheet's full `pose_<story>` PNG instead of puppeting.
-   Gerald Ford is fully cut and rigged (`GERALD_FORD`); Nixon, Kissinger, the courtroom ensemble and Quill have `_boxes.png` ready — cut them when first needed.
-
-**C2. No sheet — build the likeness from reference:**
-1. Find public-domain reference portraits (official portraits / Wikimedia Commons) with WebSearch; if the image host is blocked, propose `upload.wikimedia.org` / `commons.wikimedia.org` via the environment tools or ask the user to upload photos.
-2. List 4–6 likeness keys (hairline/hair mass, nose shape, brows, jaw/jowls, glasses, ears) and exaggerate them 20–40% on the house head template (see the guide's table for format).
-3. Draw as layered SVG matching the sheet conventions (head, torso, stroke limbs, 3 expressions), render a turnaround still, show the user, iterate.
-4. Be honest: hand-built SVG caricatures are approximate; for exact matches ask the user for a sheet (C1). Caricature real public figures respectfully (educational/comedy), never private individuals.
-
-## Mode D — Episode from script + voiceover + layered character packs (the production pipeline)
+## Mode D: episode from script + voiceover + layered character packs (the production pipeline)
 
 Used for "Every President's Thanksgiving" (`src/Thanksgiving/`, composition `ThanksgivingCh1to3`). Repeat it for later chapters.
 
 1. **Inputs.**
-   - Read the script (`.docx`: unzip, read `word/document.xml` text).
+   - Read the script (`.docx`: unzip, read the text of `word/document.xml`).
    - Note the VO files and their durations.
-   - Unzip the character pack into the scratchpad. Each character folder has `Cutouts/` (finished poses, heads, torso) and `Puppet_Layers/` (`Rig_*.png` parts + `Positions_720px.csv`). Shared props are in `Shared_Props/`.
-   - Copy only the PNGs/CSV into `public/<project>/<character>/` and the props into `public/<project>/props/`. Never commit PSDs or 8K sheets: they are references, palette-mode upscales with no extra detail.
-2. **VO → timings (no ASR is available here).**
-   - Write one script line per sentence/beat for each audio file, then run `python3 -I .claude/skills/2d-animation/scripts/align_script.py <audio> <lines.txt> <out.json>`.
-   - It maps the script's syllables onto detected syllable peaks and snaps line ends to breaths. It also writes `<out>.env.json`, a 100 Hz loudness envelope for beak/mouth flaps.
-   - Check chapter starts by reading the loudness envelope around the predicted heading (look for the pause pattern), and trim with ffmpeg `-ss`.
-   - Accuracy is ±0.5 s, fine for shot cuts. Say so to the user.
+   - Unzip the character pack into the scratchpad. Each character has `Cutouts/` (finished poses, heads, torso) and `Puppet_Layers/` (`Rig_*.png` plus `Positions_720px.csv`); props are in `Shared_Props/`.
+   - Copy only the PNGs and the CSV into `public/<project>/<character>/`. Never commit PSDs or 8K sheets.
+2. **VO → timings** (no ASR here).
+   - Write one script line per sentence for each audio file, then run `python3 -I .claude/skills/2d-animation/scripts/align_script.py <audio> <lines.txt> <out.json>`.
+   - It outputs sentence times (±0.5 s; tell the user) and `<out>.env.json`, a 100 Hz loudness envelope for mouth timing.
+   - Trim chapter starts with ffmpeg `-ss` at the heading's pause.
 3. **Rig metadata.**
-   - `python3 -I .claude/skills/2d-animation/scripts/layer_rig_meta.py public/<project> src/<Project>/rigmeta.json` measures every part: limb joint ends, the head's chin, and the torso outline.
-   - The CSV positions are only *proposals*. Assembled raw, the head floats above the collar and the arms sit outside the coat, which breaks the attachment rule. `LayerPuppet` re-lays the parts:
-     - the chin overlaps the collar;
-     - shoulders sit 12 px inside the torso edge, hips under the hem;
-     - each limb is a **nested joint chain** (shoulder > upper arm > elbow > forearm > wrist > hand; hip > thigh > knee > shin > ankle > foot), so parts cannot detach.
+   - Run `python3 -I .claude/skills/2d-animation/scripts/layer_rig_meta.py public/<project> src/<Project>/rigmeta.json`.
+   - The CSV positions are only proposals. `LayerPuppet` re-lays the parts so the chin overlaps the collar, shoulders sit 12 px inside the torso edge and hips sit under the hem, with each limb a nested joint chain.
 4. **Attachment check.**
-   - Run `python3 -I .claude/skills/2d-animation/scripts/check_layer_rig.py public/<project> src/<Project>/rigmeta.json src/<Project>/LayerPuppet.tsx`. Every character must report OK for every `ARMS` preset.
-   - Wide coats need about 36° of shoulder swing for a hanging arm to emerge from the coat.
-   - Props that must be *held* while moving come from the finished pose cutouts (e.g. "Carrying a letter"), never floated next to a puppet.
-5. **Shots.** One entry per script sentence in `SHOTS`, `{ a, b, el, sfx }`, in global seconds. House grammar:
-   - **Chapter headings:** darkened name card ("NAME" + "N · SUBTITLE") over the first shot, held while the heading is read.
-   - **Every shot:** a slow camera push; fact captions in Montserrat caps; grunge rubber-stamp punchlines; blue info plates for abstract beats.
-   - **Characters:** follow the *Character animation rules* above. The shot's subject is a `LayerPuppet` with `speak` (lip-sync plus gestures); finished pose cutouts are only for short action beats. `QuillPuppet` hosts, and his beak flaps on the same mouth timing.
-   - **Sound:** one SFX per beat (whoosh on cut, pop on caption, thud on stamp, paper/scribble for letters, ding for the scoreboard); music bed at about 0.09 under the VO.
+   - Run `python3 -I .claude/skills/2d-animation/scripts/check_layer_rig.py public/<project> src/<Project>/rigmeta.json src/<Project>/LayerPuppet.tsx`. Every character must be OK for every `ARMS` preset.
+   - Held props come from the finished pose cutouts.
+5. **Shot list.**
+   - One entry per script sentence in `SHOTS` (`{ a, b, el, sfx }`, global seconds).
+   - Build every beat from the matching style-bible recipe: name card on chapter headings, captions, stamps on the "last" punchlines, maps and archives for history beats, Flappy-style Quill beats, and an FX plus SFX on every action.
+   - **Characters:**
+     - The shot's subject is a `LayerPuppet` with `speak`.
+     - Finished pose cutouts are only for 1–3 s action beats.
+     - `QuillPuppet` has its beak closed in story scenes and lip-syncs only on narration-to-camera shots.
 6. **Backgrounds** (`src/Thanksgiving/Backgrounds.tsx`): painted SVG sets.
-   - Interiors: Studio (Quill), Chamber, Study (`sepia` for flashbacks), EditorOffice, LincolnOffice, Prison.
-   - Exteriors: FederalHall, Chapel, Hills, Village.
-   - Plate: PlateBg.
-   - Reuse and extend them; keep the soft painted look (gradients, light beams, texture, vignette).
-7. **Review.** Render a quarter-scale draft, then pull one mid-frame per shot into contact sheets and fix overlaps and overflowing text. Then render key puppet frames at full resolution and zoom into the joints. Then start the **live preview** (Remotion Studio) and wait for the user's go-ahead before rendering 1080p.
+   - **Interiors:** Studio, Chamber, Study (`sepia`), EditorOffice, LincolnOffice, Prison.
+   - **Exteriors:** FederalHall, Chapel, Hills, Village.
+   - **Plate:** PlateBg.
+   - **Extending them:** add sets in the bible's lighting-heavy painted style.
+7. **Review.**
+   - Render a quarter-scale draft and pull one mid-frame per shot into contact sheets.
+   - Fix overlaps and overflowing text.
+   - Zoom into the joints at full resolution.
+   - Do the **live preview** (above) before the 1080p render.
 
-## Mode A — Analyze a reference video
+## Mode C: characters (sheets, rigs, likeness)
 
-1. **Get the file.** Drive links: `curl -sSL -o <dir>/video.mp4 "https://drive.usercontent.google.com/download?id=<FILE_ID>&export=download&confirm=t"` into a fresh scratchpad folder (hosts `drive.usercontent.google.com`, `drive.google.com` are allowed in the "2d animation" environment). If blocked, check proxy status and propose the host via environment tools.
-2. **Run** `bash .claude/skills/2d-animation/scripts/analyze_video.sh <video> <outdir> [step_s]` → cuts, timestamped contact sheets, motion stats, loudness, spectrogram.
-3. **Look** at every contact sheet (Read the PNGs). Then pick 4–6 representative moments (title card, dialogue, gag, transition, effect) and run `scripts/frame_strip.sh` on each to see every frame and per-frame change (YDIF 0 = held frame → reveals animating on 1s/2s/3s, holds, pose swaps, camera moves).
-4. **Report** under these headings: Format & structure · Character design · Animation & timing (frame-level evidence) · Backgrounds · Typography & graphics · Colour & lighting · Sound design (measured: loudness, mono/stereo, VO/music/SFX density) · Production recipe. Be honest about limits (resolution, audio is measured not heard, sampled not all frames).
-5. Save the report as a `.md` in the repo and commit/push to the session branch.
+**C1. The user provides a character sheet** (preferred; sheets are canon and are never redrawn):
+1. Save it to `public/characters/sheets/<name>.<ext>`.
+2. Run `python3 -I .claude/skills/2d-animation/scripts/extract_parts.py detect <sheet> public/characters/<name> --min 400`, then read `_boxes.png`.
+3. Write `parts.json` with standard names: `pose_*`, `head_neutral|head_speaking|head_reaction`, `torso_*`, `hand_relaxed|open|point|grip`, `prop_*`. Then run `extract_parts.py cut <sheet> public/characters/<name> parts.json`.
+4. Review the parts as a montage on a coloured background.
+5. Add a `RigDef` in `src/rig/characters.ts`:
+   - Measure on a gridded `pose_front`, and measure the hand wrist anchors on a 5× gridded zoom.
+   - Run `check_rig.py` until it reports OK.
+   - Render `HandTest` and `RigTest` and compare with the sheet.
+6. Animate with `<SheetPuppet>` (`src/rig/SheetPuppet.tsx`). Gerald Ford is rigged (`GERALD_FORD`). Nixon, Kissinger, the courtroom set and the original Quill sheet have `_boxes.png` ready.
 
-## Mode B — Build animation in the style (Remotion)
+**C2. No sheet: build the likeness from reference.**
+- **References:** find public-domain portraits (official portraits, Wikimedia Commons). If the image host is blocked, propose the host via the environment tools or ask the user for photos.
+- **Exaggerate:** pick 4–6 likeness keys and exaggerate them 20–40% on the house head template.
+- **Draw and approve:** draw as layered SVG, render a turnaround still and get approval.
+- **Be honest:** these are approximate. For exact matches ask for a sheet. Caricature public figures respectfully only.
 
-Follow the style guide; key rules:
+## Mode A: analyze a new reference video
 
-- **Characters**: original designs only (never copy a specific show's characters/mascot). Bean body, big head (~45% height), thick uniform black outline (~6–8 px at 1080p), stick-line limbs with no hands, dot eyes, thick brow strokes carrying emotion, hook nose, line mouth. Identity via hair/facial hair/costume props on a shared face template. Build as SVG React components with props: `expression`, `mouth` (2–4 shapes), `hair`, `outfit`, `colors`.
-- **Animation**: rigged/puppet feel on 1s — use `interpolate`/`spring` with easing for transforms; idle sway (`@remotion/noise` or small sine on rotation ±1–2°); **expressions & mouths swap instantly** (switch by frame ranges, no tween); big beats = cut to new pose/shot.
-- **Camera**: every shot gets a slow push/pan (scale 1.0→1.03–1.05 over the shot). Shots 3–5 s; gags 1–2 s.
-- **Backgrounds**: softer, more detailed painted look than characters (gradients, texture, muted saturation); reusable sets (exterior lawn/sky, office interior, chamber) plus flat infographic plates (solid blue `#1E90FF` with beige map, red highlight).
-- **Name/title card**: shot darkened by 55% black overlay, centered white ALL-CAPS bold geometric sans (Montserrat ExtraBold via `@remotion/google-fonts/Montserrat`) with soft shadow, held ~24 frames, hard cut.
-- **Fact captions**: same font, white + drop shadow, lower or upper centre.
-- **Punchline stamp**: rotated (±5–15°) rectangle-bordered rubber-stamp text, 3–4 lines condensed caps, grunge texture (SVG turbulence filter mask), red-on-light or white-on-dark; enters with scale overshoot (spring, 1.4→1.0 in ~6 frames) synced to a thud SFX.
-- **Archival look**: sepia filter + grain + vignette for photo plates.
-- **Sound plan**: single VO is king; ducked music bed; one SFX per gag/cut (whoosh on moves, pop on text, thud on stamp, boom on impacts); mix mono-ish, target −16 LUFS. Use `<Audio>`/`<Sequence>` to place SFX on exact frames; list needed SFX if files are missing.
+1. **Get the files.**
+   - **Uploads:** copy them into a fresh scratchpad folder.
+   - **Drive links:** `curl -sSL -o <dir>/video.mp4 "https://drive.usercontent.google.com/download?id=<ID>&export=download&confirm=t"` (Drive hosts are allowed in the "2d animation" environment).
+2. **Overview:** `bash .claude/skills/2d-animation/scripts/analyze_video.sh <video> <outdir> [step_s]` gives cuts, timestamped contact sheets, motion stats, loudness and a spectrogram. Use 4 fps sheets (`step_s` 0.25) for short clips. Read **every** sheet.
+3. **Frame level:**
+   - Run `scripts/frame_strip.sh <video> <start> <dur> <out.png> [crop]` on every distinct technique: talk, walk, entrance, gag, FX, stamp, map move, chart, transition.
+   - It shows every frame plus per-frame change: 0 means a held frame, a spike means a swap or cut, constant means a pan or scroll, alternating high/low means animation on 2s.
+4. **Sound per beat:** compare band energy (30–150 / 150–600 / 600–3000 / 3000+ Hz) 0.5 s before and 0.4 s after each visual beat, plus loudness (`ebur128`), stereo side/mid and the noise floor in pauses.
+5. **Write it up:**
+   - Add raw notes per clip to `references/clip-notes.md`.
+   - Fold new or changed techniques into `references/style-bible.md` with frame counts.
+   - Update the summary above if a core rule changes.
+   - State the limits (resolution, audio measured not heard).
+   - Commit and push.
 
-Reusable pieces already in the repo (start from these):
-- `src/EmuWar/Characters.tsx` — `Person` (bean puppet: hats, moustache, brows/eyes/mouth swaps, arms, sweat, tears) and `Emu` (walk cycle, peck, smug).
-- `src/EmuWar/Scenery.tsx` — `Camera` (push/pan/shake), `Outback` painted BG, `Plate`, `NameCard`, `Caption`, `StampCard`, `SpeechBubble`, `MuzzleFlash`, `DustPuffs`.
-- `src/fonts.ts` — Montserrat 800 / Oswald 700 loaded from `public/fonts` (Google Fonts is blocked in the cloud sandbox; don't use `@remotion/google-fonts`).
-- SFX: `python3 -I .claude/skills/2d-animation/scripts/make_sfx.py public/sfx <seconds>` → whoosh, thud, pop, gunburst, squawk, boing, sad_trombone, music_bed. No TTS is installed, so without user-supplied VO, carry information with captions.
+## Reusable code
 
-Workflow: script → shot list (timecodes, shot type, characters, BG, text, SFX) → build components under `src/<ProjectName>/` → register a `<Composition>` in `src/Root.tsx` → render a short check (`--frames=0-90`) and inspect stills before full render → commit and push.
+| Area | Where |
+|---|---|
+| Layered puppets | `src/Thanksgiving/LayerPuppet.tsx`: `LayerPuppet` (`speak`, `fall`, `walk`, `ARMS` presets, expression heads), `QuillPuppet`, `mouthAt`, `TalkContext` |
+| Sheet puppets | `src/rig/SheetPuppet.tsx`, `src/rig/characters.ts` |
+| Hand-built SVG puppets | `src/EmuWar/Characters.tsx` (`Person`, `Emu`) |
+| Camera, cards, stamp, bubbles | `src/EmuWar/Scenery.tsx`: `Camera` (push/pan/shake), `NameCard`, `Caption`, `StampCard`, `SpeechBubble`, `MuzzleFlash`, `DustPuffs` |
+| Graphics | `src/Thanksgiving/Graphics.tsx`: proclamation, calendar, book, pie, church/state, state grid, scoreboard, letter stack, war split, bubbles |
+| Backgrounds | `src/Thanksgiving/Backgrounds.tsx` |
+| SFX | `python3 -I .claude/skills/2d-animation/scripts/make_sfx.py <dir> <seconds>`: whoosh, thud, pop, gunburst, squawk, boing, sad_trombone, paper, scribble, ding, music_bed |
+
+**Bringing existing code up to the bible** (do it when the feature is next used, and check against style-bible.md §11):
+- `StampCard`: 3 f → **5–6 f** ease-out, ink variants, darken *after* landing, optional fade-out.
+- `Caption`: spring pop → **hard on/off** with a thin black outline.
+- `NameCard`: 58% → **about 70%** darkening.
+- `LayerPuppet` talking: arms out and open with small adjustments (current wobble OK), listeners frozen except on beats; `fall` → 1-frame swap to fallen plus flailing.
+- `QuillPuppet`: add closed-beak story mode, glasses, pointer, sunglasses, sweat drop and side-eye swaps.
+- **New FX components:** smear, splat, speed lines, sparks, flames on 2s, smoke, puffs, "?", anger vein, X-eyes.
+- **New graphics:** map, region zoom, chart arrow, money stack, timeline.
+- **SFX kit:** sub-thump, boom plus crack, fire whoomp, crash-in, typewriter.

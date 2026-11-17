@@ -96,10 +96,10 @@ No part may ever float free or show a gap (see the "Attachment rule" in SKILL.md
   - Checking the pocket watch (time pressure).
   - **Cliffhanger** (raised wing finger).
 - **Motif:** name **dominoes** (AGNEW → NIXON → FORD) show the chain of succession; topple them for transitions.
-- Quill is the stand-in for the analysed video's on-screen host: he appears in most segments, reacts, and presents captions and props.
+- Quill plays **Flappy's role** from the reference (the eagle mascot): in story scenes he is a silent reactor, presenter and companion with his beak closed, and he only lip-syncs when narrating to camera. See `style-bible.md` §3 for every Flappy beat to copy.
 
 ## 7. How these combine with the explainer style
-- **Text styles:** keep the explainer video grammar from `explainer-style-guide.md`: darkened name cards, Montserrat ExtraBold captions, grunge "LAST" stamps, a slow push on every shot, painted backgrounds, a mono VO-first mix.
+- **Text, graphics, FX and sound:** follow `style-bible.md` (measured from the 18 reference clips): darkened name cards, outlined Montserrat ExtraBold captions, the stamp spec, maps, charts, FX library and the near-mono VO-first mix.
   - The sheets' hand-lettered marker caps are for sheet labels only.
   - Use comic lettering on screen only if the user asks.
 - **Scale:** keep the characters' on-screen scale consistent, because all sheets are drawn at the same ~380 px front-pose height. Use the same `scale` for everyone in a shot unless it's a deliberate close-up.
