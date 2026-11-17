@@ -10,6 +10,9 @@ import { Thanksgiving, TG_DURATION } from "./Thanksgiving";
 import { Thanksgiving2, TG2_DURATION } from "./Thanksgiving2";
 import { WalkTest } from "./Thanksgiving3/WalkTest";
 import { Thanksgiving3, TG3_DURATION } from "./Thanksgiving3";
+import { CH4_6_DURATION, ThanksgivingCh4to6 } from "./Thanksgiving3/Ch4to6";
+import { CH7_9_DURATION, ThanksgivingCh7to9 } from "./Thanksgiving3/Ch7to9";
+import { CH11_13_DURATION, ThanksgivingCh11to13 } from "./Thanksgiving3/Ch11to13";
 
 export const RemotionRoot: React.FC = () => (
   <>
@@ -24,6 +27,9 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="ThanksgivingColdOpenCh1" component={Thanksgiving2} durationInFrames={TG2_DURATION} fps={30} width={1920} height={1080} />
     <Composition id="TgWalkTest" component={WalkTest} durationInFrames={64} fps={30} width={1920} height={1080} />
     <Composition id="ThanksgivingFull" component={Thanksgiving3} durationInFrames={TG3_DURATION} fps={30} width={1920} height={1080} />
+    <Composition id="ThanksgivingCh4to6" component={ThanksgivingCh4to6} durationInFrames={CH4_6_DURATION} fps={30} width={1920} height={1080} />
+    <Composition id="ThanksgivingCh7to9" component={ThanksgivingCh7to9} durationInFrames={CH7_9_DURATION} fps={30} width={1920} height={1080} />
+    <Composition id="ThanksgivingCh11to13" component={ThanksgivingCh11to13} durationInFrames={CH11_13_DURATION} fps={30} width={1920} height={1080} />
     <Composition id="EmuWar" component={EmuWar} durationInFrames={EMU_WAR_DURATION} fps={30} width={1920} height={1080} />
   </>
 );

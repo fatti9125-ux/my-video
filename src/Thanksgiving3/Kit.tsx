@@ -1,10 +1,11 @@
 import React, { createContext, useContext } from "react";
-import { AbsoluteFill, Easing, interpolate, staticFile, useCurrentFrame } from "remotion";
+import { AbsoluteFill, Easing, Img, interpolate, staticFile, useCurrentFrame } from "remotion";
 import { MONTSERRAT, OSWALD } from "../fonts";
 import { mouthAt } from "../Thanksgiving/LayerPuppet";
 import META from "./sprites.json";
 import RIG from "./rig.json";
 import VO from "./vo.json";
+import ARCHIVES from "./archives.json";
 
 /**
  * Toolkit for the pose-swap character pack (public/tg2), built to references/style-bible.md.
@@ -18,16 +19,16 @@ const INK = "#1d1712";
 const FPS = 30;
 
 /** Per-shot timing context: `offset` = global VO seconds at the shot's frame 0. */
-export const ShotCtx = createContext<{ offset: number }>({ offset: 0 });
+export const ShotCtx = createContext<{ offset: number; env?: number[]; stress?: number[] }>({ offset: 0 });
 export const useShot = () => useContext(ShotCtx);
 
 const src = (key: string) => (key.startsWith("OLD/") ? `thanksgiving/${key.slice(4)}.png` : `tg2/${key}.png`);
 
 /** Rise-and-settle pulse (0..1) around the nearest stressed beat: up 3 f, settle 4 f. */
-const stressPulse = (f: number, offset: number) => {
+const stressPulse = (f: number, offset: number, stress: number[] = STRESS) => {
   const t = f / FPS + offset;
   let best = 0;
-  for (const s of STRESS) {
+  for (const s of stress) {
     const d = (t - s) * FPS;
     if (d < -1 || d > 8) continue;
     const p = d < 3 ? Math.max(0, (d + 1) / 4) : Math.max(0, 1 - (d - 3) / 5);
@@ -53,7 +54,7 @@ export type SprProps = {
 
 export const Spr: React.FC<SprProps> = ({ s, x, y, h, flip, at = 0, until, enter, stress, walk, drop, shake = 0, opacity = 1, children }) => {
   const f = useCurrentFrame();
-  const { offset } = useShot();
+  const { offset, stress: stressArr } = useShot();
   if (f < at || (until !== undefined && f >= until)) return null;
   const m = M[s];
   if (!m) throw new Error(`unknown sprite ${s}`);
@@ -74,7 +75,7 @@ export const Spr: React.FC<SprProps> = ({ s, x, y, h, flip, at = 0, until, enter
   let bob = 0;
   if (walk) { dx += walk * lf; bob = -Math.abs(Math.sin((lf / 16) * Math.PI)) * h * 0.025; }
   if (shake) { dx += Math.sin(f * 2.3) * shake; dy += Math.cos(f * 3.1) * shake * 0.4; }
-  const rise = stress ? stressPulse(f, offset) : 0;
+  const rise = stress ? stressPulse(f, offset, stressArr) : 0;
   const sy = 1 + Math.sin(f / 19) * 0.005 + rise * 0.028;   // breathing + rise, feet registered
   const sx = 1 - rise * 0.008;
   const sway = Math.sin(f / 37 + x) * 0.5;
@@ -91,11 +92,11 @@ export const Spr: React.FC<SprProps> = ({ s, x, y, h, flip, at = 0, until, enter
 /** Quill: closed beak by default (Flappy rule); `talk` = lip-sync to the VO in 3-5-frame holds. */
 export const Quill: React.FC<Omit<SprProps, "s"> & { pose: string; talk?: boolean; blinkHold?: boolean }> = ({ pose, talk, blinkHold, ...p }) => {
   const f = useCurrentFrame();
-  const { offset } = useShot();
+  const { offset, env } = useShot();
   const talkable = ["speaking_facing_right", "deadpan_wings_folded", "nervous_side_glance", "scoreboard_facing_left", "pardon_plea"].includes(pose);
   let key = `Poses/quill/${pose}`;
   if (talkable) {
-    const m = mouthAt(f, ENV, offset);
+    const m = mouthAt(f, env ?? ENV, offset);
     key = `Poses/quill/${pose}__${talk && m.open ? "open" : "closed"}`;
     if (blinkHold && !(talk && m.loud) && f % 70 >= 64) key = "Poses/quill/blink";
   }
@@ -314,7 +315,7 @@ const LIMB = (l: Limb, rot: number) => (
  */
 export const Rig: React.FC<RigProps> = ({ c, pose, x, y, h, flip, at = 0, until, walk = 0, walkUntil, gesture = 0, stress, bounce = 0, enter }) => {
   const f = useCurrentFrame();
-  const { offset } = useShot();
+  const { offset, stress: stressArr } = useShot();
   if (f < at || (until !== undefined && f >= until)) return null;
   const key = `${c}/${pose}`;
   const r = R[key];
@@ -337,7 +338,7 @@ export const Rig: React.FC<RigProps> = ({ c, pose, x, y, h, flip, at = 0, until,
   const stride = 2 * L * Math.sin((AMP * Math.PI) / 180);                         // per 16 f
   const travel = walk === 0 ? 0 : Math.sign(walk) * Math.abs(walk) * (stride * k / 16) * tW;
   // talking gesture
-  const rise = stress ? stressPulse(f, offset) : 0;
+  const rise = stress ? stressPulse(f, offset, stressArr) : 0;
   const breathe = Math.sin(f / 19) * 0.005;
   let dx = travel, dy = 0;
   if (enter) {
@@ -369,5 +370,45 @@ export const Rig: React.FC<RigProps> = ({ c, pose, x, y, h, flip, at = 0, until,
         </g>
       </g>
     </g>
+  );
+};
+
+/**
+ * Archive image (style bible §8): real public-domain scan/photo, old-film treatment —
+ * sepia/B&W grade, animated grain, a few flickering scratches, brightness flicker, heavy vignette,
+ * slow push. `mode`: "doc" = tall document centred on dark brown; "portrait" = small centred box on
+ * black; "wide" = full frame with a thick black vignette border.
+ */
+export const Arch: React.FC<{ src: string; mode?: "doc" | "portrait" | "wide"; dur: number; sepia?: number; focus?: [number, number]; zoom?: [number, number] }> = ({ src: file, mode = "doc", dur, sepia = 0.55, focus = [50, 40], zoom = [1, 1.07] }) => {
+  const f = useCurrentFrame();
+  const z = interpolate(f, [0, dur], zoom, { extrapolateRight: "clamp" });
+  const have = (ARCHIVES as string[]).includes(file);
+  const flick = 1 + Math.sin(f * 1.7) * 0.02 + Math.sin(f * 0.37) * 0.015;
+  const seed = f % 9;
+  const box: React.CSSProperties = mode === "wide"
+    ? { position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }
+    : mode === "portrait"
+      ? { position: "absolute", left: "50%", top: "50%", height: 800, transform: "translate(-50%,-50%)", boxShadow: "0 0 60px #000" }
+      : { position: "absolute", left: "50%", top: "50%", height: 1000, transform: "translate(-50%,-50%)", boxShadow: "0 0 80px #000" };
+  return (
+    <AbsoluteFill style={{ background: mode === "portrait" ? "#050403" : "radial-gradient(circle at 50% 45%, #3a2a1c 0%, #120c07 75%)", overflow: "hidden" }}>
+      <AbsoluteFill style={{ transform: `scale(${z})`, transformOrigin: `${focus[0]}% ${focus[1]}%`, filter: `sepia(${sepia}) contrast(1.08) brightness(${flick})` }}>
+        {have ? <Img src={staticFile(`tg2/archive/${file}.jpg`)} style={box} /> : (
+          // scan not downloaded yet: aged blank document placeholder in the same treatment
+          <div style={{ ...box, width: mode === "portrait" ? 600 : 760, background: "linear-gradient(#e8d9b5,#cdb88c)", border: "10px solid #2a1d12" }}>
+            {Array.from({ length: 14 }, (_, i) => <div key={i} style={{ height: 6, margin: "34px 60px 0", background: "#6b5537", opacity: 0.55, width: `${70 + ((i * 37) % 25)}%` }} />)}
+          </div>
+        )}
+      </AbsoluteFill>
+      <svg viewBox="0 0 1920 1080" width={1920} height={1080} style={{ position: "absolute", inset: 0 }}>
+        <filter id={`grain${seed}`}><feTurbulence type="fractalNoise" baseFrequency="0.95" numOctaves={2} seed={seed} /><feColorMatrix type="saturate" values="0" /></filter>
+        <rect width={1920} height={1080} filter={`url(#grain${seed})`} opacity={0.16} style={{ mixBlendMode: "overlay" }} />
+        {[0, 1, 2].map((i) => ((f + i * 7) % 11 < 4) && (
+          <line key={i} x1={(f * 97 + i * 613) % 1920} x2={(f * 97 + i * 613) % 1920 + 3} y1={0} y2={1080} stroke="#f2e6cc" strokeWidth={1.5} opacity={0.35} />
+        ))}
+        <radialGradient id="archvig" cx="50%" cy="50%" r="72%"><stop offset="0.55" stopColor="#000" stopOpacity={0} /><stop offset="1" stopColor="#000" stopOpacity={0.85} /></radialGradient>
+        <rect width={1920} height={1080} fill="url(#archvig)" />
+      </svg>
+    </AbsoluteFill>
   );
 };

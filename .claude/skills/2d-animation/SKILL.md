@@ -80,6 +80,17 @@ This repo is a **Remotion** project (`src/Root.tsx`, 1920×1080 @ 30 fps).
    - SFX are quiet: 0.10–0.25 linear, with the stamp thump at 0.3 at most.
    - **No synthesized music bed:** it sounded like a game. Add music only if the user supplies a track.
 
+8. **Characters always use their own pose sprites** at normal (small) scale. Never use the `Reusable_Bodies` costume templates or oversized head-swap bodies. If a needed character or pose is missing, use the nearest existing pose or an archive photo.
+9. **Text never covers a face.** Speech bubbles sit above the speaker's head (bubble bottom at least 80 px above the hair), with the tail pointing to the mouth. Captions stay in the bottom or top bands.
+10. **No blank shots.** Every graphic or plate shot shows its main element by frame 2. Only extra items may pop in on later words.
+11. **Archive, not drawn scrolls.** Letters, proclamations, amendments, newspapers and portraits use real public-domain scans via the `Arch` component (Kit.tsx: sepia/grain/scratches/flicker/vignette, slow push).
+   - Find them with `python3 -I .claude/skills/2d-animation/scripts/arch_search.py "query"`.
+   - Download with `python3 -I .claude/skills/2d-animation/scripts/fetch_archive.py public/tg2/archive name="File:Title.jpg" ...`.
+   - The downloader takes originals and resizes them locally, because thumbnails redirect to the blocked `thumb.wikimedia.org`. It throttles to avoid HTTP 429; it is slow (about 30 s per file).
+   - Sources and licences are written to `public/tg2/archive/CREDITS.txt`.
+   - Drawn scrolls only when no scan exists.
+12. **One composition per VO file.** Use `Episode` (src/Thanksgiving3/Episode.tsx): `ep/<k>.json` holds the env, stresses, lines and words. Write shots with `ln(i)` and `wd(i, "word")`, so every cut lands on a word. A shot ends where the next begins.
+
 ## Attachment rule: nothing floats (every character, body part and prop)
 
 Every body part must stay visibly connected to its parent in **every frame**: at rest, at the extremes of every motion, and in every in-between.

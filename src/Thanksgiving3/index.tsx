@@ -9,7 +9,7 @@ import COLLARS from "../Thanksgiving2/collars.json";
 import { MONTSERRAT } from "../fonts";
 import { OvalOffice, SkyScroll, WhiteHouseLawn } from "./Bg2";
 import BOARDS from "./boards.json";
-import { Cam, Cap, Card, Cheer, Note, PopIn, Puff, QMarks, Quill, Rig, ShotCtx, Speed, Spr, Stamp, Tag } from "./Kit";
+import { Arch, Cam, Cap, Card, Cheer, Note, PopIn, Puff, QMarks, Quill, Rig, ShotCtx, Speed, Spr, Stamp, Tag } from "./Kit";
 import VO from "./vo.json";
 
 /**
@@ -33,36 +33,6 @@ const Svg: React.FC<{ bg: React.ReactNode; dim?: number; children?: React.ReactN
     <B.Finish />
   </svg>
 );
-
-/** Costume body + head swap, chin seated inside the collar. */
-const HB: React.FC<{ body: string; head: string; x: number; y: number; h: number; flip?: boolean }> = ({ body, head, x, y, h, flip }) => {
-  const [cx, ctop] = C[body];
-  const [hcx, hbot, , hh] = C[`HEAD/${head}`];
-  const bodyH = 474 - ctop, k = (h * 0.6) / bodyH, hk = (bodyH * 0.74) / Math.max(hh, 290);
-  return (
-    <g transform={`translate(${x} ${y}) scale(${flip ? -k : k} ${k}) translate(${-cx} -474)`}>
-      <image href={staticFile(`tg2/Reusable_Bodies/${body}.png`)} width={512} height={512} />
-      <g transform={`translate(${cx} ${ctop + hh * hk * 0.07}) scale(${hk}) translate(${-hcx} ${-hbot})`}>
-        <image href={staticFile(`tg2/Head_Swaps/${head}/head_swap.png`)} width={512} height={512} />
-      </g>
-    </g>
-  );
-};
-
-/** Silhouetted president (unknown face) on a frock-coat body, with a name plate. */
-const Sil: React.FC<{ x: number; y: number; h: number; name: string; at?: number }> = ({ x, y, h, name, at = 0 }) => {
-  const f = useCurrentFrame();
-  if (f < at) return null;
-  return (
-    <g>
-      <filter id="tg3-sil"><feColorMatrix type="matrix" values="0.25 0 0 0 0.12  0 0.25 0 0 0.12  0 0 0.25 0 0.14  0 0 0 1 0" /></filter>
-      <g filter="url(#tg3-sil)"><Spr s="Reusable_Bodies/19th_century_frock_coat/neutral" x={x} y={y} h={h * 0.62} /></g>
-      <ellipse cx={x} cy={y - h * 0.62 - h * 0.16} rx={h * 0.17} ry={h * 0.2} fill="#2a2a33" stroke="#1d1712" strokeWidth={6} />
-      <text x={x} y={y - h * 0.62 - h * 0.1} textAnchor="middle" fontFamily={MONTSERRAT} fontWeight={800} fontSize={h * 0.22} fill="#f4f1ea">?</text>
-      <text x={x} y={y + 50} textAnchor="middle" fontFamily={MONTSERRAT} fontWeight={800} fontSize={34} fill="#fff" stroke="#000" strokeWidth={2} paintOrder="stroke">{name}</text>
-    </g>
-  );
-};
 
 const Board: React.FC<{ pose: string; top: string; big: string; at?: number }> = ({ pose, top, big, at = 0 }) => {
   const f = useCurrentFrame();
@@ -96,6 +66,15 @@ const Chaos: React.FC = () => {
       month={["NOV", "DEC", "OCT"][i % 3]} day={String(18 + (i * 7) % 13)} w={190} rot={f * (i % 2 ? 4 : -3) + i * 30} />
   ))}</>;
 };
+
+const PRES = [["zachary_taylor", "TAYLOR"], ["millard_fillmore", "FILLMORE"], ["franklin_pierce", "PIERCE"], ["james_buchanan", "BUCHANAN"]];
+const PolkFrame: React.FC<{ x: number; y: number; w: number; at?: number }> = ({ x, y, w, at = 0 }) => (
+  <PopIn at={at} x={x} y={y}>
+    <rect x={-w / 2 - 14} y={-w * 0.67 - 14} width={w + 28} height={w * 1.34 + 28} fill="#a7792d" stroke="#6e4c1a" strokeWidth={6} />
+    <image href={staticFile("tg2/archive/polk.jpg")} x={-w / 2} y={-w * 0.67} width={w} height={w * 1.34} preserveAspectRatio="xMidYMid slice" style={{ filter: "sepia(0.5)" }} />
+    <text y={w * 0.67 + 54} textAnchor="middle" fontFamily={MONTSERRAT} fontWeight={800} fontSize={34} fill="#fff" stroke="#000" strokeWidth={2} paintOrder="stroke">POLK</text>
+  </PopIn>
+);
 
 const g2 = (s: number) => +(s + O2).toFixed(2); // chapter 2-3 file time -> global
 
@@ -205,7 +184,7 @@ const SHOTS: Shot[] = [
       <Cap text="1789" pos="top" at={t(37.51)} />
     </>) },
   { a: 38.71, b: 40.55, sfx: [[Math.round((38.79 - 38.71) * FPS), "pop", 0.15]], el: (t) => (
-    <Cam dur={55} to={1.05}><Svg bg={<B.FederalHall />} dim={0.5}><Constitution x={960} y={540} at={t(38.79)} /></Svg></Cam>) },
+    <><Arch src="constitution" dur={55} focus={[50, 25]} zoom={[1, 1.12]} /><Cap text="The Constitution" at={t(38.79)} /></>) },
   { a: 40.55, b: 43.46, sfx: [[Math.round((41.86 - 40.55) * FPS), "cheer", 0.15]], el: (t) => {
     const hype = t(41.86);
     const Crowd: React.FC = () => {
@@ -254,10 +233,13 @@ const SHOTS: Shot[] = [
       <Cap text="October 3, 1789" at={t(52.93)} />
     </>) },
   { a: 57.18, b: 61.25, sfx: [[1, "paper", 0.18], [Math.round((57.6 - 57.18) * FPS), "pop", 0.12]], el: (t) => (
-    <Cam dur={122} to={1.04}><Svg bg={<B.Study />} dim={0.5}>
-      <Proclamation x={680} y={545} year="New York, 1789" lines={["", "", "Thursday, the 26th", "of November", "a day of public", "thanksgiving & prayer", ""]} />
-      <PopIn at={t(57.6)} x={1420} y={560}><CalendarPage x={0} y={0} month="NOVEMBER" day="26" sub="THURSDAY" rot={6} w={360} /></PopIn>
-    </Svg></Cam>) },
+    <>
+      <Arch src="wash_procl" dur={122} focus={[50, 30]} zoom={[1.0, 1.2]} />
+      <svg viewBox="0 0 1920 1080" width={1920} height={1080} style={{ position: "absolute", inset: 0 }}>
+        <PopIn at={t(57.6)} x={1560} y={540}><CalendarPage x={0} y={0} month="NOVEMBER" day="26" sub="THURSDAY" rot={6} w={360} /></PopIn>
+      </svg>
+      <Cap text="A day of public thanksgiving and prayer" at={t(59.11)} size={58} />
+    </>) },
   { a: 61.25, b: 64.2, sfx: [[Math.round((61.56 - 61.25) * FPS) + 6, "sub_thump", 0.3]], el: (t) => (
     <>
       <Cam dur={89} to={1.03} punch={{ at: t(61.4), frames: 5, to: 1.3, oy: "40%" }}>
@@ -299,10 +281,8 @@ const SHOTS: Shot[] = [
     </>) },
   { a: 77.27, b: 80.17, sfx: [[Math.round((78.74 - 77.27) * FPS), "paper", 0.15]], el: (t) => (
     <>
-      <Cam dur={87} to={1.05}><Svg bg={<B.Hills />}>
-        <Swap t={t(78.74)} a={<Rig c="george_washington" pose="solemn_with_quill" x={760} y={1030} h={560} stress />} b={<Rig c="george_washington" pose="signing_proclamation" x={760} y={1030} h={580} />} />
-        <Proclamation x={1420} y={560} w={330} title="1795" at={t(78.74)} />
-      </Svg></Cam>
+      <Swap t={t(78.74)} a={<Cam dur={44} to={1.04}><Svg bg={<B.Hills />}><Rig c="george_washington" pose="solemn_with_quill" x={960} y={1030} h={580} stress /></Svg></Cam>}
+        b={<Arch src="wash_1795" dur={45} focus={[50, 25]} zoom={[1.02, 1.12]} />} />
       <Cap text="1795" pos="top" at={t(77.48)} />
     </>) },
   { a: 80.17, b: 82.65, sfx: [[Math.round((80.37 - 80.17) * FPS) + 8, "sub_thump", 0.25], [Math.round((80.74 - 80.17) * FPS) + 8, "sub_thump", 0.22]], el: (t) => (
@@ -352,9 +332,9 @@ const SHOTS: Shot[] = [
   { a: g2(5.2), b: g2(8.35), sfx: [[2, "paper", 0.15]], el: (t) => (
     <>
       <Cam dur={94} to={1.05}><Svg bg={<B.Study />}>
-        <Rig c="john_adams" pose="attentive_neutral" x={560} y={1030} h={580} stress />
-        <Proclamation x={1320} y={545} w={480} title="DAY OF THANKSGIVING" year="1798" at={2} />
+        <Rig c="john_adams" pose="announcing_arms_open" x={960} y={1030} h={600} gesture={10} stress />
       </Svg></Cam>
+      <Cap text="Days of prayer & thanksgiving" pos="top" at={2} size={64} />
       <Cap text="Fine." at={t(g2(7.35))} until={t(g2(7.68))} />
       <Cap text="Normal." at={t(g2(7.68))} />
     </>) },
@@ -373,11 +353,11 @@ const SHOTS: Shot[] = [
       <Bubble x={1220} y={250} text="NO THANK YOU." tx={1300} ty={380} at={t(g2(11.05))} w={560} size={58} />
     </Svg></Cam>) },
   { a: g2(12.28), b: g2(14.0), sfx: [[Math.round((g2(13.47) - g2(12.28)) * FPS), "boing", 0.1]], el: (t) => (
-    <Cam dur={52} to={1.06}><Svg bg={<B.PlateBg color="#e88a3a" />}><Pie x={960} y={620} at={t(g2(13.47))} heart /></Svg></Cam>) },
+    <Cam dur={52} to={1.06}><Svg bg={<B.PlateBg color="#e88a3a" />}><Pie x={960} y={620} at={2} heart /></Svg></Cam>) },
   { a: g2(14.0), b: g2(17.87), el: () => (
     <Cam dur={116} from={1.2} to={1.26} oy="40%"><Svg bg={<B.Study />}><Rig c="thomas_jefferson" pose="refuses_arms_folded" x={960} y={1030} h={620} stress /></Svg></Cam>) },
   { a: g2(17.87), b: g2(19.78), sfx: [[Math.round((g2(18.25) - g2(17.87)) * FPS), "pop", 0.12]], el: (t) => (
-    <Cam dur={57} to={1.04}><Svg bg={<B.PlateBg />}><ChurchState at={t(g2(18.25))} /></Svg></Cam>) },
+    <Cam dur={57} to={1.04}><Svg bg={<B.PlateBg />}><ChurchState at={2} /></Svg></Cam>) },
   { a: g2(19.78), b: g2(24.3), sfx: [[Math.round((g2(21.84) - g2(19.78)) * FPS), "sub_thump", 0.15], [Math.round((g2(21.84) - g2(19.78)) * FPS) + 14, "sub_thump", 0.15]], el: (t) => (
     <>
       <Cam dur={136} to={1.05}><Svg bg={<B.PlateBg />}><ChurchState at={0} wallFrom={t(g2(21.84))} /></Svg></Cam>
@@ -389,12 +369,10 @@ const SHOTS: Shot[] = [
     </Svg></Cam>) },
   { a: g2(25.14), b: g2(30.47), sfx: [[Math.round((g2(28.94) - g2(25.14)) * FPS), "paper", 0.15]], el: (t) => (
     <>
-      <Cam dur={160} to={1.05}><Svg bg={<B.Study sepia />}>
-        <HB body="18th_century_tailcoat/open_hand_gesture" head="thomas_jefferson" x={700} y={1030} h={900} />
-        <Proclamation x={1380} y={540} w={420} title="THANKSGIVING" year="Virginia, 1779" at={t(g2(28.94))} />
-      </Svg></Cam>
+      <Arch src="jefferson_peale" mode="portrait" dur={160} focus={[50, 35]} zoom={[1, 1.1]} />
       <Cap text="Governor of Virginia" at={t(g2(25.3))} until={t(g2(26.57))} />
-      <Cap text="1779" at={t(g2(26.57))} />
+      <Cap text="1779" at={t(g2(26.57))} until={t(g2(28.94))} />
+      <Cap text="Declared a day of thanksgiving" at={t(g2(28.94))} />
     </>) },
   { a: g2(30.47), b: g2(32.17), sfx: [[Math.round((g2(31.45) - g2(30.47)) * FPS) + 6, "sub_thump", 0.3]], el: (t) => (
     <>
@@ -420,25 +398,25 @@ const SHOTS: Shot[] = [
   { a: g2(37.58), b: g2(39.98), sfx: [[Math.round((g2(37.8) - g2(37.58)) * FPS), "scribble", 0.15]], el: (t) => (
     <>
       <Cam dur={72} to={1.05}><Svg bg={<B.Study />}>
-        <HB body="18th_century_tailcoat/holding_a_letter" head="thomas_jefferson" x={620} y={1040} h={900} />
-        <Proclamation x={1300} y={540} w={460} title="EXPLANATION" at={t(g2(37.8))} />
-        <PropImg name="Quill_and_Inkpot" x={1600} y={820} w={200} at={0} />
+        <Rig c="thomas_jefferson" pose="refuses_arms_folded" x={520} y={1040} h={600} stress />
+        <Note x={1220} y={500} text="Dear Citizens…" at={t(g2(37.8))} w={760} rot={3} />
+        <PropImg name="Quill_and_Inkpot" x={1640} y={860} w={200} at={0} />
       </Svg></Cam>
       <Cap text="A public explanation" at={t(g2(38.65))} />
     </>) },
   { a: g2(39.98), b: g2(45.03), el: (t) => (
     <>
       <Cam dur={152} to={1.05}><Svg bg={<B.Study />}>
-        <HB body="18th_century_tailcoat/holding_a_letter" head="thomas_jefferson" x={560} y={1050} h={900} />
+        <Rig c="thomas_jefferson" pose="refuses_arms_folded" x={560} y={1040} h={600} />
         <Swap t={t(g2(40.95))} a={<Rig c="levi_lincoln_sr" pose="cautious_lean" x={1350} y={1040} h={600} />} b={<Rig c="levi_lincoln_sr" pose="warning_finger" x={1350} y={1040} h={600} stress />} />
-        <Bubble x={1000} y={300} text="NEW ENGLAND WON'T LIKE THIS" tx={1250} ty={430} at={t(g2(41.9))} w={900} size={42} />
+        <Bubble x={1400} y={200} text="NEW ENGLAND WON'T LIKE IT!" tx={1370} ty={420} at={t(g2(41.9))} w={760} size={42} />
       </Svg></Cam>
       <Cap text="Levi Lincoln Sr." at={t(g2(39.98))} until={t(g2(40.95))} />
       <Cap text="Attorney General" at={t(g2(40.95))} until={t(g2(41.9))} />
     </>) },
   { a: g2(45.03), b: g2(48.1), sfx: [[Math.round((g2(46.23) - g2(45.03)) * FPS), "paper", 0.18]], el: (t) => (
     <Cam dur={92} from={1.05} to={1.1} oy="45%"><Svg bg={<B.Study />}>
-      <Swap t={t(g2(46.23))} a={<HB body="18th_century_tailcoat/holding_a_letter" head="thomas_jefferson" x={960} y={1060} h={960} />} b={<Rig c="thomas_jefferson" pose="sheepishly_cuts_letter" x={960} y={1050} h={660} stress />} />
+      <Swap t={t(g2(46.23))} a={<Rig c="thomas_jefferson" pose="refuses_arms_folded" x={960} y={1050} h={660} />} b={<Rig c="thomas_jefferson" pose="sheepishly_cuts_letter" x={960} y={1050} h={660} stress />} />
     </Svg></Cam>) },
   { a: g2(48.1), b: g2(52.1), sfx: [[Math.round((g2(50.24) - g2(48.1)) * FPS), "pop", 0.12]], el: (t) => (
     <>
@@ -492,7 +470,7 @@ const SHOTS: Shot[] = [
   { a: g2(72.82), b: g2(77.82), sfx: [[Math.round((g2(74.48) - g2(72.82)) * FPS), "pop", 0.12], [Math.round((g2(76.58) - g2(72.82)) * FPS), "pop", 0.12]], el: (t) => (
     <>
       <Cam dur={150} to={1.05}><Svg bg={<B.PlateBg />}>
-        <Book x={760} y={560} title={["NORTHWOOD", "", "Mrs. Hale"]} color="#2f4a6b" at={t(g2(74.48))} art="feast" />
+        <Book x={760} y={560} title={["NORTHWOOD", "", "Mrs. Hale"]} color="#2f4a6b" at={2} art="feast" />
         <Pie x={1400} y={680} at={t(g2(76.58))} />
       </Svg></Cam>
       <Cap text="Anti-slavery novel" pos="top" at={t(g2(73.59))} />
@@ -502,7 +480,7 @@ const SHOTS: Shot[] = [
     <>
       <Cam dur={163} to={1.05}><Svg bg={<B.EditorOffice />}>
         <Rig c="sarah_josepha_hale" pose="determined_with_letter" x={680} y={1040} h={620} stress />
-        <Book x={1400} y={520} title={["GODEY'S", "LADY'S BOOK"]} color="#7d2e4a" at={t(g2(79.28))} w={340} art="lady" />
+        <PopIn at={t(g2(79.28))} x={1400} y={520}><g transform="rotate(4)"><rect x={-205} y={-305} width={410} height={610} fill="#1d1712" /><image href={staticFile("tg2/archive/godeys_cover.jpg")} x={-195} y={-295} width={390} height={590} preserveAspectRatio="xMidYMid slice" style={{ filter: "sepia(0.4)" }} /></g></PopIn>
       </Svg></Cam>
       <Cap text="Editor" pos="top" at={t(g2(78.57))} />
       <Cap text="One of the most-read magazines" at={t(g2(80.87))} size={60} />
@@ -514,7 +492,7 @@ const SHOTS: Shot[] = [
     </>) },
   { a: g2(85.26), b: g2(90.26), sfx: [[Math.round((g2(88.48) - g2(85.26)) * FPS), "pop", 0.12]], el: (t) => (
     <Cam dur={150} to={1.05}><Svg bg={<B.PlateBg color="#6aa84f" />}>
-      <Book x={960} y={540} title={["MARY HAD", "A LITTLE", "LAMB"]} color="#c0392b" at={t(g2(88.48))} w={420} art="lamb" />
+      <Book x={960} y={540} title={["MARY HAD", "A LITTLE", "LAMB"]} color="#c0392b" at={2} w={420} art="lamb" />
     </Svg></Cam>) },
   { a: g2(90.26), b: g2(90.9), el: () => (
     <><Cam dur={19} from={1.15} to={1.18} oy="38%"><Svg bg={<B.Studio />}><Quill pose="deadpan_wings_folded" talk x={960} y={1010} h={720} /></Svg></Cam><Cap text="Yes. That one." at={0} /></>) },
@@ -532,7 +510,8 @@ const SHOTS: Shot[] = [
     <>
       <Cam dur={172} to={1.04}><Svg bg={<B.LincolnOffice />}>
         <Rig c="sarah_josepha_hale" pose="determined_with_letter" x={300} y={1040} h={520} stress />
-        {["POLK", "TAYLOR", "FILLMORE", "PIERCE", "BUCHANAN"].map((n, i) => <Sil key={n} x={700 + i * 270} y={980} h={430} name={n} at={t(g2(99.67)) + i * 5} />)}
+        <PolkFrame x={720} y={420} w={180} at={t(g2(99.67))} />
+        {PRES.map(([c], i) => <Spr key={c} s={`OLD/${c}/04_Considering_the_petition`} x={980 + i * 230} y={1040} h={420} at={t(g2(99.67)) + (i + 1) * 5} />)}
         <Quill pose="nervous_side_glance" x={1830} y={1160} h={300} enter={{ from: "bottom", frames: 9 }} at={t(g2(100.65))} />
       </Svg></Cam>
       <Cap text="1846 → 1863" pos="top" at={t(g2(96.27))} />
@@ -546,8 +525,10 @@ const SHOTS: Shot[] = [
   } },
   { a: g2(105.19), b: g2(107.72), sfx: [0, 1, 2, 3, 4].map((i) => [Math.round((g2(106.9) - g2(105.19)) * FPS) + i * 4, "pop", 0.1] as [number, string, number]), el: (t) => (
     <Cam dur={76} to={1.04}><Svg bg={<B.LincolnOffice />}>
-      {["POLK", "TAYLOR", "FILLMORE", "PIERCE", "BUCHANAN"].map((n, i) => (
-        <g key={n}><Sil x={300 + i * 330} y={1000} h={430} name={n} /><Bubble x={300 + i * 330} y={330} text="HMM." tx={300 + i * 330} ty={480} at={t(g2(106.9)) + i * 4} w={250} /></g>
+      <PolkFrame x={260} y={420} w={200} />
+      <Bubble x={260} y={150} text="HMM." tx={260} ty={260} at={t(g2(106.9))} w={250} />
+      {PRES.map(([c], i) => (
+        <g key={c}><Spr s={`OLD/${c}/04_Considering_the_petition`} x={640 + i * 360} y={1040} h={460} /><Bubble x={640 + i * 360} y={330} text="HMM." tx={640 + i * 360} ty={520} at={t(g2(106.9)) + (i + 1) * 4} w={250} /></g>
       ))}
     </Svg></Cam>) },
   { a: g2(107.72), b: g2(109.77), sfx: [[Math.round((g2(108.37) - g2(107.72)) * FPS), "sub_thump", 0.25]], el: (t) => (
@@ -568,9 +549,10 @@ const SHOTS: Shot[] = [
     </>;
   } },
   { a: g2(116.35), b: g2(122.04), sfx: [[1, "paper", 0.15]], el: (t) => (
-    <Cam dur={171} to={1.06}><Svg bg={<B.LincolnOffice />} dim={0.5}>
-      <Proclamation x={960} y={545} w={900} title="Dear Mr. President," year="Sept. 28, 1863" at={0} lines={["", "…National recognition", "and authoritive", "fixation…", "", "— S. J. Hale"]} />
-    </Svg></Cam>) },
+    <>
+      <Arch src="hale_letter" dur={171} focus={[50, 30]} zoom={[1, 1.18]} />
+      <Cap text={'"National recognition and authoritive fixation"'} at={t(g2(118.96))} size={56} />
+    </>) },
   { a: g2(122.04), b: g2(124.38), sfx: [[Math.round((g2(122.82) - g2(122.04)) * FPS) + 6, "sub_thump", 0.3]], el: (t) => (
     <>
       <Cam dur={70} to={1.05}><Svg bg={<B.LincolnOffice />}>
