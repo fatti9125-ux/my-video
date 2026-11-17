@@ -153,7 +153,7 @@ const SHOTS: Shot[] = [
     <Card text="George H.W. Bush" sub={"13 · It's Official"} until={t(ln(30)) - 1} />
   </>) },
   { a: ln(30), el: (t, dur) => (<>
-    <Arch src="bush_pardon" mode="wide" dur={dur} sepia={0.1} />
+    <Cam dur={dur} to={1.04}><Svg bg={<WhiteHouseLawn />}><Rig c="george_hw_bush" pose="attentive_neutral" x={560} y={1030} h={580} /><Spr s="Poses/white_ceremony_turkey/standing_with_blank_sign" x={1320} y={1030} h={420} /></Svg></Cam>
     <Cap text="November 17, 1989" at={t(wd(30, "november"))} until={t(ln(31))} />
     <Cap text="200 years after Washington" at={t(ln(31))} />
   </>) },

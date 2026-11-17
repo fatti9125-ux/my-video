@@ -234,7 +234,7 @@ const SHOTS: Shot[] = [
     </>) },
   { a: 57.18, b: 61.25, sfx: [[1, "paper", 0.18], [Math.round((57.6 - 57.18) * FPS), "pop", 0.12]], el: (t) => (
     <>
-      <Arch src="wash_procl" dur={122} focus={[50, 30]} zoom={[1.0, 1.2]} />
+      <Cam dur={122} to={1.04}><Svg bg={<B.Study />}><Rig c="george_washington" pose="signing_proclamation" x={640} y={1030} h={620} /></Svg></Cam>
       <svg viewBox="0 0 1920 1080" width={1920} height={1080} style={{ position: "absolute", inset: 0 }}>
         <PopIn at={t(57.6)} x={1560} y={540}><CalendarPage x={0} y={0} month="NOVEMBER" day="26" sub="THURSDAY" rot={6} w={360} /></PopIn>
       </svg>

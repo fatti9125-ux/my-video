@@ -28,7 +28,7 @@ const SHOTS: Shot[] = [
     <Card text="Warren G. Harding" sub="7 · The Turkey in the Aviation Helmet" until={t(ln(1)) - 1} />
   </>) },
   { a: ln(1), el: (t, dur) => (<>
-    <Arch src="harding_turkey" mode="wide" dur={dur} sepia={0.35} />
+    <Cam dur={dur} to={1.04}><Svg bg={<OvalOffice />}><Rig c="warren_g_harding" pose="bemused_pointing" x={620} y={1030} h={580} /><Spr s="Poses/supreme_ii/jaunty_in_flying_gear" x={1360} y={1030} h={460} flip /></Svg></Cam>
     <Cap text="The 1920s" at={t(wd(1, "1920s"))} />
   </>) },
   { a: ln(2), sfx: [[F(wd(2, "flown") - ln(2)), "whoosh", 0.15]], el: (t, dur) => (<>

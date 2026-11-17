@@ -89,12 +89,12 @@ const SHOTS: Shot[] = [
     </Svg></Cam>) },
   { a: ln(19), sfx: [[F(wd(19, "noah") - ln(19)), "scribble", 0.12]], el: (t, dur) => (<>
     <Swap t={t(wd(19, "1865"))} a={<Cam dur={dur} to={1.05}><Svg bg={<B.EditorOffice />}><Rig c="noah_brooks" pose="scribbling_notes" x={960} y={1030} h={620} stress /></Svg></Cam>}
-      b={<Arch src="noah_brooks" mode="portrait" dur={dur} />} />
+      b={<Cam dur={dur} from={1.1} to={1.15}><Svg bg={<B.EditorOffice />}><Rig c="noah_brooks" pose="attentive_with_notebook" x={960} y={1030} h={640} /></Svg></Cam>} />
     <Cap text="Noah Brooks · reporter" at={t(wd(19, "noah"))} until={t(wd(19, "1865"))} />
     <Cap text="1865" at={t(wd(19, "1865"))} />
   </>) },
   { a: ln(20), sfx: [[F(wd(20, "first") - ln(20)), "sub_thump", 0.25]], el: (t, dur) => (<>
-    <Arch src="lincoln_tad" mode="portrait" dur={dur} />
+    <Cam dur={dur} to={1.04}><Svg bg={<WhiteHouseLawn />}><Rig c="abraham_lincoln" pose="softens_toward_tad" x={560} y={1020} h={560} /><Rig c="tad_lincoln" pose="hugs_jack" x={1150} y={1030} h={400} /></Svg></Cam>
     <Stamp lines={["THE FIRST", "TURKEY", "PARDON?"]} at={t(wd(20, "pardon"))} x={1450} y={300} rot={-8} variant="dark" />
   </>) },
   { a: ln(21), el: (t, dur) => (
@@ -148,7 +148,7 @@ const SHOTS: Shot[] = [
     </>);
   } },
   { a: ln(39), el: (t, dur) => (<>
-    <Arch src="vose" mode="wide" dur={dur} sepia={0.4} />
+    <Cam dur={dur} from={1.1} to={1.16} oy="40%"><Svg bg={<B.Village />}><Rig c="horace_vose" pose="proudly_holds_turkey" x={960} y={1030} h={640} stress /></Svg></Cam>
     <Cap text={'"The Poultry King"'} at={t(wd(39, "poultry"))} />
   </>) },
   { a: ln(40), el: (t, dur) => (<>
@@ -233,7 +233,7 @@ const SHOTS: Shot[] = [
     <Cap text="Staff Thanksgiving · State Dining Room" at={t(wd(54, "cooks"))} size={58} />
   </>) },
   { a: ln(55), el: (t, dur) => (<>
-    <Swap t={t(wd(55, "ordered"))} a={<Arch src="ida" mode="portrait" dur={dur} />}
+    <Swap t={t(wd(55, "ordered"))} a={<Cam dur={dur} from={1.1} to={1.14}><Svg bg={<DiningRoom />}><Rig c="ida_mckinley" pose="prim_neutral" x={960} y={1030} h={620} /></Svg></Cam>}
       b={<Cam dur={dur} to={1.04}><Svg bg={<DiningRoom />}>
         <Steps s={[[0, <Rig c="ida_mckinley" pose="directs_dinner" x={1240} y={1030} h={580} stress />], [t(wd(55, "turkey")), <Rig c="ida_mckinley" pose="approving_with_menu" x={1240} y={1030} h={580} stress />]]} />
         <PopIn at={t(wd(55, "26"))} x={560} y={700}><Spr s="Poses/poultry_props/baghdad_trophy_turkey" x={0} y={0} h={220} /></PopIn>
