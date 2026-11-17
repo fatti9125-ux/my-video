@@ -118,6 +118,19 @@ Used for "Every President's Thanksgiving" (`src/Thanksgiving/`, composition `Tha
    - Zoom into the joints at full resolution.
    - Do the **live preview** (above) before the 1080p render.
 
+### Pose-swap packs (sprites + head swaps + bodies + tags), e.g. `src/Thanksgiving2/`, composition `ThanksgivingColdOpenCh1`
+- **Import:** `python3 -I .claude/skills/2d-animation/scripts/import_pose_pack.py <pack> public/tg2 src/<Project>`. It writes:
+  - `sprites.json`: the drawing's bounding box per sprite, for feet registration.
+  - Quill `__open` / `__closed` beak variants of his talking poses, for lip-sync swaps.
+  - `boards.json`: the scoreboard's chalkboard rectangle.
+  - A copy of the pack's `Scene_Guide.md`. **Follow its performance order per beat.**
+- **Measure collars:** measure body collars and head chins into `collars.json` (see `Thanksgiving2/index.tsx` `HB`), so the chin sits just inside the collar.
+- **Animate with `Kit.tsx`:**
+  - **`Spr`** draws a pose swap with the feet registered, plus breathing and a **rise-and-settle on VO stresses** (`stress`). It also handles `enter`, `walk`, `drop` and `shake`.
+  - **`Quill`** has a closed beak unless `talk`, and supports `blinkHold`.
+  - **Text, camera and FX:** `Cap` (hard on/off), `Card` (70% darken), `Stamp` (bible §5), `Cam` (push plus `punch`), `QMarks`, `Cheer`, `Speed`, `Puff`, `Note` (typewriter text), `Tag`, `PopIn`.
+- **Supporting cast:** use the old layered pack's cutouts (`OLD/...` keys) when the new pack lacks someone (the debtor, the delegates).
+
 ## Mode C: characters (sheets, rigs, likeness)
 
 **C1. The user provides a character sheet** (preferred; sheets are canon and are never redrawn):

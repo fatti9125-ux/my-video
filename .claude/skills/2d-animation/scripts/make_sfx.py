@@ -117,6 +117,37 @@ def ding():
     return (np.sin(2 * np.pi * 1318 * n) + 0.5 * np.sin(2 * np.pi * 1975 * n) + 0.25 * np.sin(2 * np.pi * 2637 * n)) * np.exp(-n * 3.5)
 
 
+def sub_thump():
+    """stamp landing / kick / punch: deep 45-60 Hz thump + soft click (style bible §10)."""
+    n = t(0.45)
+    f = 62 * np.exp(-n * 6) + 42
+    body = np.sin(2 * np.pi * np.cumsum(f) / SR) * np.exp(-n * 9)
+    click = lowpass(rng.standard_normal(len(n)), 0.25) * np.exp(-n * 160) * 0.35
+    return body + click
+
+
+def type_tick():
+    n = t(0.05)
+    x = rng.standard_normal(len(n))
+    return (x - lowpass(x, 0.4)) * np.exp(-n * 140) + np.sin(2 * np.pi * 1800 * n) * np.exp(-n * 200) * 0.4
+
+
+def rattle():
+    n = t(0.6); out = np.zeros(len(n))
+    for k in range(7):
+        s = int(SR * (0.02 + k * 0.075 + rng.uniform(0, 0.02))); m = t(0.06)
+        hit = lowpass(rng.standard_normal(len(m)), 0.3) * np.exp(-m * 70) + np.sin(2 * np.pi * 180 * m) * np.exp(-m * 50) * 0.6
+        out[s:s + len(m)] += hit[: len(out) - s]
+    return out
+
+
+def cheer():
+    n = t(1.8); x = rng.standard_normal(len(n))
+    band = lowpass(x, 0.35) - lowpass(x, 0.05)
+    am = env(len(n), 0.25, 0.7) * (0.75 + 0.25 * np.sin(2 * np.pi * 5.5 * n))
+    return band * am
+
+
 def music_bed(seconds=30, bpm=128):
     beat = 60 / bpm; total = np.zeros(int(SR * seconds) + SR)
     # C - G - Am - F, oom-pah bass + staccato pluck melody + light shaker
@@ -147,7 +178,8 @@ if __name__ == "__main__":
     out = sys.argv[1]; secs = float(sys.argv[2]) if len(sys.argv) > 2 else 30
     for name, fn in [("whoosh", whoosh), ("thud", thud), ("pop", pop), ("gunburst", gunburst),
                      ("squawk", squawk), ("boing", boing), ("sad_trombone", sad_trombone),
-                     ("paper", paper), ("scribble", scribble), ("ding", ding)]:
+                     ("paper", paper), ("scribble", scribble), ("ding", ding),
+                     ("sub_thump", sub_thump), ("type_tick", type_tick), ("rattle", rattle), ("cheer", cheer)]:
         save(f"{out}/{name}.wav", fn())
     save(f"{out}/music_bed.wav", music_bed(secs), peak=0.7)
     print("wrote SFX kit to", out)

@@ -7,6 +7,7 @@ import { HandTest } from "./rig/HandTest";
 import { PuppetTest, QuillTest } from "./Thanksgiving/PuppetTest";
 import { BgTest } from "./Thanksgiving/BgTest";
 import { Thanksgiving, TG_DURATION } from "./Thanksgiving";
+import { Thanksgiving2, TG2_DURATION } from "./Thanksgiving2";
 
 export const RemotionRoot: React.FC = () => (
   <>
@@ -18,6 +19,7 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="TgQuillTest" component={QuillTest} durationInFrames={60} fps={30} width={1920} height={1080} />
     <Composition id="TgBgTest" component={BgTest} durationInFrames={10} fps={30} width={1920} height={1080} />
     <Composition id="ThanksgivingCh1to3" component={Thanksgiving} durationInFrames={TG_DURATION} fps={30} width={1920} height={1080} />
+    <Composition id="ThanksgivingColdOpenCh1" component={Thanksgiving2} durationInFrames={TG2_DURATION} fps={30} width={1920} height={1080} />
     <Composition id="EmuWar" component={EmuWar} durationInFrames={EMU_WAR_DURATION} fps={30} width={1920} height={1080} />
   </>
 );

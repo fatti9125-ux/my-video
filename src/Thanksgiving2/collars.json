@@ -1,0 +1,224 @@
+{
+"18th_century_tailcoat/holding_a_letter": [
+277,
+177,
+60
+],
+"18th_century_tailcoat/neutral": [
+254,
+176,
+61
+],
+"18th_century_tailcoat/open_hand_gesture": [
+229,
+177,
+60
+],
+"19th_century_frock_coat/holding_a_letter": [
+275,
+177,
+59
+],
+"19th_century_frock_coat/neutral": [
+253,
+176,
+59
+],
+"19th_century_frock_coat/open_hand_gesture": [
+228,
+178,
+59
+],
+"modern_suit/holding_a_letter": [
+282,
+177,
+60
+],
+"modern_suit/neutral": [
+254,
+176,
+61
+],
+"modern_suit/open_hand_gesture": [
+227,
+177,
+60
+],
+"period_dress/holding_a_letter": [
+280,
+176,
+52
+],
+"period_dress/neutral": [
+254,
+176,
+52
+],
+"period_dress/open_hand_gesture": [
+232,
+177,
+52
+],
+"HEAD/abraham_lincoln": [
+294,
+470,
+238,
+375
+],
+"HEAD/barack_obama": [
+309,
+469,
+281,
+324
+],
+"HEAD/calvin_coolidge": [
+317,
+470,
+270,
+336
+],
+"HEAD/donald_trump": [
+296,
+469,
+326,
+324
+],
+"HEAD/franklin_d_roosevelt": [
+208,
+469,
+293,
+339
+],
+"HEAD/george_hw_bush": [
+338,
+470,
+295,
+354
+],
+"HEAD/george_w_bush": [
+300,
+470,
+327,
+322
+],
+"HEAD/george_washington": [
+306,
+470,
+321,
+340
+],
+"HEAD/grace_coolidge": [
+302,
+469,
+343,
+326
+],
+"HEAD/harry_truman": [
+283,
+470,
+305,
+332
+],
+"HEAD/james_madison": [
+304,
+469,
+284,
+289
+],
+"HEAD/joe_biden": [
+304,
+469,
+285,
+328
+],
+"HEAD/john_adams": [
+305,
+469,
+335,
+302
+],
+"HEAD/john_f_kennedy": [
+310,
+469,
+314,
+338
+],
+"HEAD/nancy_reagan": [
+316,
+469,
+319,
+314
+],
+"HEAD/pat_nixon": [
+304,
+469,
+326,
+325
+],
+"HEAD/richard_nixon": [
+306,
+470,
+315,
+348
+],
+"HEAD/ronald_reagan": [
+332,
+469,
+295,
+365
+],
+"HEAD/rutherford_b_hayes": [
+346,
+469,
+321,
+343
+],
+"HEAD/sarah_josepha_hale": [
+194,
+470,
+330,
+355
+],
+"HEAD/tad_lincoln": [
+304,
+469,
+315,
+307
+],
+"HEAD/thomas_jefferson": [
+202,
+469,
+311,
+313
+],
+"HEAD/ulysses_s_grant": [
+305,
+470,
+298,
+313
+],
+"HEAD/warren_g_harding": [
+307,
+469,
+314,
+338
+],
+"HEAD/william_howard_taft": [
+241,
+469,
+320,
+326
+],
+"HEAD/william_seward": [
+308,
+469,
+331,
+342
+],
+"HEAD/woodrow_wilson": [
+285,
+470,
+288,
+343
+]
+}
