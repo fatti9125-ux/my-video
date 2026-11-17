@@ -1,0 +1,5077 @@
+{
+"abraham_lincoln/signs_proclamation": {
+"body": {
+"file": "tg2/rig/abraham_lincoln/signs_proclamation/body.png",
+"x": 151,
+"y": 91,
+"w": 211,
+"h": 358
+},
+"limbs": [
+{
+"kind": "arm",
+"side": "L",
+"file": "tg2/rig/abraham_lincoln/signs_proclamation/armL.png",
+"x": 226,
+"y": 389,
+"w": 82,
+"h": 82,
+"pivot": [
+249.6,
+393.2
+],
+"len": 83.8
+}
+],
+"ground": 470,
+"hem": 445
+},
+"abraham_lincoln/softens_toward_tad": {
+"body": {
+"file": "tg2/rig/abraham_lincoln/softens_toward_tad/body.png",
+"x": 152,
+"y": 93,
+"w": 189,
+"h": 341
+},
+"limbs": [
+{
+"kind": "arm",
+"side": "R",
+"file": "tg2/rig/abraham_lincoln/softens_toward_tad/armR.png",
+"x": 259,
+"y": 316,
+"w": 114,
+"h": 42,
+"pivot": [
+261.8,
+328.8
+],
+"len": 110.2
+},
+{
+"kind": "arm",
+"side": "L",
+"file": "tg2/rig/abraham_lincoln/softens_toward_tad/armL.png",
+"x": 228,
+"y": 377,
+"w": 54,
+"h": 94,
+"pivot": [
+228.7,
+384.7
+],
+"len": 98.7
+},
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/abraham_lincoln/softens_toward_tad/legR.png",
+"x": 139,
+"y": 434,
+"w": 78,
+"h": 36,
+"pivot": [
+207.0,
+434.5
+],
+"len": 72.6
+}
+],
+"ground": 470,
+"hem": 427
+},
+"abraham_lincoln/weary_reading_hale_letter": {
+"body": {
+"file": "tg2/rig/abraham_lincoln/weary_reading_hale_letter/body.png",
+"x": 153,
+"y": 87,
+"w": 205,
+"h": 347
+},
+"limbs": [
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/abraham_lincoln/weary_reading_hale_letter/legR.png",
+"x": 252,
+"y": 427,
+"w": 17,
+"h": 43,
+"pivot": [
+254.5,
+427.5
+],
+"len": 42.8
+},
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/abraham_lincoln/weary_reading_hale_letter/legL.png",
+"x": 203,
+"y": 434,
+"w": 18,
+"h": 36,
+"pivot": [
+216.5,
+434.5
+],
+"len": 36.1
+}
+],
+"ground": 469,
+"hem": 432
+},
+"aunt_delia/delivers_mince_pie": {
+"body": {
+"file": "tg2/rig/aunt_delia/delivers_mince_pie/body.png",
+"x": 129,
+"y": 102,
+"w": 253,
+"h": 369
+},
+"limbs": [],
+"ground": 470,
+"hem": 450
+},
+"baghdad_soldier_a/smiles_with_tray": {
+"body": {
+"file": "tg2/rig/baghdad_soldier_a/smiles_with_tray/body.png",
+"x": 133,
+"y": 117,
+"w": 245,
+"h": 316
+},
+"limbs": [
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/baghdad_soldier_a/smiles_with_tray/legL.png",
+"x": 192,
+"y": 432,
+"w": 16,
+"h": 38,
+"pivot": [
+204.2,
+432.6
+],
+"len": 37.5
+},
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/baghdad_soldier_a/smiles_with_tray/legR.png",
+"x": 258,
+"y": 433,
+"w": 16,
+"h": 37,
+"pivot": [
+261.0,
+433.5
+],
+"len": 36.9
+}
+],
+"ground": 469,
+"hem": 431
+},
+"baghdad_soldier_b/cheers": {
+"body": {
+"file": "tg2/rig/baghdad_soldier_b/cheers/body.png",
+"x": 123,
+"y": 123,
+"w": 265,
+"h": 309
+},
+"limbs": [
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/baghdad_soldier_b/cheers/legR.png",
+"x": 281,
+"y": 430,
+"w": 16,
+"h": 40,
+"pivot": [
+284.0,
+430.5
+],
+"len": 39.8
+},
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/baghdad_soldier_b/cheers/legL.png",
+"x": 207,
+"y": 432,
+"w": 16,
+"h": 38,
+"pivot": [
+219.0,
+432.5
+],
+"len": 37.8
+}
+],
+"ground": 469,
+"hem": 430
+},
+"baghdad_soldier_c/holds_plate": {
+"body": {
+"file": "tg2/rig/baghdad_soldier_c/holds_plate/body.png",
+"x": 110,
+"y": 119,
+"w": 292,
+"h": 309
+},
+"limbs": [
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/baghdad_soldier_c/holds_plate/legR.png",
+"x": 260,
+"y": 427,
+"w": 17,
+"h": 43,
+"pivot": [
+263.2,
+427.5
+],
+"len": 42.9
+},
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/baghdad_soldier_c/holds_plate/legL.png",
+"x": 194,
+"y": 428,
+"w": 16,
+"h": 42,
+"pivot": [
+205.5,
+428.5
+],
+"len": 41.6
+}
+],
+"ground": 469,
+"hem": 426
+},
+"barack_obama/ceremonial_pardon_hand_raised": {
+"body": {
+"file": "tg2/rig/barack_obama/ceremonial_pardon_hand_raised/body.png",
+"x": 145,
+"y": 113,
+"w": 152,
+"h": 302
+},
+"limbs": [
+{
+"kind": "arm",
+"side": "R",
+"file": "tg2/rig/barack_obama/ceremonial_pardon_hand_raised/armR.png",
+"x": 281,
+"y": 253,
+"w": 86,
+"h": 60,
+"pivot": [
+281.6,
+302.0
+],
+"len": 94.0
+},
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/barack_obama/ceremonial_pardon_hand_raised/legL.png",
+"x": 186,
+"y": 415,
+"w": 18,
+"h": 56,
+"pivot": [
+200.0,
+415.5
+],
+"len": 55.4
+},
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/barack_obama/ceremonial_pardon_hand_raised/legR.png",
+"x": 256,
+"y": 415,
+"w": 17,
+"h": 56,
+"pivot": [
+259.0,
+415.5
+],
+"len": 55.4
+}
+],
+"ground": 470,
+"hem": 413
+},
+"barack_obama/facing_left_hands_down": {
+"body": {
+"file": "tg2/rig/barack_obama/facing_left_hands_down/body.png",
+"x": 172,
+"y": 114,
+"w": 168,
+"h": 302
+},
+"limbs": [
+{
+"kind": "arm",
+"side": "R",
+"file": "tg2/rig/barack_obama/facing_left_hands_down/armR.png",
+"x": 304,
+"y": 312,
+"w": 32,
+"h": 96,
+"pivot": [
+305.8,
+320.6
+],
+"len": 88.5
+},
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/barack_obama/facing_left_hands_down/legL.png",
+"x": 212,
+"y": 415,
+"w": 17,
+"h": 56,
+"pivot": [
+224.8,
+415.5
+],
+"len": 55.3
+},
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/barack_obama/facing_left_hands_down/legR.png",
+"x": 281,
+"y": 416,
+"w": 17,
+"h": 55,
+"pivot": [
+284.0,
+416.5
+],
+"len": 54.4
+}
+],
+"ground": 470,
+"hem": 414
+},
+"barack_obama/neutral_facing_right": {
+"body": {
+"file": "tg2/rig/barack_obama/neutral_facing_right/body.png",
+"x": 172,
+"y": 114,
+"w": 167,
+"h": 301
+},
+"limbs": [
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/barack_obama/neutral_facing_right/legL.png",
+"x": 216,
+"y": 415,
+"w": 17,
+"h": 56,
+"pivot": [
+229.0,
+415.5
+],
+"len": 55.2
+},
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/barack_obama/neutral_facing_right/legR.png",
+"x": 286,
+"y": 415,
+"w": 17,
+"h": 56,
+"pivot": [
+289.0,
+415.5
+],
+"len": 55.4
+}
+],
+"ground": 470,
+"hem": 413
+},
+"calvin_coolidge/content_with_rebecca": {
+"body": {
+"file": "tg2/rig/calvin_coolidge/content_with_rebecca/body.png",
+"x": 104,
+"y": 96,
+"w": 304,
+"h": 375
+},
+"limbs": [
+{
+"kind": "arm",
+"side": "R",
+"file": "tg2/rig/calvin_coolidge/content_with_rebecca/armR.png",
+"x": 294,
+"y": 386,
+"w": 25,
+"h": 85,
+"pivot": [
+299.6,
+387.4
+],
+"len": 84.0
+},
+{
+"kind": "arm",
+"side": "R",
+"file": "tg2/rig/calvin_coolidge/content_with_rebecca/armR1.png",
+"x": 337,
+"y": 415,
+"w": 15,
+"h": 54,
+"pivot": [
+339.7,
+415.6
+],
+"len": 53.2
+}
+],
+"ground": 470,
+"hem": 467
+},
+"calvin_coolidge/hesitates_at_delivery": {
+"body": {
+"file": "tg2/rig/calvin_coolidge/hesitates_at_delivery/body.png",
+"x": 144,
+"y": 99,
+"w": 196,
+"h": 306
+},
+"limbs": [
+{
+"kind": "arm",
+"side": "R",
+"file": "tg2/rig/calvin_coolidge/hesitates_at_delivery/armR.png",
+"x": 323,
+"y": 253,
+"w": 44,
+"h": 76,
+"pivot": [
+323.5,
+325.0
+],
+"len": 77.7
+},
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/calvin_coolidge/hesitates_at_delivery/legR.png",
+"x": 303,
+"y": 394,
+"w": 18,
+"h": 76,
+"pivot": [
+306.0,
+394.5
+],
+"len": 75.5
+},
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/calvin_coolidge/hesitates_at_delivery/legL.png",
+"x": 234,
+"y": 404,
+"w": 20,
+"h": 67,
+"pivot": [
+250.0,
+404.5
+],
+"len": 66.6
+}
+],
+"ground": 470,
+"hem": 400
+},
+"calvin_coolidge/unimpressed_arms_folded": {
+"body": {
+"file": "tg2/rig/calvin_coolidge/unimpressed_arms_folded/body.png",
+"x": 181,
+"y": 97,
+"w": 149,
+"h": 312
+},
+"limbs": [
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/calvin_coolidge/unimpressed_arms_folded/legR.png",
+"x": 294,
+"y": 408,
+"w": 17,
+"h": 63,
+"pivot": [
+297.0,
+408.5
+],
+"len": 62.0
+},
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/calvin_coolidge/unimpressed_arms_folded/legL.png",
+"x": 230,
+"y": 409,
+"w": 19,
+"h": 62,
+"pivot": [
+245.0,
+409.5
+],
+"len": 61.9
+}
+],
+"ground": 470,
+"hem": 407
+},
+"donald_trump/ceremonial_pardon_hand_raised": {
+"body": {
+"file": "tg2/rig/donald_trump/ceremonial_pardon_hand_raised/body.png",
+"x": 135,
+"y": 106,
+"w": 193,
+"h": 317
+},
+"limbs": [
+{
+"kind": "arm",
+"side": "R",
+"file": "tg2/rig/donald_trump/ceremonial_pardon_hand_raised/armR.png",
+"x": 291,
+"y": 247,
+"w": 86,
+"h": 54,
+"pivot": [
+291.5,
+296.5
+],
+"len": 93.8
+},
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/donald_trump/ceremonial_pardon_hand_raised/legR.png",
+"x": 263,
+"y": 421,
+"w": 14,
+"h": 50,
+"pivot": [
+265.5,
+421.5
+],
+"len": 48.7
+},
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/donald_trump/ceremonial_pardon_hand_raised/legL.png",
+"x": 190,
+"y": 423,
+"w": 14,
+"h": 47,
+"pivot": [
+200.5,
+423.5
+],
+"len": 46.3
+}
+],
+"ground": 470,
+"hem": 420
+},
+"donald_trump/facing_left_hands_down": {
+"body": {
+"file": "tg2/rig/donald_trump/facing_left_hands_down/body.png",
+"x": 161,
+"y": 107,
+"w": 190,
+"h": 317
+},
+"limbs": [
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/donald_trump/facing_left_hands_down/legL.png",
+"x": 207,
+"y": 422,
+"w": 14,
+"h": 49,
+"pivot": [
+217.5,
+422.5
+],
+"len": 48.1
+},
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/donald_trump/facing_left_hands_down/legR.png",
+"x": 282,
+"y": 424,
+"w": 14,
+"h": 46,
+"pivot": [
+284.0,
+424.5
+],
+"len": 45.4
+}
+],
+"ground": 470,
+"hem": 422
+},
+"donald_trump/neutral_facing_right": {
+"body": {
+"file": "tg2/rig/donald_trump/neutral_facing_right/body.png",
+"x": 161,
+"y": 106,
+"w": 191,
+"h": 316
+},
+"limbs": [
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/donald_trump/neutral_facing_right/legR.png",
+"x": 291,
+"y": 420,
+"w": 14,
+"h": 50,
+"pivot": [
+293.5,
+420.5
+],
+"len": 49.2
+},
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/donald_trump/neutral_facing_right/legL.png",
+"x": 219,
+"y": 422,
+"w": 14,
+"h": 48,
+"pivot": [
+229.5,
+422.5
+],
+"len": 47.3
+}
+],
+"ground": 469,
+"hem": 420
+},
+"elias_boudinot/eager_greeting": {
+"body": {
+"file": "tg2/rig/elias_boudinot/eager_greeting/body.png",
+"x": 148,
+"y": 95,
+"w": 202,
+"h": 314
+},
+"limbs": [
+{
+"kind": "arm",
+"side": "R",
+"file": "tg2/rig/elias_boudinot/eager_greeting/armR.png",
+"x": 317,
+"y": 263,
+"w": 60,
+"h": 48,
+"pivot": [
+317.7,
+307.8
+],
+"len": 68.6
+},
+{
+"kind": "arm",
+"side": "L",
+"file": "tg2/rig/elias_boudinot/eager_greeting/armL.png",
+"x": 134,
+"y": 279,
+"w": 62,
+"h": 35,
+"pivot": [
+194.4,
+310.2
+],
+"len": 64.0
+},
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/elias_boudinot/eager_greeting/legR.png",
+"x": 286,
+"y": 406,
+"w": 15,
+"h": 63,
+"pivot": [
+288.5,
+406.5
+],
+"len": 62.2
+},
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/elias_boudinot/eager_greeting/legL.png",
+"x": 222,
+"y": 409,
+"w": 15,
+"h": 60,
+"pivot": [
+233.5,
+409.5
+],
+"len": 59.3
+}
+],
+"ground": 468,
+"hem": 406
+},
+"elias_boudinot/offers_petition": {
+"body": {
+"file": "tg2/rig/elias_boudinot/offers_petition/body.png",
+"x": 121,
+"y": 94,
+"w": 269,
+"h": 316
+},
+"limbs": [
+{
+"kind": "arm",
+"side": "L",
+"file": "tg2/rig/elias_boudinot/offers_petition/armL.png",
+"x": 142,
+"y": 309,
+"w": 30,
+"h": 73,
+"pivot": [
+169.2,
+318.4
+],
+"len": 66.1
+},
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/elias_boudinot/offers_petition/legR.png",
+"x": 254,
+"y": 408,
+"w": 15,
+"h": 61,
+"pivot": [
+256.5,
+408.5
+],
+"len": 60.3
+},
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/elias_boudinot/offers_petition/legL.png",
+"x": 194,
+"y": 410,
+"w": 16,
+"h": 59,
+"pivot": [
+206.0,
+410.5
+],
+"len": 58.4
+}
+],
+"ground": 468,
+"hem": 407
+},
+"elias_boudinot/relieved_smile": {
+"body": {
+"file": "tg2/rig/elias_boudinot/relieved_smile/body.png",
+"x": 137,
+"y": 95,
+"w": 239,
+"h": 315
+},
+"limbs": [
+{
+"kind": "arm",
+"side": "L",
+"file": "tg2/rig/elias_boudinot/relieved_smile/armL.png",
+"x": 176,
+"y": 312,
+"w": 31,
+"h": 67,
+"pivot": [
+204.5,
+320.6
+],
+"len": 62.4
+},
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/elias_boudinot/relieved_smile/legR.png",
+"x": 294,
+"y": 407,
+"w": 15,
+"h": 62,
+"pivot": [
+297.0,
+407.5
+],
+"len": 61.2
+},
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/elias_boudinot/relieved_smile/legL.png",
+"x": 233,
+"y": 410,
+"w": 16,
+"h": 59,
+"pivot": [
+244.5,
+410.5
+],
+"len": 58.3
+}
+],
+"ground": 468,
+"hem": 406
+},
+"farm_worker/carries_feed_pail": {
+"body": {
+"file": "tg2/rig/farm_worker/carries_feed_pail/body.png",
+"x": 153,
+"y": 157,
+"w": 203,
+"h": 297
+},
+"limbs": [
+{
+"kind": "arm",
+"side": "R",
+"file": "tg2/rig/farm_worker/carries_feed_pail/armR.png",
+"x": 326,
+"y": 284,
+"w": 33,
+"h": 107,
+"pivot": [
+328.1,
+289.6
+],
+"len": 102.6
+},
+{
+"kind": "arm",
+"side": "R",
+"file": "tg2/rig/farm_worker/carries_feed_pail/armR1.png",
+"x": 297,
+"y": 377,
+"w": 16,
+"h": 93,
+"pivot": [
+306.5,
+377.5
+],
+"len": 91.8
+},
+{
+"kind": "arm",
+"side": "R",
+"file": "tg2/rig/farm_worker/carries_feed_pail/armR2.png",
+"x": 253,
+"y": 378,
+"w": 16,
+"h": 91,
+"pivot": [
+263.0,
+378.5
+],
+"len": 89.8
+}
+],
+"ground": 469,
+"hem": 450
+},
+"franklin_d_roosevelt/confident_date_change": {
+"body": {
+"file": "tg2/rig/franklin_d_roosevelt/confident_date_change/body.png",
+"x": 126,
+"y": 83,
+"w": 260,
+"h": 388
+},
+"limbs": [],
+"ground": 470,
+"hem": 468
+},
+"franklin_d_roosevelt/resigned_signs_law": {
+"body": {
+"file": "tg2/rig/franklin_d_roosevelt/resigned_signs_law/body.png",
+"x": 121,
+"y": 87,
+"w": 269,
+"h": 384
+},
+"limbs": [],
+"ground": 470,
+"hem": 468
+},
+"franklin_d_roosevelt/war_address_at_radio": {
+"body": {
+"file": "tg2/rig/franklin_d_roosevelt/war_address_at_radio/body.png",
+"x": 114,
+"y": 85,
+"w": 265,
+"h": 386
+},
+"limbs": [
+{
+"kind": "arm",
+"side": "R",
+"file": "tg2/rig/franklin_d_roosevelt/war_address_at_radio/armR.png",
+"x": 339,
+"y": 279,
+"w": 59,
+"h": 36,
+"pivot": [
+339.5,
+311.2
+],
+"len": 63.2
+}
+],
+"ground": 470,
+"hem": 468
+},
+"george_hw_bush/attentive_neutral": {
+"body": {
+"file": "tg2/rig/george_hw_bush/attentive_neutral/body.png",
+"x": 174,
+"y": 98,
+"w": 165,
+"h": 316
+},
+"limbs": [
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/george_hw_bush/attentive_neutral/legR.png",
+"x": 287,
+"y": 412,
+"w": 16,
+"h": 59,
+"pivot": [
+290.0,
+412.5
+],
+"len": 57.9
+},
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/george_hw_bush/attentive_neutral/legL.png",
+"x": 228,
+"y": 414,
+"w": 17,
+"h": 57,
+"pivot": [
+241.0,
+414.5
+],
+"len": 55.9
+}
+],
+"ground": 470,
+"hem": 411
+},
+"george_hw_bush/raises_hand_for_official_pardon": {
+"body": {
+"file": "tg2/rig/george_hw_bush/raises_hand_for_official_pardon/body.png",
+"x": 143,
+"y": 98,
+"w": 165,
+"h": 317
+},
+"limbs": [
+{
+"kind": "arm",
+"side": "R",
+"file": "tg2/rig/george_hw_bush/raises_hand_for_official_pardon/armR.png",
+"x": 284,
+"y": 259,
+"w": 83,
+"h": 61,
+"pivot": [
+284.5,
+315.0
+],
+"len": 97.2
+},
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/george_hw_bush/raises_hand_for_official_pardon/legR.png",
+"x": 260,
+"y": 413,
+"w": 16,
+"h": 58,
+"pivot": [
+262.5,
+413.5
+],
+"len": 56.9
+},
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/george_hw_bush/raises_hand_for_official_pardon/legL.png",
+"x": 200,
+"y": 415,
+"w": 17,
+"h": 56,
+"pivot": [
+213.0,
+415.5
+],
+"len": 55.1
+}
+],
+"ground": 470,
+"hem": 412
+},
+"george_hw_bush/warm_smile_after_pardon": {
+"body": {
+"file": "tg2/rig/george_hw_bush/warm_smile_after_pardon/body.png",
+"x": 172,
+"y": 99,
+"w": 167,
+"h": 315
+},
+"limbs": [
+{
+"kind": "arm",
+"side": "L",
+"file": "tg2/rig/george_hw_bush/warm_smile_after_pardon/armL.png",
+"x": 192,
+"y": 323,
+"w": 28,
+"h": 71,
+"pivot": [
+216.2,
+331.4
+],
+"len": 64.8
+},
+{
+"kind": "arm",
+"side": "R",
+"file": "tg2/rig/george_hw_bush/warm_smile_after_pardon/armR.png",
+"x": 316,
+"y": 334,
+"w": 24,
+"h": 60,
+"pivot": [
+318.0,
+343.5
+],
+"len": 52.3
+},
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/george_hw_bush/warm_smile_after_pardon/legR.png",
+"x": 292,
+"y": 412,
+"w": 16,
+"h": 59,
+"pivot": [
+294.5,
+412.5
+],
+"len": 58.0
+},
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/george_hw_bush/warm_smile_after_pardon/legL.png",
+"x": 232,
+"y": 414,
+"w": 17,
+"h": 57,
+"pivot": [
+245.0,
+414.5
+],
+"len": 55.9
+}
+],
+"ground": 470,
+"hem": 411
+},
+"george_w_bush/holds_trophy_turkey": {
+"body": {
+"file": "tg2/rig/george_w_bush/holds_trophy_turkey/body.png",
+"x": 139,
+"y": 109,
+"w": 232,
+"h": 314
+},
+"limbs": [
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/george_w_bush/holds_trophy_turkey/legR.png",
+"x": 277,
+"y": 422,
+"w": 17,
+"h": 48,
+"pivot": [
+280.0,
+422.5
+],
+"len": 47.6
+},
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/george_w_bush/holds_trophy_turkey/legL.png",
+"x": 204,
+"y": 423,
+"w": 17,
+"h": 47,
+"pivot": [
+217.0,
+423.5
+],
+"len": 46.6
+}
+],
+"ground": 469,
+"hem": 421
+},
+"george_w_bush/jokes_about_lunch_and_dinner": {
+"body": {
+"file": "tg2/rig/george_w_bush/jokes_about_lunch_and_dinner/body.png",
+"x": 140,
+"y": 109,
+"w": 184,
+"h": 310
+},
+"limbs": [
+{
+"kind": "arm",
+"side": "R",
+"file": "tg2/rig/george_w_bush/jokes_about_lunch_and_dinner/armR.png",
+"x": 301,
+"y": 276,
+"w": 70,
+"h": 60,
+"pivot": [
+301.7,
+321.2
+],
+"len": 77.8
+},
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/george_w_bush/jokes_about_lunch_and_dinner/legR.png",
+"x": 276,
+"y": 416,
+"w": 17,
+"h": 54,
+"pivot": [
+279.0,
+416.5
+],
+"len": 53.4
+},
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/george_w_bush/jokes_about_lunch_and_dinner/legL.png",
+"x": 208,
+"y": 419,
+"w": 17,
+"h": 51,
+"pivot": [
+221.0,
+419.5
+],
+"len": 50.5
+}
+],
+"ground": 469,
+"hem": 416
+},
+"george_w_bush/serves_baghdad_dinner": {
+"body": {
+"file": "tg2/rig/george_w_bush/serves_baghdad_dinner/body.png",
+"x": 105,
+"y": 108,
+"w": 302,
+"h": 312
+},
+"limbs": [
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/george_w_bush/serves_baghdad_dinner/legR.png",
+"x": 230,
+"y": 418,
+"w": 17,
+"h": 52,
+"pivot": [
+232.5,
+418.5
+],
+"len": 51.6
+},
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/george_w_bush/serves_baghdad_dinner/legL.png",
+"x": 159,
+"y": 420,
+"w": 17,
+"h": 50,
+"pivot": [
+172.0,
+420.5
+],
+"len": 49.5
+}
+],
+"ground": 469,
+"hem": 418
+},
+"george_washington/offers_beer_mug": {
+"body": {
+"file": "tg2/rig/george_washington/offers_beer_mug/body.png",
+"x": 107,
+"y": 100,
+"w": 298,
+"h": 316
+},
+"limbs": [
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/george_washington/offers_beer_mug/legL.png",
+"x": 192,
+"y": 412,
+"w": 14,
+"h": 58,
+"pivot": [
+202.5,
+412.7
+],
+"len": 56.9
+},
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/george_washington/offers_beer_mug/legR.png",
+"x": 252,
+"y": 413,
+"w": 15,
+"h": 57,
+"pivot": [
+254.8,
+413.5
+],
+"len": 56.1
+}
+],
+"ground": 469,
+"hem": 411
+},
+"george_washington/signing_proclamation": {
+"body": {
+"file": "tg2/rig/george_washington/signing_proclamation/body.png",
+"x": 96,
+"y": 101,
+"w": 320,
+"h": 344
+},
+"limbs": [
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/george_washington/signing_proclamation/legL.png",
+"x": 199,
+"y": 430,
+"w": 14,
+"h": 41,
+"pivot": [
+202.0,
+430.5
+],
+"len": 40.0
+},
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/george_washington/signing_proclamation/legL1.png",
+"x": 142,
+"y": 431,
+"w": 13,
+"h": 40,
+"pivot": [
+151.5,
+431.5
+],
+"len": 39.0
+}
+],
+"ground": 470,
+"hem": 441
+},
+"george_washington/solemn_with_quill": {
+"body": {
+"file": "tg2/rig/george_washington/solemn_with_quill/body.png",
+"x": 125,
+"y": 96,
+"w": 262,
+"h": 320
+},
+"limbs": [
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/george_washington/solemn_with_quill/legL.png",
+"x": 202,
+"y": 413,
+"w": 15,
+"h": 57,
+"pivot": [
+213.5,
+413.5
+],
+"len": 56.3
+},
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/george_washington/solemn_with_quill/legR.png",
+"x": 263,
+"y": 413,
+"w": 15,
+"h": 57,
+"pivot": [
+266.0,
+413.5
+],
+"len": 56.2
+}
+],
+"ground": 469,
+"hem": 411
+},
+"grace_coolidge/carries_rebecca": {
+"body": {
+"file": "tg2/rig/grace_coolidge/carries_rebecca/body.png",
+"x": 111,
+"y": 92,
+"w": 289,
+"h": 344
+},
+"limbs": [
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/grace_coolidge/carries_rebecca/legL.png",
+"x": 262,
+"y": 434,
+"w": 16,
+"h": 36,
+"pivot": [
+264.2,
+434.7
+],
+"len": 35.9
+},
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/grace_coolidge/carries_rebecca/legL1.png",
+"x": 202,
+"y": 435,
+"w": 17,
+"h": 36,
+"pivot": [
+215.5,
+435.5
+],
+"len": 35.8
+}
+],
+"ground": 470,
+"hem": 433
+},
+"grace_coolidge/friendly_neutral": {
+"body": {
+"file": "tg2/rig/grace_coolidge/friendly_neutral/body.png",
+"x": 156,
+"y": 91,
+"w": 200,
+"h": 343
+},
+"limbs": [
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/grace_coolidge/friendly_neutral/legL.png",
+"x": 231,
+"y": 434,
+"w": 16,
+"h": 36,
+"pivot": [
+243.5,
+434.5
+],
+"len": 36.1
+},
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/grace_coolidge/friendly_neutral/legR.png",
+"x": 290,
+"y": 434,
+"w": 15,
+"h": 35,
+"pivot": [
+293.0,
+434.5
+],
+"len": 35.0
+}
+],
+"ground": 469,
+"hem": 432
+},
+"grace_coolidge/presents_rebecca_to_children": {
+"body": {
+"file": "tg2/rig/grace_coolidge/presents_rebecca_to_children/body.png",
+"x": 118,
+"y": 95,
+"w": 275,
+"h": 376
+},
+"limbs": [
+{
+"kind": "arm",
+"side": "L",
+"file": "tg2/rig/grace_coolidge/presents_rebecca_to_children/armL.png",
+"x": 146,
+"y": 436,
+"w": 17,
+"h": 33,
+"pivot": [
+159.0,
+436.5
+],
+"len": 33.0
+},
+{
+"kind": "arm",
+"side": "L",
+"file": "tg2/rig/grace_coolidge/presents_rebecca_to_children/armL1.png",
+"x": 203,
+"y": 436,
+"w": 16,
+"h": 32,
+"pivot": [
+205.5,
+436.5
+],
+"len": 31.9
+}
+],
+"ground": 470,
+"hem": 466
+},
+"harry_truman/answers_a_reporter": {
+"body": {
+"file": "tg2/rig/harry_truman/answers_a_reporter/body.png",
+"x": 140,
+"y": 102,
+"w": 181,
+"h": 299
+},
+"limbs": [
+{
+"kind": "arm",
+"side": "R",
+"file": "tg2/rig/harry_truman/answers_a_reporter/armR.png",
+"x": 306,
+"y": 257,
+"w": 64,
+"h": 61,
+"pivot": [
+307.0,
+299.1
+],
+"len": 73.3
+},
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/harry_truman/answers_a_reporter/legR.png",
+"x": 277,
+"y": 399,
+"w": 20,
+"h": 71,
+"pivot": [
+280.0,
+399.5
+],
+"len": 70.9
+},
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/harry_truman/answers_a_reporter/legL.png",
+"x": 211,
+"y": 401,
+"w": 20,
+"h": 69,
+"pivot": [
+227.0,
+401.5
+],
+"len": 68.9
+}
+],
+"ground": 469,
+"hem": 398
+},
+"harry_truman/grinning_at_dinner": {
+"body": {
+"file": "tg2/rig/harry_truman/grinning_at_dinner/body.png",
+"x": 137,
+"y": 101,
+"w": 237,
+"h": 300
+},
+"limbs": [
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/harry_truman/grinning_at_dinner/legR.png",
+"x": 267,
+"y": 400,
+"w": 20,
+"h": 70,
+"pivot": [
+270.0,
+400.5
+],
+"len": 69.9
+},
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/harry_truman/grinning_at_dinner/legL.png",
+"x": 200,
+"y": 401,
+"w": 19,
+"h": 69,
+"pivot": [
+215.0,
+401.5
+],
+"len": 68.7
+}
+],
+"ground": 469,
+"hem": 399
+},
+"harry_truman/grinning_with_turkey_bite": {
+"body": {
+"file": "tg2/rig/harry_truman/grinning_with_turkey_bite/body.png",
+"x": 113,
+"y": 102,
+"w": 286,
+"h": 300
+},
+"limbs": [
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/harry_truman/grinning_with_turkey_bite/legR.png",
+"x": 281,
+"y": 400,
+"w": 20,
+"h": 70,
+"pivot": [
+284.0,
+400.5
+],
+"len": 69.7
+},
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/harry_truman/grinning_with_turkey_bite/legL.png",
+"x": 215,
+"y": 402,
+"w": 19,
+"h": 68,
+"pivot": [
+230.5,
+402.5
+],
+"len": 67.9
+}
+],
+"ground": 469,
+"hem": 399
+},
+"horace_vose/holds_express_crate": {
+"body": {
+"file": "tg2/rig/horace_vose/holds_express_crate/body.png",
+"x": 155,
+"y": 83,
+"w": 202,
+"h": 333
+},
+"limbs": [
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/horace_vose/holds_express_crate/legL.png",
+"x": 224,
+"y": 416,
+"w": 18,
+"h": 55,
+"pivot": [
+238.5,
+416.5
+],
+"len": 54.5
+},
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/horace_vose/holds_express_crate/legR.png",
+"x": 293,
+"y": 416,
+"w": 18,
+"h": 55,
+"pivot": [
+295.5,
+416.5
+],
+"len": 54.7
+}
+],
+"ground": 470,
+"hem": 414
+},
+"horace_vose/holds_red_pepper": {
+"body": {
+"file": "tg2/rig/horace_vose/holds_red_pepper/body.png",
+"x": 119,
+"y": 89,
+"w": 273,
+"h": 322
+},
+"limbs": [
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/horace_vose/holds_red_pepper/legL.png",
+"x": 206,
+"y": 411,
+"w": 19,
+"h": 60,
+"pivot": [
+221.0,
+411.5
+],
+"len": 59.3
+},
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/horace_vose/holds_red_pepper/legR.png",
+"x": 270,
+"y": 411,
+"w": 19,
+"h": 60,
+"pivot": [
+273.0,
+411.5
+],
+"len": 59.5
+}
+],
+"ground": 470,
+"hem": 409
+},
+"horace_vose/proudly_holds_turkey": {
+"body": {
+"file": "tg2/rig/horace_vose/proudly_holds_turkey/body.png",
+"x": 137,
+"y": 86,
+"w": 236,
+"h": 334
+},
+"limbs": [
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/horace_vose/proudly_holds_turkey/legL.png",
+"x": 202,
+"y": 417,
+"w": 17,
+"h": 54,
+"pivot": [
+215.5,
+417.5
+],
+"len": 53.5
+},
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/horace_vose/proudly_holds_turkey/legR.png",
+"x": 258,
+"y": 417,
+"w": 18,
+"h": 54,
+"pivot": [
+260.3,
+417.6
+],
+"len": 53.5
+}
+],
+"ground": 470,
+"hem": 415
+},
+"ida_mckinley/approving_with_menu": {
+"body": {
+"file": "tg2/rig/ida_mckinley/approving_with_menu/body.png",
+"x": 159,
+"y": 60,
+"w": 193,
+"h": 410
+},
+"limbs": [],
+"ground": 469,
+"hem": 451
+},
+"ida_mckinley/directs_dinner": {
+"body": {
+"file": "tg2/rig/ida_mckinley/directs_dinner/body.png",
+"x": 171,
+"y": 60,
+"w": 195,
+"h": 410
+},
+"limbs": [
+{
+"kind": "arm",
+"side": "L",
+"file": "tg2/rig/ida_mckinley/directs_dinner/armL.png",
+"x": 145,
+"y": 295,
+"w": 65,
+"h": 31,
+"pivot": [
+208.5,
+297.5
+],
+"len": 68.1
+}
+],
+"ground": 469,
+"hem": 451
+},
+"ida_mckinley/prim_neutral": {
+"body": {
+"file": "tg2/rig/ida_mckinley/prim_neutral/body.png",
+"x": 162,
+"y": 59,
+"w": 189,
+"h": 411
+},
+"limbs": [],
+"ground": 469,
+"hem": 451
+},
+"james_madison/presents_proclamation": {
+"body": {
+"file": "tg2/rig/james_madison/presents_proclamation/body.png",
+"x": 110,
+"y": 131,
+"w": 290,
+"h": 290
+},
+"limbs": [
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/james_madison/presents_proclamation/legR.png",
+"x": 233,
+"y": 412,
+"w": 19,
+"h": 59,
+"pivot": [
+236.0,
+412.5
+],
+"len": 58.5
+},
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/james_madison/presents_proclamation/legL.png",
+"x": 173,
+"y": 419,
+"w": 19,
+"h": 52,
+"pivot": [
+187.6,
+419.6
+],
+"len": 51.7
+}
+],
+"ground": 470,
+"hem": 417
+},
+"james_madison/reads_proclamation": {
+"body": {
+"file": "tg2/rig/james_madison/reads_proclamation/body.png",
+"x": 137,
+"y": 129,
+"w": 239,
+"h": 292
+},
+"limbs": [
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/james_madison/reads_proclamation/legL.png",
+"x": 238,
+"y": 412,
+"w": 19,
+"h": 58,
+"pivot": [
+253.5,
+412.5
+],
+"len": 57.7
+},
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/james_madison/reads_proclamation/legR.png",
+"x": 298,
+"y": 420,
+"w": 19,
+"h": 50,
+"pivot": [
+301.0,
+420.5
+],
+"len": 50.2
+}
+],
+"ground": 469,
+"hem": 418
+},
+"james_madison/standing_neutral": {
+"body": {
+"file": "tg2/rig/james_madison/standing_neutral/body.png",
+"x": 169,
+"y": 130,
+"w": 173,
+"h": 291
+},
+"limbs": [
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/james_madison/standing_neutral/legR.png",
+"x": 295,
+"y": 413,
+"w": 19,
+"h": 58,
+"pivot": [
+298.0,
+413.5
+],
+"len": 57.6
+},
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/james_madison/standing_neutral/legL.png",
+"x": 236,
+"y": 419,
+"w": 19,
+"h": 52,
+"pivot": [
+251.0,
+419.5
+],
+"len": 51.7
+}
+],
+"ground": 470,
+"hem": 417
+},
+"joe_biden/ceremonial_pardon_hand_raised": {
+"body": {
+"file": "tg2/rig/joe_biden/ceremonial_pardon_hand_raised/body.png",
+"x": 150,
+"y": 119,
+"w": 148,
+"h": 285
+},
+"limbs": [
+{
+"kind": "arm",
+"side": "R",
+"file": "tg2/rig/joe_biden/ceremonial_pardon_hand_raised/armR.png",
+"x": 281,
+"y": 256,
+"w": 80,
+"h": 56,
+"pivot": [
+281.5,
+305.5
+],
+"len": 88.8
+},
+{
+"kind": "arm",
+"side": "L",
+"file": "tg2/rig/joe_biden/ceremonial_pardon_hand_raised/armL.png",
+"x": 159,
+"y": 297,
+"w": 31,
+"h": 96,
+"pivot": [
+187.1,
+303.4
+],
+"len": 90.9
+},
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/joe_biden/ceremonial_pardon_hand_raised/legR.png",
+"x": 260,
+"y": 403,
+"w": 16,
+"h": 67,
+"pivot": [
+262.5,
+403.5
+],
+"len": 66.3
+},
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/joe_biden/ceremonial_pardon_hand_raised/legL.png",
+"x": 206,
+"y": 404,
+"w": 14,
+"h": 67,
+"pivot": [
+212.7,
+404.6
+],
+"len": 65.5
+}
+],
+"ground": 470,
+"hem": 402
+},
+"joe_biden/facing_left_hands_down": {
+"body": {
+"file": "tg2/rig/joe_biden/facing_left_hands_down/body.png",
+"x": 184,
+"y": 119,
+"w": 148,
+"h": 285
+},
+"limbs": [
+{
+"kind": "arm",
+"side": "R",
+"file": "tg2/rig/joe_biden/facing_left_hands_down/armR.png",
+"x": 294,
+"y": 298,
+"w": 30,
+"h": 94,
+"pivot": [
+296.6,
+305.0
+],
+"len": 88.2
+},
+{
+"kind": "arm",
+"side": "L",
+"file": "tg2/rig/joe_biden/facing_left_hands_down/armL.png",
+"x": 179,
+"y": 316,
+"w": 25,
+"h": 76,
+"pivot": [
+200.7,
+323.4
+],
+"len": 69.1
+},
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/joe_biden/facing_left_hands_down/legL.png",
+"x": 218,
+"y": 403,
+"w": 15,
+"h": 67,
+"pivot": [
+228.8,
+403.7
+],
+"len": 65.9
+},
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/joe_biden/facing_left_hands_down/legR.png",
+"x": 268,
+"y": 404,
+"w": 14,
+"h": 67,
+"pivot": [
+274.0,
+404.5
+],
+"len": 65.6
+}
+],
+"ground": 470,
+"hem": 402
+},
+"joe_biden/neutral_facing_right": {
+"body": {
+"file": "tg2/rig/joe_biden/neutral_facing_right/body.png",
+"x": 178,
+"y": 119,
+"w": 148,
+"h": 286
+},
+"limbs": [
+{
+"kind": "arm",
+"side": "L",
+"file": "tg2/rig/joe_biden/neutral_facing_right/armL.png",
+"x": 187,
+"y": 295,
+"w": 29,
+"h": 99,
+"pivot": [
+213.0,
+301.2
+],
+"len": 93.5
+},
+{
+"kind": "arm",
+"side": "R",
+"file": "tg2/rig/joe_biden/neutral_facing_right/armR.png",
+"x": 307,
+"y": 315,
+"w": 26,
+"h": 78,
+"pivot": [
+308.7,
+322.2
+],
+"len": 71.7
+},
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/joe_biden/neutral_facing_right/legR.png",
+"x": 278,
+"y": 404,
+"w": 16,
+"h": 67,
+"pivot": [
+281.3,
+404.6
+],
+"len": 65.7
+},
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/joe_biden/neutral_facing_right/legL.png",
+"x": 230,
+"y": 405,
+"w": 14,
+"h": 66,
+"pivot": [
+236.5,
+405.5
+],
+"len": 64.7
+}
+],
+"ground": 470,
+"hem": 403
+},
+"john_adams/announcing_arms_open": {
+"body": {
+"file": "tg2/rig/john_adams/announcing_arms_open/body.png",
+"x": 97,
+"y": 114,
+"w": 265,
+"h": 306
+},
+"limbs": [
+{
+"kind": "arm",
+"side": "R",
+"file": "tg2/rig/john_adams/announcing_arms_open/armR.png",
+"x": 313,
+"y": 237,
+"w": 102,
+"h": 73,
+"pivot": [
+316.0,
+305.5
+],
+"len": 111.8
+},
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/john_adams/announcing_arms_open/legL.png",
+"x": 217,
+"y": 418,
+"w": 16,
+"h": 52,
+"pivot": [
+229.3,
+418.7
+],
+"len": 51.2
+},
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/john_adams/announcing_arms_open/legR.png",
+"x": 287,
+"y": 420,
+"w": 16,
+"h": 51,
+"pivot": [
+290.0,
+420.5
+],
+"len": 49.9
+}
+],
+"ground": 470,
+"hem": 418
+},
+"john_adams/attentive_neutral": {
+"body": {
+"file": "tg2/rig/john_adams/attentive_neutral/body.png",
+"x": 149,
+"y": 117,
+"w": 214,
+"h": 297
+},
+"limbs": [
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/john_adams/attentive_neutral/legL.png",
+"x": 224,
+"y": 412,
+"w": 16,
+"h": 59,
+"pivot": [
+236.0,
+412.5
+],
+"len": 57.9
+},
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/john_adams/attentive_neutral/legR.png",
+"x": 296,
+"y": 413,
+"w": 15,
+"h": 58,
+"pivot": [
+299.0,
+413.5
+],
+"len": 56.8
+}
+],
+"ground": 470,
+"hem": 412
+},
+"john_adams/puzzled_reaction": {
+"body": {
+"file": "tg2/rig/john_adams/puzzled_reaction/body.png",
+"x": 132,
+"y": 116,
+"w": 218,
+"h": 304
+},
+"limbs": [
+{
+"kind": "arm",
+"side": "L",
+"file": "tg2/rig/john_adams/puzzled_reaction/armL.png",
+"x": 152,
+"y": 305,
+"w": 58,
+"h": 81,
+"pivot": [
+206.8,
+310.7
+],
+"len": 85.8
+},
+{
+"kind": "arm",
+"side": "R",
+"file": "tg2/rig/john_adams/puzzled_reaction/armR.png",
+"x": 328,
+"y": 310,
+"w": 53,
+"h": 74,
+"pivot": [
+329.4,
+316.9
+],
+"len": 76.1
+},
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/john_adams/puzzled_reaction/legL.png",
+"x": 227,
+"y": 416,
+"w": 15,
+"h": 54,
+"pivot": [
+238.0,
+416.5
+],
+"len": 53.1
+},
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/john_adams/puzzled_reaction/legR.png",
+"x": 296,
+"y": 417,
+"w": 16,
+"h": 53,
+"pivot": [
+299.2,
+417.5
+],
+"len": 52.2
+}
+],
+"ground": 469,
+"hem": 416
+},
+"john_f_kennedy/gentle_smile": {
+"body": {
+"file": "tg2/rig/john_f_kennedy/gentle_smile/body.png",
+"x": 170,
+"y": 86,
+"w": 172,
+"h": 310
+},
+"limbs": [
+{
+"kind": "arm",
+"side": "L",
+"file": "tg2/rig/john_f_kennedy/gentle_smile/armL.png",
+"x": 200,
+"y": 296,
+"w": 22,
+"h": 92,
+"pivot": [
+218.0,
+304.1
+],
+"len": 84.3
+},
+{
+"kind": "arm",
+"side": "R",
+"file": "tg2/rig/john_f_kennedy/gentle_smile/armR.png",
+"x": 311,
+"y": 308,
+"w": 20,
+"h": 79,
+"pivot": [
+313.4,
+312.4
+],
+"len": 74.5
+},
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/john_f_kennedy/gentle_smile/legR.png",
+"x": 288,
+"y": 395,
+"w": 19,
+"h": 76,
+"pivot": [
+291.5,
+395.5
+],
+"len": 75.2
+},
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/john_f_kennedy/gentle_smile/legL.png",
+"x": 227,
+"y": 396,
+"w": 19,
+"h": 75,
+"pivot": [
+242.0,
+396.5
+],
+"len": 74.5
+}
+],
+"ground": 470,
+"hem": 394
+},
+"john_f_kennedy/open_hand_toward_turkey": {
+"body": {
+"file": "tg2/rig/john_f_kennedy/open_hand_toward_turkey/body.png",
+"x": 143,
+"y": 87,
+"w": 177,
+"h": 311
+},
+"limbs": [
+{
+"kind": "arm",
+"side": "R",
+"file": "tg2/rig/john_f_kennedy/open_hand_toward_turkey/armR.png",
+"x": 289,
+"y": 265,
+"w": 80,
+"h": 40,
+"pivot": [
+289.8,
+291.2
+],
+"len": 80.1
+},
+{
+"kind": "arm",
+"side": "L",
+"file": "tg2/rig/john_f_kennedy/open_hand_toward_turkey/armL.png",
+"x": 176,
+"y": 301,
+"w": 19,
+"h": 89,
+"pivot": [
+191.6,
+307.0
+],
+"len": 83.0
+},
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/john_f_kennedy/open_hand_toward_turkey/legR.png",
+"x": 266,
+"y": 397,
+"w": 20,
+"h": 74,
+"pivot": [
+269.0,
+397.5
+],
+"len": 73.3
+},
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/john_f_kennedy/open_hand_toward_turkey/legL.png",
+"x": 207,
+"y": 398,
+"w": 18,
+"h": 73,
+"pivot": [
+220.0,
+398.5
+],
+"len": 72.1
+}
+],
+"ground": 470,
+"hem": 396
+},
+"john_f_kennedy/quiet_smiling_hold": {
+"body": {
+"file": "tg2/rig/john_f_kennedy/quiet_smiling_hold/body.png",
+"x": 167,
+"y": 87,
+"w": 178,
+"h": 311
+},
+"limbs": [
+{
+"kind": "arm",
+"side": "L",
+"file": "tg2/rig/john_f_kennedy/quiet_smiling_hold/armL.png",
+"x": 205,
+"y": 302,
+"w": 18,
+"h": 88,
+"pivot": [
+219.8,
+308.5
+],
+"len": 81.4
+},
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/john_f_kennedy/quiet_smiling_hold/legR.png",
+"x": 296,
+"y": 397,
+"w": 20,
+"h": 74,
+"pivot": [
+299.0,
+397.5
+],
+"len": 73.5
+},
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/john_f_kennedy/quiet_smiling_hold/legL.png",
+"x": 226,
+"y": 398,
+"w": 21,
+"h": 73,
+"pivot": [
+243.0,
+398.5
+],
+"len": 72.9
+}
+],
+"ground": 470,
+"hem": 396
+},
+"levi_lincoln_sr/cautious_lean": {
+"body": {
+"file": "tg2/rig/levi_lincoln_sr/cautious_lean/body.png",
+"x": 140,
+"y": 99,
+"w": 232,
+"h": 309
+},
+"limbs": [
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/levi_lincoln_sr/cautious_lean/legR.png",
+"x": 304,
+"y": 399,
+"w": 14,
+"h": 72,
+"pivot": [
+312.2,
+399.7
+],
+"len": 70.5
+},
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/levi_lincoln_sr/cautious_lean/legL.png",
+"x": 230,
+"y": 408,
+"w": 22,
+"h": 63,
+"pivot": [
+248.5,
+408.5
+],
+"len": 63.7
+}
+],
+"ground": 470,
+"hem": 405
+},
+"levi_lincoln_sr/warning_finger": {
+"body": {
+"file": "tg2/rig/levi_lincoln_sr/warning_finger/body.png",
+"x": 134,
+"y": 99,
+"w": 244,
+"h": 312
+},
+"limbs": [
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/levi_lincoln_sr/warning_finger/legL.png",
+"x": 207,
+"y": 410,
+"w": 15,
+"h": 61,
+"pivot": [
+218.5,
+410.5
+],
+"len": 60.1
+},
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/levi_lincoln_sr/warning_finger/legR.png",
+"x": 274,
+"y": 411,
+"w": 15,
+"h": 60,
+"pivot": [
+277.2,
+411.5
+],
+"len": 59.1
+}
+],
+"ground": 470,
+"hem": 409
+},
+"levi_lincoln_sr/worried_letter_reaction": {
+"body": {
+"file": "tg2/rig/levi_lincoln_sr/worried_letter_reaction/body.png",
+"x": 137,
+"y": 99,
+"w": 236,
+"h": 315
+},
+"limbs": [
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/levi_lincoln_sr/worried_letter_reaction/legR.png",
+"x": 276,
+"y": 411,
+"w": 15,
+"h": 60,
+"pivot": [
+278.8,
+411.6
+],
+"len": 59.1
+},
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/levi_lincoln_sr/worried_letter_reaction/legL.png",
+"x": 212,
+"y": 414,
+"w": 15,
+"h": 57,
+"pivot": [
+222.5,
+414.5
+],
+"len": 56.1
+}
+],
+"ground": 470,
+"hem": 411
+},
+"nancy_reagan/amused_by_banner": {
+"body": {
+"file": "tg2/rig/nancy_reagan/amused_by_banner/body.png",
+"x": 163,
+"y": 99,
+"w": 174,
+"h": 322
+},
+"limbs": [
+{
+"kind": "arm",
+"side": "L",
+"file": "tg2/rig/nancy_reagan/amused_by_banner/armL.png",
+"x": 205,
+"y": 279,
+"w": 29,
+"h": 99,
+"pivot": [
+231.1,
+285.4
+],
+"len": 93.6
+},
+{
+"kind": "arm",
+"side": "R",
+"file": "tg2/rig/nancy_reagan/amused_by_banner/armR.png",
+"x": 323,
+"y": 297,
+"w": 24,
+"h": 79,
+"pivot": [
+325.5,
+302.0
+],
+"len": 73.8
+},
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/nancy_reagan/amused_by_banner/legL.png",
+"x": 247,
+"y": 421,
+"w": 14,
+"h": 49,
+"pivot": [
+253.3,
+421.5
+],
+"len": 47.8
+},
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/nancy_reagan/amused_by_banner/legR.png",
+"x": 292,
+"y": 421,
+"w": 15,
+"h": 48,
+"pivot": [
+296.5,
+421.5
+],
+"len": 47.1
+}
+],
+"ground": 469,
+"hem": 419
+},
+"nancy_reagan/attentive_neutral": {
+"body": {
+"file": "tg2/rig/nancy_reagan/attentive_neutral/body.png",
+"x": 168,
+"y": 95,
+"w": 175,
+"h": 327
+},
+"limbs": [
+{
+"kind": "arm",
+"side": "L",
+"file": "tg2/rig/nancy_reagan/attentive_neutral/armL.png",
+"x": 205,
+"y": 279,
+"w": 28,
+"h": 100,
+"pivot": [
+230.8,
+286.2
+],
+"len": 93.7
+},
+{
+"kind": "arm",
+"side": "R",
+"file": "tg2/rig/nancy_reagan/attentive_neutral/armR.png",
+"x": 322,
+"y": 299,
+"w": 23,
+"h": 79,
+"pivot": [
+324.6,
+305.3
+],
+"len": 72.8
+},
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/nancy_reagan/attentive_neutral/legL.png",
+"x": 246,
+"y": 422,
+"w": 13,
+"h": 49,
+"pivot": [
+251.5,
+422.5
+],
+"len": 47.7
+},
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/nancy_reagan/attentive_neutral/legR.png",
+"x": 291,
+"y": 422,
+"w": 14,
+"h": 48,
+"pivot": [
+295.0,
+422.5
+],
+"len": 47.0
+}
+],
+"ground": 470,
+"hem": 420
+},
+"nancy_reagan/waves_at_banner": {
+"body": {
+"file": "tg2/rig/nancy_reagan/waves_at_banner/body.png",
+"x": 195,
+"y": 98,
+"w": 178,
+"h": 325
+},
+"limbs": [
+{
+"kind": "arm",
+"side": "L",
+"file": "tg2/rig/nancy_reagan/waves_at_banner/armL.png",
+"x": 140,
+"y": 176,
+"w": 77,
+"h": 95,
+"pivot": [
+213.9,
+266.4
+],
+"len": 110.7
+},
+{
+"kind": "arm",
+"side": "R",
+"file": "tg2/rig/nancy_reagan/waves_at_banner/armR.png",
+"x": 296,
+"y": 281,
+"w": 26,
+"h": 99,
+"pivot": [
+297.7,
+288.2
+],
+"len": 92.2
+},
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/nancy_reagan/waves_at_banner/legL.png",
+"x": 219,
+"y": 423,
+"w": 15,
+"h": 48,
+"pivot": [
+228.5,
+423.5
+],
+"len": 46.7
+},
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/nancy_reagan/waves_at_banner/legR.png",
+"x": 267,
+"y": 423,
+"w": 14,
+"h": 48,
+"pivot": [
+273.5,
+423.5
+],
+"len": 46.7
+}
+],
+"ground": 470,
+"hem": 421
+},
+"noah_brooks/attentive_with_notebook": {
+"body": {
+"file": "tg2/rig/noah_brooks/attentive_with_notebook/body.png",
+"x": 161,
+"y": 93,
+"w": 190,
+"h": 327
+},
+"limbs": [
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/noah_brooks/attentive_with_notebook/legR.png",
+"x": 281,
+"y": 419,
+"w": 16,
+"h": 52,
+"pivot": [
+283.5,
+419.5
+],
+"len": 51.4
+},
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/noah_brooks/attentive_with_notebook/legL.png",
+"x": 217,
+"y": 420,
+"w": 17,
+"h": 50,
+"pivot": [
+230.5,
+420.5
+],
+"len": 50.1
+}
+],
+"ground": 470,
+"hem": 418
+},
+"noah_brooks/raises_eyebrow": {
+"body": {
+"file": "tg2/rig/noah_brooks/raises_eyebrow/body.png",
+"x": 164,
+"y": 93,
+"w": 185,
+"h": 328
+},
+"limbs": [
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/noah_brooks/raises_eyebrow/legR.png",
+"x": 304,
+"y": 418,
+"w": 15,
+"h": 53,
+"pivot": [
+306.5,
+418.5
+],
+"len": 52.2
+},
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/noah_brooks/raises_eyebrow/legL.png",
+"x": 238,
+"y": 421,
+"w": 20,
+"h": 50,
+"pivot": [
+254.7,
+421.5
+],
+"len": 50.6
+}
+],
+"ground": 470,
+"hem": 418
+},
+"noah_brooks/scribbling_notes": {
+"body": {
+"file": "tg2/rig/noah_brooks/scribbling_notes/body.png",
+"x": 166,
+"y": 97,
+"w": 180,
+"h": 323
+},
+"limbs": [
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/noah_brooks/scribbling_notes/legL.png",
+"x": 204,
+"y": 420,
+"w": 16,
+"h": 51,
+"pivot": [
+217.0,
+420.5
+],
+"len": 50.5
+},
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/noah_brooks/scribbling_notes/legR.png",
+"x": 270,
+"y": 420,
+"w": 15,
+"h": 51,
+"pivot": [
+272.5,
+420.5
+],
+"len": 50.4
+}
+],
+"ground": 470,
+"hem": 418
+},
+"parade_fan/waves": {
+"body": {
+"file": "tg2/rig/parade_fan/waves/body.png",
+"x": 193,
+"y": 119,
+"w": 163,
+"h": 300
+},
+"limbs": [
+{
+"kind": "arm",
+"side": "L",
+"file": "tg2/rig/parade_fan/waves/armL.png",
+"x": 154,
+"y": 168,
+"w": 70,
+"h": 89,
+"pivot": [
+221.6,
+252.1
+],
+"len": 101.4
+},
+{
+"kind": "arm",
+"side": "R",
+"file": "tg2/rig/parade_fan/waves/armR.png",
+"x": 315,
+"y": 272,
+"w": 43,
+"h": 92,
+"pivot": [
+317.1,
+280.0
+],
+"len": 88.2
+},
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/parade_fan/waves/legL.png",
+"x": 229,
+"y": 419,
+"w": 17,
+"h": 51,
+"pivot": [
+239.0,
+419.5
+],
+"len": 50.0
+},
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/parade_fan/waves/legR.png",
+"x": 275,
+"y": 419,
+"w": 16,
+"h": 52,
+"pivot": [
+284.0,
+419.5
+],
+"len": 50.9
+}
+],
+"ground": 470,
+"hem": 417
+},
+"pat_nixon/holds_presentation_card": {
+"body": {
+"file": "tg2/rig/pat_nixon/holds_presentation_card/body.png",
+"x": 157,
+"y": 102,
+"w": 198,
+"h": 321
+},
+"limbs": [
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/pat_nixon/holds_presentation_card/legL.png",
+"x": 232,
+"y": 422,
+"w": 14,
+"h": 48,
+"pivot": [
+236.5,
+422.5
+],
+"len": 47.1
+},
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/pat_nixon/holds_presentation_card/legR.png",
+"x": 276,
+"y": 423,
+"w": 16,
+"h": 47,
+"pivot": [
+279.5,
+423.5
+],
+"len": 46.3
+}
+],
+"ground": 469,
+"hem": 420
+},
+"pat_nixon/presents_turkey": {
+"body": {
+"file": "tg2/rig/pat_nixon/presents_turkey/body.png",
+"x": 137,
+"y": 105,
+"w": 175,
+"h": 314
+},
+"limbs": [
+{
+"kind": "arm",
+"side": "R",
+"file": "tg2/rig/pat_nixon/presents_turkey/armR.png",
+"x": 282,
+"y": 244,
+"w": 93,
+"h": 47,
+"pivot": [
+282.6,
+287.2
+],
+"len": 96.3
+},
+{
+"kind": "arm",
+"side": "L",
+"file": "tg2/rig/pat_nixon/presents_turkey/armL.png",
+"x": 174,
+"y": 290,
+"w": 26,
+"h": 85,
+"pivot": [
+197.2,
+296.8
+],
+"len": 78.9
+},
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/pat_nixon/presents_turkey/legL.png",
+"x": 217,
+"y": 419,
+"w": 14,
+"h": 51,
+"pivot": [
+221.5,
+419.5
+],
+"len": 49.9
+},
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/pat_nixon/presents_turkey/legR.png",
+"x": 260,
+"y": 419,
+"w": 16,
+"h": 51,
+"pivot": [
+263.5,
+419.5
+],
+"len": 49.9
+}
+],
+"ground": 469,
+"hem": 417
+},
+"pat_nixon/standing_neutral": {
+"body": {
+"file": "tg2/rig/pat_nixon/standing_neutral/body.png",
+"x": 167,
+"y": 104,
+"w": 177,
+"h": 315
+},
+"limbs": [
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/pat_nixon/standing_neutral/legR.png",
+"x": 283,
+"y": 418,
+"w": 15,
+"h": 52,
+"pivot": [
+286.5,
+418.5
+],
+"len": 50.9
+},
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/pat_nixon/standing_neutral/legL.png",
+"x": 239,
+"y": 419,
+"w": 14,
+"h": 51,
+"pivot": [
+244.5,
+419.5
+],
+"len": 49.8
+}
+],
+"ground": 469,
+"hem": 416
+},
+"poultry_board_representative/holds_crate": {
+"body": {
+"file": "tg2/rig/poultry_board_representative/holds_crate/body.png",
+"x": 129,
+"y": 101,
+"w": 252,
+"h": 313
+},
+"limbs": [
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/poultry_board_representative/holds_crate/legL.png",
+"x": 186,
+"y": 413,
+"w": 15,
+"h": 58,
+"pivot": [
+197.0,
+413.5
+],
+"len": 57.1
+},
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/poultry_board_representative/holds_crate/legR.png",
+"x": 260,
+"y": 413,
+"w": 16,
+"h": 58,
+"pivot": [
+262.5,
+413.5
+],
+"len": 57.0
+}
+],
+"ground": 470,
+"hem": 412
+},
+"richard_nixon/hands_behind_back": {
+"body": {
+"file": "tg2/rig/richard_nixon/hands_behind_back/body.png",
+"x": 164,
+"y": 112,
+"w": 185,
+"h": 300
+},
+"limbs": [
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/richard_nixon/hands_behind_back/legR.png",
+"x": 280,
+"y": 411,
+"w": 17,
+"h": 59,
+"pivot": [
+283.0,
+411.5
+],
+"len": 58.2
+},
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/richard_nixon/hands_behind_back/legL.png",
+"x": 221,
+"y": 412,
+"w": 16,
+"h": 58,
+"pivot": [
+233.5,
+412.5
+],
+"len": 57.1
+}
+],
+"ground": 469,
+"hem": 410
+},
+"richard_nixon/open_hand_toward_turkey": {
+"body": {
+"file": "tg2/rig/richard_nixon/open_hand_toward_turkey/body.png",
+"x": 152,
+"y": 112,
+"w": 176,
+"h": 301
+},
+"limbs": [
+{
+"kind": "arm",
+"side": "R",
+"file": "tg2/rig/richard_nixon/open_hand_toward_turkey/armR.png",
+"x": 294,
+"y": 300,
+"w": 66,
+"h": 35,
+"pivot": [
+294.8,
+321.2
+],
+"len": 66.7
+},
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/richard_nixon/open_hand_toward_turkey/legR.png",
+"x": 264,
+"y": 412,
+"w": 17,
+"h": 58,
+"pivot": [
+267.0,
+412.5
+],
+"len": 57.2
+},
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/richard_nixon/open_hand_toward_turkey/legL.png",
+"x": 205,
+"y": 413,
+"w": 16,
+"h": 57,
+"pivot": [
+217.0,
+413.5
+],
+"len": 56.2
+}
+],
+"ground": 469,
+"hem": 411
+},
+"richard_nixon/standing_neutral": {
+"body": {
+"file": "tg2/rig/richard_nixon/standing_neutral/body.png",
+"x": 168,
+"y": 112,
+"w": 177,
+"h": 301
+},
+"limbs": [
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/richard_nixon/standing_neutral/legR.png",
+"x": 283,
+"y": 412,
+"w": 17,
+"h": 58,
+"pivot": [
+285.5,
+412.5
+],
+"len": 57.3
+},
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/richard_nixon/standing_neutral/legL.png",
+"x": 223,
+"y": 413,
+"w": 17,
+"h": 57,
+"pivot": [
+236.0,
+413.5
+],
+"len": 56.2
+}
+],
+"ground": 469,
+"hem": 411
+},
+"ronald_reagan/amused_gestures_to_charlie": {
+"body": {
+"file": "tg2/rig/ronald_reagan/amused_gestures_to_charlie/body.png",
+"x": 148,
+"y": 103,
+"w": 158,
+"h": 312
+},
+"limbs": [
+{
+"kind": "arm",
+"side": "R",
+"file": "tg2/rig/ronald_reagan/amused_gestures_to_charlie/armR.png",
+"x": 268,
+"y": 307,
+"w": 95,
+"h": 27,
+"pivot": [
+268.6,
+322.2
+],
+"len": 94.1
+},
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/ronald_reagan/amused_gestures_to_charlie/legR.png",
+"x": 246,
+"y": 413,
+"w": 17,
+"h": 58,
+"pivot": [
+249.0,
+413.5
+],
+"len": 57.1
+},
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/ronald_reagan/amused_gestures_to_charlie/legL.png",
+"x": 185,
+"y": 415,
+"w": 17,
+"h": 56,
+"pivot": [
+198.5,
+415.5
+],
+"len": 55.2
+}
+],
+"ground": 470,
+"hem": 412
+},
+"ronald_reagan/listening_to_reporter": {
+"body": {
+"file": "tg2/rig/ronald_reagan/listening_to_reporter/body.png",
+"x": 171,
+"y": 102,
+"w": 169,
+"h": 313
+},
+"limbs": [
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/ronald_reagan/listening_to_reporter/legR.png",
+"x": 289,
+"y": 413,
+"w": 17,
+"h": 58,
+"pivot": [
+291.8,
+413.5
+],
+"len": 57.1
+},
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/ronald_reagan/listening_to_reporter/legL.png",
+"x": 230,
+"y": 415,
+"w": 16,
+"h": 56,
+"pivot": [
+242.5,
+415.5
+],
+"len": 55.2
+}
+],
+"ground": 470,
+"hem": 412
+},
+"ronald_reagan/pardon_quip": {
+"body": {
+"file": "tg2/rig/ronald_reagan/pardon_quip/body.png",
+"x": 144,
+"y": 100,
+"w": 224,
+"h": 314
+},
+"limbs": [
+{
+"kind": "arm",
+"side": "R",
+"file": "tg2/rig/ronald_reagan/pardon_quip/armR.png",
+"x": 296,
+"y": 324,
+"w": 59,
+"h": 28,
+"pivot": [
+296.8,
+339.2
+],
+"len": 58.3
+},
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/ronald_reagan/pardon_quip/legR.png",
+"x": 269,
+"y": 412,
+"w": 17,
+"h": 58,
+"pivot": [
+271.5,
+412.5
+],
+"len": 57.1
+},
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/ronald_reagan/pardon_quip/legL.png",
+"x": 209,
+"y": 414,
+"w": 17,
+"h": 56,
+"pivot": [
+222.5,
+414.5
+],
+"len": 55.2
+}
+],
+"ground": 469,
+"hem": 411
+},
+"rutherford_b_hayes/approving_smile": {
+"body": {
+"file": "tg2/rig/rutherford_b_hayes/approving_smile/body.png",
+"x": 152,
+"y": 99,
+"w": 208,
+"h": 319
+},
+"limbs": [
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/rutherford_b_hayes/approving_smile/legR.png",
+"x": 307,
+"y": 417,
+"w": 13,
+"h": 53,
+"pivot": [
+309.2,
+417.7
+],
+"len": 51.9
+},
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/rutherford_b_hayes/approving_smile/legL.png",
+"x": 239,
+"y": 418,
+"w": 13,
+"h": 52,
+"pivot": [
+248.5,
+418.5
+],
+"len": 50.9
+}
+],
+"ground": 469,
+"hem": 416
+},
+"rutherford_b_hayes/satisfied_after_dinner": {
+"body": {
+"file": "tg2/rig/rutherford_b_hayes/satisfied_after_dinner/body.png",
+"x": 131,
+"y": 97,
+"w": 248,
+"h": 321
+},
+"limbs": [
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/rutherford_b_hayes/satisfied_after_dinner/legR.png",
+"x": 284,
+"y": 417,
+"w": 13,
+"h": 53,
+"pivot": [
+286.5,
+417.5
+],
+"len": 51.9
+},
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/rutherford_b_hayes/satisfied_after_dinner/legL.png",
+"x": 217,
+"y": 418,
+"w": 13,
+"h": 52,
+"pivot": [
+226.5,
+418.5
+],
+"len": 51.1
+}
+],
+"ground": 469,
+"hem": 416
+},
+"rutherford_b_hayes/welcomes_white_house_staff": {
+"body": {
+"file": "tg2/rig/rutherford_b_hayes/welcomes_white_house_staff/body.png",
+"x": 127,
+"y": 102,
+"w": 259,
+"h": 319
+},
+"limbs": [
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/rutherford_b_hayes/welcomes_white_house_staff/legL.png",
+"x": 190,
+"y": 421,
+"w": 13,
+"h": 50,
+"pivot": [
+199.5,
+421.5
+],
+"len": 49.1
+},
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/rutherford_b_hayes/welcomes_white_house_staff/legR.png",
+"x": 260,
+"y": 421,
+"w": 13,
+"h": 50,
+"pivot": [
+262.5,
+421.5
+],
+"len": 48.9
+}
+],
+"ground": 470,
+"hem": 419
+},
+"sarah_josepha_hale/determined_with_letter": {
+"body": {
+"file": "tg2/rig/sarah_josepha_hale/determined_with_letter/body.png",
+"x": 136,
+"y": 97,
+"w": 241,
+"h": 373
+},
+"limbs": [
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/sarah_josepha_hale/determined_with_letter/legL.png",
+"x": 216,
+"y": 441,
+"w": 12,
+"h": 30,
+"pivot": [
+221.5,
+441.5
+],
+"len": 28.5
+}
+],
+"ground": 470,
+"hem": 439
+},
+"sarah_josepha_hale/tired_writing": {
+"body": {
+"file": "tg2/rig/sarah_josepha_hale/tired_writing/body.png",
+"x": 116,
+"y": 144,
+"w": 280,
+"h": 326
+},
+"limbs": [],
+"ground": 469,
+"hem": 463
+},
+"sarah_josepha_hale/triumphant_raises_letter": {
+"body": {
+"file": "tg2/rig/sarah_josepha_hale/triumphant_raises_letter/body.png",
+"x": 99,
+"y": 96,
+"w": 313,
+"h": 375
+},
+"limbs": [],
+"ground": 470,
+"hem": 442
+},
+"schoolboy/reaches_left_to_pet": {
+"body": {
+"file": "tg2/rig/schoolboy/reaches_left_to_pet/body.png",
+"x": 169,
+"y": 131,
+"w": 200,
+"h": 221
+},
+"limbs": [
+{
+"kind": "arm",
+"side": "L",
+"file": "tg2/rig/schoolboy/reaches_left_to_pet/armL.png",
+"x": 141,
+"y": 277,
+"w": 102,
+"h": 29,
+"pivot": [
+241.5,
+280.0
+],
+"len": 101.5
+},
+{
+"kind": "arm",
+"side": "R",
+"file": "tg2/rig/schoolboy/reaches_left_to_pet/armR.png",
+"x": 326,
+"y": 339,
+"w": 23,
+"h": 37,
+"pivot": [
+338.7,
+339.7
+],
+"len": 35.5
+},
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/schoolboy/reaches_left_to_pet/legR.png",
+"x": 308,
+"y": 348,
+"w": 20,
+"h": 123,
+"pivot": [
+316.0,
+348.8
+],
+"len": 121.2
+},
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/schoolboy/reaches_left_to_pet/legL.png",
+"x": 256,
+"y": 352,
+"w": 28,
+"h": 118,
+"pivot": [
+279.0,
+352.5
+],
+"len": 118.2
+}
+],
+"ground": 470,
+"hem": 347
+},
+"schoolgirl/reaches_right_to_pet": {
+"body": {
+"file": "tg2/rig/schoolgirl/reaches_right_to_pet/body.png",
+"x": 128,
+"y": 140,
+"w": 212,
+"h": 261
+},
+"limbs": [
+{
+"kind": "arm",
+"side": "R",
+"file": "tg2/rig/schoolgirl/reaches_right_to_pet/armR.png",
+"x": 282,
+"y": 271,
+"w": 101,
+"h": 25,
+"pivot": [
+282.5,
+284.5
+],
+"len": 99.5
+},
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/schoolgirl/reaches_right_to_pet/legL.png",
+"x": 177,
+"y": 399,
+"w": 16,
+"h": 72,
+"pivot": [
+183.5,
+399.5
+],
+"len": 70.7
+},
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/schoolgirl/reaches_right_to_pet/legR.png",
+"x": 216,
+"y": 401,
+"w": 16,
+"h": 68,
+"pivot": [
+222.5,
+401.5
+],
+"len": 66.8
+}
+],
+"ground": 470,
+"hem": 397
+},
+"south_trimble/competitive_folded_arms": {
+"body": {
+"file": "tg2/rig/south_trimble/competitive_folded_arms/body.png",
+"x": 154,
+"y": 81,
+"w": 203,
+"h": 335
+},
+"limbs": [
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/south_trimble/competitive_folded_arms/legL.png",
+"x": 219,
+"y": 416,
+"w": 17,
+"h": 54,
+"pivot": [
+232.0,
+416.5
+],
+"len": 53.4
+},
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/south_trimble/competitive_folded_arms/legR.png",
+"x": 275,
+"y": 416,
+"w": 19,
+"h": 54,
+"pivot": [
+277.5,
+416.5
+],
+"len": 54.2
+}
+],
+"ground": 469,
+"hem": 414
+},
+"south_trimble/shows_red_pepper": {
+"body": {
+"file": "tg2/rig/south_trimble/shows_red_pepper/body.png",
+"x": 118,
+"y": 79,
+"w": 275,
+"h": 337
+},
+"limbs": [
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/south_trimble/shows_red_pepper/legL.png",
+"x": 241,
+"y": 416,
+"w": 17,
+"h": 54,
+"pivot": [
+254.5,
+416.5
+],
+"len": 53.5
+},
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/south_trimble/shows_red_pepper/legR.png",
+"x": 297,
+"y": 416,
+"w": 17,
+"h": 54,
+"pivot": [
+299.8,
+416.5
+],
+"len": 53.7
+}
+],
+"ground": 469,
+"hem": 414
+},
+"south_trimble/smug_smirk": {
+"body": {
+"file": "tg2/rig/south_trimble/smug_smirk/body.png",
+"x": 154,
+"y": 75,
+"w": 203,
+"h": 341
+},
+"limbs": [
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/south_trimble/smug_smirk/legR.png",
+"x": 264,
+"y": 415,
+"w": 18,
+"h": 55,
+"pivot": [
+266.5,
+415.5
+],
+"len": 54.7
+},
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/south_trimble/smug_smirk/legL.png",
+"x": 210,
+"y": 416,
+"w": 17,
+"h": 54,
+"pivot": [
+223.0,
+416.5
+],
+"len": 53.3
+}
+],
+"ground": 469,
+"hem": 414
+},
+"tad_lincoln/hugs_jack": {
+"body": {
+"file": "tg2/rig/tad_lincoln/hugs_jack/body.png",
+"x": 113,
+"y": 150,
+"w": 289,
+"h": 289
+},
+"limbs": [
+{
+"kind": "arm",
+"side": "L",
+"file": "tg2/rig/tad_lincoln/hugs_jack/armL.png",
+"x": 109,
+"y": 418,
+"w": 39,
+"h": 37,
+"pivot": [
+143.6,
+418.8
+],
+"len": 47.3
+},
+{
+"kind": "arm",
+"side": "L",
+"file": "tg2/rig/tad_lincoln/hugs_jack/armL1.png",
+"x": 167,
+"y": 420,
+"w": 15,
+"h": 38,
+"pivot": [
+170.0,
+420.5
+],
+"len": 37.2
+},
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/tad_lincoln/hugs_jack/legR.png",
+"x": 253,
+"y": 437,
+"w": 26,
+"h": 34,
+"pivot": [
+265.5,
+437.5
+],
+"len": 32.5
+},
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/tad_lincoln/hugs_jack/legL.png",
+"x": 216,
+"y": 439,
+"w": 25,
+"h": 30,
+"pivot": [
+231.5,
+439.5
+],
+"len": 29.2
+}
+],
+"ground": 470,
+"hem": 436
+},
+"tad_lincoln/pleading_hands_clasped": {
+"body": {
+"file": "tg2/rig/tad_lincoln/pleading_hands_clasped/body.png",
+"x": 161,
+"y": 145,
+"w": 189,
+"h": 276
+},
+"limbs": [
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/tad_lincoln/pleading_hands_clasped/legL.png",
+"x": 232,
+"y": 421,
+"w": 12,
+"h": 49,
+"pivot": [
+237.5,
+421.5
+],
+"len": 47.6
+},
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/tad_lincoln/pleading_hands_clasped/legR.png",
+"x": 280,
+"y": 421,
+"w": 12,
+"h": 49,
+"pivot": [
+282.8,
+421.6
+],
+"len": 47.5
+}
+],
+"ground": 469,
+"hem": 419
+},
+"tad_lincoln/relieved_smile": {
+"body": {
+"file": "tg2/rig/tad_lincoln/relieved_smile/body.png",
+"x": 149,
+"y": 145,
+"w": 214,
+"h": 275
+},
+"limbs": [
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/tad_lincoln/relieved_smile/legL.png",
+"x": 219,
+"y": 420,
+"w": 12,
+"h": 50,
+"pivot": [
+226.0,
+420.5
+],
+"len": 48.7
+},
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/tad_lincoln/relieved_smile/legR.png",
+"x": 265,
+"y": 420,
+"w": 12,
+"h": 50,
+"pivot": [
+268.0,
+420.5
+],
+"len": 48.8
+}
+],
+"ground": 469,
+"hem": 418
+},
+"thomas_jefferson/firm_stop_gesture": {
+"body": {
+"file": "tg2/rig/thomas_jefferson/firm_stop_gesture/body.png",
+"x": 122,
+"y": 107,
+"w": 267,
+"h": 316
+},
+"limbs": [
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/thomas_jefferson/firm_stop_gesture/legL.png",
+"x": 225,
+"y": 422,
+"w": 15,
+"h": 48,
+"pivot": [
+236.0,
+422.5
+],
+"len": 47.4
+},
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/thomas_jefferson/firm_stop_gesture/legR.png",
+"x": 300,
+"y": 423,
+"w": 15,
+"h": 47,
+"pivot": [
+303.0,
+423.5
+],
+"len": 46.4
+}
+],
+"ground": 469,
+"hem": 420
+},
+"thomas_jefferson/refuses_arms_folded": {
+"body": {
+"file": "tg2/rig/thomas_jefferson/refuses_arms_folded/body.png",
+"x": 149,
+"y": 105,
+"w": 214,
+"h": 318
+},
+"limbs": [
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/thomas_jefferson/refuses_arms_folded/legL.png",
+"x": 203,
+"y": 420,
+"w": 14,
+"h": 51,
+"pivot": [
+213.1,
+420.9
+],
+"len": 49.5
+},
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/thomas_jefferson/refuses_arms_folded/legR.png",
+"x": 276,
+"y": 423,
+"w": 17,
+"h": 48,
+"pivot": [
+279.0,
+423.5
+],
+"len": 47.4
+}
+],
+"ground": 470,
+"hem": 420
+},
+"thomas_jefferson/sheepishly_cuts_letter": {
+"body": {
+"file": "tg2/rig/thomas_jefferson/sheepishly_cuts_letter/body.png",
+"x": 102,
+"y": 102,
+"w": 306,
+"h": 320
+},
+"limbs": [
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/thomas_jefferson/sheepishly_cuts_letter/legR.png",
+"x": 249,
+"y": 420,
+"w": 15,
+"h": 51,
+"pivot": [
+251.7,
+420.6
+],
+"len": 49.9
+},
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/thomas_jefferson/sheepishly_cuts_letter/legL.png",
+"x": 177,
+"y": 422,
+"w": 15,
+"h": 49,
+"pivot": [
+188.0,
+422.5
+],
+"len": 48.0
+}
+],
+"ground": 470,
+"hem": 419
+},
+"tv_reporter/asks_pardon_question": {
+"body": {
+"file": "tg2/rig/tv_reporter/asks_pardon_question/body.png",
+"x": 105,
+"y": 107,
+"w": 270,
+"h": 324
+},
+"limbs": [
+{
+"kind": "arm",
+"side": "R",
+"file": "tg2/rig/tv_reporter/asks_pardon_question/armR.png",
+"x": 338,
+"y": 287,
+"w": 69,
+"h": 33,
+"pivot": [
+338.9,
+310.2
+],
+"len": 67.3
+},
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/tv_reporter/asks_pardon_question/legR.png",
+"x": 336,
+"y": 421,
+"w": 33,
+"h": 50,
+"pivot": [
+339.7,
+421.5
+],
+"len": 53.8
+},
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/tv_reporter/asks_pardon_question/legL.png",
+"x": 239,
+"y": 431,
+"w": 25,
+"h": 40,
+"pivot": [
+260.0,
+431.5
+],
+"len": 41.7
+}
+],
+"ground": 470,
+"hem": 428
+},
+"tv_reporter/attentive_with_microphone": {
+"body": {
+"file": "tg2/rig/tv_reporter/attentive_with_microphone/body.png",
+"x": 146,
+"y": 104,
+"w": 220,
+"h": 327
+},
+"limbs": [
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/tv_reporter/attentive_with_microphone/legL.png",
+"x": 230,
+"y": 431,
+"w": 16,
+"h": 40,
+"pivot": [
+242.0,
+431.5
+],
+"len": 39.3
+},
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/tv_reporter/attentive_with_microphone/legR.png",
+"x": 296,
+"y": 431,
+"w": 16,
+"h": 40,
+"pivot": [
+299.0,
+431.5
+],
+"len": 39.5
+}
+],
+"ground": 470,
+"hem": 429
+},
+"tv_reporter/baffled_lowers_microphone": {
+"body": {
+"file": "tg2/rig/tv_reporter/baffled_lowers_microphone/body.png",
+"x": 133,
+"y": 106,
+"w": 215,
+"h": 340
+},
+"limbs": [
+{
+"kind": "arm",
+"side": "R",
+"file": "tg2/rig/tv_reporter/baffled_lowers_microphone/armR.png",
+"x": 328,
+"y": 305,
+"w": 49,
+"h": 32,
+"pivot": [
+328.5,
+333.0
+],
+"len": 50.5
+},
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/tv_reporter/baffled_lowers_microphone/legR.png",
+"x": 300,
+"y": 429,
+"w": 17,
+"h": 42,
+"pivot": [
+303.0,
+429.5
+],
+"len": 41.3
+},
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/tv_reporter/baffled_lowers_microphone/legR1.png",
+"x": 234,
+"y": 430,
+"w": 16,
+"h": 41,
+"pivot": [
+246.0,
+430.5
+],
+"len": 40.3
+}
+],
+"ground": 470,
+"hem": 433
+},
+"ulysses_s_grant/pleased_with_dinner": {
+"body": {
+"file": "tg2/rig/ulysses_s_grant/pleased_with_dinner/body.png",
+"x": 141,
+"y": 105,
+"w": 228,
+"h": 317
+},
+"limbs": [
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/ulysses_s_grant/pleased_with_dinner/legR.png",
+"x": 265,
+"y": 415,
+"w": 18,
+"h": 54,
+"pivot": [
+268.0,
+415.5
+],
+"len": 53.9
+},
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/ulysses_s_grant/pleased_with_dinner/legL.png",
+"x": 197,
+"y": 422,
+"w": 18,
+"h": 49,
+"pivot": [
+211.5,
+422.5
+],
+"len": 48.6
+}
+],
+"ground": 470,
+"hem": 419
+},
+"ulysses_s_grant/receives_express_crate": {
+"body": {
+"file": "tg2/rig/ulysses_s_grant/receives_express_crate/body.png",
+"x": 119,
+"y": 106,
+"w": 273,
+"h": 314
+},
+"limbs": [
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/ulysses_s_grant/receives_express_crate/legL.png",
+"x": 236,
+"y": 412,
+"w": 19,
+"h": 59,
+"pivot": [
+251.0,
+412.5
+],
+"len": 58.5
+},
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/ulysses_s_grant/receives_express_crate/legR.png",
+"x": 311,
+"y": 420,
+"w": 18,
+"h": 50,
+"pivot": [
+313.5,
+420.5
+],
+"len": 49.8
+}
+],
+"ground": 470,
+"hem": 417
+},
+"ulysses_s_grant/standing_neutral": {
+"body": {
+"file": "tg2/rig/ulysses_s_grant/standing_neutral/body.png",
+"x": 166,
+"y": 104,
+"w": 180,
+"h": 318
+},
+"limbs": [
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/ulysses_s_grant/standing_neutral/legR.png",
+"x": 288,
+"y": 415,
+"w": 18,
+"h": 56,
+"pivot": [
+291.0,
+415.5
+],
+"len": 55.2
+},
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/ulysses_s_grant/standing_neutral/legL.png",
+"x": 224,
+"y": 422,
+"w": 18,
+"h": 49,
+"pivot": [
+237.5,
+422.5
+],
+"len": 48.6
+}
+],
+"ground": 470,
+"hem": 418
+},
+"vice_president/rear_view_with_hand_raised": {
+"body": {
+"file": "tg2/rig/vice_president/rear_view_with_hand_raised/body.png",
+"x": 155,
+"y": 105,
+"w": 202,
+"h": 308
+},
+"limbs": [
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/vice_president/rear_view_with_hand_raised/legR.png",
+"x": 269,
+"y": 412,
+"w": 15,
+"h": 58,
+"pivot": [
+271.8,
+412.6
+],
+"len": 57.1
+},
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/vice_president/rear_view_with_hand_raised/legL.png",
+"x": 200,
+"y": 413,
+"w": 16,
+"h": 58,
+"pivot": [
+212.0,
+413.5
+],
+"len": 57.1
+}
+],
+"ground": 470,
+"hem": 411
+},
+"warren_g_harding/baffled_palms_up": {
+"body": {
+"file": "tg2/rig/warren_g_harding/baffled_palms_up/body.png",
+"x": 159,
+"y": 98,
+"w": 176,
+"h": 316
+},
+"limbs": [
+{
+"kind": "arm",
+"side": "R",
+"file": "tg2/rig/warren_g_harding/baffled_palms_up/armR.png",
+"x": 327,
+"y": 289,
+"w": 53,
+"h": 34,
+"pivot": [
+327.5,
+319.2
+],
+"len": 54.9
+},
+{
+"kind": "arm",
+"side": "L",
+"file": "tg2/rig/warren_g_harding/baffled_palms_up/armL.png",
+"x": 131,
+"y": 293,
+"w": 51,
+"h": 31,
+"pivot": [
+180.5,
+320.2
+],
+"len": 51.5
+},
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/warren_g_harding/baffled_palms_up/legR.png",
+"x": 282,
+"y": 401,
+"w": 16,
+"h": 69,
+"pivot": [
+284.8,
+401.5
+],
+"len": 68.0
+},
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/warren_g_harding/baffled_palms_up/legL.png",
+"x": 210,
+"y": 414,
+"w": 17,
+"h": 56,
+"pivot": [
+223.0,
+414.5
+],
+"len": 55.4
+}
+],
+"ground": 469,
+"hem": 410
+},
+"warren_g_harding/bemused_pointing": {
+"body": {
+"file": "tg2/rig/warren_g_harding/bemused_pointing/body.png",
+"x": 135,
+"y": 100,
+"w": 241,
+"h": 314
+},
+"limbs": [
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/warren_g_harding/bemused_pointing/legR.png",
+"x": 257,
+"y": 403,
+"w": 17,
+"h": 68,
+"pivot": [
+260.0,
+403.5
+],
+"len": 67.2
+},
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/warren_g_harding/bemused_pointing/legL.png",
+"x": 185,
+"y": 414,
+"w": 18,
+"h": 57,
+"pivot": [
+199.0,
+414.5
+],
+"len": 56.4
+}
+],
+"ground": 470,
+"hem": 411
+},
+"warren_g_harding/standing_neutral": {
+"body": {
+"file": "tg2/rig/warren_g_harding/standing_neutral/body.png",
+"x": 167,
+"y": 99,
+"w": 179,
+"h": 314
+},
+"limbs": [
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/warren_g_harding/standing_neutral/legR.png",
+"x": 289,
+"y": 403,
+"w": 17,
+"h": 68,
+"pivot": [
+291.8,
+403.6
+],
+"len": 67.2
+},
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/warren_g_harding/standing_neutral/legL.png",
+"x": 215,
+"y": 413,
+"w": 17,
+"h": 59,
+"pivot": [
+228.5,
+413.5
+],
+"len": 58.1
+}
+],
+"ground": 471,
+"hem": 410
+},
+"william_howard_taft/delighted_with_pie": {
+"body": {
+"file": "tg2/rig/william_howard_taft/delighted_with_pie/body.png",
+"x": 132,
+"y": 100,
+"w": 247,
+"h": 326
+},
+"limbs": [
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/william_howard_taft/delighted_with_pie/legL.png",
+"x": 207,
+"y": 426,
+"w": 14,
+"h": 45,
+"pivot": [
+217.5,
+426.5
+],
+"len": 44.1
+},
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/william_howard_taft/delighted_with_pie/legR.png",
+"x": 287,
+"y": 426,
+"w": 13,
+"h": 44,
+"pivot": [
+289.5,
+426.5
+],
+"len": 43.3
+}
+],
+"ground": 470,
+"hem": 424
+},
+"william_howard_taft/expectant_with_pie": {
+"body": {
+"file": "tg2/rig/william_howard_taft/expectant_with_pie/body.png",
+"x": 132,
+"y": 104,
+"w": 249,
+"h": 323
+},
+"limbs": [
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/william_howard_taft/expectant_with_pie/legL.png",
+"x": 200,
+"y": 425,
+"w": 13,
+"h": 45,
+"pivot": [
+209.5,
+425.5
+],
+"len": 44.0
+},
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/william_howard_taft/expectant_with_pie/legR.png",
+"x": 280,
+"y": 427,
+"w": 14,
+"h": 43,
+"pivot": [
+282.5,
+427.5
+],
+"len": 42.2
+}
+],
+"ground": 469,
+"hem": 423
+},
+"william_howard_taft/shows_off_the_pie": {
+"body": {
+"file": "tg2/rig/william_howard_taft/shows_off_the_pie/body.png",
+"x": 103,
+"y": 105,
+"w": 305,
+"h": 319
+},
+"limbs": [
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/william_howard_taft/shows_off_the_pie/legR.png",
+"x": 263,
+"y": 420,
+"w": 13,
+"h": 50,
+"pivot": [
+265.5,
+420.5
+],
+"len": 49.1
+},
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/william_howard_taft/shows_off_the_pie/legL.png",
+"x": 187,
+"y": 424,
+"w": 14,
+"h": 47,
+"pivot": [
+197.5,
+424.5
+],
+"len": 46.0
+}
+],
+"ground": 470,
+"hem": 421
+},
+"william_seward/focused_with_pen": {
+"body": {
+"file": "tg2/rig/william_seward/focused_with_pen/body.png",
+"x": 146,
+"y": 104,
+"w": 204,
+"h": 329
+},
+"limbs": [
+{
+"kind": "arm",
+"side": "R",
+"file": "tg2/rig/william_seward/focused_with_pen/armR.png",
+"x": 340,
+"y": 292,
+"w": 26,
+"h": 34,
+"pivot": [
+345.2,
+323.6
+],
+"len": 35.9
+},
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/william_seward/focused_with_pen/legR.png",
+"x": 284,
+"y": 432,
+"w": 12,
+"h": 38,
+"pivot": [
+288.5,
+432.5
+],
+"len": 36.7
+},
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/william_seward/focused_with_pen/legL.png",
+"x": 232,
+"y": 433,
+"w": 12,
+"h": 37,
+"pivot": [
+237.0,
+433.5
+],
+"len": 35.6
+}
+],
+"ground": 469,
+"hem": 431
+},
+"william_seward/hands_over_proclamation": {
+"body": {
+"file": "tg2/rig/william_seward/hands_over_proclamation/body.png",
+"x": 97,
+"y": 107,
+"w": 318,
+"h": 323
+},
+"limbs": [
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/william_seward/hands_over_proclamation/legL.png",
+"x": 251,
+"y": 430,
+"w": 12,
+"h": 40,
+"pivot": [
+256.7,
+430.5
+],
+"len": 38.6
+},
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/william_seward/hands_over_proclamation/legR.png",
+"x": 304,
+"y": 430,
+"w": 12,
+"h": 39,
+"pivot": [
+308.5,
+430.5
+],
+"len": 37.7
+}
+],
+"ground": 469,
+"hem": 428
+},
+"william_seward/writes_proclamation": {
+"body": {
+"file": "tg2/rig/william_seward/writes_proclamation/body.png",
+"x": 145,
+"y": 110,
+"w": 222,
+"h": 323
+},
+"limbs": [
+{
+"kind": "arm",
+"side": "L",
+"file": "tg2/rig/william_seward/writes_proclamation/armL.png",
+"x": 176,
+"y": 300,
+"w": 26,
+"h": 31,
+"pivot": [
+195.7,
+327.7
+],
+"len": 32.8
+},
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/william_seward/writes_proclamation/legR.png",
+"x": 312,
+"y": 431,
+"w": 12,
+"h": 39,
+"pivot": [
+318.0,
+431.5
+],
+"len": 37.6
+},
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/william_seward/writes_proclamation/legL.png",
+"x": 258,
+"y": 433,
+"w": 12,
+"h": 37,
+"pivot": [
+265.0,
+433.5
+],
+"len": 35.7
+}
+],
+"ground": 469,
+"hem": 430
+},
+"woodrow_wilson/puzzled_by_rival_turkeys": {
+"body": {
+"file": "tg2/rig/woodrow_wilson/puzzled_by_rival_turkeys/body.png",
+"x": 145,
+"y": 97,
+"w": 222,
+"h": 330
+},
+"limbs": [
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/woodrow_wilson/puzzled_by_rival_turkeys/legL.png",
+"x": 218,
+"y": 427,
+"w": 13,
+"h": 44,
+"pivot": [
+227.7,
+427.6
+],
+"len": 42.9
+},
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/woodrow_wilson/puzzled_by_rival_turkeys/legR.png",
+"x": 302,
+"y": 427,
+"w": 13,
+"h": 44,
+"pivot": [
+304.5,
+427.5
+],
+"len": 42.9
+}
+],
+"ground": 470,
+"hem": 425
+},
+"woodrow_wilson/relieved_proclamation": {
+"body": {
+"file": "tg2/rig/woodrow_wilson/relieved_proclamation/body.png",
+"x": 135,
+"y": 97,
+"w": 241,
+"h": 329
+},
+"limbs": [
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/woodrow_wilson/relieved_proclamation/legL.png",
+"x": 167,
+"y": 426,
+"w": 13,
+"h": 44,
+"pivot": [
+176.0,
+426.5
+],
+"len": 43.1
+},
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/woodrow_wilson/relieved_proclamation/legR.png",
+"x": 245,
+"y": 426,
+"w": 13,
+"h": 44,
+"pivot": [
+247.5,
+426.5
+],
+"len": 43.2
+}
+],
+"ground": 469,
+"hem": 424
+},
+"woodrow_wilson/stern_empty_dish": {
+"body": {
+"file": "tg2/rig/woodrow_wilson/stern_empty_dish/body.png",
+"x": 113,
+"y": 95,
+"w": 284,
+"h": 331
+},
+"limbs": [
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/woodrow_wilson/stern_empty_dish/legR.png",
+"x": 267,
+"y": 422,
+"w": 14,
+"h": 46,
+"pivot": [
+269.7,
+422.5
+],
+"len": 45.1
+},
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/woodrow_wilson/stern_empty_dish/legL.png",
+"x": 197,
+"y": 426,
+"w": 13,
+"h": 44,
+"pivot": [
+205.5,
+426.5
+],
+"len": 42.9
+}
+],
+"ground": 469,
+"hem": 422
+}
+}

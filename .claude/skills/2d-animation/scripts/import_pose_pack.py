@@ -24,9 +24,20 @@ def rgba(p):
 
 
 def beak_mask(a):
+    """orange beak + red mouth, searched only in the face zone (Quill's feet are orange too)."""
     r, g, b, al = a[..., 0], a[..., 1], a[..., 2], a[..., 3]
-    orange = (al > 150) & (r > 190) & (g > 110) & (g < 200) & (b < 110)
-    red = (al > 150) & (r > 140) & (g < 110) & (b < 110)
+    zone = np.zeros(al.shape, bool); zone[245:335, 190:330] = True
+    orange = (al > 150) & (r > 190) & (g > 110) & (g < 200) & (b < 110) & zone
+    # keep only the dense beak blob: pixels within 22 px of the median orange pixel
+    ys, xs = np.nonzero(orange)
+    if len(xs):
+        my, mx = np.median(ys), np.median(xs)
+        keep = np.zeros_like(orange); sel = (abs(ys - my) < 26) & (abs(xs - mx) < 22)
+        keep[ys[sel], xs[sel]] = True; orange = keep
+        zone2 = np.zeros(al.shape, bool); zone2[int(my) - 26:int(my) + 30, int(mx) - 22:int(mx) + 23] = True
+    else:
+        zone2 = zone
+    red = (al > 150) & (r > 140) & (g < 110) & (b < 110) & zone2
     return orange, red
 
 

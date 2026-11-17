@@ -57,6 +57,29 @@ This repo is a **Remotion** project (`src/Root.tsx`, 1920×1080 @ 30 fps).
   - **Vehicle crash-in:** rumble plus whoosh.
   - **Deadpan gags:** no SFX at all.
 
+## User production rules (from review feedback — always apply)
+
+1. **Voiceover sync:** time every beat to WORD starts, never to estimated sentence midpoints.
+   - Run `python3 -I .claude/skills/2d-animation/scripts/align_words.py <vo> <lines.txt> <out.json>`.
+   - It pins sentences to real pauses, measured against the local noise floor (VO files can carry a quiet bed). The fit is tempo-free (script syllables vs detected syllable peaks), and internal "." pauses count. Words are mapped by syllable clock.
+   - Check two or three landmarks by hand: chapter headings, and the longest pauses.
+   - Numbers must be read with punctuation stripped ("1789." is 6 syllables).
+2. **Characters face each other** in every dialogue or two-shot. Know each pose's facing and `flip` the listener toward the speaker.
+3. **Expressions and poses change with the script:** swap the pose on the motivating word (`Swap t={word}`). The listener reacts about 4 frames later. Never hold one pose through a story turn.
+4. **Stick-figure limbs for every character** (the user's sheets).
+   - Rig each pose with `python3 -I .claude/skills/2d-animation/scripts/autorig_sticks.py public tg2/Poses <rig.json> [chars]`.
+   - It splits the drawing into body + free arm/leg layers with joint pivots. Limbs touching the body twice (prop in hand, hand on hip) stay fixed.
+   - `Rig` (src/Thanksgiving3/Kit.tsx) rotates limbs only about their joints, so **nothing detaches**.
+5. **Walk = reference walk:**
+   - Legs swing ±17° about the hip on a 32-frame cycle (16-frame step).
+   - The body dips L·(1−cos θ) so the planted foot stays on the ground, and travel speed equals stride per 16 frames (no foot sliding).
+   - Arms swing opposite, with a 2° lean.
+   - Walk only where the script moves someone (arrivals, exits, travel); otherwise stand.
+6. **Arms move a little where needed:** a small lift on stressed words (`gesture` 8–12°) while a character is the subject. Otherwise keep only the breathing idle.
+7. **Sound:**
+   - SFX are quiet: 0.10–0.25 linear, with the stamp thump at 0.3 at most.
+   - **No synthesized music bed:** it sounded like a game. Add music only if the user supplies a track.
+
 ## Attachment rule: nothing floats (every character, body part and prop)
 
 Every body part must stay visibly connected to its parent in **every frame**: at rest, at the extremes of every motion, and in every in-between.
@@ -118,7 +141,7 @@ Used for "Every President's Thanksgiving" (`src/Thanksgiving/`, composition `Tha
    - Zoom into the joints at full resolution.
    - Do the **live preview** (above) before the 1080p render.
 
-### Pose-swap packs (sprites + head swaps + bodies + tags), e.g. `src/Thanksgiving2/`, composition `ThanksgivingColdOpenCh1`
+### Pose-swap packs (sprites + head swaps + bodies + tags): current build `src/Thanksgiving3/`, composition `ThanksgivingFull` (cold open + ch 1–3)
 - **Import:** `python3 -I .claude/skills/2d-animation/scripts/import_pose_pack.py <pack> public/tg2 src/<Project>`. It writes:
   - `sprites.json`: the drawing's bounding box per sprite, for feet registration.
   - Quill `__open` / `__closed` beak variants of his talking poses, for lip-sync swaps.
