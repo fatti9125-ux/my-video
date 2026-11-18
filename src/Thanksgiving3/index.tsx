@@ -123,15 +123,15 @@ const SHOTS: Shot[] = [
     <Cam dur={27} from={1.02} to={1.08} ox="60%" oy="40%"><Svg bg={<WhiteHouseLawn />}><Spr s="Poses/rebecca/peeks_from_tree_house" x={1180} y={1030} h={760} /></Svg></Cam>) },
   { a: 14.07, b: 17.0, el: () => (
     <Cam dur={88} to={1.05}><Svg bg={<OvalOffice />}><Spr s="Poses/calvin_coolidge/content_with_rebecca" x={960} y={1020} h={600} /></Svg></Cam>) },
-  { a: 17.0, b: 19.62, sfx: [[0, "whoosh", 0.15]], el: () => (
-    <Cam dur={79} to={1.04}><Svg bg={<SkyScroll />}>
-      <Speed x={1200} y={560} frames={8} dir={-1} />
-      <Spr s="Poses/supreme_ii/jaunty_in_flying_gear" x={960} y={860} h={560} enter={{ from: "right", frames: 8 }} />
+  { a: 17.0, b: 19.62, sfx: [[0, "whoosh", 0.12], [24, "boing", 0.08]], el: () => (
+    <Cam dur={79} from={1.0} to={1.04} punch={{ at: 22, frames: 6, to: 1.18, oy: "40%" }}><Svg bg={<B.Studio v={3} />}>
+      <Spr s="Poses/quill/startled_recoil" x={960} y={1010} h={720} enter={{ from: "bottom", frames: 9 }} />
+      <QMarks x={960} y={330} at={24} spread={330} />
     </Svg></Cam>) },
   { a: 19.62, b: 21.59, el: () => (
-    <Cam dur={59} to={1.04}><Svg bg={<B.Studio />}><Quill pose="speaking_facing_right" talk x={960} y={1010} h={720} /></Svg></Cam>) },
+    <Cam dur={59} to={1.04}><Svg bg={<B.Studio v={1} />}><Quill pose="speaking_facing_right" talk x={960} y={1010} h={720} /></Svg></Cam>) },
   { a: 21.59, b: 24.6, sfx: [[Math.round((22.76 - 21.59) * FPS), "pop", 0.12]], el: (t) => (
-    <Cam dur={90} to={1.04}><Svg bg={<B.Studio />}>
+    <Cam dur={90} to={1.04}><Svg bg={<B.Studio v={2} />}>
       <Quill pose="speaking_facing_right" talk x={560} y={1010} h={680} />
       <BigText x={1260} y={430} text="EVERY PRESIDENT'S" size={86} at={t(22.76)} />
       <BigText x={1260} y={560} text="THANKSGIVING" size={120} at={t(23.75)} color="#ffcf4a" />
@@ -163,9 +163,9 @@ const SHOTS: Shot[] = [
     </Svg></Cam>;
   } },
   { a: 32.6, b: 33.49, el: () => (
-    <Cam dur={27} from={1.1} to={1.14} oy="40%"><Svg bg={<B.Studio />}><Quill pose="nervous_side_glance" talk x={960} y={1010} h={720} /></Svg></Cam>) },
+    <Cam dur={27} from={1.1} to={1.14} oy="40%"><Svg bg={<B.Studio v={3} />}><Quill pose="nervous_side_glance" talk x={960} y={1010} h={720} /></Svg></Cam>) },
   { a: 33.49, b: 34.98, sfx: [[Math.round((34.16 - 33.49) * FPS), "ding", 0.15]], el: (t) => (
-    <Cam dur={45} to={1.04}><Svg bg={<B.Studio />}>
+    <Cam dur={45} to={1.04}><Svg bg={<B.Studio v={0} />}>
       <Quill pose="scoreboard_facing_left" talk x={960} y={1010} h={720}><Board pose="scoreboard_facing_left" top="TURKEYS" big="0" at={t(34.16)} /></Quill>
     </Svg></Cam>) },
 
@@ -217,7 +217,7 @@ const SHOTS: Shot[] = [
     </Svg></Cam>) },
   { a: 49.8, b: 50.83, sfx: [[Math.round((50.12 - 49.8) * FPS), "cheer", 0.12]], el: (t) => (
     <Cam dur={31} from={1.04} to={1.08}><Svg bg={<B.Chamber />}>
-      <Rig c="john_adams" pose="announcing_arms_open" x={700} y={1040} h={560} gesture={12} stress />
+      <Rig c="elias_boudinot" pose="relieved_smile" x={700} y={1040} h={560} stress />
       <Rig c="james_madison" pose="presents_proclamation" x={1260} y={1040} h={560} at={t(50.12)} />
     </Svg></Cam>) },
   { a: 50.83, b: 52.71, el: (t) => (
@@ -240,7 +240,7 @@ const SHOTS: Shot[] = [
       </svg>
       <Cap text="A day of public thanksgiving and prayer" at={t(59.11)} size={58} />
     </>) },
-  { a: 61.25, b: 64.2, sfx: [[Math.round((61.56 - 61.25) * FPS) + 6, "sub_thump", 0.3]], el: (t) => (
+  { a: 61.25, b: 64.2,  el: (t) => (
     <>
       <Cam dur={89} to={1.03} punch={{ at: t(61.4), frames: 5, to: 1.3, oy: "40%" }}>
         <Svg bg={<B.FederalHall />}><Rig c="george_washington" pose="solemn_with_quill" x={960} y={1030} h={600} stress /></Svg>
@@ -248,7 +248,7 @@ const SHOTS: Shot[] = [
       <Stamp lines={["THE FIRST", "NATIONAL", "THANKSGIVING"]} at={t(61.56)} x={500} y={280} rot={-9} variant="red" darken={false} />
     </>) },
   { a: 64.2, b: 67.22, sfx: [[Math.round((66.23 - 64.2) * FPS), "pop", 0.12]], el: (t) => (
-    <Cam dur={91} to={1.04}><Svg bg={<B.Studio />}>
+    <Cam dur={91} to={1.04}><Svg bg={<B.Studio v={1} />}>
       <Quill pose="speaking_facing_right" talk x={960} y={1010} h={720} />
       <QMarks x={960} y={380} at={t(66.23)} spread={330} />
     </Svg></Cam>) },
@@ -303,10 +303,10 @@ const SHOTS: Shot[] = [
       <Barrel x={1400} y={630} at={t(84.72)} />
     </Svg></Cam>) },
   { a: 85.41, b: 86.6, el: () => (
-    <Cam dur={36} from={1.15} to={1.2} oy="38%"><Svg bg={<B.Studio />}><Quill pose="deadpan_wings_folded" talk blinkHold x={960} y={1010} h={720} /></Svg></Cam>) },
+    <Cam dur={36} from={1.15} to={1.2} oy="38%"><Svg bg={<B.Studio v={2} />}><Quill pose="deadpan_wings_folded" talk blinkHold x={960} y={1010} h={720} /></Svg></Cam>) },
   { a: 86.6, b: O2, sfx: [[Math.round((88.0 - 86.6) * FPS), "ding", 0.15], [Math.round((90.01 - 86.6) * FPS), "ding", 0.12]], el: (t) => (
     <>
-      <Cam dur={172} to={1.05}><Svg bg={<B.Studio />}>
+      <Cam dur={172} to={1.05}><Svg bg={<B.Studio v={3} />}>
         <Swap t={t(90.01)}
           a={<Quill pose="scoreboard_facing_left" talk x={960} y={1010} h={720}><Board pose="scoreboard_facing_left" top="TURKEYS" big="0" at={t(88.0)} /></Quill>}
           b={<Spr s="Poses/quill/scoreboard_celebration" x={960} y={1010} h={720}><Board pose="scoreboard_celebration" top="TURKEYS" big="0" /></Spr>} />
@@ -364,7 +364,7 @@ const SHOTS: Shot[] = [
       <Cap text={'"A wall of separation"'} at={t(g2(21.84))} />
     </>) },
   { a: g2(24.3), b: g2(25.14), sfx: [[Math.round((g2(24.53) - g2(24.3)) * FPS), "pop", 0.12]], el: (t) => (
-    <Cam dur={25} from={1.12} to={1.16} oy="35%"><Svg bg={<B.Studio />}>
+    <Cam dur={25} from={1.12} to={1.16} oy="35%"><Svg bg={<B.Studio v={0} />}>
       <Quill pose="speaking_facing_right" talk x={960} y={1010} h={720} /><QMarks x={960} y={360} at={t(g2(24.53))} spread={330} />
     </Svg></Cam>) },
   { a: g2(25.14), b: g2(30.47), sfx: [[Math.round((g2(28.94) - g2(25.14)) * FPS), "paper", 0.15]], el: (t) => (
@@ -374,7 +374,7 @@ const SHOTS: Shot[] = [
       <Cap text="1779" at={t(g2(26.57))} until={t(g2(28.94))} />
       <Cap text="Declared a day of thanksgiving" at={t(g2(28.94))} />
     </>) },
-  { a: g2(30.47), b: g2(32.17), sfx: [[Math.round((g2(31.45) - g2(30.47)) * FPS) + 6, "sub_thump", 0.3]], el: (t) => (
+  { a: g2(30.47), b: g2(32.17),  el: (t) => (
     <>
       <Cam dur={51} to={1.04} punch={{ at: t(g2(31.3)), frames: 5, to: 1.25, oy: "40%" }}><Svg bg={<B.Study />}><Rig c="thomas_jefferson" pose="refuses_arms_folded" x={960} y={1060} h={680} /></Svg></Cam>
       <Cap text="As president" pos="top" at={0} until={t(g2(31.45))} />
@@ -408,7 +408,7 @@ const SHOTS: Shot[] = [
     <>
       <Cam dur={152} to={1.05}><Svg bg={<B.Study />}>
         <Rig c="thomas_jefferson" pose="refuses_arms_folded" x={560} y={1040} h={600} />
-        <Swap t={t(g2(40.95))} a={<Rig c="levi_lincoln_sr" pose="cautious_lean" x={1350} y={1040} h={600} />} b={<Rig c="levi_lincoln_sr" pose="warning_finger" x={1350} y={1040} h={600} stress />} />
+        <Swap t={t(g2(40.95))} a={<Rig c="levi_lincoln_sr" pose="cautious_lean" x={1350} y={1040} h={600} />} b={<Swap t={t(g2(44.0))} a={<Rig c="levi_lincoln_sr" pose="warning_finger" x={1350} y={1040} h={600} stress />} b={<Rig c="levi_lincoln_sr" pose="worried_letter_reaction" x={1350} y={1040} h={600} />} />} />
         <Bubble x={1400} y={200} text="NEW ENGLAND WON'T LIKE IT!" tx={1370} ty={420} at={t(g2(41.9))} w={760} size={42} />
       </Svg></Cam>
       <Cap text="Levi Lincoln Sr." at={t(g2(39.98))} until={t(g2(40.95))} />
@@ -433,7 +433,7 @@ const SHOTS: Shot[] = [
       </Svg></Cam>
       <Cap text="Up to the states" pos="top" at={t(g2(53.84))} />
     </>) },
-  { a: g2(55.46), b: g2(58.99), sfx: [[Math.round((g2(58.02) - g2(55.46)) * FPS) + 6, "sub_thump", 0.3]], el: (t) => (
+  { a: g2(55.46), b: g2(58.99),  el: (t) => (
     <>
       <Cam dur={106} to={1.06}><Svg bg={<B.PlateBg color="#c0392b" />}><Chaos /></Svg></Cam>
       <svg viewBox="0 0 1920 1080" width={1920} height={1080} style={{ position: "absolute", inset: 0 }}>
@@ -443,7 +443,7 @@ const SHOTS: Shot[] = [
       <Stamp lines={["TOTAL", "CHAOS"]} at={t(g2(58.02))} x={960} y={820} rot={-6} variant="dark" />
     </>) },
   { a: g2(58.99), b: g2(62.05), el: () => (
-    <Cam dur={92} to={1.04}><Svg bg={<B.Studio />}><Quill pose="speaking_facing_right" talk x={960} y={1010} h={720} /></Svg></Cam>) },
+    <Cam dur={92} to={1.04}><Svg bg={<B.Studio v={1} />}><Quill pose="speaking_facing_right" talk x={960} y={1010} h={720} /></Svg></Cam>) },
 
   // ======================= 3. SARAH JOSEPHA HALE =======================
   { a: g2(62.05), b: g2(65.19), el: (t) => (
@@ -495,7 +495,7 @@ const SHOTS: Shot[] = [
       <Book x={960} y={540} title={["MARY HAD", "A LITTLE", "LAMB"]} color="#c0392b" at={2} w={420} art="lamb" />
     </Svg></Cam>) },
   { a: g2(90.26), b: g2(90.9), el: () => (
-    <><Cam dur={19} from={1.15} to={1.18} oy="38%"><Svg bg={<B.Studio />}><Quill pose="deadpan_wings_folded" talk x={960} y={1010} h={720} /></Svg></Cam><Cap text="Yes. That one." at={0} /></>) },
+    <><Cam dur={19} from={1.15} to={1.18} oy="38%"><Svg bg={<B.Studio v={2} />}><Quill pose="deadpan_wings_folded" talk x={960} y={1010} h={720} /></Svg></Cam><Cap text="Yes. That one." at={0} /></>) },
   { a: g2(90.9), b: g2(93.34), el: (t) => (
     <>
       <Cam dur={73} to={1.05}><Svg bg={<B.EditorOffice />}><Rig c="sarah_josepha_hale" pose="triumphant_raises_letter" x={760} y={1030} h={580} stress /></Svg></Cam>
@@ -553,7 +553,7 @@ const SHOTS: Shot[] = [
       <Arch src="hale_letter" dur={171} focus={[50, 30]} zoom={[1, 1.18]} />
       <Cap text={'"National recognition and authoritive fixation"'} at={t(g2(118.96))} size={56} />
     </>) },
-  { a: g2(122.04), b: g2(124.38), sfx: [[Math.round((g2(122.82) - g2(122.04)) * FPS) + 6, "sub_thump", 0.3]], el: (t) => (
+  { a: g2(122.04), b: g2(124.38),  el: (t) => (
     <>
       <Cam dur={70} to={1.05}><Svg bg={<B.LincolnOffice />}>
         <Swap t={t(g2(122.82))} a={<Rig c="abraham_lincoln" pose="weary_reading_hale_letter" x={800} y={1040} h={640} />} b={<Rig c="abraham_lincoln" pose="signs_proclamation" x={800} y={1040} h={640} />} />

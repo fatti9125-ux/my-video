@@ -372,24 +372,36 @@ export const Village: React.FC = () => (
 );
 
 /** Quill's studio: warm stage with a curtain, a framed turkey portrait and the scoreboard wall. */
-export const Studio: React.FC = () => {
+/** Quill's studio. `v` (0-3) varies wall colour, curtain colour and the wall prop so host beats don't look identical. */
+const STUDIO_V = [
+  { wall: "#2f4a3c", stripe: "#29423a", cur: "#7d2228", curD: "#5e171c" },
+  { wall: "#3a3355", stripe: "#332d4b", cur: "#a0682a", curD: "#7a4e1e" },
+  { wall: "#5a3a2a", stripe: "#4f3324", cur: "#2f5a4a", curD: "#22453a" },
+  { wall: "#264a5e", stripe: "#214152", cur: "#8a2a3a", curD: "#6a1f2c" },
+];
+export const Studio: React.FC<{ v?: number }> = ({ v = 0 }) => {
   const f = useCurrentFrame();
+  const C = STUDIO_V[((v % 4) + 4) % 4];
   return (
     <g>
-      <rect width={1920} height={1080} fill="#2f4a3c" />
-      {Array.from({ length: 16 }, (_, i) => <rect key={i} x={i * 130} y={0} width={60} height={900} fill="#29423a" />)}
+      <rect width={1920} height={1080} fill={C.wall} />
+      {Array.from({ length: 16 }, (_, i) => <rect key={i} x={i * 130} y={0} width={60} height={900} fill={C.stripe} />)}
       <radialGradient id="tg-spot" cx="50%" cy="45%" r="45%"><stop offset="0" stopColor="#ffe7b0" stopOpacity={0.55} /><stop offset="1" stopColor="#ffe7b0" stopOpacity={0} /></radialGradient>
       <ellipse cx={960} cy={520} rx={760} ry={560} fill="url(#tg-spot)" opacity={0.85 + Math.sin(f / 50) * 0.05} />
       {/* curtains */}
-      <path d="M 0 0 L 300 0 Q 220 400 280 900 L 0 900 Z" fill="#7d2228" /><path d="M 0 0 L 300 0 Q 220 400 280 900" fill="none" stroke="#5e171c" strokeWidth={18} />
-      <path d="M 1920 0 L 1620 0 Q 1700 400 1640 900 L 1920 900 Z" fill="#7d2228" /><path d="M 1620 0 Q 1700 400 1640 900" fill="none" stroke="#5e171c" strokeWidth={18} />
-      <rect width={1920} height={60} fill="#5e171c" />
+      <path d="M 0 0 L 300 0 Q 220 400 280 900 L 0 900 Z" fill={C.cur} /><path d="M 0 0 L 300 0 Q 220 400 280 900" fill="none" stroke={C.curD} strokeWidth={18} />
+      <path d="M 1920 0 L 1620 0 Q 1700 400 1640 900 L 1920 900 Z" fill={C.cur} /><path d="M 1620 0 Q 1700 400 1640 900" fill="none" stroke={C.curD} strokeWidth={18} />
+      <rect width={1920} height={60} fill={C.curD} />
+      {v % 2 === 1 && <g>{/* small globe + books on a side shelf */}
+        <rect x={360} y={560} width={260} height={18} fill="#6b4529" /><circle cx={420} cy={515} r={42} fill="#3f7fb0" stroke="#1d1712" strokeWidth={5} /><path d="M 395 490 q 25 20 0 50 M 440 480 q -15 30 10 60" stroke="#6fa04a" strokeWidth={8} fill="none" />
+        {[0, 1, 2, 3].map((i) => <rect key={i} x={480 + i * 30} y={470} width={24} height={90} fill={["#8a2a2a", "#2f4a6b", "#4d6b3a", "#a87a2c"][i]} stroke="#1d1712" strokeWidth={3} />)}
+      </g>}
       {/* framed turkey portrait (running gag) */}
-      <Frame x={1300} y={170} w={200} h={240}>
+      <g transform={v >= 2 ? "translate(-940 0)" : undefined}><Frame x={1300} y={170} w={200} h={240}>
         <ellipse cx={1400} cy={330} rx={60} ry={55} fill="#7a4a2a" /><circle cx={1400} cy={255} r={26} fill="#b8b2a8" />
         <path d="M 1396 262 q 6 22 -2 34" stroke="#c43a2a" strokeWidth={8} fill="none" /><path d="M 1408 252 l 18 4 l -18 6 z" fill="#e0a43a" />
         {Array.from({ length: 5 }, (_, i) => <ellipse key={i} cx={1340 + i * 30} cy={290} rx={16} ry={44} fill={["#8a3a22", "#c46a2a", "#e0a43a", "#c46a2a", "#8a3a22"][i]} transform={`rotate(${(i - 2) * 18} ${1340 + i * 30} 330)`} />)}
-      </Frame>
+      </Frame></g>
       <rect y={880} width={1920} height={200} fill="#5a3a22" />
       <rect y={880} width={1920} height={14} fill="#3f2715" />
       {Array.from({ length: 10 }, (_, i) => <line key={i} x1={0} y1={900 + i * 18} x2={1920} y2={900 + i * 18} stroke="#4e311c" strokeWidth={2} opacity={0.5} />)}

@@ -1,4 +1,5 @@
 import React from "react";
+import { Sequence } from "remotion";
 import { useCurrentFrame } from "remotion";
 import * as B from "../Thanksgiving/Backgrounds";
 import { BigText, Bubble, CalendarPage, PropImg, SplitWar } from "../Thanksgiving/Graphics";
@@ -28,7 +29,7 @@ const SHOTS: Shot[] = [
   { a: ln(2), el: (t) => (<>
     <Cam dur={107} to={1.04}><Svg bg={<B.LincolnOffice />}>
       <Rig c="abraham_lincoln" pose="weary_reading_hale_letter" x={560} y={1030} h={580} />
-      <Swap t={t(wd(2, "william"))} a={<Rig c="william_seward" pose="writes_proclamation" x={1340} y={1030} h={580} stress />} b={<Rig c="william_seward" pose="hands_over_proclamation" x={1340} y={1030} h={580} stress />} />
+      <Swap t={t(wd(2, "william"))} a={<Swap t={t(wd(2, "written"))} a={<Rig c="william_seward" pose="focused_with_pen" x={1340} y={1030} h={580} />} b={<Rig c="william_seward" pose="writes_proclamation" x={1340} y={1030} h={580} stress />} />} b={<Rig c="william_seward" pose="hands_over_proclamation" x={1340} y={1030} h={580} stress />} />
     </Svg></Cam>
     <Cap text="William Seward" at={t(wd(2, "william"))} />
   </>) },
@@ -68,13 +69,14 @@ const SHOTS: Shot[] = [
     <Stamp lines={["IT", "STUCK"]} at={t(wd(12, "stuck"))} x={1500} y={250} rot={-9} variant="dark" />
   </>) },
   { a: ln(13), el: (t, dur) => (
-    <Cam dur={dur} from={1.1} to={1.15} oy="38%"><Svg bg={<B.Studio />}><Quill pose="nervous_side_glance" talk x={960} y={1010} h={720} /></Svg></Cam>) },
+    <Cam dur={dur} from={1.1} to={1.15} oy="38%"><Svg bg={<B.Studio v={1} />}><Quill pose="nervous_side_glance" talk x={960} y={1010} h={720} /></Svg></Cam>) },
   { a: ln(15), el: (t, dur) => (<>
     <Cam dur={dur} to={1.05}><Svg bg={<WhiteHouseLawn />}>
       <Rig c="abraham_lincoln" pose="softens_toward_tad" x={520} y={1020} h={560} />
       <Rig c="tad_lincoln" pose="relieved_smile" x={1060} y={1030} h={360} flip />
       <Spr s="Poses/jack/standing_alert" x={1450} y={1030} h={330} at={t(wd(15, "turkey"))} />
     </Svg></Cam>
+    {<Sequence from={t(wd(15, "lincoln"))} durationInFrames={t(wd(15, "turkey")) - t(wd(15, "lincoln"))} layout="none"><Arch src="lincoln_tad" mode="portrait" dur={t(wd(15, "turkey")) - t(wd(15, "lincoln"))} focus={[50, 35]} /></Sequence>}
     <Cap text="Tad Lincoln" at={t(wd(15, "tad"))} />
   </>) },
   { a: ln(16), el: (t, dur) => (<>
@@ -89,7 +91,7 @@ const SHOTS: Shot[] = [
     </Svg></Cam>) },
   { a: ln(19), sfx: [[F(wd(19, "noah") - ln(19)), "scribble", 0.12]], el: (t, dur) => (<>
     <Swap t={t(wd(19, "1865"))} a={<Cam dur={dur} to={1.05}><Svg bg={<B.EditorOffice />}><Rig c="noah_brooks" pose="scribbling_notes" x={960} y={1030} h={620} stress /></Svg></Cam>}
-      b={<Cam dur={dur} from={1.1} to={1.15}><Svg bg={<B.EditorOffice />}><Rig c="noah_brooks" pose="attentive_with_notebook" x={960} y={1030} h={640} /></Svg></Cam>} />
+      b={<Cam dur={dur} from={1.1} to={1.15}><Svg bg={<B.EditorOffice />}><Rig c="noah_brooks" pose="raises_eyebrow" x={960} y={1030} h={640} /></Svg></Cam>} />
     <Cap text="Noah Brooks · reporter" at={t(wd(19, "noah"))} until={t(wd(19, "1865"))} />
     <Cap text="1865" at={t(wd(19, "1865"))} />
   </>) },
@@ -98,14 +100,14 @@ const SHOTS: Shot[] = [
     <Stamp lines={["THE FIRST", "TURKEY", "PARDON?"]} at={t(wd(20, "pardon"))} x={1450} y={300} rot={-8} variant="dark" />
   </>) },
   { a: ln(21), el: (t, dur) => (
-    <Cam dur={dur} from={1.12} to={1.16} oy="38%"><Svg bg={<B.Studio />}><Quill pose="speaking_facing_right" talk x={960} y={1010} h={720} /></Svg></Cam>) },
+    <Cam dur={dur} from={1.12} to={1.16} oy="38%"><Svg bg={<B.Studio v={2} />}><Quill pose="speaking_facing_right" talk x={960} y={1010} h={720} /></Svg></Cam>) },
   { a: ln(22), sfx: [[F(wd(22, "christmas") - ln(22)), "pop", 0.12]], el: (t, dur) => (<>
     <Cam dur={dur} to={1.04}><Svg bg={<B.LincolnOffice />} dim={0.45}>
       <PopIn at={t(wd(22, "christmas"))} x={620} y={540}><CalendarPage x={0} y={0} month="DECEMBER" day="25" sub="CHRISTMAS ✓" w={380} rot={-4} /></PopIn>
       <PopIn at={t(wd(22, "thanksgiving"))} x={1300} y={540}><CalendarPage x={0} y={0} month="NOVEMBER" day="✗" sub="THANKSGIVING" w={380} rot={4} /></PopIn>
     </Svg></Cam>
   </>) },
-  { a: ln(23), sfx: [[F(wd(23, "apocryphal") - ln(23)) + 6, "sub_thump", 0.3]], el: (t, dur) => (<>
+  { a: ln(23),  el: (t, dur) => (<>
     <Cam dur={dur} to={1.04}><Svg bg={<WhiteHouseLawn />}><Rig c="tad_lincoln" pose="hugs_jack" x={960} y={1030} h={460} /></Svg></Cam>
     <Cap text="White House Historical Association" pos="top" at={t(wd(23, "white"))} size={56} />
     <Stamp lines={["LIKELY", "APOCRYPHAL"]} at={t(wd(23, "apocryphal"))} x={1400} y={620} rot={-8} variant="dark" />
@@ -118,7 +120,7 @@ const SHOTS: Shot[] = [
     <Cap text="Did he start a tradition? No." at={t(wd(28, "no"))} />
   </>) },
   { a: ln(29), sfx: [[F(wd(29, "one") - ln(29)), "ding", 0.15]], el: (t, dur) => (<>
-    <Cam dur={dur} to={1.04}><Svg bg={<B.Studio />}>
+    <Cam dur={dur} to={1.04}><Svg bg={<B.Studio v={3} />}>
       <Quill pose="scoreboard_facing_left" talk x={960} y={1010} h={720}><Board pose="scoreboard_facing_left" top="TURKEYS SPARED" big={"1*"} at={t(wd(29, "one"))} /></Quill>
     </Svg></Cam>
     <Cap text="Turkeys spared: 1*" pos="top" at={t(wd(29, "one"))} />
@@ -177,11 +179,11 @@ const SHOTS: Shot[] = [
   { a: ln(44), el: (t, dur) => (<>
     <Cam dur={dur} to={1.04}><Svg bg={<DiningRoom />}>
       <Rig c="ulysses_s_grant" pose="pleased_with_dinner" x={560} y={1030} h={560} stress />
-      <Rig c="rutherford_b_hayes" pose="satisfied_after_dinner" x={1360} y={1030} h={560} flip />
+      <Swap t={t(wd(44, "turkeys"))} a={<Rig c="rutherford_b_hayes" pose="satisfied_after_dinner" x={1360} y={1030} h={560} flip />} b={<Rig c="rutherford_b_hayes" pose="approving_smile" x={1360} y={1030} h={560} flip />} />
     </Svg></Cam>
     <Cap text="Four decades of presidents" at={t(wd(44, "four"))} />
   </>) },
-  { a: ln(45), sfx: [[F(wd(45, "pardons") - ln(45)) + 6, "sub_thump", 0.3]], el: (t, dur) => (<>
+  { a: ln(45),  el: (t, dur) => (<>
     <Cam dur={dur} to={1.04}><Svg bg={<B.Village />}><Rig c="horace_vose" pose="proudly_holds_turkey" x={760} y={1030} h={600} /></Svg></Cam>
     <Stamp lines={["NO", "PARDONS"]} at={t(wd(45, "pardons"))} x={1400} y={320} rot={-10} variant="red" darken={false} />
   </>) },
@@ -213,7 +215,7 @@ const SHOTS: Shot[] = [
     </Svg></Cam>
     <Cap text="Nobody knows." at={t(wd(51, "nobody"))} />
   </>) },
-  { a: ln(52), sfx: [[F(wd(52, "no") - ln(52)) + 6, "sub_thump", 0.3]], el: (t, dur) => (<>
+  { a: ln(52),  el: (t, dur) => (<>
     <Cam dur={dur} to={1.04}><Svg bg={<OvalOffice />}>
       <Rig c="horace_vose" pose="proudly_holds_turkey" x={420} y={1030} h={540} />
       <Rig c="woodrow_wilson" pose="puzzled_by_rival_turkeys" x={960} y={1030} h={560} />
@@ -256,7 +258,7 @@ const SHOTS: Shot[] = [
   { a: ln(59), sfx: [[F(wd(59, "delivered") - ln(59)), "ding", 0.15]], el: (t, dur) => (
     <Cam dur={dur} from={1.1} to={1.15} oy="40%"><Svg bg={<DiningRoom />}><Rig c="william_howard_taft" pose="shows_off_the_pie" x={960} y={1030} h={640} stress /></Svg></Cam>) },
   { a: ln(60), sfx: [[F(wd(60, "lots") - ln(60)), "ding", 0.15]], el: (t, dur) => (<>
-    <Cam dur={dur} to={1.04}><Svg bg={<B.Studio />}>
+    <Cam dur={dur} to={1.04}><Svg bg={<B.Studio v={0} />}>
       <Steps s={[[0, <Quill pose="scoreboard_facing_left" talk x={960} y={1010} h={720}><Board pose="scoreboard_facing_left" top="TURKEYS EATEN" big="LOTS" /></Quill>],
         [t(wd(61, "spared")), <Quill pose="scoreboard_facing_left" talk x={960} y={1010} h={720}><Board pose="scoreboard_facing_left" top="TURKEYS SPARED" big="1*" /></Quill>]]} />
     </Svg></Cam>
@@ -281,13 +283,13 @@ const SHOTS: Shot[] = [
       <Rig c="woodrow_wilson" pose="stern_empty_dish" x={700} y={1030} h={580} stress />
       <Spr s="Poses/poultry_props/baghdad_trophy_turkey" x={1300} y={720} h={170} />
     </Svg></Cam>) },
-  { a: ln(67), sfx: [[F(wd(67, "cranberries") - ln(67)) + 6, "sub_thump", 0.3]], el: (t, dur) => (<>
+  { a: ln(67),  el: (t, dur) => (<>
     <Cam dur={dur} to={1.04}><Svg bg={<DiningRoom />} dim={0.4}>
       <PopIn at={2} x={960} y={600}><ellipse rx={220} ry={70} fill="#f4f1ea" stroke="#1d1712" strokeWidth={8} /><ellipse rx={180} ry={46} fill="#b3262a" />{[-90, -40, 10, 60, 100].map((x) => <circle key={x} cx={x} cy={-10 + (x % 3) * 6} r={22} fill="#d63a3a" stroke="#1d1712" strokeWidth={4} />)}</PopIn>
     </Svg></Cam>
     <Over><PopIn at={t(wd(67, "cranberries"))} x={960} y={560}><path d="M -260 -200 L 260 200 M 260 -200 L -260 200" stroke="#e02b2b" strokeWidth={40} strokeLinecap="round" /></PopIn></Over>
   </>) },
-  { a: ln(68), sfx: [[F(wd(69, "serious") - ln(68)) + 6, "sub_thump", 0.3]], el: (t, dur) => (<>
+  { a: ln(68),  el: (t, dur) => (<>
     <Cam dur={dur} from={1.15} to={1.2} oy="40%"><Svg bg={<OvalOffice />}><Rig c="woodrow_wilson" pose="stern_empty_dish" x={960} y={1030} h={620} /></Svg></Cam>
     <Stamp lines={["NO", "CRANBERRIES"]} at={t(wd(69, "serious"))} x={1400} y={300} rot={-9} variant="dark" />
   </>) },

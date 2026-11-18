@@ -70,7 +70,7 @@ const SHOTS: Shot[] = [
       <div style={{ fontFamily: MONTSERRAT, fontWeight: 800, fontSize: 56, color: "#fff", opacity: 0.75 }}>HYANNIS PORT · THANKSGIVING NEVER HAPPENED</div>
     </AbsoluteFill>) },
   { a: ln(12), sfx: [[F(wd(12, "two") - ln(12)), "ding", 0.15]], el: (t, dur) => (<>
-    <Cam dur={dur} to={1.04}><Svg bg={<B.Studio />}>
+    <Cam dur={dur} to={1.04}><Svg bg={<B.Studio v={1} />}>
       <Quill pose="scoreboard_facing_left" talk x={960} y={1010} h={720}><Board pose="scoreboard_facing_left" top="TURKEYS SPARED" big="2**" at={t(wd(12, "two"))} /></Quill>
     </Svg></Cam>
     <Cap text="Turkeys spared: 2 · one asterisk each" pos="top" at={t(wd(12, "two"))} size={60} />
@@ -82,13 +82,14 @@ const SHOTS: Shot[] = [
     <Card text="Nixon & Reagan" sub="12 · The Petting Zoo Era" until={t(ln(16)) - 1} />
   </>) },
   { a: ln(16), el: (t, dur) => (<>
-    <Cam dur={dur} to={1.04}><Svg bg={<WhiteHouseLawn />}><Spr s="Poses/white_ceremony_turkey/standing_with_blank_sign" x={960} y={1030} h={440} /></Svg></Cam>
+    <Cam dur={dur} to={1.04}><Svg bg={<WhiteHouseLawn />}><Rig c="pat_nixon" pose="holds_presentation_card" x={600} y={1030} h={560} /><Spr s="Poses/white_ceremony_turkey/standing_with_blank_sign" x={1260} y={1030} h={440} /></Svg></Cam>
     <Cap text="The 1970s · routine" at={t(wd(16, "1970s"))} />
   </>) },
   { a: ln(17), el: (t, dur) => (<>
     <Cam dur={dur} to={1.04}><Svg bg={<WhiteHouseLawn />}>
       <Swap t={t(wd(17, "presented"))} a={<Rig c="pat_nixon" pose="standing_neutral" x={520} y={1030} h={560} />} b={<Rig c="pat_nixon" pose="presents_turkey" x={520} y={1030} h={560} stress />} />
       <Spr s="Poses/brown_turkey/standing_alert" x={1240} y={1030} h={380} />
+      <Rig c="richard_nixon" pose="standing_neutral" x={240} y={1030} h={540} />
     </Svg></Cam>
     <Cap text="1971 · First Lady Pat Nixon" at={t(wd(17, "1971"))} />
   </>) },
@@ -107,7 +108,7 @@ const SHOTS: Shot[] = [
   </>) },
   { a: ln(21), sfx: [[2, "whoosh", 0.12]], el: (t, dur) => (<>
     <Cam dur={dur} to={1.03}><Svg bg={<RanchBanner text="HAPPY THANKSGIVING RON AND NANCY" />}>
-      <Rig c="nancy_reagan" pose="waves_at_banner" x={760} y={1030} h={500} stress />
+      <Swap t={t(wd(21, "happy"))} a={<Rig c="nancy_reagan" pose="waves_at_banner" x={760} y={1030} h={500} stress />} b={<Rig c="nancy_reagan" pose="amused_by_banner" x={760} y={1030} h={500} stress />} />
       <Rig c="ronald_reagan" pose="amused_gestures_to_charlie" x={460} y={1030} h={520} />
     </Svg></Cam>
     <Cap text="120-foot banner" at={t(wd(21, "120"))} />
@@ -145,7 +146,7 @@ const SHOTS: Shot[] = [
     <Stamp lines={['"PARDON"', "(AS A JOKE)"]} at={t(wd(27, "joke"))} x={1420} y={320} rot={-8} variant="dark" />
   </>) },
   { a: ln(28), el: (t, dur) => (
-    <Cam dur={dur} from={1.12} to={1.16} oy="38%"><Svg bg={<B.Studio />}><Quill pose="speaking_facing_right" talk x={960} y={1010} h={720} /></Svg></Cam>) },
+    <Cam dur={dur} from={1.12} to={1.16} oy="38%"><Svg bg={<B.Studio v={2} />}><Quill pose="speaking_facing_right" talk x={960} y={1010} h={720} /></Svg></Cam>) },
 
   // ===== 13. GEORGE H.W. BUSH =====
   { a: ln(29), el: (t) => (<>
@@ -164,7 +165,7 @@ const SHOTS: Shot[] = [
     </Svg></Cam>
     <Cap text={'"…not end up on anyone\'s dinner table"'} at={t(wd(33, "will"))} size={58} />
   </>) },
-  { a: ln(34), sfx: [[F(wd(34, "pardon") - ln(34)) + 6, "sub_thump", 0.3]], el: (t, dur) => (<>
+  { a: ln(34),  el: (t, dur) => (<>
     <Cam dur={dur} to={1.04}><Svg bg={<WhiteHouseLawn />}>
       <Swap t={t(wd(34, "pardon"))} a={<Rig c="george_hw_bush" pose="attentive_neutral" x={560} y={1030} h={600} />} b={<Rig c="george_hw_bush" pose="raises_hand_for_official_pardon" x={560} y={1030} h={600} stress />} />
       <Swap t={t(wd(34, "pardon")) + 4} a={<Spr s="Poses/white_ceremony_turkey/nervous_side_glance" x={1320} y={1030} h={420} />} b={<Spr s="Poses/white_ceremony_turkey/relieved_small_wave" x={1320} y={1030} h={420} />} />
@@ -183,7 +184,7 @@ const SHOTS: Shot[] = [
     <Cap text="The official, every-year pardon" at={t(wd(36, "official"))} />
   </>) },
   { a: ln(37), sfx: [[F(wd(37, "one") - ln(37)), "ding", 0.15], [F(wd(38, "finally") - ln(37)), "cheer", 0.1]], el: (t, dur) => (<>
-    <Cam dur={dur} to={1.04}><Svg bg={<B.Studio />}>
+    <Cam dur={dur} to={1.04}><Svg bg={<B.Studio v={3} />}>
       <Swap t={t(wd(38, "finally"))}
         a={<Quill pose="scoreboard_facing_left" talk x={960} y={1010} h={720}><Board pose="scoreboard_facing_left" top="NO ASTERISK" big="1" at={t(wd(37, "one"))} /></Quill>}
         b={<Spr s="Poses/quill/scoreboard_celebration" x={960} y={1010} h={720}><Board pose="scoreboard_celebration" top="NO ASTERISK" big="1" /></Spr>} />

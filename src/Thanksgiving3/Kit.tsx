@@ -1,5 +1,5 @@
 import React, { createContext, useContext } from "react";
-import { AbsoluteFill, Easing, Img, interpolate, staticFile, useCurrentFrame } from "remotion";
+import { AbsoluteFill, Audio, Easing, Img, interpolate, Sequence, staticFile, useCurrentFrame } from "remotion";
 import { MONTSERRAT, OSWALD } from "../fonts";
 import { mouthAt } from "../Thanksgiving/LayerPuppet";
 import META from "./sprites.json";
@@ -16,6 +16,10 @@ const M = META as unknown as Record<string, number[]>;
 const ENV = (VO as { env: number[] }).env;
 const STRESS = (VO as { stress: number[] }).stress;
 const INK = "#1d1712";
+/** Built-in SFX (style bible §10: one quiet SFX on each graphic beat, landing on its frame). */
+const Sfx: React.FC<{ at: number; name: string; vol: number }> = ({ at, name, vol }) => (
+  <Sequence from={Math.max(0, at)} durationInFrames={45} layout="none"><Audio src={staticFile(`tg2/sfx/${name}.wav`)} volume={vol} /></Sequence>
+);
 const FPS = 30;
 
 /** Per-shot timing context: `offset` = global VO seconds at the shot's frame 0. */
@@ -35,6 +39,18 @@ const stressPulse = (f: number, offset: number, stress: number[] = STRESS) => {
     best = Math.max(best, p);
   }
   return best;
+};
+
+
+/** White speed-line wedges trailing a fast side entrance (style bible §2.6 / §7), first `frames` + 3 frames. */
+const EnterLines: React.FC<{ x: number; y: number; h: number; from: string; lf: number; frames: number }> = ({ x, y, h, from, lf, frames }) => {
+  if ((from !== "left" && from !== "right") || lf > frames + 3) return null;
+  const d = from === "right" ? 1 : -1;
+  return (
+    <g fill="#fff" stroke={INK} strokeWidth={3} opacity={1 - lf / (frames + 4)}>
+      {[0.25, 0.45, 0.65].map((k, i) => <path key={i} d={`M ${x + d * 60} ${y - h * k} l ${d * (240 + i * 60)} -9 l 0 18 Z`} />)}
+    </g>
+  );
 };
 
 export type SprProps = {
@@ -80,12 +96,13 @@ export const Spr: React.FC<SprProps> = ({ s, x, y, h, flip, at = 0, until, enter
   const sx = 1 - rise * 0.008;
   const sway = Math.sin(f / 37 + x) * 0.5;
   return (
+    <g>{enter && <EnterLines x={x + dx} y={y + dy} h={h} from={enter.from} lf={lf} frames={enter.frames} />}
     <g transform={`translate(${x + dx} ${y + dy + bob}) rotate(${sway}) scale(${(flip ? -1 : 1) * sx} ${sy})`} opacity={opacity}>
       <g transform={`scale(${k}) translate(${-cx} ${-y1})`}>
         <image href={staticFile(src(s))} x={0} y={0} width={W} height={H} />
         {children}
       </g>
-    </g>
+    </g></g>
   );
 };
 
@@ -127,25 +144,27 @@ const outline = "-2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #
 /** Fact caption: white ExtraBold caps, thin black outline + shadow, HARD on/off. */
 export const Cap: React.FC<{ text: string; at?: number; until?: number; pos?: "top" | "bottom"; size?: number }> = ({ text, at = 0, until, pos = "bottom", size = 78 }) => {
   const f = useCurrentFrame();
-  if (f < at || (until !== undefined && f >= until)) return null;
-  return (
+  const sfx = <Sfx at={at} name="pop" vol={0.06} />;
+  if (f < at || (until !== undefined && f >= until)) return sfx;
+  return (<>{sfx}
     <AbsoluteFill style={{ justifyContent: pos === "top" ? "flex-start" : "flex-end", alignItems: "center", padding: pos === "top" ? "64px 0 0" : "0 0 70px" }}>
       <div style={{ fontFamily: MONTSERRAT, fontWeight: 800, fontSize: size, color: "#fff", textShadow: outline, textTransform: "uppercase", letterSpacing: 1 }}>{text}</div>
     </AbsoluteFill>
-  );
+  </>);
 };
 
 /** Name card: current shot darkened ~70%, centred white caps, soft shadow, hard on/off. */
 export const Card: React.FC<{ text: string; sub?: string; at?: number; until?: number }> = ({ text, sub, at = 0, until }) => {
   const f = useCurrentFrame();
-  if (f < at || (until !== undefined && f >= until)) return null;
+  const sfx = <Sfx at={at} name="whoosh" vol={0.12} />;
+  if (f < at || (until !== undefined && f >= until)) return sfx;
   const sh = "0 4px 18px rgba(0,0,0,0.6)";
-  return (
+  return (<>{sfx}
     <AbsoluteFill style={{ background: "rgba(0,0,0,0.7)", justifyContent: "center", alignItems: "center", flexDirection: "column" }}>
       <div style={{ fontFamily: MONTSERRAT, fontWeight: 800, fontSize: 118, color: "#fff", textShadow: sh, textTransform: "uppercase" }}>{text}</div>
       {sub && <div style={{ fontFamily: MONTSERRAT, fontWeight: 800, fontSize: 50, color: "#fff", opacity: 0.85, marginTop: 14, textShadow: sh, textTransform: "uppercase" }}>{sub}</div>}
     </AbsoluteFill>
-  );
+  </>);
 };
 
 /**
@@ -155,7 +174,8 @@ export const Card: React.FC<{ text: string; sub?: string; at?: number; until?: n
 export const Stamp: React.FC<{ lines: string[]; at: number; x: number; y: number; rot?: number;
   variant?: "red" | "dark" | "white"; fadeAt?: number; darken?: boolean }> = ({ lines, at, x, y, rot = -8, variant = "dark", fadeAt, darken = true }) => {
   const f = useCurrentFrame();
-  if (f < at) return null;
+  const sfx = <Sfx at={at + 5} name="sub_thump" vol={0.3} />;
+  if (f < at) return sfx;
   const lf = f - at;
   const e = interpolate(lf, [0, 6], [0, 1], { extrapolateRight: "clamp", easing: Easing.out(Easing.cubic) });
   const sc = interpolate(e, [0, 1], [3, 1]);
@@ -165,7 +185,7 @@ export const Stamp: React.FC<{ lines: string[]; at: number; x: number; y: number
   const ink = variant === "red" ? "#d62828" : "#f4f1ea";
   const box = variant === "dark" ? "rgba(30,30,30,0.55)" : variant === "white" ? "rgba(255,255,255,0.35)" : "none";
   const lh = 78, w = 820, hh = lines.length * lh + 64;
-  return (
+  return (<>{sfx}
     <svg viewBox="0 0 1920 1080" width={1920} height={1080} style={{ position: "absolute", inset: 0 }}>
       <rect width={1920} height={1080} fill="#000" opacity={dim} />
       <defs>
@@ -185,7 +205,7 @@ export const Stamp: React.FC<{ lines: string[]; at: number; x: number; y: number
         </g>
       </g>
     </svg>
-  );
+  </>);
 };
 
 /** Red "?" marks popping in at both sides of a head (confusion). */
@@ -361,6 +381,7 @@ export const Rig: React.FC<RigProps> = ({ c, pose, x, y, h, flip, at = 0, until,
     return out * (rise * gesture + wob);
   };
   return (
+    <g>{enter && <EnterLines x={x + dx} y={y + dy} h={h} from={enter.from} lf={lf} frames={enter.frames} />}
     <g transform={`translate(${x + dx} ${y + dy + jump})`}>
       <g transform={`rotate(${walking ? 2 * Math.sign(walk) : 0}) scale(${flip ? -1 : 1} ${1 + breathe + rise * 0.02})`}>
         <g transform={`scale(${k}) translate(${-cx} ${-y1 + drop})`}>
@@ -369,7 +390,7 @@ export const Rig: React.FC<RigProps> = ({ c, pose, x, y, h, flip, at = 0, until,
           <image href={staticFile(r.body.file)} x={r.body.x} y={r.body.y} width={r.body.w} height={r.body.h} />
         </g>
       </g>
-    </g>
+    </g></g>
   );
 };
 

@@ -55,7 +55,7 @@ const SHOTS: Shot[] = [
   </>) },
   { a: ln(8), el: (t, dur) => (<>
     <Cam dur={dur} to={1.04}><Svg bg={<OvalOffice />}>
-      <Rig c="warren_g_harding" pose="bemused_pointing" x={520} y={1030} h={580} />
+      <Swap t={t(wd(8, "supreme"))} a={<Rig c="warren_g_harding" pose="standing_neutral" x={520} y={1030} h={580} />} b={<Rig c="warren_g_harding" pose="bemused_pointing" x={520} y={1030} h={580} />} />
       <Spr s="Poses/supreme_iii/alert_in_motor_coat" x={1360} y={1030} h={460} at={t(wd(8, "supreme"))} enter={{ from: "right", frames: 8 }} />
     </Svg></Cam>
     <Cap text="Supreme the Third · Chicago" at={t(wd(8, "supreme"))} />
@@ -89,7 +89,7 @@ const SHOTS: Shot[] = [
     <Card text="Calvin Coolidge" sub="8 · The Raccoon" />
   </>) },
   { a: ln(16), el: (t, dur) => (
-    <Cam dur={dur} from={1.1} to={1.14} oy="40%"><Svg bg={<B.Studio />}><Quill pose="speaking_facing_right" talk x={960} y={1010} h={720} /></Svg></Cam>) },
+    <Cam dur={dur} from={1.1} to={1.14} oy="40%"><Svg bg={<B.Studio v={1} />}><Quill pose="speaking_facing_right" talk x={960} y={1010} h={720} /></Svg></Cam>) },
   { a: ln(17), el: (t, dur) => (
     <Cam dur={dur} to={1.04}><Svg bg={<OvalOffice />}><Rig c="calvin_coolidge" pose="unimpressed_arms_folded" x={960} y={1030} h={600} stress /></Svg></Cam>) },
   { a: ln(18), el: (t, dur) => (<>
@@ -125,8 +125,7 @@ const SHOTS: Shot[] = [
     <Cam dur={dur} from={1.15} to={1.2} oy="40%"><Svg bg={<OvalOffice />}><Rig c="calvin_coolidge" pose="hesitates_at_delivery" x={960} y={1030} h={640} stress /></Svg></Cam>) },
   { a: ln(30), el: (t, dur) => (
     <Cam dur={dur} to={1.04}><Svg bg={<WhiteHouseLawn />}>
-      <Rig c="grace_coolidge" pose="friendly_neutral" x={560} y={1030} h={560} />
-      <Spr s="Poses/rebecca/sits_with_red_collar" x={1260} y={1030} h={420} flip />
+      <Rig c="grace_coolidge" pose="carries_rebecca" x={960} y={1030} h={600} stress />
     </Svg></Cam>) },
   { a: ln(31), sfx: [[F(wd(31, "rebecca") - ln(31)), "pop", 0.12], [F(wd(31, "collar") - ln(31)), "pop", 0.12]], el: (t, dur) => (
     <Cam dur={dur} to={1.05}><Svg bg={<WhiteHouseLawn />}>
@@ -187,7 +186,7 @@ const SHOTS: Shot[] = [
     <Cap text="1929 · Rock Creek Park Zoo" at={t(wd(46, "1929"))} />
   </>) },
   { a: ln(47), sfx: [[F(wd(48, "raccoons") - ln(47)), "ding", 0.15]], el: (t, dur) => (<>
-    <Cam dur={dur} to={1.04}><Svg bg={<B.Studio />}>
+    <Cam dur={dur} to={1.04}><Svg bg={<B.Studio v={2} />}>
       <Steps s={[[0, <Quill pose="scoreboard_facing_left" talk x={960} y={1010} h={720}><Board pose="scoreboard_facing_left" top="TURKEYS SPARED" big="1*" /></Quill>],
         [t(wd(48, "raccoons")), <Quill pose="scoreboard_facing_left" talk x={960} y={1010} h={720}><Board pose="scoreboard_facing_left" top="RACCOONS SPARED" big="1" /></Quill>]]} />
     </Svg></Cam>
@@ -200,7 +199,7 @@ const SHOTS: Shot[] = [
     <Card text="Franklin D. Roosevelt" sub="9 · Franksgiving" until={t(ln(51)) - 1} />
   </>) },
   { a: ln(51), el: (t, dur) => (
-    <Cam dur={dur} from={1.1} to={1.14} oy="40%"><Svg bg={<B.Studio />}><Quill pose="nervous_side_glance" talk x={960} y={1010} h={720} /></Svg></Cam>) },
+    <Cam dur={dur} from={1.1} to={1.14} oy="40%"><Svg bg={<B.Studio v={3} />}><Quill pose="nervous_side_glance" talk x={960} y={1010} h={720} /></Svg></Cam>) },
   { a: ln(52), sfx: [0, 1, 2, 3, 4].map((i) => [F(wd(52, "five") - ln(52)) + i * 4, "pop", 0.1] as [number, string, number]), el: (t, dur) => (<>
     <Cam dur={dur} to={1.04}><Svg bg={<OvalOffice />} dim={0.5}>
       {["2", "9", "16", "23", "30"].map((d, i) => <Cal key={d} x={280 + i * 340} y={540} day={d} w={280} at={t(wd(52, "five")) + i * 4} rot={(i % 2 ? 3 : -3)} />)}
@@ -233,14 +232,14 @@ const SHOTS: Shot[] = [
     </Svg></Cam>
     <Cap text="November 23" at={t(wd(59, "23rd"))} />
   </>) },
-  { a: ln(60), sfx: [[F(wd(61, "franksgiving") - ln(60)) + 6, "sub_thump", 0.3]], el: (t, dur) => (<>
+  { a: ln(60),  el: (t, dur) => (<>
     <Cam dur={dur} to={1.04}><Svg bg={<Avenue stop />}>
       <Rig c="tv_reporter" pose="asks_pardon_question" x={1300} y={1040} h={500} stress />
       <Rig c="farm_worker" pose="carries_feed_pail" x={600} y={1040} h={480} />
     </Svg></Cam>
     <Stamp lines={['"FRANKSGIVING"']} at={t(wd(61, "franksgiving"))} x={960} y={300} rot={-7} variant="dark" />
   </>) },
-  { a: ln(62), sfx: [[F(wd(62, "obsolete") - ln(62)) + 6, "sub_thump", 0.3]], el: (t, dur) => (<>
+  { a: ln(62),  el: (t, dur) => (<>
     <Cam dur={dur} to={1.04}><Svg bg={<OvalOffice />} dim={0.5}><Cal x={960} y={560} day="30" w={420} /></Svg></Cam>
     <Stamp lines={["OBSOLETE"]} at={t(wd(62, "obsolete"))} x={960} y={560} rot={-12} variant="red" darken={false} />
   </>) },
@@ -270,7 +269,7 @@ const SHOTS: Shot[] = [
     </>);
   } },
   { a: ln(68), el: (t, dur) => (
-    <Cam dur={dur} from={1.15} to={1.2} oy="38%"><Svg bg={<B.Studio />}><Quill pose="deadpan_wings_folded" talk blinkHold x={960} y={1010} h={720} /></Svg></Cam>) },
+    <Cam dur={dur} from={1.15} to={1.2} oy="38%"><Svg bg={<B.Studio v={0} />}><Quill pose="deadpan_wings_folded" talk blinkHold x={960} y={1010} h={720} /></Svg></Cam>) },
   { a: ln(70), el: (t, dur) => (<>
     <Cam dur={dur} to={1.04}><Svg bg={<OvalOffice />}><Rig c="franklin_d_roosevelt" pose="confident_date_change" x={1300} y={1030} h={580} stress /><Cal x={520} y={540} day="21" w={360} rot={-4} sub="1940" /></Svg></Cam>
     <Cap text="1940 · 16 states ignored him" at={t(wd(71, "sixteen"))} />
@@ -290,7 +289,7 @@ const SHOTS: Shot[] = [
     <Cap text="House: last Thursday" at={t(wd(75, "house"))} until={t(wd(76, "senate"))} />
     <Cap text="Senate: fourth Thursday" at={t(wd(76, "senate"))} />
   </>) },
-  { a: ln(77), sfx: [[F(wd(77, "signed") - ln(77)), "scribble", 0.15], [F(wd(77, "law") - ln(77)) + 6, "sub_thump", 0.3]], el: (t, dur) => (<>
+  { a: ln(77), sfx: [[F(wd(77, "signed") - ln(77)), "scribble", 0.15]], el: (t, dur) => (<>
     <Cam dur={dur} to={1.04}><Svg bg={<OvalOffice />}><Rig c="franklin_d_roosevelt" pose="resigned_signs_law" x={760} y={1030} h={600} /></Svg></Cam>
     <Cap text="December 26, 1941" at={t(wd(77, "december"))} />
     <Stamp lines={["SIGNED", "INTO LAW"]} at={t(wd(77, "law"))} x={1400} y={300} rot={-8} variant="dark" />
@@ -311,7 +310,7 @@ const SHOTS: Shot[] = [
       <BigText x={1500} y={420} text="PUMPKIN PIE + CHEESE" size={50} at={t(wd(81, "pumpkin"))} />
     </Svg></Cam>) },
   { a: ln(82), el: (t, dur) => (
-    <Cam dur={dur} from={1.15} to={1.2} oy="38%"><Svg bg={<B.Studio />}><Quill pose="deadpan_wings_folded" talk blinkHold x={960} y={1010} h={720} /></Svg></Cam>) },
+    <Cam dur={dur} from={1.15} to={1.2} oy="38%"><Svg bg={<B.Studio v={1} />}><Quill pose="deadpan_wings_folded" talk blinkHold x={960} y={1010} h={720} /></Svg></Cam>) },
 ];
 
 export const ThanksgivingCh7to9: React.FC = () => <Episode data={D} shots={SHOTS} />;

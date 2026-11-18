@@ -46,4 +46,4 @@ for arg in sys.argv[2:]:
     im.save(path, quality=88)
     cred.write(f"{name}.jpg\t{title}\t{lic}\t{ii['descriptionurl']}\n")
     print(f"{name:22} {os.path.getsize(path)//1024:5d} KB  {lic}", flush=True)
-    time.sleep(30)
+    time.sleep(60)

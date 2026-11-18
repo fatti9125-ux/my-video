@@ -177,3 +177,53 @@ export const RanchBanner: React.FC<{ text: string }> = ({ text }) => {
     </g>
   );
 };
+
+/** Festive Thanksgiving finale set: warm sunset, bunting with "HAPPY THANKSGIVING", pumpkins, falling leaves. */
+export const HappyThanksgiving: React.FC = () => {
+  const f = useCurrentFrame();
+  const leaves = Array.from({ length: 26 }, (_, i) => {
+    const x = (i * 157 + Math.sin(f / 30 + i) * 60 + f * (1 + (i % 3))) % 2000 - 40;
+    const y = ((i * 97 + f * (2 + (i % 4))) % 1200) - 100;
+    return <path key={i} d="M 0 -18 C 14 -10 14 10 0 18 C -14 10 -14 -10 0 -18 Z" fill={["#d9622b", "#e8a53a", "#b8412a", "#f0c24a"][i % 4]} stroke="#5a2a12" strokeWidth={3} transform={`translate(${x} ${y}) rotate(${f * 3 + i * 40}) scale(${1 + (i % 3) * 0.3})`} />;
+  });
+  const flags = "HAPPY THANKSGIVING".split("");
+  return (
+    <g>
+      <defs>
+        <linearGradient id="tg-fest" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="#f3a65a" /><stop offset="0.6" stopColor="#f8cf86" /><stop offset="1" stopColor="#f7e2b0" /></linearGradient>
+        <radialGradient id="tg-fest-glow" cx="50%" cy="55%" r="55%"><stop offset="0" stopColor="#fff2c8" stopOpacity={0.85} /><stop offset="1" stopColor="#fff2c8" stopOpacity={0} /></radialGradient>
+      </defs>
+      <rect width={1920} height={1080} fill="url(#tg-fest)" />
+      <ellipse cx={960} cy={600} rx={900} ry={520} fill="url(#tg-fest-glow)" />
+      {/* bunting */}
+      <path d="M -20 70 Q 960 260 1940 70" fill="none" stroke="#6b3a1a" strokeWidth={6} />
+      {flags.map((ch, i) => {
+        const t = (i + 0.5) / flags.length, x = -20 + t * 1960, y = 70 + 4 * 190 * t * (1 - t) * 0.95, sw = Math.sin(f / 9 + i) * 4;
+        return ch === " " ? null : (
+          <g key={i} transform={`translate(${x} ${y}) rotate(${sw})`}>
+            <path d="M -48 0 L 48 0 L 0 92 Z" fill={["#c0392b", "#e67e22", "#f1c40f", "#8e5a2a"][i % 4]} stroke="#3a1f0e" strokeWidth={4} />
+            <text y={44} textAnchor="middle" fontFamily="Montserrat" fontWeight={800} fontSize={42} fill="#fff" stroke="#3a1f0e" strokeWidth={2} paintOrder="stroke">{ch}</text>
+          </g>
+        );
+      })}
+      {/* table with harvest */}
+      <rect y={860} width={1920} height={220} fill="#8a5a36" />
+      <rect y={850} width={1920} height={16} fill="#5e3b22" />
+      {[[220, 880, 1.2], [420, 900, 0.8], [1520, 890, 1.1], [1720, 900, 0.85]].map(([x, y, k], i) => (
+        <g key={i} transform={`translate(${x} ${y}) scale(${k})`}>
+          <ellipse rx={95} ry={70} fill="#e67e22" stroke="#5a2a12" strokeWidth={6} />
+          {[-45, 0, 45].map((dx) => <path key={dx} d={`M ${dx} -66 Q ${dx * 1.3} 0 ${dx} 66`} fill="none" stroke="#b85a17" strokeWidth={5} />)}
+          <rect x={-10} y={-96} width={20} height={34} rx={6} fill="#4f7a2a" stroke="#2a3d14" strokeWidth={4} />
+        </g>
+      ))}
+      {/* corn bundles */}
+      {[90, 1830].map((x) => (
+        <g key={x} transform={`translate(${x} 860)`}>
+          {[-30, 0, 30].map((a) => <path key={a} d="M 0 0 L 0 -360" stroke="#d9b44a" strokeWidth={26} transform={`rotate(${a / 3})`} strokeLinecap="round" />)}
+          <rect x={-40} y={-200} width={80} height={24} fill="#8a3a2a" />
+        </g>
+      ))}
+      {leaves}
+    </g>
+  );
+};
