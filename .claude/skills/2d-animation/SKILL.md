@@ -90,6 +90,10 @@ This repo is a **Remotion** project (`src/Root.tsx`, 1920×1080 @ 30 fps).
    - Sources and licences are written to `public/tg2/archive/CREDITS.txt`.
    - Drawn scrolls only when no scan exists.
 12. **One composition per VO file.** Use `Episode` (src/Thanksgiving3/Episode.tsx): `ep/<k>.json` holds the env, stresses, lines and words. Write shots with `ln(i)` and `wd(i, "word")`, so every cut lands on a word. A shot ends where the next begins.
+13. **SFX and GFX are built in. Do not add them twice.** `Cap` pops at 0.06, `Card` whooshes at 0.12, and `Stamp` thumps (`sub_thump` at at+5, 0.3). `Spr`/`Rig` with `enter` draw speed-line wedges. Add per-shot `sfx` only for story beats (cheer, ding, boing, whoosh on flights). Use quiet levels of ≤0.15.
+14. **No repeated look.** Rotate Quill's studio with `<B.Studio v={k%4} />`, which changes the wall, curtain, prop and portrait. Never put a character in a shot without a script reason (no random turkeys). Use every expression the sheet/zip provides at least once, on the line its scene guide names.
+15. **Ending:** at "Happy Thanksgiving", show Quill's happy pose (`closing_hoo`) on `HappyThanksgiving` (Bg2: sunset, bunting, pumpkins, falling leaves) with a cheer. Keep that background for the sign-off only.
+16. **Final delivery:** `ThanksgivingFinal` (src/Thanksgiving3/Final.tsx) chains every part with `Series`. For 4K, render each part with `--scale=2 --crf=18`, `ffmpeg concat -c copy`, then loudnorm I=-16 (see out/final/render.sh pattern). Run it detached (`nohup setsid`), because 4K takes hours.
 
 ## Attachment rule: nothing floats (every character, body part and prop)
 
