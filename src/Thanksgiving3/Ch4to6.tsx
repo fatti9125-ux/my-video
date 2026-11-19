@@ -5,7 +5,7 @@ import * as B from "../Thanksgiving/Backgrounds";
 import { BigText, Bubble, CalendarPage, PropImg, SplitWar } from "../Thanksgiving/Graphics";
 import { DiningRoom, OvalOffice, TrainCar, WhiteHouseLawn } from "./Bg2";
 import { Board, Episode, epDuration, makeAlign, Over, Shot, Steps, Svg, Swap } from "./Episode";
-import { Arch, Cam, Cap, Card, PopIn, Puff, QMarks, Quill, Rig, Speed, Spr, Stamp } from "./Kit";
+import { Arch, Cam, Cap, Card, Note, PopIn, Puff, QMarks, Quill, Rig, Speed, Spr, Stamp } from "./Kit";
 import DATA from "./ep/l.json";
 
 /** Chapters 4-6: Lincoln in wartime, the Poultry King, Wilson's war years (VO ch4_6.mp3). */
@@ -108,9 +108,9 @@ const SHOTS: Shot[] = [
     </Svg></Cam>
   </>) },
   { a: ln(23),  el: (t, dur) => (<>
-    <Cam dur={dur} to={1.04}><Svg bg={<WhiteHouseLawn />}><Rig c="tad_lincoln" pose="hugs_jack" x={960} y={1030} h={460} /></Svg></Cam>
+    <Cam dur={dur} to={1.04}><Svg bg={<B.Study />} dim={0.45}><Note x={820} y={560} text="Pardon tradition started by Lincoln?" at={t(wd(23, "idea"))} w={1000} /></Svg></Cam>
     <Cap text="White House Historical Association" pos="top" at={t(wd(23, "white"))} size={56} />
-    <Stamp lines={["LIKELY", "APOCRYPHAL"]} at={t(wd(23, "apocryphal"))} x={1400} y={620} rot={-8} variant="dark" />
+    <Stamp lines={["LIKELY", "APOCRYPHAL"]} at={t(wd(23, "apocryphal"))} x={1420} y={780} rot={-8} variant="dark" />
   </>) },
   { a: ln(24), el: (t, dur) => (<>
     <Cam dur={dur} to={1.04}><Svg bg={<WhiteHouseLawn />}>
@@ -280,8 +280,7 @@ const SHOTS: Shot[] = [
   </>) },
   { a: ln(66), el: (t, dur) => (
     <Cam dur={dur} to={1.04}><Svg bg={<DiningRoom />}>
-      <Rig c="woodrow_wilson" pose="stern_empty_dish" x={700} y={1030} h={580} stress />
-      <Spr s="Poses/poultry_props/baghdad_trophy_turkey" x={1300} y={720} h={170} />
+      <Rig c="woodrow_wilson" pose="stern_empty_dish" x={960} y={1030} h={600} stress />
     </Svg></Cam>) },
   { a: ln(67),  el: (t, dur) => (<>
     <Cam dur={dur} to={1.04}><Svg bg={<DiningRoom />} dim={0.4}>

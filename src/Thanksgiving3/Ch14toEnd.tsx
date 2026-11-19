@@ -100,7 +100,7 @@ const Ceremony: React.FC<{ who: string; t: number; tags: [string, number][]; dur
 const SHOTS: Shot[] = [
   // ===== 14. WHERE DO THE TURKEYS GO? =====
   { a: ln(0), el: (t) => (<>
-    <Cam dur={60} to={1.05}><Svg bg={<B.Village />}><Spr s="Poses/white_ceremony_turkey/relieved_small_wave" x={960} y={1030} h={460} /></Svg></Cam>
+    <Cam dur={60} to={1.05}><Svg bg={<WhiteHouseLawn />}><Rig c="tv_reporter" pose="attentive_with_microphone" x={960} y={1030} h={520} /></Svg></Cam>
     <Card text="Where Do the Turkeys Go?" sub="14" until={t(ln(1)) - 1} />
   </>) },
   { a: ln(1), el: (t, dur) => (<>
@@ -168,10 +168,9 @@ const SHOTS: Shot[] = [
   </>) },
   { a: ln(13), sfx: [[F(wd(13, "mac") - ln(13)), "pop", 0.1], [F(wd(13, "cheese") - ln(13)), "pop", 0.1]], el: (t, dur) => (
     <Cam dur={dur} to={1.04}><Svg bg={<WhiteHouseLawn />}>
-      <Spr s="Poses/white_ceremony_turkey/relieved_small_wave" x={700} y={1030} h={400} />
-      <Spr s="Poses/white_ceremony_turkey/standing_with_blank_sign" x={1240} y={1030} h={400} flip />
-      <Tag name="mac" x={700} y={560} w={240} at={t(wd(13, "mac"))} />
-      <Tag name="cheese" x={1240} y={560} w={260} at={t(wd(13, "cheese"))} />
+      <Rig c="barack_obama" pose="facing_left_hands_down" x={1500} y={1030} h={560} />
+      <Tag name="mac" x={560} y={520} w={360} at={t(wd(13, "mac"))} rot={-5} />
+      <Tag name="cheese" x={1000} y={560} w={380} at={t(wd(13, "cheese"))} rot={5} />
     </Svg></Cam>) },
   { a: ln(14), el: (t, dur) => (<>
     <Cam dur={dur} to={1.04}><Svg bg={<B.PlateBg />}><Vote at={2} a="HONEST" b="ABE" /></Svg></Cam>
@@ -181,8 +180,7 @@ const SHOTS: Shot[] = [
   { a: ln(16), el: (t, dur) => (<>
     <Cam dur={dur} to={1.04}><Svg bg={<B.Village />}>
       <PopIn at={2} x={1300} y={420}><rect x={-230} y={-50} width={460} height={100} rx={10} fill="#7a4a2a" stroke={INK} strokeWidth={6} /><text y={16} textAnchor="middle" fontFamily={MONTSERRAT} fontWeight={800} fontSize={46} fill="#f4f1ea">GOBBLER'S REST</text></PopIn>
-      <Spr s="Poses/brown_turkey/relieved_eyes_closed" x={760} y={1030} h={380} />
-      <Spr s="Poses/white_ceremony_turkey/relieved_small_wave" x={1200} y={1030} h={400} flip />
+      <Rig c="farm_worker" pose="carries_feed_pail" x={640} y={1040} h={480} />
     </Svg></Cam>
     <Cap text="2016 · Virginia Tech" at={t(wd(16, "2016"))} />
   </>) },
@@ -202,7 +200,7 @@ const SHOTS: Shot[] = [
     <Cap text={'"Usually too fat and unhealthy to survive"'} at={t(wd(23, "usually"))} size={56} />
   </>) },
   { a: ln(24), el: (t, dur) => (<>
-    <Cam dur={dur} to={1.04}><Svg bg={<B.Village />} dim={0.35}><Spr s="Poses/brown_turkey/relieved_eyes_closed" x={960} y={1030} h={480} /></Svg></Cam>
+    <Cam dur={dur} from={1.1} to={1.14} oy="38%"><Svg bg={<B.Studio v={0} />}><Quill pose="deadpan_wings_folded" talk blinkHold x={760} y={1010} h={700} /></Svg></Cam>
     <Stamp lines={["PARDONED.", "NOT IMMORTAL."]} at={t(wd(26, "not"))} x={1380} y={300} rot={-8} variant="dark" />
   </>) },
 
@@ -265,7 +263,7 @@ const SHOTS: Shot[] = [
     <Cap text={'"A decoration, not a serving plate"'} at={t(wd(44, "picked"))} size={60} />
   </>) },
   { a: ln(45), el: (t, dur) => (<>
-    <Cam dur={dur} to={1.04}><Svg bg={<MessHall />} dim={0.35}><PopIn at={0} x={960} y={600}><Spr s="Poses/poultry_props/baghdad_trophy_turkey" x={0} y={0} h={300} /></PopIn></Svg></Cam>
+    <Cam dur={dur} from={1.1} to={1.14} oy="38%"><Svg bg={<B.Studio v={3} />}><Quill pose="speaking_facing_right" talk x={760} y={1010} h={700} /></Svg></Cam>
     <Stamp lines={["NEVER EATEN.", "TECHNICALLY", "SPARED."]} at={t(ln(47))} x={1380} y={300} rot={-8} variant="dark" />
   </>) },
   { a: ln(48), sfx: [[F(wd(48, "count") - ln(48)), "ding", 0.15]], el: (t, dur) => (<>
@@ -277,7 +275,7 @@ const SHOTS: Shot[] = [
 
   // ===== 16. THE MODERN ERA =====
   { a: ln(49), el: (t) => (<>
-    <Cam dur={140} to={1.05}><Svg bg={<WhiteHouseLawn />}><Spr s="Poses/white_ceremony_turkey/relieved_small_wave" x={960} y={1030} h={460} /></Svg></Cam>
+    <Cam dur={140} to={1.05}><Svg bg={<WhiteHouseLawn />}><Rig c="donald_trump" pose="neutral_facing_right" x={640} y={1030} h={560} /><Rig c="joe_biden" pose="facing_left_hands_down" x={1280} y={1030} h={560} /></Svg></Cam>
     <Card text="The Modern Era" sub="16 · Same Time Next Year" until={t(ln(50)) - 1} />
   </>) },
   { a: ln(50), el: (t, dur) => (<>
@@ -323,10 +321,10 @@ const SHOTS: Shot[] = [
       <Swap t={t(wd(66, "bathtub"))} a={<Spr s="Poses/rebecca/startled_in_shipping_crate" x={960} y={1000} h={480} />} b={<Spr s="Poses/rebecca/bath_with_soap" x={960} y={1000} h={520} stress />} />
     </Svg></Cam>) },
   { a: ln(67), el: (t, dur) => (<><Cam dur={dur} to={1.05}><Svg bg={<OvalOffice />}><Rig c="franklin_d_roosevelt" pose="confident_date_change" x={1240} y={1030} h={580} /><PopIn at={2} x={560} y={540}><CalendarPage x={0} y={0} month="NOVEMBER" day="23" sub="THURSDAY" w={360} /></PopIn></Svg></Cam></>) },
-  { a: ln(68), el: (t, dur) => (<><Cam dur={dur} to={1.05}><Svg bg={<DiningRoom />}><Steps s={[[0, <Rig c="harry_truman" pose="answers_a_reporter" x={760} y={1030} h={620} />], [t(wd(68, "ate")), <Rig c="harry_truman" pose="grinning_at_dinner" x={760} y={1030} h={620} />], [t(wd(68, "turkey")), <Rig c="harry_truman" pose="grinning_with_turkey_bite" x={760} y={1030} h={620} stress />]]} /><Spr s="Poses/poultry_props/hens_for_harry_crate" x={1400} y={1030} h={300} /></Svg></Cam><Cap text="Truman ate his" at={2} /></>) },
+  { a: ln(68), el: (t, dur) => (<><Cam dur={dur} to={1.05}><Svg bg={<DiningRoom />}><Steps s={[[0, <Rig c="harry_truman" pose="answers_a_reporter" x={760} y={1030} h={620} />], [t(wd(68, "ate")), <Rig c="harry_truman" pose="grinning_at_dinner" x={760} y={1030} h={620} />], [t(wd(68, "turkey")), <Rig c="harry_truman" pose="grinning_with_turkey_bite" x={760} y={1030} h={620} stress />]]} /><Spr s="Poses/poultry_props/hens_for_harry_crate" x={1400} y={1030} h={300} /></Svg></Cam><Cap text="Truman ate his turkey" at={2} /></>) },
   { a: ln(69), el: (t, dur) => (<Cam dur={dur} to={1.05}><Svg bg={<WhiteHouseLawn />}><Rig c="john_f_kennedy" pose="open_hand_toward_turkey" x={600} y={1030} h={580} /><Spr s="Poses/white_ceremony_turkey/relieved_small_wave" x={1320} y={1030} h={420} /></Svg></Cam>) },
-  { a: ln(70), el: (t, dur) => (<Cam dur={dur} to={1.05}><Svg bg={<WhiteHouseLawn />}><Rig c="ronald_reagan" pose="pardon_quip" x={760} y={1030} h={600} stress /><Spr s="Poses/brown_turkey/standing_alert" x={1320} y={1030} h={360} /></Svg></Cam>) },
-  { a: ln(71), el: (t, dur) => (<><Cam dur={dur} to={1.05}><Svg bg={<WhiteHouseLawn />}><Rig c="george_hw_bush" pose="raises_hand_for_official_pardon" x={600} y={1030} h={600} stress /><Spr s="Poses/white_ceremony_turkey/relieved_small_wave" x={1320} y={1030} h={420} /></Svg></Cam>
+  { a: ln(70), el: (t, dur) => (<Cam dur={dur} to={1.05}><Svg bg={<WhiteHouseLawn />}><Rig c="ronald_reagan" pose="pardon_quip" x={760} y={1030} h={600} stress /><Rig c="nancy_reagan" pose="amused_by_banner" x={1260} y={1030} h={540} flip /></Svg></Cam>) },
+  { a: ln(71), el: (t, dur) => (<><Cam dur={dur} to={1.05}><Svg bg={<WhiteHouseLawn />}><Rig c="george_hw_bush" pose="raises_hand_for_official_pardon" x={960} y={1030} h={620} stress /></Svg></Cam>
     <Stamp lines={["OFFICIAL"]} at={t(wd(71, "official"))} x={1300} y={300} rot={-8} variant="red" darken={false} /></>) },
   { a: ln(72), sfx: [[F(wd(72, "hundreds") - ln(72)), "ding", 0.15], [F(wd(73, "dozens") - ln(72)), "ding", 0.15], [F(wd(74, "one") - ln(72)), "cheer", 0.1]], el: (t, dur) => (<>
     <Cam dur={dur} to={1.04}><Svg bg={<B.Studio v={0} />}>

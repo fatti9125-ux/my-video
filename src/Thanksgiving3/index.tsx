@@ -11,6 +11,7 @@ import { OvalOffice, SkyScroll, WhiteHouseLawn } from "./Bg2";
 import BOARDS from "./boards.json";
 import { Arch, Cam, Cap, Card, Cheer, Note, PopIn, Puff, QMarks, Quill, Rig, ShotCtx, Speed, Spr, Stamp, Tag } from "./Kit";
 import VO from "./vo.json";
+import WARP from "./warp.json";
 
 /**
  * "Every President's Thanksgiving Explained" — cold open + chapters 1-3, full voiceover (3:43).
@@ -77,6 +78,19 @@ const PolkFrame: React.FC<{ x: number; y: number; w: number; at?: number }> = ({
 );
 
 const g2 = (s: number) => +(s + O2).toFixed(2); // chapter 2-3 file time -> global
+
+/** Measured correction: the hand-placed times above came from an estimated alignment; WARP maps each old
+ *  time onto the forced-aligned (pocketsphinx) word time, piecewise-linearly, so every cut and caption
+ *  lands on the spoken word. */
+const WP = WARP as [number, number][];
+const W = (s: number) => {
+  if (s <= WP[0][0]) return s + (WP[0][1] - WP[0][0]);
+  for (let i = 1; i < WP.length; i++) if (s <= WP[i][0]) {
+    const [a0, b0] = WP[i - 1], [a1, b1] = WP[i];
+    return b0 + ((s - a0) * (b1 - b0)) / (a1 - a0);
+  }
+  return s + (WP[WP.length - 1][1] - WP[WP.length - 1][0]);
+};
 
 const SHOTS: Shot[] = [
   // ======================= COLD OPEN =======================
@@ -571,11 +585,11 @@ const SHOTS: Shot[] = [
 export const Thanksgiving3: React.FC = () => (
   <AbsoluteFill style={{ background: "#000" }}>
     {SHOTS.map((s, i) => {
-      const from = Math.round(s.a * FPS), to = Math.round(s.b * FPS);
-      const t = (sec: number) => Math.round((sec - s.a) * FPS);
+      const from = Math.round(W(s.a) * FPS), to = Math.round(W(s.b) * FPS);
+      const t = (sec: number) => Math.round((W(sec) - W(s.a)) * FPS);
       return (
         <Sequence key={i} from={from} durationInFrames={Math.max(1, to - from)}>
-          <ShotCtx.Provider value={{ offset: s.a }}>{s.el(t)}</ShotCtx.Provider>
+          <ShotCtx.Provider value={{ offset: W(s.a) }}>{s.el(t)}</ShotCtx.Provider>
           {(s.sfx ?? []).map(([at, name, vol], j) => (
             <Sequence key={j} from={Math.max(0, at)} durationInFrames={60}><Audio src={staticFile(`tg2/sfx/${name}.wav`)} volume={vol ?? 0.15} /></Sequence>
           ))}

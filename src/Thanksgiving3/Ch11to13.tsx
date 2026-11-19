@@ -1,7 +1,7 @@
 import React from "react";
 import { AbsoluteFill } from "remotion";
 import * as B from "../Thanksgiving/Backgrounds";
-import { Bubble } from "../Thanksgiving/Graphics";
+import { Bubble, CalendarPage } from "../Thanksgiving/Graphics";
 import { OvalOffice, RanchBanner, WhiteHouseLawn } from "./Bg2";
 import { Board, Episode, epDuration, makeAlign, Over, Shot, Steps, Svg, Swap } from "./Episode";
 import { Arch, Cam, Cap, Card, PopIn, Quill, Rig, Spr, Stamp, Tag } from "./Kit";
@@ -82,7 +82,7 @@ const SHOTS: Shot[] = [
     <Card text="Nixon & Reagan" sub="12 · The Petting Zoo Era" until={t(ln(16)) - 1} />
   </>) },
   { a: ln(16), el: (t, dur) => (<>
-    <Cam dur={dur} to={1.04}><Svg bg={<WhiteHouseLawn />}><Rig c="pat_nixon" pose="holds_presentation_card" x={600} y={1030} h={560} /><Spr s="Poses/white_ceremony_turkey/standing_with_blank_sign" x={1260} y={1030} h={440} /></Svg></Cam>
+    <Cam dur={dur} to={1.04}><Svg bg={<WhiteHouseLawn />}><Rig c="pat_nixon" pose="holds_presentation_card" x={760} y={1030} h={560} /><Rig c="richard_nixon" pose="standing_neutral" x={1260} y={1030} h={560} flip /></Svg></Cam>
     <Cap text="The 1970s · routine" at={t(wd(16, "1970s"))} />
   </>) },
   { a: ln(17), el: (t, dur) => (<>
@@ -116,7 +116,6 @@ const SHOTS: Shot[] = [
   { a: ln(22), el: (t, dur) => (<>
     <Cam dur={dur} to={1.04}><Svg bg={<WhiteHouseLawn />}>
       <Rig c="ronald_reagan" pose="listening_to_reporter" x={560} y={1030} h={580} />
-      <Spr s="Poses/brown_turkey/standing_alert" x={980} y={1030} h={320} />
       <Rig c="tv_reporter" pose="attentive_with_microphone" x={1460} y={1030} h={540} at={t(ln(23))} />
     </Svg></Cam>
     <Cap text="1987" pos="top" at={t(wd(22, "1987"))} />
@@ -154,7 +153,7 @@ const SHOTS: Shot[] = [
     <Card text="George H.W. Bush" sub={"13 · It's Official"} until={t(ln(30)) - 1} />
   </>) },
   { a: ln(30), el: (t, dur) => (<>
-    <Cam dur={dur} to={1.04}><Svg bg={<WhiteHouseLawn />}><Rig c="george_hw_bush" pose="attentive_neutral" x={560} y={1030} h={580} /><Spr s="Poses/white_ceremony_turkey/standing_with_blank_sign" x={1320} y={1030} h={420} /></Svg></Cam>
+    <Cam dur={dur} to={1.04}><Svg bg={<WhiteHouseLawn />}><Rig c="george_hw_bush" pose="attentive_neutral" x={560} y={1030} h={580} /><PopIn at={2} x={1320} y={520}><CalendarPage x={0} y={0} month="NOVEMBER" day="17" sub="1989" w={360} rot={4} /></PopIn></Svg></Cam>
     <Cap text="November 17, 1989" at={t(wd(30, "november"))} until={t(ln(31))} />
     <Cap text="200 years after Washington" at={t(ln(31))} />
   </>) },
