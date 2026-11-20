@@ -5073,5 +5073,74 @@
 ],
 "ground": 469,
 "hem": 422
+},
+"rebecca/walks_on_leash": {
+"body": {
+"file": "tg2/rig/rebecca/walks_on_leash/body.png",
+"x": 31,
+"y": 167,
+"w": 450,
+"h": 303
+},
+"limbs": [
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/rebecca/walks_on_leash/leg0.png",
+"x": 168,
+"y": 421,
+"w": 32,
+"h": 51,
+"pivot": [
+194.0,
+423.0
+],
+"len": 49.0
+},
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/rebecca/walks_on_leash/leg1.png",
+"x": 236,
+"y": 421,
+"w": 20,
+"h": 47,
+"pivot": [
+251.5,
+423.0
+],
+"len": 45.0
+},
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/rebecca/walks_on_leash/leg2.png",
+"x": 309,
+"y": 425,
+"w": 22,
+"h": 49,
+"pivot": [
+318.0,
+427.0
+],
+"len": 47.0
+},
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/rebecca/walks_on_leash/leg3.png",
+"x": 364,
+"y": 416,
+"w": 34,
+"h": 52,
+"pivot": [
+371.0,
+418.0
+],
+"len": 50.0
+}
+],
+"ground": 470,
+"hem": 418
 }
 }

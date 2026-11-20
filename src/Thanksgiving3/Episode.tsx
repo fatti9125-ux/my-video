@@ -72,7 +72,7 @@ export const Episode: React.FC<{ data: EpData; shots: Shot[] }> = ({ data, shots
       const t = (sec: number) => Math.round((sec - s.a) * FPS);
       return (
         <Sequence key={i} from={from} durationInFrames={Math.max(1, to - from)}>
-          <ShotCtx.Provider value={{ offset: s.a, env: data.env, stress: data.stress }}>{s.el(t, to - from)}</ShotCtx.Provider>
+          <ShotCtx.Provider value={{ offset: s.a, env: data.env, stress: data.stress, sfx: s.sfx }}>{s.el(t, to - from)}</ShotCtx.Provider>
           {(s.sfx ?? []).map(([at, name, vol], j) => (
             <Sequence key={j} from={Math.max(0, at)} durationInFrames={60}><Audio src={staticFile(`tg2/sfx/${name}.wav`)} volume={vol ?? 0.15} /></Sequence>
           ))}

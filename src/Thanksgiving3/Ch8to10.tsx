@@ -72,9 +72,9 @@ const SHOTS: Shot[] = [
       <Tag name="rebecca_collar" x={1340} y={740} w={480} at={t(wd(16, "collar"))} rot={6} />
     </Svg></Cam>) },
   { a: ln(17), el: (t, dur) => (
-    <Cam dur={dur} to={1.04}><Svg bg={<WhiteHouseLawn />}><Spr s="Poses/rebecca/walks_on_leash" x={1100} y={1030} h={330} walk={-3} /></Svg></Cam>) },
+    <Cam dur={dur} to={1.04}><Svg bg={<WhiteHouseLawn />}><Rig c="rebecca" pose="walks_on_leash" x={800} y={1030} h={360} walk={1} /></Svg></Cam>) },
   { a: ln(18), el: (t, dur) => (
-    <Cam dur={dur} from={1.02} to={1.08} ox="60%" oy="40%"><Svg bg={<WhiteHouseLawn />}><Spr s="Poses/rebecca/peeks_from_tree_house" x={1180} y={1030} h={760} /></Svg></Cam>) },
+    <Cam dur={dur} from={1.02} to={1.08} ox="62%" oy="75%"><Svg bg={<WhiteHouseLawn />}><Spr s="Poses/rebecca/peeks_from_tree_house" x={1200} y={1040} h={900} /></Svg></Cam>) },
   { a: ln(19), el: (t, dur) => (<>
     <Swap t={t(wd(19, "let"))} a={<Arch src="grace_rebecca" mode="portrait" dur={dur} sepia={0.35} />}
       b={<Cam dur={dur} to={1.04}><Svg bg={<WhiteHouseLawn />}>
@@ -86,7 +86,7 @@ const SHOTS: Shot[] = [
   </>) },
   { a: ln(20), el: (t, dur) => (<>
     <Cam dur={dur} to={1.05}><Svg bg={<B.PlateBg color="#8fc6d8" />}><Spr s="Poses/rebecca/bath_with_soap" x={960} y={980} h={560} stress /></Svg></Cam>
-    <Cap text={'"Playing in a partly filled bathtub"'} at={t(wd(21, "playing"))} size={60} />
+    <Cap text={'"Playing in a partly filled bathtub"'} pos="top" at={t(wd(21, "playing"))} size={60} />
   </>) },
   { a: ln(22), el: (t, dur) => (<>
     <Cam dur={dur} to={1.04}><Svg bg={<WhiteHouseLawn />}>

@@ -134,7 +134,7 @@ const SHOTS: Shot[] = [
       </Svg>
     </Cam>) },
   { a: 13.17, b: 14.07, el: () => (
-    <Cam dur={27} from={1.02} to={1.08} ox="60%" oy="40%"><Svg bg={<WhiteHouseLawn />}><Spr s="Poses/rebecca/peeks_from_tree_house" x={1180} y={1030} h={760} /></Svg></Cam>) },
+    <Cam dur={27} from={1.02} to={1.08} ox="62%" oy="75%"><Svg bg={<WhiteHouseLawn />}><Spr s="Poses/rebecca/peeks_from_tree_house" x={1200} y={1040} h={900} /></Svg></Cam>) },
   { a: 14.07, b: 17.0, el: () => (
     <Cam dur={88} to={1.05}><Svg bg={<OvalOffice />}><Spr s="Poses/calvin_coolidge/content_with_rebecca" x={960} y={1020} h={600} /></Svg></Cam>) },
   { a: 17.0, b: 19.62, sfx: [[0, "whoosh", 0.12], [24, "boing", 0.08]], el: () => (
@@ -589,7 +589,7 @@ export const Thanksgiving3: React.FC = () => (
       const t = (sec: number) => Math.round((W(sec) - W(s.a)) * FPS);
       return (
         <Sequence key={i} from={from} durationInFrames={Math.max(1, to - from)}>
-          <ShotCtx.Provider value={{ offset: W(s.a) }}>{s.el(t)}</ShotCtx.Provider>
+          <ShotCtx.Provider value={{ offset: W(s.a), sfx: s.sfx }}>{s.el(t)}</ShotCtx.Provider>
           {(s.sfx ?? []).map(([at, name, vol], j) => (
             <Sequence key={j} from={Math.max(0, at)} durationInFrames={60}><Audio src={staticFile(`tg2/sfx/${name}.wav`)} volume={vol ?? 0.15} /></Sequence>
           ))}

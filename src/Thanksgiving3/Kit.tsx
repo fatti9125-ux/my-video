@@ -23,8 +23,16 @@ const Sfx: React.FC<{ at: number; name: string; vol: number }> = ({ at, name, vo
 const FPS = 30;
 
 /** Per-shot timing context: `offset` = global VO seconds at the shot's frame 0. */
-export const ShotCtx = createContext<{ offset: number; env?: number[]; stress?: number[] }>({ offset: 0 });
+export const ShotCtx = createContext<{ offset: number; env?: number[]; stress?: number[]; sfx?: [number, string, number?][] }>({ offset: 0 });
 export const useShot = () => useContext(ShotCtx);
+
+/** Automatic SFX for a visual event (pop-ins, tags, drops, entrances, notes): plays at `at` unless the
+ *  shot already has an explicit sfx within ±5 frames (so nothing doubles). Quiet: ≤0.12. */
+const AutoSfx: React.FC<{ at: number; name: string; vol: number }> = ({ at, name, vol }) => {
+  const { sfx } = useShot();
+  if ((sfx ?? []).some(([f]) => Math.abs(f - at) <= 5)) return null;
+  return <Sfx at={at} name={name} vol={vol} />;
+};
 
 const src = (key: string) => (key.startsWith("OLD/") ? `thanksgiving/${key.slice(4)}.png` : `tg2/${key}.png`);
 
@@ -97,6 +105,8 @@ export const Spr: React.FC<SprProps> = ({ s, x, y, h, flip, at = 0, until, enter
   const sway = Math.sin(f / 37 + x) * 0.5;
   return (
     <g>{enter && <EnterLines x={x + dx} y={y + dy} h={h} from={enter.from} lf={lf} frames={enter.frames} />}
+    {enter && <AutoSfx at={at} name="whoosh" vol={0.1} />}
+    {drop && <AutoSfx at={at + drop.frames - 1} name="thud" vol={0.12} />}
     <g transform={`translate(${x + dx} ${y + dy + bob}) rotate(${sway}) scale(${(flip ? -1 : 1) * sx} ${sy})`} opacity={opacity}>
       <g transform={`scale(${k}) translate(${-cx} ${-y1})`}>
         <image href={staticFile(src(s))} x={0} y={0} width={W} height={H} />
@@ -215,6 +225,7 @@ export const QMarks: React.FC<{ x: number; y: number; at?: number; spread?: numb
   const p = (d: number) => interpolate(f - at - d, [0, 4], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: Easing.out(Easing.back(2)) });
   return (
     <g fontFamily={MONTSERRAT} fontWeight={800} fontSize={size} fill="#e02b2b" stroke={INK} strokeWidth={6} paintOrder="stroke" textAnchor="middle">
+      <AutoSfx at={at} name="boing" vol={0.06} />
       <text transform={`translate(${x - spread} ${y}) rotate(-14) scale(${p(0)})`}>?</text>
       <text transform={`translate(${x + spread} ${y - 20}) rotate(12) scale(${p(3)})`}>?</text>
     </g>
@@ -268,6 +279,7 @@ export const Note: React.FC<{ x: number; y: number; text: string; at?: number; r
   const n = Math.max(0, Math.floor(((f - at) / FPS) * 15));
   return (
     <g transform={`translate(${x} ${y}) rotate(${rot})`}>
+      <AutoSfx at={at} name="paper" vol={0.1} />
       <rect x={-w / 2 + 14} y={-170} width={w} height={340} fill="#000" opacity={0.25} />
       <rect x={-w / 2} y={-184} width={w} height={340} fill="#f6ecd2" stroke={INK} strokeWidth={8} />
       {[0, 1, 2, 3].map((i) => <line key={i} x1={-w / 2 + 40} x2={w / 2 - 40} y1={-90 + i * 66} y2={-90 + i * 66} stroke="#b9c7d8" strokeWidth={3} />)}
@@ -286,6 +298,7 @@ export const Tag: React.FC<{ name: string; x: number; y: number; w: number; at?:
   const pop = interpolate(f - at, [0, 4], [0.3, 1], { extrapolateRight: "clamp", easing: Easing.out(Easing.back(2)) });
   return (
     <g transform={`translate(${x} ${y}) rotate(${rot}) scale(${pop * k}) translate(${-(x0 + x1) / 2} ${-(y0 + y1) / 2})`}>
+      <AutoSfx at={at} name="pop" vol={0.1} />
       <image href={staticFile(`tg2/Tags/${name}.png`)} width={512} height={512} />
     </g>
   );
@@ -296,7 +309,7 @@ export const PopIn: React.FC<{ at?: number; x: number; y: number; children: Reac
   const f = useCurrentFrame();
   if (f < at) return null;
   const s = interpolate(f - at, [0, 7], [0, 1], { extrapolateRight: "clamp", easing: Easing.out(Easing.back(1.8)) });
-  return <g transform={`translate(${x} ${y}) scale(${s})`}>{children}</g>;
+  return <g transform={`translate(${x} ${y}) scale(${s})`}><AutoSfx at={at} name="pop" vol={0.08} />{children}</g>;
 };
 
 export { OSWALD };
@@ -382,6 +395,7 @@ export const Rig: React.FC<RigProps> = ({ c, pose, x, y, h, flip, at = 0, until,
   };
   return (
     <g>{enter && <EnterLines x={x + dx} y={y + dy} h={h} from={enter.from} lf={lf} frames={enter.frames} />}
+    {enter && <AutoSfx at={at} name="whoosh" vol={0.1} />}
     <g transform={`translate(${x + dx} ${y + dy + jump})`}>
       <g transform={`rotate(${walking ? 2 * Math.sign(walk) : 0}) scale(${flip ? -1 : 1} ${1 + breathe + rise * 0.02})`}>
         <g transform={`scale(${k}) translate(${-cx} ${-y1 + drop})`}>
