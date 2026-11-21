@@ -6,13 +6,15 @@ import META from "./sprites.json";
 import RIG from "./rig.json";
 import VO from "./vo.json";
 import ARCHIVES from "./archives.json";
+import VPMETA from "./vp_sprites.json";
+import VPRIG from "../VP/vprig.json";
 
 /**
  * Toolkit for the pose-swap character pack (public/tg2), built to references/style-bible.md.
  * Characters are whole-pose sprites: performance = pose swaps timed to the motivating word,
  * feet registered, and a short torso rise-and-settle on stressed VO beats (Scene_Guide.md).
  */
-const M = META as unknown as Record<string, number[]>;
+const M = { ...(META as unknown as Record<string, number[]>), ...(VPMETA as unknown as Record<string, number[]>) };
 const ENV = (VO as { env: number[] }).env;
 const STRESS = (VO as { stress: number[] }).stress;
 const INK = "#1d1712";
@@ -319,7 +321,7 @@ export { OSWALD };
 // ---------------------------------------------------------------------------------------------
 type Limb = { kind: "arm" | "leg"; side: "L" | "R"; file: string; x: number; y: number; w: number; h: number; pivot: [number, number]; len: number };
 type RigMeta = { body: { file: string; x: number; y: number; w: number; h: number }; limbs: Limb[]; ground: number };
-const R = RIG as unknown as Record<string, RigMeta>;
+const R = { ...(RIG as unknown as Record<string, RigMeta>), ...(VPRIG as unknown as Record<string, RigMeta>) };
 
 export type RigProps = {
   c: string; pose: string;          // character folder + pose name (public/tg2/Poses/<c>/<pose>.png)
@@ -352,9 +354,11 @@ export const Rig: React.FC<RigProps> = ({ c, pose, x, y, h, flip, at = 0, until,
   if (f < at || (until !== undefined && f >= until)) return null;
   const key = `${c}/${pose}`;
   const r = R[key];
-  const m = M[`Poses/${key}`];
+  // VP sheets: c = "vp_<character>" -> sprite "vp/<character>/<pose>"
+  const sk = c.startsWith("vp_") ? `vp/${c.slice(3)}/${pose}` : `Poses/${key}`;
+  const m = M[sk];
   if (!m) throw new Error(`unknown pose ${key}`);
-  if (!r) return <Spr s={`Poses/${key}`} x={x} y={y} h={h} flip={flip} stress={stress} enter={enter} />;
+  if (!r) return <Spr s={sk} x={x} y={y} h={h} flip={flip} stress={stress} enter={enter} />;
   const [x0, y0, x1, y1] = m;
   const k = h / (y1 - y0);
   const cx = (x0 + x1) / 2;

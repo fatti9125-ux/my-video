@@ -379,7 +379,7 @@ const STUDIO_V = [
   { wall: "#5a3a2a", stripe: "#4f3324", cur: "#2f5a4a", curD: "#22453a" },
   { wall: "#264a5e", stripe: "#214152", cur: "#8a2a3a", curD: "#6a1f2c" },
 ];
-export const Studio: React.FC<{ v?: number }> = ({ v = 0 }) => {
+export const Studio: React.FC<{ v?: number; art?: "turkey" | "whitehouse" }> = ({ v = 0, art = "turkey" }) => {
   const f = useCurrentFrame();
   const C = STUDIO_V[((v % 4) + 4) % 4];
   return (
@@ -397,11 +397,16 @@ export const Studio: React.FC<{ v?: number }> = ({ v = 0 }) => {
         {[0, 1, 2, 3].map((i) => <rect key={i} x={480 + i * 30} y={470} width={24} height={90} fill={["#8a2a2a", "#2f4a6b", "#4d6b3a", "#a87a2c"][i]} stroke="#1d1712" strokeWidth={3} />)}
       </g>}
       {/* framed turkey portrait (running gag) */}
-      <g transform={v >= 2 ? "translate(-940 0)" : undefined}><Frame x={1300} y={170} w={200} h={240}>
+      <g transform={v >= 2 ? "translate(-940 0)" : undefined}>{art === "whitehouse" ? <Frame x={1270} y={190} w={260} h={200}>
+        <rect x={1270} y={190} width={260} height={200} fill="#8fc3e0" /><rect x={1270} y={330} width={260} height={60} fill="#5f9a3e" />
+        <rect x={1310} y={270} width={180} height={70} fill="#f4f1ea" stroke="#1d1712" strokeWidth={3} /><path d="M 1360 270 l 40 -26 l 40 26 z" fill="#f4f1ea" stroke="#1d1712" strokeWidth={3} />
+        {[0, 1, 2, 3, 4].map((i) => <rect key={i} x={1366 + i * 16} y={280} width={6} height={56} fill="#d8d2c4" />)}
+        <line x1={1400} y1={244} x2={1400} y2={214} stroke="#1d1712" strokeWidth={3} /><rect x={1400} y={214} width={18} height={11} fill="#c43a2a" />
+      </Frame> : <Frame x={1300} y={170} w={200} h={240}>
         <ellipse cx={1400} cy={330} rx={60} ry={55} fill="#7a4a2a" /><circle cx={1400} cy={255} r={26} fill="#b8b2a8" />
         <path d="M 1396 262 q 6 22 -2 34" stroke="#c43a2a" strokeWidth={8} fill="none" /><path d="M 1408 252 l 18 4 l -18 6 z" fill="#e0a43a" />
         {Array.from({ length: 5 }, (_, i) => <ellipse key={i} cx={1340 + i * 30} cy={290} rx={16} ry={44} fill={["#8a3a22", "#c46a2a", "#e0a43a", "#c46a2a", "#8a3a22"][i]} transform={`rotate(${(i - 2) * 18} ${1340 + i * 30} 330)`} />)}
-      </Frame></g>
+      </Frame>}</g>
       <rect y={880} width={1920} height={200} fill="#5a3a22" />
       <rect y={880} width={1920} height={14} fill="#3f2715" />
       {Array.from({ length: 10 }, (_, i) => <line key={i} x1={0} y1={900 + i * 18} x2={1920} y2={900 + i * 18} stroke="#4e311c" strokeWidth={2} opacity={0.5} />)}

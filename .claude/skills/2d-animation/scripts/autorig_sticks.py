@@ -20,6 +20,9 @@ from PIL import Image, ImageFilter
 
 root, subdir, out_json = sys.argv[1], sys.argv[2], sys.argv[3]
 OUT_DIR = os.path.join(root, subdir.split("/")[0], "rig")
+# RIG_SCALE: sprite size relative to the 512-px pack (e.g. 3 for the 3x-upscaled VP sheets); scales every filter/threshold
+K = float(os.environ.get("RIG_SCALE", "1"))
+odd = lambda v: int(round(v * K)) | 1
 
 
 def mask_img(m):
@@ -58,34 +61,34 @@ def save_crop(rgba, m, path):
 def rig(path, key):
     rgba = np.asarray(Image.open(path).convert("RGBA")).copy()
     A = rgba[..., 3] > 100
-    core = np.asarray(mask_img(A).filter(ImageFilter.MinFilter(11)).filter(ImageFilter.MaxFilter(11))) > 0
+    core = np.asarray(mask_img(A).filter(ImageFilter.MinFilter(odd(11))).filter(ImageFilter.MaxFilter(odd(11)))) > 0
     core &= A
-    near_core = np.asarray(mask_img(core).filter(ImageFilter.MaxFilter(5))) > 0
-    thin = A & ~(np.asarray(mask_img(core).filter(ImageFilter.MaxFilter(3))) > 0)
+    near_core = np.asarray(mask_img(core).filter(ImageFilter.MaxFilter(odd(5)))) > 0
+    thin = A & ~(np.asarray(mask_img(core).filter(ImageFilter.MaxFilter(odd(3)))) > 0)
     lab, n = label(thin)
     ground = np.nonzero(A.any(1))[0].max()
     # hem: lowest row where the core is wider than 40 px (coat / dress bottom)
     widths = core.sum(1)
-    rows = np.nonzero(widths > 40)[0]
+    rows = np.nonzero(widths > 40 * K)[0]
     hem = rows.max() if len(rows) else ground
     cx = np.nonzero(core.any(0))[0].mean() if core.any() else np.nonzero(A.any(0))[0].mean()
-    leg_cx = np.nonzero(core[max(0, hem - 20):hem + 1].any(0))[0].mean() if core[max(0, hem - 20):hem + 1].any() else cx
+    leg_cx = np.nonzero(core[max(0, hem - int(20 * K)):hem + 1].any(0))[0].mean() if core[max(0, hem - int(20 * K)):hem + 1].any() else cx
     limbs = []; body = A.copy()
     for k in range(1, n + 1):
         m = lab == k
         cnt = m.sum()
         ys, xs = np.nonzero(m)
-        if cnt < 70 or max(np.ptp(ys), np.ptp(xs)) < 28: continue
+        if cnt < 70 * K * K or max(np.ptp(ys), np.ptp(xs)) < 28 * K: continue
         # attachment: stroke pixels next to the body; cluster them
-        att = m & (np.asarray(mask_img(core).filter(ImageFilter.MaxFilter(7))) > 0)
+        att = m & (np.asarray(mask_img(core).filter(ImageFilter.MaxFilter(odd(7)))) > 0)
         alab, an = label(att)
         clusters = [np.argwhere(alab == i) for i in range(1, an + 1)]
-        clusters = [c for c in clusters if len(c) >= 3]
+        clusters = [c for c in clusters if len(c) >= 3 * K]
         if len(clusters) != 1:
             continue  # fixed limb (two contacts: prop in hand / hand on hip) -> stays in body
         py, px = clusters[0].mean(0)
-        reaches_ground = ys.max() >= ground - 6
-        kind = "leg" if (py >= hem - 12 and reaches_ground) else "arm"
+        reaches_ground = ys.max() >= ground - 6 * K
+        kind = "leg" if (py >= hem - 12 * K and reaches_ground) else "arm"
         side = "L" if px < (leg_cx if kind == "leg" else cx) else "R"
         far = np.argmax((ys - py) ** 2 + (xs - px) ** 2)
         length = float(np.hypot(ys[far] - py, xs[far] - px))
