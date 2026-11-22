@@ -131,7 +131,7 @@ export const SHOTS: Shot[] = [
         <Label x={1450} y={300} text="CONSERVATION" size={52} color="#c9f2b8" />
       </Svg></Cam>],
       [t(wd(8, "won")), <Cam dur={dur} from={1.0} to={1.05}><Svg bg={<WhiteHouseLawn />}>
-        <V c="theodore_roosevelt" p={13} x={760} y={1010} h={620} />
+        <V c="theodore_roosevelt" p={8} x={760} y={1010} h={620} />
         <V c="theodore_roosevelt" p={42} x={1360} y={900} h={420} at={t(wd(8, "presidency")) - t(wd(8, "won"))} />
         <Cheer x={520} y={300} w={500} />
       </Svg></Cam>],

@@ -288,7 +288,8 @@
 }
 ],
 "ground": 908,
-"hem": 725
+"hem": 725,
+"bodyNoHead": "tg2/rig/vp_george_washington/0/body_nohead.png"
 },
 "vp_george_washington/1": {
 "body": {

@@ -46,6 +46,15 @@ for key in sorted(k for k in M if k.startswith(prefix) and "__" not in k and not
                 score = dy + abs(A[2] - B[2]) * 2
                 if best is None or score < best[0]: best = (score, A, B)
     if not best: continue
+    # GLASSES: a dark ring (component with an enclosed hole) around either eye -> lenses; the dot detector
+    # confuses rims/lens glints, so never fake a blink on glasses-wearers (it drew wrong eyes on Truman/TR).
+    holes = nd.binary_fill_holes(dark) & ~dark
+    ringed = False
+    for (cx, cy, w, h, i) in best[1:]:
+        r = int(max(w, h) * 2.2)
+        y0, y1, x0, x1 = int(max(0, cy - r)), int(min(H, cy + r)), int(max(0, cx - r)), int(min(W, cx + r))
+        if holes[y0:y1, x0:x1].sum() > (w * h) * 1.5: ringed = True
+    if ringed: continue
     out = im.copy()
     img = Image.fromarray(out); d = ImageDraw.Draw(img)
     for (cx, cy, w, h, i) in best[1:]:

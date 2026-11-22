@@ -35,7 +35,7 @@ export const HEAD: Record<string, (number | string)[]> = {
   chester_arthur: ["h_neutral", "h_talk", "h_angry", "h_shock", "h_sad", "h_happy"],
   james_garfield: [10, 11, 12, "head0", "head1", "head2"],
   garfield_attacker: [11, 12, 13, 14, 15, 16],
-  theodore_roosevelt: [14, 15, 16, 17, 18, 19],
+  theodore_roosevelt: [14, 15, 16, 17, 18, 15],   // sheet head 19 (happy) has a mis-drawn squint eye: use 15
   calvin_coolidge: [11, 12, 13, 14, 15, 16],
   harry_truman: [12, 19, 13, "head0", "head1", 15],
   lyndon_johnson: [11, 12, 13, 14, 15, 16],
