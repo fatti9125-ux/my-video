@@ -354,5 +354,5 @@ export const SHOTS: Shot[] = [
   </>) },
 ];
 
-export const VicePresidents1: React.FC = () => <Episode data={D} shots={SHOTS} />;
+export const VicePresidents1: React.FC<{ noAudio?: boolean }> = ({ noAudio }) => <Episode data={D} shots={SHOTS} noAudio={noAudio} />;
 export { INK };

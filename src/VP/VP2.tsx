@@ -264,4 +264,4 @@ export const SHOTS: Shot[] = [
   </>), sfx: [[Math.round((wd(21, "shot") - ln(21)) * 30), "gunburst", 0.12]] },
 ];
 
-export const VicePresidents2: React.FC = () => <Episode data={D} shots={SHOTS} />;
+export const VicePresidents2: React.FC<{ noAudio?: boolean }> = ({ noAudio }) => <Episode data={D} shots={SHOTS} noAudio={noAudio} />;

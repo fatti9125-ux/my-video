@@ -47,6 +47,17 @@ export const HEAD: Record<string, (number | string)[]> = {
   thomas_dewey: [12, 13, 14, 15, 16, 17],
   thomas_platt: [10, 11, 12, 13, 14, 15],
   franklin_roosevelt: [11, 12, 13, 14, 15, 16],
+  john_f_kennedy: [12, 13, 14, 15, 16, 17],
+  richard_nixon: [11, 12, 13, 14, 15, 16],
+  dwight_eisenhower: [11, 12, 13, 14, 15, 16],
+  spiro_agnew: [11, 12, 13, 14, 15, 16],
+  george_hw_bush: [12, 13, 14, 15, 16, 17],
+  ronald_reagan: [11, 12, 13, 14, 15, 16],
+  jimmy_carter: [11, 12, 13, 14, 15, 16],
+  bill_clinton: ["hA0", "hA1", "hA2", "head0", "head1", "head2"],
+  joe_biden: [12, 13, 14, 15, 16, 17],
+  barack_obama: [11, 12, 13, 14, 15, 16],
+  donald_trump: [12, 13, 14, 15, 16, 17],
 };
 export type Expr = 0 | 1 | 2 | 3 | 4 | 5;
 
@@ -220,7 +231,8 @@ export const Timeline: React.FC<{ from: number; to: number; marks: { year: numbe
   const X = (yr: number) => 260 + ((yr - from) / (to - from)) * 1400;
   const p = interpolate(f - drawAt, [0, drawFrames], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
   const ticks: number[] = [];
-  for (let y = Math.ceil(from / 5) * 5; y <= to; y += 5) ticks.push(y);
+  const step = to - from > 100 ? 20 : to - from > 50 ? 10 : 5;   // keep year labels readable (<= ~9 ticks)
+  for (let y = Math.ceil(from / step) * step; y <= to; y += step) ticks.push(y);
   return (
     <g>
       <rect width={1920} height={1080} fill="#1f4a4f" />

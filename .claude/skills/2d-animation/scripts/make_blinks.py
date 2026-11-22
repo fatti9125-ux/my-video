@@ -49,11 +49,14 @@ for key in sorted(k for k in M if k.startswith(prefix) and "__" not in k and not
     # GLASSES: a dark ring (component with an enclosed hole) around either eye -> lenses; the dot detector
     # confuses rims/lens glints, so never fake a blink on glasses-wearers (it drew wrong eyes on Truman/TR).
     holes = nd.binary_fill_holes(dark) & ~dark
+    hl, _ = nd.label(holes)
     ringed = False
     for (cx, cy, w, h, i) in best[1:]:
-        r = int(max(w, h) * 2.2)
-        y0, y1, x0, x1 = int(max(0, cy - r)), int(min(H, cy + r)), int(max(0, cx - r)), int(min(W, cx + r))
-        if holes[y0:y1, x0:x1].sum() > (w * h) * 1.5: ringed = True
+        # pixel just beside the eye dot: inside a lens it sits in a SMALL enclosed region (the lens);
+        # without glasses it is in the face, whose enclosed region is huge
+        px, py = int(cx + w * 0.9), int(cy)
+        if 0 <= py < H and 0 <= px < W and hl[py, px]:
+            if (hl == hl[py, px]).sum() < w * h * 40: ringed = True
     if ringed: continue
     out = im.copy()
     img = Image.fromarray(out); d = ImageDraw.Draw(img)

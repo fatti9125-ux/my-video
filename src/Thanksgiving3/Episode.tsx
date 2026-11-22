@@ -67,7 +67,8 @@ export const Board: React.FC<{ pose: string; top: string; big: string; at?: numb
   );
 };
 
-export const Episode: React.FC<{ data: EpData; shots: Shot[] }> = ({ data, shots }) => (
+/** `noAudio`: leave the VO out (the full film plays the one master VO file across all parts). */
+export const Episode: React.FC<{ data: EpData; shots: Shot[]; noAudio?: boolean }> = ({ data, shots, noAudio }) => (
   <AbsoluteFill style={{ background: useExportMode() === "fx" ? "transparent" : "#000" }}>
     {shots.map((s, i) => {
       const b = i + 1 < shots.length ? shots[i + 1].a : data.dur + 0.6;
@@ -82,7 +83,7 @@ export const Episode: React.FC<{ data: EpData; shots: Shot[] }> = ({ data, shots
         </Sequence>
       );
     })}
-    <Audio src={staticFile(`tg2/vo/${data.vo}.mp3`)} />
+    {!noAudio && <Audio src={staticFile(`tg2/vo/${data.vo}.mp3`)} />}
   </AbsoluteFill>
 );
 

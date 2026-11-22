@@ -1042,5 +1042,401 @@
 3,
 361,
 428
+],
+"vp/john_f_kennedy/0|12": [
+28,
+0,
+438,
+467
+],
+"vp/john_f_kennedy/0|13": [
+28,
+0,
+437,
+475
+],
+"vp/john_f_kennedy/0|14": [
+31,
+0,
+432,
+467
+],
+"vp/john_f_kennedy/0|15": [
+33,
+0,
+428,
+478
+],
+"vp/john_f_kennedy/0|16": [
+36,
+0,
+423,
+459
+],
+"vp/john_f_kennedy/0|17": [
+35,
+0,
+424,
+476
+],
+"vp/richard_nixon/0|11": [
+42,
+0,
+354,
+428
+],
+"vp/richard_nixon/0|12": [
+40,
+0,
+358,
+428
+],
+"vp/richard_nixon/0|13": [
+37,
+0,
+364,
+425
+],
+"vp/richard_nixon/0|14": [
+36,
+0,
+366,
+424
+],
+"vp/richard_nixon/0|15": [
+37,
+0,
+364,
+425
+],
+"vp/richard_nixon/0|16": [
+36,
+0,
+365,
+426
+],
+"vp/dwight_eisenhower/0|11": [
+33,
+0,
+395,
+416
+],
+"vp/dwight_eisenhower/0|12": [
+39,
+0,
+383,
+413
+],
+"vp/dwight_eisenhower/0|13": [
+43,
+0,
+375,
+412
+],
+"vp/dwight_eisenhower/0|14": [
+42,
+0,
+378,
+413
+],
+"vp/dwight_eisenhower/0|15": [
+42,
+0,
+378,
+412
+],
+"vp/dwight_eisenhower/0|16": [
+40,
+0,
+381,
+416
+],
+"vp/spiro_agnew/0|11": [
+55,
+4,
+327,
+469
+],
+"vp/spiro_agnew/0|12": [
+54,
+4,
+330,
+462
+],
+"vp/spiro_agnew/0|13": [
+54,
+4,
+328,
+468
+],
+"vp/spiro_agnew/0|14": [
+49,
+4,
+339,
+468
+],
+"vp/spiro_agnew/0|15": [
+56,
+4,
+325,
+470
+],
+"vp/spiro_agnew/0|16": [
+50,
+4,
+338,
+468
+],
+"vp/george_hw_bush/0|12": [
+26,
+5,
+355,
+478
+],
+"vp/george_hw_bush/0|13": [
+30,
+5,
+348,
+483
+],
+"vp/george_hw_bush/0|14": [
+28,
+5,
+352,
+475
+],
+"vp/george_hw_bush/0|15": [
+32,
+5,
+342,
+471
+],
+"vp/george_hw_bush/0|16": [
+22,
+5,
+362,
+489
+],
+"vp/george_hw_bush/0|17": [
+21,
+5,
+365,
+481
+],
+"vp/ronald_reagan/0|11": [
+35,
+0,
+358,
+455
+],
+"vp/ronald_reagan/0|12": [
+36,
+0,
+355,
+446
+],
+"vp/ronald_reagan/0|13": [
+37,
+0,
+354,
+448
+],
+"vp/ronald_reagan/0|14": [
+38,
+0,
+353,
+445
+],
+"vp/ronald_reagan/0|15": [
+36,
+0,
+355,
+450
+],
+"vp/ronald_reagan/0|16": [
+32,
+0,
+365,
+452
+],
+"vp/jimmy_carter/0|11": [
+7,
+4,
+418,
+465
+],
+"vp/jimmy_carter/0|12": [
+10,
+4,
+413,
+468
+],
+"vp/jimmy_carter/0|13": [
+11,
+4,
+410,
+469
+],
+"vp/jimmy_carter/0|14": [
+12,
+4,
+408,
+468
+],
+"vp/jimmy_carter/0|15": [
+8,
+4,
+417,
+466
+],
+"vp/jimmy_carter/0|16": [
+3,
+4,
+426,
+470
+],
+"vp/bill_clinton/0|hA0": [
+31,
+0,
+405,
+468
+],
+"vp/bill_clinton/0|hA1": [
+30,
+0,
+406,
+466
+],
+"vp/bill_clinton/0|hA2": [
+26,
+0,
+414,
+476
+],
+"vp/bill_clinton/0|head0": [
+33,
+0,
+401,
+470
+],
+"vp/bill_clinton/0|head1": [
+36,
+0,
+396,
+473
+],
+"vp/bill_clinton/0|head2": [
+28,
+0,
+412,
+468
+],
+"vp/joe_biden/0|12": [
+19,
+1,
+322,
+462
+],
+"vp/joe_biden/0|13": [
+21,
+1,
+318,
+462
+],
+"vp/joe_biden/0|14": [
+22,
+1,
+315,
+461
+],
+"vp/joe_biden/0|15": [
+20,
+1,
+320,
+461
+],
+"vp/joe_biden/0|16": [
+17,
+1,
+326,
+459
+],
+"vp/joe_biden/0|17": [
+16,
+1,
+327,
+470
+],
+"vp/barack_obama/0|11": [
+4,
+0,
+389,
+445
+],
+"vp/barack_obama/0|12": [
+5,
+0,
+387,
+452
+],
+"vp/barack_obama/0|13": [
+6,
+0,
+385,
+453
+],
+"vp/barack_obama/0|14": [
+9,
+0,
+379,
+456
+],
+"vp/barack_obama/0|15": [
+12,
+0,
+374,
+456
+],
+"vp/barack_obama/0|16": [
+-3,
+0,
+403,
+457
+],
+"vp/donald_trump/0|12": [
+49,
+0,
+410,
+426
+],
+"vp/donald_trump/0|13": [
+45,
+0,
+418,
+420
+],
+"vp/donald_trump/0|14": [
+49,
+0,
+410,
+419
+],
+"vp/donald_trump/0|15": [
+45,
+0,
+418,
+427
+],
+"vp/donald_trump/0|16": [
+42,
+0,
+423,
+422
+],
+"vp/donald_trump/0|17": [
+46,
+0,
+416,
+426
 ]
 }
