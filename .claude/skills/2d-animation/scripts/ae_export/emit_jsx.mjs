@@ -177,6 +177,21 @@ for (const l of L.layers.sort((p, q) => p.z - q.z)) {
     legs.forEach((q) => part(q, `leg ${q.side}`, `${lfE} ${q.side === "L" ? "" : "-"}th`));
     arms.forEach((q) => part(q, `arm ${q.side}`, `${lfE} var f = timeToFrames(time) - ${l.s0}; walking ? ${q.side === "L" ? "-" : ""}th * 0.6 : Math.sin(f / 23 + ${q.side === "L" ? 0 : 2}) * 1.2`));
     part({ ...r.body, pivot: null }, "body", null);
+    for (const hd of l.actorHeads ?? []) {
+      // expression / talk / blink head: on only on its frames (hold keys); bobs with the breath, tilts about the chin
+      const f = copy(hd.file);
+      const [hx, hy, hw, hh] = hd.rect;
+      const on = new Set(hd.frames);
+      body.push(`  (function(){ var p = add(F(${J(f)}), ${a}, ${b}, ${J("head " + hd.file.split("/").pop() + " " + l.name)}); p.setParentWithJump(hip);
+    p.transform.anchorPoint.setValue([${r2(hd.wh[0] / 2)}, ${r2(hd.wh[1] * 0.92)}]); p.transform.position.setValue([${r2(hx + hw / 2)}, ${r2(hy + hh * 0.92)}]);
+    p.transform.scale.setValue([${r2((hw / hd.wh[0]) * 100)}, ${r2((hh / hd.wh[1]) * 100)}]);
+    p.transform.position.expression = "value + [0, Math.sin((timeToFrames(time) - ${l.s0} + ${l.seed}) / 11 - 0.8) * ${r2(hh * 0.012)}]";
+    p.transform.rotation.expression = "Math.sin((timeToFrames(time) - ${l.s0} + ${l.seed}) / 53) * 1.6";
+    var op = p.transform.opacity;`);
+      let prev = -1;
+      for (let fr = a; fr < b; fr++) { const v = on.has(fr) ? 100 : 0; if (v !== prev) { body.push(`    key(op, ${fr}, ${v}, true);`); prev = v; } }
+      body.push(`  })();`);
+    }
     if (l.enter) body.push(`  // entrance from ${l.enter.from}: ${l.enter.frames} f`);
     body.push(`})();`);
   }

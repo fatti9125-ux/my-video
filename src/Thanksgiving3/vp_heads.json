@@ -754,5 +754,41 @@
 0,
 438,
 442
+],
+"vp/chester_arthur/0|h_talk": [
+2,
+0,
+444,
+433
+],
+"vp/chester_arthur/0|h_angry": [
+6,
+0,
+435,
+431
+],
+"vp/chester_arthur/0|h_happy": [
+2,
+0,
+442,
+456
+],
+"vp/chester_arthur/front|h_talk": [
+2,
+0,
+444,
+433
+],
+"vp/chester_arthur/front|h_angry": [
+6,
+0,
+435,
+431
+],
+"vp/chester_arthur/front|h_happy": [
+2,
+0,
+442,
+456
 ]
 }

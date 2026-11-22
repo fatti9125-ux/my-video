@@ -94,6 +94,28 @@ export const walk = (SHOTS: E.Shot[], D: E.EpData) => {
         if (p.enter) auto(p.at ?? 0, "whoosh", 0.1);
         return;
       }
+      if (ty === VK.Act) {                                                                 // rigged body + expression-head timeline
+        const w = span(p.at, p.until); if (!w) return;
+        const c = p.c, key = `vp_${c}/0`, r = R[key], m = M[`vp/${c}/0`];
+        const seed = Math.abs(Math.round(p.x * 7 + p.y * 3)) % 97;
+        const exAt = (f: number) => { const e = p.e ?? 0; if (typeof e === "number") return e; let x = e[0][1]; for (const [tt, v] of e) if (f >= tt) x = v; return x; };
+        const heads: Record<string, number[]> = {};
+        for (let f = w[0]; f < w[1]; f++) {
+          const ex = exAt(f);
+          const talking = p.talk === true || (Array.isArray(p.talk) && f >= p.talk[0] && f < p.talk[1]);
+          const open = talking && mouthAt(f, D.env, shot.a).open;
+          const h = VK.HEAD[c][open ? 1 : talking && ex === 1 ? 0 : ex];
+          const blink = !open && M[`vp/${c}/${h}__blink`] && (f + seed * 3) % (96 + (seed % 41)) < 3;
+          const hk = `${h}${blink ? "__blink" : ""}`;
+          (heads[hk] ??= []).push(s0 + f);
+        }
+        out.layers.push({ z: z++, kind: r ? "rig" : "spr", name: `${c} (actor)`, file: src(`vp/${c}/0_nohead`), meta: m, rig: r ? { ...r, body: { ...r.body, file: r.bodyNoHead ?? r.body.file } } : null,
+          x: p.x, y: p.y, h: p.h, flip: !!p.flip, shot: si, s0, win: [s0 + w[0], s0 + w[1]], at: s0 + (p.at ?? 0), walk: p.walk ?? 0,
+          walkUntil: p.walkUntil === undefined ? null : s0 + p.walkUntil, enter: p.enter ?? null, cam, seed,
+          actorHeads: Object.entries(heads).map(([hk, frames]) => ({ file: `tg2/vp/${c}/${hk}.png`, rect: HM[`vp/${c}/0|${hk.replace("__blink", "")}`], wh: M[`vp/${c}/${hk}`].slice(2, 4), frames })) });
+        if (p.enter) auto(p.at ?? 0, "whoosh", 0.1);
+        return;
+      }
       if (ty === K.Rig) {
         const w = span(p.at, p.until); if (!w) return;
         const key = `${p.c}/${p.pose}`, sk = p.c.startsWith("vp_") ? `vp/${p.c.slice(3)}/${p.pose}` : `Poses/${key}`;
