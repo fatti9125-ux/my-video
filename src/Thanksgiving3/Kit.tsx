@@ -1,5 +1,5 @@
-import React, { createContext, useContext } from "react";
-import { AbsoluteFill, Audio, Easing, Img, interpolate, Sequence, staticFile, useCurrentFrame } from "remotion";
+import React, { createContext, useContext, useState } from "react";
+import { AbsoluteFill, Audio, continueRender, delayRender, Easing, Img, interpolate, Sequence, staticFile, useCurrentFrame } from "remotion";
 import { MONTSERRAT, OSWALD } from "../fonts";
 import { mouthAt } from "../Thanksgiving/LayerPuppet";
 import META from "./sprites.json";
@@ -40,6 +40,28 @@ const AutoSfx: React.FC<{ at: number; name: string; vol: number }> = ({ at, name
   const { sfx } = useShot();
   if ((sfx ?? []).some(([f]) => Math.abs(f - at) <= 5)) return null;
   return <Sfx at={at} name={name} vol={vol} />;
+};
+
+/**
+ * SVG <image> that HOLDS THE RENDER until the bitmap (and any `also` bitmaps, e.g. its blink drawing) has
+ * loaded. Plain <image> is not awaited by Remotion, so a frame could be captured before a newly swapped
+ * pose/expression/blink PNG arrived (characters flickering or missing). Remount per href (key={href}).
+ */
+const LOADED = new Set<string>();
+export const SImg: React.FC<React.SVGProps<SVGImageElement> & { href: string; also?: string[] }> = ({ href, also = [], ...rest }) => {
+  useState(() => {
+    const need = [href, ...also].filter((u) => !LOADED.has(u));
+    if (!need.length || typeof window === "undefined") return null;
+    const h = delayRender(`image ${href}`);
+    let left = need.length;
+    for (const u of need) {
+      const im = new Image();
+      im.onload = im.onerror = () => { LOADED.add(u); if (--left === 0) continueRender(h); };
+      im.src = u;
+    }
+    return h;
+  });
+  return <image href={href} {...rest} />;
 };
 
 const src = (key: string) => (key.startsWith("OLD/") ? `thanksgiving/${key.slice(4)}.png` : `tg2/${key}.png`);
@@ -110,16 +132,21 @@ export const Spr: React.FC<SprProps> = ({ s, x, y, h, flip, at = 0, until, enter
   if (walk) { dx += walk * lf; bob = -Math.abs(Math.sin((lf / 16) * Math.PI)) * h * 0.025; }
   if (shake) { dx += Math.sin(f * 2.3) * shake; dy += Math.cos(f * 3.1) * shake * 0.4; }
   const rise = stress ? stressPulse(f, offset, stressArr) : 0;
-  const sy = 1 + Math.sin(f / 19) * 0.005 + rise * 0.028;   // breathing + rise, feet registered
-  const sx = 1 - rise * 0.008;
-  const sway = Math.sin(f / 37 + x) * 0.5;
+  // IDLE (reference "tiny idle"): breathing bob ~2.3 s cycle (1.2 %), slow weight-shift sway, per-character phase
+  const seed = Math.abs(Math.round(x * 7 + y * 3)) % 97;
+  const sy = 1 + Math.sin((f + seed) / 11) * 0.012 + rise * 0.028;   // feet registered
+  const sx = 1 - rise * 0.008 - Math.sin((f + seed) / 11) * 0.004;
+  const sway = Math.sin((f + seed) / 29) * 0.9;
+  // BLINK: 3-frame closed-eye swap every 3-4.5 s (own rhythm per sprite) when a __blink drawing exists
+  const blink = M[`${s}__blink`] && (f + seed * 3) % (96 + (seed % 41)) < 3;
+  const file = blink ? `${s}__blink` : s;
   return (
     <g>{enter && <EnterLines x={x + dx} y={y + dy} h={h} from={enter.from} lf={lf} frames={enter.frames} />}
     {enter && <AutoSfx at={at} name="whoosh" vol={0.1} />}
     {drop && <AutoSfx at={at + drop.frames - 1} name="thud" vol={0.12} />}
     <g transform={`translate(${x + dx} ${y + dy + bob}) rotate(${sway}) scale(${(flip ? -1 : 1) * sx} ${sy})`} opacity={opacity}>
       <g transform={`scale(${k}) translate(${-cx} ${-y1})`}>
-        <image href={staticFile(src(s))} x={0} y={0} width={W} height={H} />
+        <SImg key={file} href={staticFile(src(file))} also={M[`${s}__blink`] ? [staticFile(src(`${s}__blink`)), staticFile(src(s))] : []} x={0} y={0} width={W} height={H} />
         {children}
       </g>
     </g></g>
@@ -346,11 +373,13 @@ export type RigProps = {
   stress?: boolean;                 // rise & settle on stressed VO beats (feet registered)
   bounce?: number;                  // excited jumps (px)
   enter?: SprProps["enter"];
+  bodyFile?: string;                // replacement body layer (e.g. headless body for head swaps)
+  overlay?: React.ReactNode;        // drawn in the pose's own pixel space after the body (expression head)
 };
 
 const LIMB = (l: Limb, rot: number) => (
   <g key={l.file} transform={`rotate(${rot} ${l.pivot[0]} ${l.pivot[1]})`}>
-    <image href={staticFile(l.file)} x={l.x} y={l.y} width={l.w} height={l.h} />
+    <SImg key={l.file} href={staticFile(l.file)} x={l.x} y={l.y} width={l.w} height={l.h} />
   </g>
 );
 
@@ -361,7 +390,7 @@ const LIMB = (l: Limb, rot: number) => (
  * GESTURE: free arms lift outward on stressed VO beats and drift slightly every frame.
  * Limbs rotate only about the joint where they meet the body: they can never detach.
  */
-export const Rig: React.FC<RigProps> = ({ c, pose, x, y, h, flip, at = 0, until, walk = 0, walkUntil, gesture = 0, stress, bounce = 0, enter }) => {
+export const Rig: React.FC<RigProps> = ({ c, pose, x, y, h, flip, at = 0, until, walk = 0, walkUntil, gesture = 0, stress, bounce = 0, enter, bodyFile, overlay }) => {
   const f = useCurrentFrame();
   const xm = useExportMode();
   if (xm !== "normal") return null;
@@ -391,7 +420,8 @@ export const Rig: React.FC<RigProps> = ({ c, pose, x, y, h, flip, at = 0, until,
   const travel = walk === 0 ? 0 : Math.sign(walk) * Math.abs(walk) * (stride * k / 16) * tW;
   // talking gesture
   const rise = stress ? stressPulse(f, offset, stressArr) : 0;
-  const breathe = Math.sin(f / 19) * 0.005;
+  const seed = Math.abs(Math.round(x * 7 + y * 3)) % 97;
+  const breathe = Math.sin((f + seed) / 11) * 0.012;
   let dx = travel, dy = 0;
   if (enter) {
     const p = interpolate(lf, [0, enter.frames], [0, 1], { extrapolateRight: "clamp", easing: Easing.out(Easing.cubic) });
@@ -408,7 +438,7 @@ export const Rig: React.FC<RigProps> = ({ c, pose, x, y, h, flip, at = 0, until,
   const armRot = (l: Limb) => {
     const out = l.side === "L" ? 1 : -1;                    // +deg swings a screen-left limb outward
     if (walking) return -out * th * 0.6;
-    if (!gesture) return Math.sin(f / 23 + (l.side === "L" ? 0 : 2)) * 1.2;
+    if (!gesture) return Math.sin((f + seed) / 23 + (l.side === "L" ? 0 : 2)) * 2.5;   // idle: arms make small adjustments
     const wob = Math.sin(f * 0.21 + (l.side === "L" ? 0 : 1.7)) * gesture * 0.25;
     return out * (rise * gesture + wob);
   };
@@ -420,7 +450,8 @@ export const Rig: React.FC<RigProps> = ({ c, pose, x, y, h, flip, at = 0, until,
         <g transform={`scale(${k}) translate(${-cx} ${-y1 + drop})`}>
           {legs.map((l) => LIMB(l, legRot(l)))}
           {arms.map((l) => LIMB(l, armRot(l)))}
-          <image href={staticFile(r.body.file)} x={r.body.x} y={r.body.y} width={r.body.w} height={r.body.h} />
+          <SImg key={bodyFile ?? r.body.file} href={staticFile(bodyFile ?? r.body.file)} x={r.body.x} y={r.body.y} width={r.body.w} height={r.body.h} />
+          {overlay}
         </g>
       </g>
     </g></g>

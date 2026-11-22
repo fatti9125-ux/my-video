@@ -66,7 +66,8 @@
 }
 ],
 "ground": 904,
-"hem": 712
+"hem": 712,
+"bodyNoHead": "tg2/rig/vp_aaron_burr/0/body_nohead.png"
 },
 "vp_aaron_burr/1": {
 "body": {
@@ -176,7 +177,8 @@
 }
 ],
 "ground": 833,
-"hem": 670
+"hem": 670,
+"bodyNoHead": "tg2/rig/vp_andrew_jackson/0/body_nohead.png"
 },
 "vp_andrew_jackson/1": {
 "body": {
@@ -396,7 +398,8 @@
 }
 ],
 "ground": 821,
-"hem": 660
+"hem": 660,
+"bodyNoHead": "tg2/rig/vp_john_adams/0/body_nohead.png"
 },
 "vp_john_adams/1": {
 "body": {
@@ -506,7 +509,8 @@
 }
 ],
 "ground": 866,
-"hem": 703
+"hem": 703,
+"bodyNoHead": "tg2/rig/vp_john_tyler/0/body_nohead.png"
 },
 "vp_john_tyler/1": {
 "body": {
@@ -588,7 +592,8 @@
 }
 ],
 "ground": 905,
-"hem": 734
+"hem": 734,
+"bodyNoHead": "tg2/rig/vp_martin_van_buren/0/body_nohead.png"
 },
 "vp_martin_van_buren/1": {
 "body": {
@@ -698,7 +703,8 @@
 }
 ],
 "ground": 807,
-"hem": 659
+"hem": 659,
+"bodyNoHead": "tg2/rig/vp_thomas_jefferson/0/body_nohead.png"
 },
 "vp_thomas_jefferson/1": {
 "body": {
@@ -822,7 +828,8 @@
 }
 ],
 "ground": 896,
-"hem": 737
+"hem": 737,
+"bodyNoHead": "tg2/rig/vp_william_henry_harrison/0/body_nohead.png"
 },
 "vp_william_henry_harrison/1": {
 "body": {
@@ -864,5 +871,719 @@
 ],
 "ground": 897,
 "hem": 738
+},
+"vp_abraham_lincoln/0": {
+"body": {
+"file": "tg2/rig/vp_abraham_lincoln/0/body.png",
+"x": 1,
+"y": 1,
+"w": 384,
+"h": 781
+},
+"limbs": [
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/vp_abraham_lincoln/0/legR.png",
+"x": 237,
+"y": 779,
+"w": 72,
+"h": 194,
+"pivot": [
+244.0,
+781.5
+],
+"len": 199.7
+},
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/vp_abraham_lincoln/0/legL.png",
+"x": 79,
+"y": 782,
+"w": 72,
+"h": 192,
+"pivot": [
+143.5,
+784.5
+],
+"len": 197.4
+}
+],
+"ground": 973,
+"hem": 774,
+"bodyNoHead": "tg2/rig/vp_abraham_lincoln/0/body_nohead.png"
+},
+"vp_andrew_johnson/0": {
+"body": {
+"file": "tg2/rig/vp_andrew_johnson/0/body.png",
+"x": 1,
+"y": 0,
+"w": 516,
+"h": 712
+},
+"limbs": [
+{
+"kind": "arm",
+"side": "R",
+"file": "tg2/rig/vp_andrew_johnson/0/armR.png",
+"x": 414,
+"y": 466,
+"w": 92,
+"h": 203,
+"pivot": [
+419.2,
+489.0
+],
+"len": 187.8
+},
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/vp_andrew_johnson/0/legL.png",
+"x": 122,
+"y": 712,
+"w": 77,
+"h": 159,
+"pivot": [
+190.3,
+714.5
+],
+"len": 168.2
+},
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/vp_andrew_johnson/0/legR.png",
+"x": 320,
+"y": 712,
+"w": 78,
+"h": 159,
+"pivot": [
+327.0,
+714.5
+],
+"len": 168.0
+}
+],
+"ground": 870,
+"hem": 707,
+"bodyNoHead": "tg2/rig/vp_andrew_johnson/0/body_nohead.png"
+},
+"vp_calvin_coolidge/0": {
+"body": {
+"file": "tg2/rig/vp_calvin_coolidge/0/body.png",
+"x": 42,
+"y": 1,
+"w": 375,
+"h": 709
+},
+"limbs": [
+{
+"kind": "arm",
+"side": "R",
+"file": "tg2/rig/vp_calvin_coolidge/0/armR.png",
+"x": 355,
+"y": 461,
+"w": 102,
+"h": 227,
+"pivot": [
+358.8,
+484.5
+],
+"len": 212.7
+},
+{
+"kind": "arm",
+"side": "L",
+"file": "tg2/rig/vp_calvin_coolidge/0/armL.png",
+"x": 0,
+"y": 462,
+"w": 101,
+"h": 226,
+"pivot": [
+96.4,
+483.8
+],
+"len": 212.5
+},
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/vp_calvin_coolidge/0/legL.png",
+"x": 85,
+"y": 710,
+"w": 83,
+"h": 196,
+"pivot": [
+160.0,
+712.5
+],
+"len": 204.5
+},
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/vp_calvin_coolidge/0/legR.png",
+"x": 287,
+"y": 710,
+"w": 84,
+"h": 191,
+"pivot": [
+294.8,
+712.5
+],
+"len": 200.2
+}
+],
+"ground": 905,
+"hem": 705,
+"bodyNoHead": "tg2/rig/vp_calvin_coolidge/0/body_nohead.png"
+},
+"vp_chester_arthur/0": {
+"body": {
+"file": "tg2/rig/vp_chester_arthur/0/body.png",
+"x": 3,
+"y": 1,
+"w": 449,
+"h": 691
+},
+"limbs": [
+{
+"kind": "arm",
+"side": "L",
+"file": "tg2/rig/vp_chester_arthur/0/armL.png",
+"x": 1,
+"y": 430,
+"w": 86,
+"h": 211,
+"pivot": [
+81.1,
+450.9
+],
+"len": 196.9
+},
+{
+"kind": "arm",
+"side": "R",
+"file": "tg2/rig/vp_chester_arthur/0/armR.png",
+"x": 372,
+"y": 435,
+"w": 87,
+"h": 204,
+"pivot": [
+378.6,
+459.6
+],
+"len": 186.2
+},
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/vp_chester_arthur/0/legR.png",
+"x": 283,
+"y": 691,
+"w": 74,
+"h": 143,
+"pivot": [
+292.5,
+693.5
+],
+"len": 151.3
+},
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/vp_chester_arthur/0/legL.png",
+"x": 102,
+"y": 692,
+"w": 75,
+"h": 144,
+"pivot": [
+166.5,
+694.5
+],
+"len": 152.6
+}
+],
+"ground": 835,
+"hem": 685,
+"bodyNoHead": "tg2/rig/vp_chester_arthur/0/body_nohead.png"
+},
+"vp_garfield_attacker/0": {
+"body": {
+"file": "tg2/rig/vp_garfield_attacker/0/body.png",
+"x": 31,
+"y": 1,
+"w": 354,
+"h": 671
+},
+"limbs": [
+{
+"kind": "arm",
+"side": "R",
+"file": "tg2/rig/vp_garfield_attacker/0/armR.png",
+"x": 327,
+"y": 396,
+"w": 94,
+"h": 232,
+"pivot": [
+333.2,
+422.6
+],
+"len": 211.3
+},
+{
+"kind": "arm",
+"side": "L",
+"file": "tg2/rig/vp_garfield_attacker/0/armL.png",
+"x": 1,
+"y": 397,
+"w": 95,
+"h": 234,
+"pivot": [
+87.8,
+422.2
+],
+"len": 214.9
+},
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/vp_garfield_attacker/0/legL.png",
+"x": 100,
+"y": 672,
+"w": 65,
+"h": 176,
+"pivot": [
+154.6,
+674.5
+],
+"len": 178.8
+},
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/vp_garfield_attacker/0/legR.png",
+"x": 262,
+"y": 672,
+"w": 67,
+"h": 174,
+"pivot": [
+271.0,
+674.5
+],
+"len": 178.0
+}
+],
+"ground": 847,
+"hem": 667,
+"bodyNoHead": "tg2/rig/vp_garfield_attacker/0/body_nohead.png"
+},
+"vp_gerald_ford/0": {
+"body": {
+"file": "tg2/rig/vp_gerald_ford/0/body.png",
+"x": 18,
+"y": 1,
+"w": 397,
+"h": 659
+},
+"limbs": [
+{
+"kind": "arm",
+"side": "L",
+"file": "tg2/rig/vp_gerald_ford/0/armL.png",
+"x": 1,
+"y": 417,
+"w": 101,
+"h": 227,
+"pivot": [
+97.0,
+439.0
+],
+"len": 215.0
+},
+{
+"kind": "arm",
+"side": "R",
+"file": "tg2/rig/vp_gerald_ford/0/armR.png",
+"x": 338,
+"y": 424,
+"w": 94,
+"h": 223,
+"pivot": [
+340.8,
+445.1
+],
+"len": 210.0
+},
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/vp_gerald_ford/0/legL.png",
+"x": 91,
+"y": 660,
+"w": 78,
+"h": 176,
+"pivot": [
+160.4,
+662.5
+],
+"len": 184.1
+},
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/vp_gerald_ford/0/legR.png",
+"x": 271,
+"y": 660,
+"w": 78,
+"h": 174,
+"pivot": [
+278.5,
+662.5
+],
+"len": 183.0
+}
+],
+"ground": 835,
+"hem": 654,
+"bodyNoHead": "tg2/rig/vp_gerald_ford/0/body_nohead.png"
+},
+"vp_jacqueline_kennedy/0": {
+"body": {
+"file": "tg2/rig/vp_jacqueline_kennedy/0/body.png",
+"x": 0,
+"y": 1,
+"w": 457,
+"h": 819
+},
+"limbs": [
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/vp_jacqueline_kennedy/0/legL.png",
+"x": 126,
+"y": 820,
+"w": 75,
+"h": 147,
+"pivot": [
+191.5,
+822.5
+],
+"len": 154.8
+},
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/vp_jacqueline_kennedy/0/legR.png",
+"x": 261,
+"y": 820,
+"w": 72,
+"h": 145,
+"pivot": [
+269.0,
+822.5
+],
+"len": 152.9
+}
+],
+"ground": 966,
+"hem": 814,
+"bodyNoHead": "tg2/rig/vp_jacqueline_kennedy/0/body_nohead.png"
+},
+"vp_james_garfield/0": {
+"body": {
+"file": "tg2/rig/vp_james_garfield/0/body.png",
+"x": 20,
+"y": 1,
+"w": 425,
+"h": 698
+},
+"limbs": [
+{
+"kind": "arm",
+"side": "L",
+"file": "tg2/rig/vp_james_garfield/0/armL.png",
+"x": 1,
+"y": 426,
+"w": 99,
+"h": 233,
+"pivot": [
+93.9,
+450.5
+],
+"len": 218.1
+},
+{
+"kind": "arm",
+"side": "R",
+"file": "tg2/rig/vp_james_garfield/0/armR.png",
+"x": 378,
+"y": 436,
+"w": 94,
+"h": 221,
+"pivot": [
+384.2,
+458.5
+],
+"len": 206.4
+},
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/vp_james_garfield/0/legL.png",
+"x": 117,
+"y": 698,
+"w": 75,
+"h": 161,
+"pivot": [
+184.0,
+700.5
+],
+"len": 169.3
+},
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/vp_james_garfield/0/legR.png",
+"x": 285,
+"y": 699,
+"w": 74,
+"h": 161,
+"pivot": [
+292.5,
+701.5
+],
+"len": 168.2
+}
+],
+"ground": 859,
+"hem": 693,
+"bodyNoHead": "tg2/rig/vp_james_garfield/0/body_nohead.png"
+},
+"vp_john_coolidge_senior/0": {
+"body": {
+"file": "tg2/rig/vp_john_coolidge_senior/0/body.png",
+"x": 15,
+"y": 1,
+"w": 402,
+"h": 844
+},
+"limbs": [
+{
+"kind": "arm",
+"side": "R",
+"file": "tg2/rig/vp_john_coolidge_senior/0/armR.png",
+"x": 325,
+"y": 352,
+"w": 113,
+"h": 274,
+"pivot": [
+329.0,
+368.9
+],
+"len": 266.6
+},
+{
+"kind": "arm",
+"side": "L",
+"file": "tg2/rig/vp_john_coolidge_senior/0/armL.png",
+"x": 0,
+"y": 353,
+"w": 111,
+"h": 275,
+"pivot": [
+106.3,
+370.2
+],
+"len": 266.8
+}
+],
+"ground": 844,
+"hem": 772,
+"bodyNoHead": "tg2/rig/vp_john_coolidge_senior/0/body_nohead.png"
+},
+"vp_lyndon_johnson/0": {
+"body": {
+"file": "tg2/rig/vp_lyndon_johnson/0/body.png",
+"x": 1,
+"y": 0,
+"w": 421,
+"h": 671
+},
+"limbs": [
+{
+"kind": "arm",
+"side": "L",
+"file": "tg2/rig/vp_lyndon_johnson/0/armL.png",
+"x": 1,
+"y": 432,
+"w": 81,
+"h": 215,
+"pivot": [
+77.4,
+455.2
+],
+"len": 197.6
+},
+{
+"kind": "arm",
+"side": "R",
+"file": "tg2/rig/vp_lyndon_johnson/0/armR.png",
+"x": 344,
+"y": 442,
+"w": 81,
+"h": 205,
+"pivot": [
+348.9,
+465.4
+],
+"len": 187.1
+},
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/vp_lyndon_johnson/0/legR.png",
+"x": 260,
+"y": 670,
+"w": 74,
+"h": 185,
+"pivot": [
+267.3,
+672.5
+],
+"len": 191.7
+},
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/vp_lyndon_johnson/0/legL.png",
+"x": 94,
+"y": 671,
+"w": 72,
+"h": 183,
+"pivot": [
+158.0,
+673.5
+],
+"len": 189.3
+}
+],
+"ground": 854,
+"hem": 665,
+"bodyNoHead": "tg2/rig/vp_lyndon_johnson/0/body_nohead.png"
+},
+"vp_millard_fillmore/0": {
+"body": {
+"file": "tg2/rig/vp_millard_fillmore/0/body.png",
+"x": 1,
+"y": 1,
+"w": 464,
+"h": 684
+},
+"limbs": [
+{
+"kind": "arm",
+"side": "L",
+"file": "tg2/rig/vp_millard_fillmore/0/armL.png",
+"x": 10,
+"y": 415,
+"w": 103,
+"h": 238,
+"pivot": [
+108.8,
+437.0
+],
+"len": 225.7
+},
+{
+"kind": "arm",
+"side": "R",
+"file": "tg2/rig/vp_millard_fillmore/0/armR.png",
+"x": 368,
+"y": 426,
+"w": 97,
+"h": 226,
+"pivot": [
+370.9,
+446.5
+],
+"len": 214.6
+},
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/vp_millard_fillmore/0/legR.png",
+"x": 291,
+"y": 684,
+"w": 71,
+"h": 156,
+"pivot": [
+298.2,
+686.4
+],
+"len": 163.5
+},
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/vp_millard_fillmore/0/legL.png",
+"x": 117,
+"y": 685,
+"w": 70,
+"h": 156,
+"pivot": [
+179.0,
+687.5
+],
+"len": 163.2
+}
+],
+"ground": 840,
+"hem": 678,
+"bodyNoHead": "tg2/rig/vp_millard_fillmore/0/body_nohead.png"
+},
+"vp_zachary_taylor/0": {
+"body": {
+"file": "tg2/rig/vp_zachary_taylor/0/body.png",
+"x": 1,
+"y": 1,
+"w": 477,
+"h": 673
+},
+"limbs": [
+{
+"kind": "leg",
+"side": "R",
+"file": "tg2/rig/vp_zachary_taylor/0/legR.png",
+"x": 317,
+"y": 673,
+"w": 67,
+"h": 141,
+"pivot": [
+323.8,
+675.6
+],
+"len": 147.5
+},
+{
+"kind": "leg",
+"side": "L",
+"file": "tg2/rig/vp_zachary_taylor/0/legL.png",
+"x": 134,
+"y": 674,
+"w": 67,
+"h": 140,
+"pivot": [
+192.5,
+676.5
+],
+"len": 145.7
+}
+],
+"ground": 813,
+"hem": 669,
+"bodyNoHead": "tg2/rig/vp_zachary_taylor/0/body_nohead.png"
 }
 }

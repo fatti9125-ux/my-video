@@ -6,34 +6,34 @@
 429
 ],
 "vp/quill/0|13": [
-51,
+58,
 0,
-469,
-434
+460,
+425
 ],
 "vp/quill/0|14": [
-49,
+56,
 0,
-471,
-434
+462,
+425
 ],
 "vp/quill/0|15": [
-49,
+56,
 0,
-472,
-440
+463,
+431
 ],
 "vp/quill/0|16": [
 54,
 0,
-470,
-435
+466,
+430
 ],
 "vp/quill/0|17": [
-50,
+60,
 0,
-473,
-443
+454,
+425
 ],
 "vp/chester_arthur/front|h_neutral": [
 3,
@@ -42,15 +42,717 @@
 428
 ],
 "vp/chester_arthur/front|h_shock": [
-1,
+3,
 0,
-445,
-437
+441,
+432
 ],
 "vp/chester_arthur/front|h_sad": [
-2,
+4,
 0,
-433,
+438,
+442
+],
+"vp/john_adams/0|12": [
+7,
+0,
+481,
+380
+],
+"vp/john_adams/0|13": [
+13,
+0,
+469,
+374
+],
+"vp/john_adams/0|14": [
+5,
+0,
+485,
+381
+],
+"vp/john_adams/0|15": [
+6,
+0,
+484,
+380
+],
+"vp/john_adams/0|16": [
+4,
+0,
+487,
+381
+],
+"vp/john_adams/0|17": [
+7,
+0,
+481,
+385
+],
+"vp/thomas_jefferson/0|13": [
+48,
+1,
+310,
+369
+],
+"vp/thomas_jefferson/0|14": [
+44,
+1,
+317,
+371
+],
+"vp/thomas_jefferson/0|15": [
+50,
+1,
+307,
+365
+],
+"vp/thomas_jefferson/0|16": [
+52,
+1,
+302,
+361
+],
+"vp/thomas_jefferson/0|17": [
+50,
+1,
+305,
+355
+],
+"vp/thomas_jefferson/0|18": [
+47,
+1,
+312,
+368
+],
+"vp/aaron_burr/0|13": [
+28,
+3,
+353,
+387
+],
+"vp/aaron_burr/0|14": [
+40,
+3,
+328,
+387
+],
+"vp/aaron_burr/0|15": [
+40,
+3,
+328,
+389
+],
+"vp/aaron_burr/0|16": [
+42,
+3,
+326,
+385
+],
+"vp/aaron_burr/0|17": [
+32,
+3,
+345,
+384
+],
+"vp/aaron_burr/0|18": [
+34,
+3,
+341,
+385
+],
+"vp/martin_van_buren/0|head0": [
+21,
+0,
+545,
+443
+],
+"vp/martin_van_buren/0|head1": [
+23,
+0,
+541,
+444
+],
+"vp/martin_van_buren/0|head2": [
+30,
+0,
+526,
+439
+],
+"vp/martin_van_buren/0|head3": [
+24,
+0,
+538,
 437
+],
+"vp/martin_van_buren/0|head4": [
+26,
+0,
+535,
+444
+],
+"vp/martin_van_buren/0|head5": [
+28,
+0,
+531,
+444
+],
+"vp/george_washington/0|head0": [
+179,
+159,
+307,
+286
+],
+"vp/george_washington/0|head1": [
+182,
+159,
+301,
+287
+],
+"vp/george_washington/0|head2": [
+182,
+159,
+301,
+284
+],
+"vp/george_washington/0|head3": [
+184,
+159,
+298,
+288
+],
+"vp/george_washington/0|head4": [
+184,
+159,
+298,
+282
+],
+"vp/george_washington/0|head5": [
+183,
+159,
+299,
+285
+],
+"vp/andrew_jackson/0|11": [
+1,
+3,
+383,
+439
+],
+"vp/andrew_jackson/0|12": [
+2,
+3,
+381,
+434
+],
+"vp/andrew_jackson/0|13": [
+8,
+3,
+370,
+437
+],
+"vp/andrew_jackson/0|14": [
+9,
+3,
+367,
+439
+],
+"vp/andrew_jackson/0|15": [
+-4,
+3,
+392,
+438
+],
+"vp/andrew_jackson/0|16": [
+4,
+3,
+377,
+433
+],
+"vp/william_henry_harrison/0|11": [
+13,
+1,
+352,
+461
+],
+"vp/william_henry_harrison/0|12": [
+19,
+1,
+340,
+465
+],
+"vp/william_henry_harrison/0|13": [
+14,
+1,
+350,
+460
+],
+"vp/william_henry_harrison/0|14": [
+15,
+1,
+348,
+467
+],
+"vp/william_henry_harrison/0|15": [
+12,
+1,
+354,
+460
+],
+"vp/william_henry_harrison/0|16": [
+11,
+1,
+356,
+467
+],
+"vp/john_tyler/0|12": [
+24,
+0,
+332,
+434
+],
+"vp/john_tyler/0|13": [
+18,
+0,
+343,
+434
+],
+"vp/john_tyler/0|14": [
+17,
+0,
+346,
+431
+],
+"vp/john_tyler/0|15": [
+22,
+0,
+335,
+426
+],
+"vp/john_tyler/0|16": [
+16,
+0,
+348,
+430
+],
+"vp/john_tyler/0|17": [
+16,
+0,
+347,
+432
+],
+"vp/gerald_ford/0|12": [
+14,
+0,
+405,
+400
+],
+"vp/gerald_ford/0|13": [
+18,
+0,
+396,
+395
+],
+"vp/gerald_ford/0|14": [
+16,
+0,
+400,
+400
+],
+"vp/gerald_ford/0|15": [
+21,
+0,
+391,
+397
+],
+"vp/gerald_ford/0|16": [
+14,
+0,
+404,
+397
+],
+"vp/gerald_ford/0|17": [
+12,
+0,
+409,
+398
+],
+"vp/lyndon_johnson/0|11": [
+0,
+7,
+422,
+445
+],
+"vp/lyndon_johnson/0|12": [
+2,
+7,
+417,
+449
+],
+"vp/lyndon_johnson/0|13": [
+5,
+7,
+412,
+444
+],
+"vp/lyndon_johnson/0|14": [
+6,
+7,
+409,
+445
+],
+"vp/lyndon_johnson/0|15": [
+4,
+7,
+413,
+453
+],
+"vp/lyndon_johnson/0|16": [
+0,
+7,
+422,
+452
+],
+"vp/calvin_coolidge/0|11": [
+48,
+5,
+371,
+445
+],
+"vp/calvin_coolidge/0|12": [
+50,
+5,
+368,
+442
+],
+"vp/calvin_coolidge/0|13": [
+50,
+5,
+368,
+444
+],
+"vp/calvin_coolidge/0|14": [
+54,
+5,
+360,
+440
+],
+"vp/calvin_coolidge/0|15": [
+48,
+5,
+372,
+443
+],
+"vp/calvin_coolidge/0|16": [
+50,
+5,
+368,
+448
+],
+"vp/john_coolidge_senior/0|11": [
+16,
+0,
+393,
+380
+],
+"vp/john_coolidge_senior/0|12": [
+18,
+0,
+388,
+382
+],
+"vp/john_coolidge_senior/0|13": [
+7,
+0,
+411,
+384
+],
+"vp/john_coolidge_senior/0|14": [
+25,
+0,
+375,
+383
+],
+"vp/john_coolidge_senior/0|15": [
+28,
+0,
+369,
+382
+],
+"vp/john_coolidge_senior/0|16": [
+28,
+0,
+370,
+381
+],
+"vp/jacqueline_kennedy/0|head0": [
+1,
+54,
+441,
+427
+],
+"vp/jacqueline_kennedy/0|head1": [
+2,
+54,
+440,
+425
+],
+"vp/jacqueline_kennedy/0|head2": [
+2,
+54,
+440,
+426
+],
+"vp/jacqueline_kennedy/0|head3": [
+2,
+54,
+439,
+426
+],
+"vp/jacqueline_kennedy/0|head4": [
+1,
+54,
+441,
+422
+],
+"vp/jacqueline_kennedy/0|head5": [
+1,
+54,
+441,
+426
+],
+"vp/millard_fillmore/0|11": [
+5,
+8,
+459,
+405
+],
+"vp/millard_fillmore/0|12": [
+5,
+8,
+459,
+405
+],
+"vp/millard_fillmore/0|13": [
+4,
+8,
+460,
+406
+],
+"vp/millard_fillmore/0|14": [
+5,
+8,
+459,
+406
+],
+"vp/millard_fillmore/0|15": [
+4,
+8,
+460,
+407
+],
+"vp/millard_fillmore/0|16": [
+-4,
+8,
+477,
+409
+],
+"vp/zachary_taylor/0|11": [
+0,
+6,
+475,
+402
+],
+"vp/zachary_taylor/0|12": [
+4,
+6,
+467,
+404
+],
+"vp/zachary_taylor/0|13": [
+2,
+6,
+470,
+409
+],
+"vp/zachary_taylor/0|14": [
+0,
+6,
+475,
+406
+],
+"vp/zachary_taylor/0|15": [
+0,
+6,
+476,
+403
+],
+"vp/zachary_taylor/0|16": [
+-3,
+6,
+481,
+404
+],
+"vp/andrew_johnson/0|head0": [
+18,
+0,
+477,
+444
+],
+"vp/andrew_johnson/0|head1": [
+26,
+0,
+462,
+451
+],
+"vp/andrew_johnson/0|head2": [
+31,
+0,
+451,
+442
+],
+"vp/andrew_johnson/0|head3": [
+28,
+0,
+457,
+452
+],
+"vp/andrew_johnson/0|head4": [
+32,
+0,
+448,
+445
+],
+"vp/andrew_johnson/0|head5": [
+20,
+0,
+474,
+445
+],
+"vp/abraham_lincoln/0|11": [
+35,
+4,
+308,
+423
+],
+"vp/abraham_lincoln/0|12": [
+42,
+4,
+294,
+425
+],
+"vp/abraham_lincoln/0|13": [
+40,
+4,
+297,
+424
+],
+"vp/abraham_lincoln/0|14": [
+44,
+4,
+291,
+424
+],
+"vp/abraham_lincoln/0|15": [
+41,
+4,
+296,
+425
+],
+"vp/abraham_lincoln/0|16": [
+36,
+4,
+307,
+426
+],
+"vp/james_garfield/0|10": [
+21,
+2,
+418,
+458
+],
+"vp/james_garfield/0|11": [
+34,
+2,
+393,
+448
+],
+"vp/james_garfield/0|12": [
+32,
+2,
+396,
+457
+],
+"vp/james_garfield/0|head0": [
+34,
+2,
+393,
+457
+],
+"vp/james_garfield/0|head1": [
+34,
+2,
+392,
+449
+],
+"vp/james_garfield/0|head2": [
+32,
+2,
+397,
+454
+],
+"vp/garfield_attacker/0|11": [
+34,
+0,
+346,
+435
+],
+"vp/garfield_attacker/0|12": [
+32,
+0,
+351,
+442
+],
+"vp/garfield_attacker/0|13": [
+36,
+0,
+341,
+432
+],
+"vp/garfield_attacker/0|14": [
+36,
+0,
+341,
+442
+],
+"vp/garfield_attacker/0|15": [
+31,
+0,
+352,
+448
+],
+"vp/garfield_attacker/0|16": [
+30,
+0,
+353,
+451
+],
+"vp/chester_arthur/0|h_neutral": [
+3,
+0,
+441,
+428
+],
+"vp/chester_arthur/0|h_shock": [
+3,
+0,
+441,
+432
+],
+"vp/chester_arthur/0|h_sad": [
+4,
+0,
+438,
+442
 ]
 }

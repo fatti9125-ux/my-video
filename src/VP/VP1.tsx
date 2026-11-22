@@ -3,20 +3,25 @@ import { interpolate, useCurrentFrame } from "remotion";
 import * as B from "../Thanksgiving/Backgrounds";
 import { OvalOffice, WhiteHouseLawn } from "../Thanksgiving3/Bg2";
 import { Episode, epDuration, makeAlign, Shot, Steps, Svg, Swap } from "../Thanksgiving3/Episode";
-import { Arch, Cam, Cap, Card, Cheer, PopIn, Puff, QMarks, Rig, Quill } from "../Thanksgiving3/Kit";
-import { Ballot, Big, DownArrow, HeadIcon, HouseChamber, INK, Label, LampGlow, Parlor, PlaneCabin, Sweat, V, VoteBoard, Timeline } from "./VKit";
+import { Arch, Cam, Cap, Card, Cheer, Puff, QMarks, Quill, Rig } from "../Thanksgiving3/Kit";
+import { Act, Ballot, Big, DownArrow, HeadIcon, HouseChamber, INK, Label, LampGlow, Parlor, PlaneCabin, Sulk, Sweat, Tears, Timeline, V, Vein, VoteBoard } from "./VKit";
 import DATA from "./ep/vp1.json";
 
 /**
  * Part 1 (VO vp1.mp3): cold open + Adams, Jefferson, Burr, Van Buren, ending on Harrison/Tyler.
- * Every cut and swap is on a word start (ln / wd). Quill's beak stays closed outside his studio.
+ * ACTING (style bible §2): front-facing characters are `Act` (rigged body + swapped expression heads,
+ * blinking, breathing, arms adjusting / lifting on stressed words); two-shots use the sheet's 3/4 and
+ * script poses (they blink too) and swap pose on the motivating word; listeners react ~4 f after a beat.
+ * Quill is the original mascot; his beak stays closed outside the studio.
  */
 const D = DATA as unknown as Parameters<typeof makeAlign>[0];
 const { ln, wd } = makeAlign(D);
 export const VP1_DURATION = epDuration(D);
+const R = 4; // listener reaction delay (frames)
 
 const FIFTEEN = ["john_adams", "thomas_jefferson", "martin_van_buren", "john_tyler", "millard_fillmore", "andrew_johnson", "chester_arthur",
   "theodore_roosevelt", "calvin_coolidge", "harry_truman", "lyndon_johnson", "richard_nixon", "gerald_ford", "george_hw_bush", "joe_biden"];
+const ACTORS = new Set(["john_adams", "thomas_jefferson", "martin_van_buren", "john_tyler", "millard_fillmore", "andrew_johnson", "chester_arthur", "calvin_coolidge", "lyndon_johnson", "gerald_ford"]);
 
 /** Ballot counter that ticks 1 -> 36 between two frames. */
 const Counter: React.FC<{ a: number; b: number }> = ({ a, b }) => {
@@ -31,16 +36,17 @@ export const SHOTS: Shot[] = [
     <Cam dur={dur} from={1.02} to={1.08} ox="48%" punch={{ at: t(wd(0, "month")), frames: 6, to: 1.22, ox: "68%", oy: "45%" }}>
       <Svg bg={<B.Study />}>
         <V c="william_henry_harrison" p={10} x={820} y={1010} h={560} />
-        <V c="john_tyler" p={1} x={1560} y={1010} h={600} flip />
+        <Act c="john_tyler" x={1560} y={1010} h={600} e={[[0, 0], [t(wd(0, "boss")) + R, 4], [t(wd(0, "month")) + R, 3]]} sweat={t(wd(0, "month")) + R} />
       </Svg>
     </Cam>
     <Cap text="1841" pos="top" />
   </>) },
   // 1 Another took the oath beside a grieving first lady on an airplane.
   { a: ln(1), el: (t, dur) => (<>
-    <Cam dur={dur} from={1.0} to={1.06}>
+    <Cam dur={dur} from={1.0} to={1.06} punch={{ at: t(wd(1, "grieving")), frames: 8, to: 1.1, ox: "36%", oy: "45%" }}>
       <Svg bg={<PlaneCabin />}>
         <V c="jacqueline_kennedy" p={6} x={640} y={1000} h={560} />
+        <Tears eyes={[[612, 590], [648, 590]]} at={t(wd(1, "grieving")) + R} len={40} />
         <V c="lyndon_johnson" p={5} x={1060} y={1000} h={600} />
       </Svg>
     </Cam>
@@ -50,7 +56,10 @@ export const SHOTS: Shot[] = [
   { a: ln(2), el: (t, dur) => (<>
     <Cam dur={dur} from={1.0} to={1.05}>
       <Svg bg={<WhiteHouseLawn />}>
-        <Swap t={t(wd(2, "without"))} a={<V c="gerald_ford" p={0} x={760} y={1010} h={560} />} b={<V c="gerald_ford" p={9} x={760} y={1010} h={560} />} />
+        <Swap t={t(wd(2, "without"))}
+          a={<Act c="gerald_ford" x={760} y={1010} h={560} e={[[0, 5]]} gesture={10} stress walk={0} />}
+          b={<V c="gerald_ford" p={9} x={760} y={1010} h={560} />} />
+        <QMarks x={760} y={360} at={t(wd(2, "election")) + R} spread={200} />
         <Label x={1390} y={330} text="ELECTIONS WON: 0" at={t(wd(2, "election"))} size={56} />
       </Svg>
     </Cam>
@@ -62,7 +71,10 @@ export const SHOTS: Shot[] = [
         {FIFTEEN.map((c, i) => {
           const back = i < 8;
           const x = back ? 180 + i * 222 : 290 + (i - 8) * 222;
-          return <V key={c} c={c} p={0} x={x} y={back ? 700 : 1040} h={back ? 300 : 340} at={2 + i * 4} />;
+          const y = back ? 700 : 1040, h = back ? 300 : 340, at = 2 + i * 4;
+          return ACTORS.has(c)
+            ? <Act key={c} c={c} x={x} y={y} h={h} at={at} enter={{ from: "bottom", frames: 7 }} e={[[0, 0], [t(wd(3, "promotion")) + R + (i % 4), 5]]} />
+            : <V key={c} c={c} p={0} x={x} y={y} h={h} at={at} enter={{ from: "bottom", frames: 7 }} />;
         })}
         <Big x={960} y={150} text="VICE PRESIDENT → PRESIDENT" size={86} at={t(wd(3, "fifteen"))} />
       </Svg>
@@ -72,9 +84,9 @@ export const SHOTS: Shot[] = [
   { a: ln(4), el: (t, dur) => (<>
     <Cam dur={dur} from={1.02} to={1.08} punch={{ at: t(wd(4, "lamp")), frames: 6, to: 1.16, ox: "62%", oy: "50%" }}>
       <Svg bg={<Parlor />}>
-        <V c="calvin_coolidge" p={0} x={720} y={1010} h={560} />
-        <V c="john_coolidge_senior" p={6} x={1250} y={1010} h={560} />
-        <LampGlow x={1112} y={710} at={t(wd(4, "lamp"))} />
+        <Act c="calvin_coolidge" x={720} y={1010} h={560} e={[[0, 0], [t(wd(4, "dad")) + R, 3]]} />
+        <Swap t={t(wd(4, "bring"))} a={<Act c="john_coolidge_senior" x={1250} y={1010} h={560} />} b={<V c="john_coolidge_senior" p={6} x={1250} y={1010} h={560} />} />
+        <Swap t={t(wd(4, "bring"))} a={null} b={<LampGlow x={1112} y={710} at={t(wd(4, "lamp"))} />} />
       </Svg>
     </Cam>
     <Cap text="1923 · Vermont" pos="top" />
@@ -83,7 +95,7 @@ export const SHOTS: Shot[] = [
   { a: ln(5), el: (t, dur) => (<>
     <Cam dur={dur} from={1.0} to={1.05}>
       <Svg bg={<B.FederalHall />}>
-        <V c="john_adams" p={1} x={720} y={1010} h={540} />
+        <Act c="john_adams" x={720} y={1010} h={540} e={[[0, 5], [t(wd(5, "vice")) + R, 4]]} gesture={10} stress />
         <V c="george_washington" p={1} x={1260} y={1010} h={600} flip at={t(wd(5, "george"))} enter={{ from: "right", frames: 8 }} />
         <Label x={720} y={330} text="VICE PRESIDENT" at={t(wd(5, "vice"))} size={44} />
       </Svg>
@@ -94,7 +106,10 @@ export const SHOTS: Shot[] = [
   { a: ln(6), el: (t, dur) => (<>
     <Steps s={[
       [0, <Cam dur={dur} from={1.0} to={1.05}><Svg bg={<B.Study />}><V c="george_washington" p={8} x={960} y={1010} h={560} /></Svg></Cam>],
-      [t(wd(6, "adams")), <Cam dur={dur} from={1.04} to={1.1} oy="45%"><Svg bg={<B.Chamber />}><V c="john_adams" p={6} x={960} y={1010} h={600} /></Svg></Cam>],
+      [t(wd(6, "adams")), <Cam dur={dur} from={1.06} to={1.12} oy="42%"><Svg bg={<B.Chamber />}>
+        <Act c="john_adams" x={960} y={1010} h={620} e={[[0, 2], [t(wd(6, "job")) - t(wd(6, "adams")), 4]]} talk={[0, t(wd(6, "job")) - t(wd(6, "adams"))]} gesture={14} stress
+          vein={t(wd(6, "insignificant")) - t(wd(6, "adams"))} />
+      </Svg></Cam>],
     ]} />
     <Cap text="1789–1797" pos="top" until={t(wd(6, "adams"))} />
     <Cap text={'"The most insignificant office"'} pos="top" at={t(wd(6, "insignificant"))} size={66} />
@@ -103,18 +118,18 @@ export const SHOTS: Shot[] = [
   { a: ln(7), el: (t, dur) => (<>
     <Steps s={[
       [0, <Svg bg={<B.Hills />}><Rig c="vp_george_washington" pose="1" x={700} y={1010} h={560} walk={2.4} /></Svg>],
-      [t(wd(7, "adams")), <Cam dur={dur} from={1.0} to={1.05}><Svg bg={<B.FederalHall />}>
-        <V c="john_adams" p={7} x={860} y={1010} h={600} />
+      [t(wd(7, "adams")), <Cam dur={dur} from={1.0} to={1.05} punch={{ at: t(wd(7, "won")), frames: 6, to: 1.1, ox: "45%", oy: "45%" }}><Svg bg={<B.FederalHall />}>
+        <Swap t={t(wd(7, "won")) - t(wd(7, "adams"))} a={<Act c="john_adams" x={860} y={1010} h={600} e={3} />} b={<V c="john_adams" p={7} x={860} y={1010} h={600} />} />
         <V c="shared_props_early" p={0} x={1360} y={1010} h={250} />
         <Cheer x={620} y={300} w={520} />
       </Svg></Cam>],
     ]} />
     <Cap text="Retired · 1797" pos="top" until={t(wd(7, "adams"))} />
     <Cap text="Election of 1796" pos="top" at={t(wd(7, "election"))} />
-  </>), sfx: [[0, "whoosh", 0.06]] },
+  </>), sfx: [[Math.round((wd(7, "won") - ln(7)) * 30), "cheer", 0.1]] },
   // 8 There was one awkward detail.
   { a: ln(8), el: (t, dur) => (<>
-    <Cam dur={dur} from={1.12} to={1.16} oy="40%">
+    <Cam dur={dur} from={1.12} to={1.16} oy="40%" punch={{ at: t(wd(8, "awkward")), frames: 5, to: 1.08, ox: "50%", oy: "35%" }}>
       <Svg bg={<B.Studio v={1} art="whitehouse" />}>
         <Swap t={t(wd(8, "awkward"))} a={<Quill pose="speaking_facing_right" talk x={960} y={1010} h={720} />} b={<Quill pose="nervous_side_glance" talk x={960} y={1010} h={720} />} />
       </Svg>
@@ -123,16 +138,18 @@ export const SHOTS: Shot[] = [
   // 9 Under the original electoral system, the runner-up became vice president.
   { a: ln(9), el: (t) => (<>
     <Svg bg={<VoteBoard title="ELECTION OF 1796 · ELECTORAL VOTES" rows={[
-      { c: "john_adams", name: "JOHN ADAMS", v: 71, max: 80, role: "PRESIDENT", roleAt: t(wd(9, "runner")) - 10, roleColor: "#ffe08a" },
-      { c: "thomas_jefferson", name: "THOMAS JEFFERSON", v: 68, max: 80, role: "VICE PRESIDENT", roleAt: t(wd(9, "vice")) },
+      { c: "john_adams", name: "JOHN ADAMS", v: 71, max: 80, role: "PRESIDENT", roleAt: t(wd(9, "runner")) - 10, roleColor: "#ffe08a", e: [[0, 0], [t(wd(9, "runner")) - 6, 5]] },
+      { c: "thomas_jefferson", name: "THOMAS JEFFERSON", v: 68, max: 80, role: "VICE PRESIDENT", roleAt: t(wd(9, "vice")), e: [[0, 0], [t(wd(9, "vice")) + R, 2]] },
     ]} />} />
   </>) },
   // 10 So Adams got Thomas Jefferson, the man who had just run against him.
   { a: ln(10), el: (t, dur) => (<>
     <Cam dur={dur} from={1.0} to={1.05}>
       <Svg bg={<B.Chamber />}>
-        <Swap t={t(wd(10, "run"))} a={<V c="john_adams" p={1} x={620} y={1010} h={560} />} b={<V c="john_adams" p={8} x={620} y={1010} h={560} flip />} />
-        <V c="thomas_jefferson" p={1} x={1300} y={1010} h={580} flip at={t(wd(10, "thomas"))} enter={{ from: "right", frames: 8 }} />
+        <Swap t={t(wd(10, "run")) + R} a={<V c="john_adams" p={1} x={620} y={1010} h={560} />} b={<V c="john_adams" p={8} x={620} y={1010} h={560} flip />} />
+        <Swap t={t(wd(10, "against"))}
+          a={<V c="thomas_jefferson" p={1} x={1300} y={1010} h={580} flip at={t(wd(10, "thomas"))} enter={{ from: "right", frames: 8 }} />}
+          b={<V c="thomas_jefferson" p={10} x={1300} y={1010} h={580} flip />} />
       </Svg>
     </Cam>
   </>) },
@@ -141,18 +158,21 @@ export const SHOTS: Shot[] = [
     <Cam dur={dur} from={1.08} to={1.13} oy="50%">
       <Svg bg={<B.Chamber />}>
         <V c="john_adams" p={8} x={620} y={1010} h={560} flip />
+        <Vein x={700} y={560} at={t(wd(11, "deputy")) + R} />
         <V c="thomas_jefferson" p={10} x={1300} y={1010} h={580} flip />
         <Swap t={t(wd(11, "deputy"))} a={<Label x={1300} y={300} text="DEFEATED OPPONENT" size={40} />} b={<Label x={1300} y={300} text="DEPUTY" size={56} color="#ffe08a" />} />
-        <Quill pose="nervous_side_glance" x={170} y={1200} h={680} at={t(wd(11, "deputy"))} />
+        <Quill pose="nervous_side_glance" x={170} y={1200} h={680} at={t(wd(11, "deputy"))} enter={{ from: "bottom", frames: 9 }} />
       </Svg>
     </Cam>
   </>), sfx: [] },
   // 12 Four years later, Jefferson ran against him again.
   { a: ln(12), el: (t, dur) => (<>
-    <Cam dur={dur} from={1.0} to={1.06}>
+    <Cam dur={dur} from={1.0} to={1.06} punch={{ at: t(wd(12, "again")), frames: 6, to: 1.1, ox: "50%", oy: "50%" }}>
       <Svg bg={<B.FederalHall />}>
         <V c="john_adams" p={9} x={600} y={1010} h={580} />
-        <V c="thomas_jefferson" p={6} x={1340} y={1010} h={580} flip at={t(wd(12, "jefferson"))} />
+        <V c="thomas_jefferson" p={6} x={1340} y={1010} h={580} flip at={t(wd(12, "jefferson"))} enter={{ from: "right", frames: 7 }} />
+        <Vein x={690} y={560} at={t(wd(12, "again")) + R} />
+        <Vein x={1270} y={560} at={t(wd(12, "again")) + R + 2} />
       </Svg>
     </Cam>
     <Cap text="Election of 1800" pos="top" />
@@ -160,11 +180,15 @@ export const SHOTS: Shot[] = [
   // 13 This time Adams lost, but Jefferson still had somebody to beat.
   { a: ln(13), el: (t, dur) => (<>
     <Steps s={[
-      [0, <Cam dur={dur} from={1.04} to={1.08}><Svg bg={<B.Study sepia />}>
-        <Swap t={t(wd(13, "lost"))} a={<V c="john_adams" p={0} x={960} y={1010} h={580} />} b={<V c="john_adams" p={10} x={960} y={1010} h={580} />} />
+      [0, <Cam dur={dur} from={1.04} to={1.1} oy="45%"><Svg bg={<B.Study sepia />}>
+        <Sulk at={t(wd(13, "lost")) + R}>
+          <Act c="john_adams" x={960} y={1010} h={600} e={[[0, 0], [t(wd(13, "lost")) + R, 4]]} tears={t(wd(13, "lost")) + R + 6} />
+        </Sulk>
       </Svg></Cam>],
       [t(wd(13, "jefferson")), <Cam dur={dur} from={1.0} to={1.04}><Svg bg={<B.FederalHall />}>
-        <V c="thomas_jefferson" p={7} x={860} y={1010} h={620} />
+        <Swap t={t(wd(13, "somebody")) - t(wd(13, "jefferson")) + R}
+          a={<V c="thomas_jefferson" p={7} x={860} y={1010} h={620} />}
+          b={<V c="thomas_jefferson" p={1} x={860} y={1010} h={600} />} />
         <V c="aaron_burr" p={1} x={1820} y={1010} h={580} flip at={t(wd(13, "somebody")) - t(wd(13, "jefferson"))} enter={{ from: "right", frames: 6, dist: 300 }} />
       </Svg></Cam>],
     ]} />
@@ -174,12 +198,12 @@ export const SHOTS: Shot[] = [
     <Steps s={[
       [0, <Cam dur={dur} from={1.0} to={1.05}><Svg bg={<B.FederalHall />}>
         <V c="thomas_jefferson" p={1} x={720} y={1010} h={600} />
-        <V c="aaron_burr" p={1} x={1260} y={1010} h={580} flip />
+        <Swap t={t(wd(14, "burr")) + R} a={<V c="aaron_burr" p={1} x={1260} y={1010} h={580} flip />} b={<V c="aaron_burr" p={10} x={1260} y={1010} h={580} flip />} />
         <Label x={1260} y={330} text="RUNNING MATE" at={2} size={44} />
       </Svg></Cam>],
       [t(wd(14, "exactly")), <Svg bg={<VoteBoard title="ELECTION OF 1800 · ELECTORAL VOTES" at={0} rows={[
-        { c: "thomas_jefferson", name: "THOMAS JEFFERSON", v: 73, max: 80 },
-        { c: "aaron_burr", name: "AARON BURR", v: 73, max: 80, role: "TIE!", roleAt: t(wd(14, "votes")) - t(wd(14, "exactly")), roleColor: "#ff8a7a" },
+        { c: "thomas_jefferson", name: "THOMAS JEFFERSON", v: 73, max: 80, e: [[0, 0], [t(wd(14, "votes")) - t(wd(14, "exactly")) + R, 3]] },
+        { c: "aaron_burr", name: "AARON BURR", v: 73, max: 80, role: "TIE!", roleAt: t(wd(14, "votes")) - t(wd(14, "exactly")), roleColor: "#ff8a7a", e: [[0, 0], [t(wd(14, "votes")) - t(wd(14, "exactly")) + R, 5]] },
       ]} />} />],
     ]} />
     <Cap text="Aaron Burr" at={t(wd(14, "aaron"))} until={t(wd(14, "exactly"))} />
@@ -200,7 +224,8 @@ export const SHOTS: Shot[] = [
       <Svg bg={<HouseChamber />}>
         <V c="shared_props_early" p={2} x={960} y={1000} h={560} at={t(wd(16, "took"))} />
         <Counter a={t(wd(16, "took"))} b={t(wd(16, "ballots")) + 8} />
-        <HeadIcon c="thomas_jefferson" e={5} x={1560} y={560} size={260} at={t(wd(16, "jefferson"))} ring="#ffe08a" />
+        <HeadIcon c="aaron_burr" e={[[0, 3], [t(wd(16, "jefferson")) + R, 4]]} x={360} y={560} size={230} at={t(wd(16, "tie"))} ring="#f4f1ea" />
+        <HeadIcon c="thomas_jefferson" e={[[0, 3], [t(wd(16, "jefferson")), 5]]} x={1560} y={560} size={260} at={t(wd(16, "tie"))} ring="#ffe08a" />
         <Big x={1560} y={820} text="WINNER" size={64} at={t(wd(16, "jefferson")) + 3} />
       </Svg>
     </Cam>
@@ -210,16 +235,18 @@ export const SHOTS: Shot[] = [
   { a: ln(17), el: (t, dur) => (<>
     <Cam dur={dur} from={1.06} to={1.12} oy="45%">
       <Svg bg={<B.FederalHall />}>
-        <V c="aaron_burr" p={7} x={1060} y={1010} h={620} />
+        <Swap t={t(wd(17, "instead")) + R} a={<V c="aaron_burr" p={7} x={1060} y={1010} h={620} />} b={<V c="aaron_burr" p={9} x={1060} y={1010} h={600} />} />
         <Label x={1500} y={300} text="ALMOST PRESIDENT" to={[1180, 470]} at={t(wd(17, "almost"))} size={48} />
-        <Quill pose="nervous_side_glance" x={230} y={1200} h={680} at={t(wd(17, "running"))} />
+        <Quill pose="nervous_side_glance" x={230} y={1200} h={680} at={t(wd(17, "running"))} enter={{ from: "bottom", frames: 9 }} />
       </Svg>
     </Cam>
   </>) },
   // 18 Jefferson finally took office in 1801 and later approved the Louisiana Purchase.
   { a: ln(18), el: (t, dur) => (<>
     <Steps s={[
-      [0, <Cam dur={dur} from={1.0} to={1.05}><Svg bg={<OvalOffice />}><V c="thomas_jefferson" p={8} x={960} y={1010} h={560} /></Svg></Cam>],
+      [0, <Cam dur={dur} from={1.0} to={1.05}><Svg bg={<OvalOffice />}>
+        <Swap t={t(wd(18, "later"))} a={<Act c="thomas_jefferson" x={960} y={1010} h={600} e={5} gesture={10} stress />} b={<V c="thomas_jefferson" p={8} x={960} y={1010} h={560} />} />
+      </Svg></Cam>],
       [t(wd(18, "louisiana")), <Cam dur={dur} from={1.0} to={1.06} ox="60%"><Svg bg={<B.Study />}><V c="thomas_jefferson" p={9} x={960} y={1010} h={640} /></Svg></Cam>],
     ]} />
     <Cap text="1801" pos="top" until={t(wd(18, "louisiana"))} />
@@ -235,7 +262,9 @@ export const SHOTS: Shot[] = [
     <Steps s={[
       [0, <Svg bg={<Timeline from={1800} to={1840} drawAt={t(wd(20, "another"))} drawFrames={t(wd(20, "martin")) - t(wd(20, "another"))}
         marks={[{ year: 1800, c: "thomas_jefferson", at: 0, label: "1800" }, { year: 1836, c: "martin_van_buren", at: t(wd(20, "martin")), label: "1836" }]} />} />],
-      [t(wd(20, "1836")), <Cam dur={dur} from={1.0} to={1.05}><Svg bg={<WhiteHouseLawn />}><V c="martin_van_buren" p={0} x={960} y={1010} h={600} /></Svg></Cam>],
+      [t(wd(20, "1836")), <Cam dur={dur} from={1.0} to={1.05}><Svg bg={<WhiteHouseLawn />}>
+        <Act c="martin_van_buren" x={960} y={1010} h={600} e={5} gesture={10} stress />
+      </Svg></Cam>],
     ]} />
     <Card text="Martin Van Buren" sub="8th Vice President · 8th President" at={t(wd(20, "1836"))} />
   </>), sfx: [] },
@@ -252,11 +281,12 @@ export const SHOTS: Shot[] = [
   </>) },
   // 22 Then, just months into his presidency, the Panic of 1837 hit.
   { a: ln(22), el: (t, dur) => (<>
-    <Cam dur={dur} from={1.0} to={1.05}>
+    <Cam dur={dur} from={1.0} to={1.05} punch={{ at: t(wd(22, "hit")), frames: 5, to: 1.08, ox: "40%", oy: "50%" }}>
       <Svg bg={<B.Village />}>
-        <Swap t={t(wd(22, "panic"))} a={<V c="martin_van_buren" p={0} x={680} y={1010} h={580} />} b={<V c="martin_van_buren" p={9} x={680} y={1010} h={580} />} />
-        <V c="shared_props_early" p={6} x={1380} y={1000} h={560} shake={0} />
-        <Swap t={t(wd(22, "hit"))} a={null} b={<V c="shared_props_early" p={6} x={1380} y={1000} h={560} shake={7} />} />
+        <Swap t={t(wd(22, "hit")) + R}
+          a={<Act c="martin_van_buren" x={680} y={1010} h={580} e={[[0, 5], [t(wd(22, "panic")) + R, 3]]} sweat={t(wd(22, "panic")) + R} />}
+          b={<V c="martin_van_buren" p={9} x={680} y={1010} h={580} />} />
+        <Swap t={t(wd(22, "hit"))} a={<V c="shared_props_early" p={6} x={1380} y={1000} h={560} />} b={<V c="shared_props_early" p={6} x={1380} y={1000} h={560} shake={7} />} />
       </Svg>
     </Cam>
     <Cap text="Panic of 1837" pos="top" at={t(wd(22, "panic"))} />
@@ -268,8 +298,8 @@ export const SHOTS: Shot[] = [
         <V c="shared_props_early" p={6} x={520} y={900} h={520} shake={4} />
         <Puff x={520} y={900} at={2} />
         <Label x={520} y={250} text="FAILED" at={t(wd(23, "failed"))} size={56} color="#ffd2c8" />
-        <Label x={1050} y={420} text="COLLAPSED" at={t(wd(23, "collapsed"))} size={48} color="#ffd2c8" />
         <V c="shared_props_early" p={7} x={1050} y={900} h={300} at={t(wd(23, "businesses"))} drop={{ frames: 8, height: 700 }} />
+        <Label x={1050} y={420} text="COLLAPSED" at={t(wd(23, "collapsed"))} size={48} color="#ffd2c8" />
         <DownArrow at={t(wd(23, "depression")) - 6} x={1180} y={240} w={560} h={560} />
       </Svg>
     </Cam>
@@ -281,6 +311,7 @@ export const SHOTS: Shot[] = [
       <Svg bg={<OvalOffice />}>
         <Rig c="vp_andrew_jackson" pose="1" x={520} y={1010} h={580} flip walk={-1.2} />
         <V c="martin_van_buren" p={10} x={1260} y={1010} h={600} />
+        <Sweat x={1150} y={470} at={t(wd(24, "troubles")) + R} />
         <V c="shared_props_early" p={13} x={1640} y={1010} h={260} at={t(wd(24, "building"))} drop={{ frames: 8, height: 600 }} />
       </Svg>
     </Cam>
@@ -289,7 +320,9 @@ export const SHOTS: Shot[] = [
   { a: ln(25), el: (t, dur) => (<>
     <Cam dur={dur} from={1.04} to={1.1} oy="50%">
       <Svg bg={<OvalOffice />}>
-        <V c="martin_van_buren" p={11} x={900} y={1010} h={600} />
+        <Swap t={t(wd(25, "bill")) + R}
+          a={<Act c="martin_van_buren" x={900} y={1010} h={600} e={0} />}
+          b={<V c="martin_van_buren" p={11} x={900} y={1010} h={600} />} />
         <V c="martin_van_buren" p={31} x={1330} y={1010} h={260} at={t(wd(25, "bill"))} drop={{ frames: 8, height: 700 }} />
       </Svg>
     </Cam>
@@ -298,18 +331,20 @@ export const SHOTS: Shot[] = [
   { a: ln(26), el: (t, dur) => (<>
     <Cam dur={dur} from={1.0} to={1.04}>
       <Svg bg={<WhiteHouseLawn />}>
-        <V c="martin_van_buren" p={12} x={560} y={1010} h={580} />
+        <Sulk at={t(wd(26, "replaced")) + R}><V c="martin_van_buren" p={12} x={560} y={1010} h={580} /></Sulk>
         <Rig c="vp_william_henry_harrison" pose="1" x={2000} y={1010} h={600} flip walk={-2.2} walkUntil={t(wd(26, "harrison")) + 8} at={t(wd(26, "replaced"))} />
         <Label x={1440} y={270} text="WILLIAM HENRY HARRISON" at={t(wd(26, "william"))} size={40} />
       </Svg>
     </Cam>
     <Cap text="Election of 1840" pos="top" />
-          </>) },
+  </>) },
   // 27 Harrison's vice president was John Tyler, and Tyler's promotion came much faster.
   { a: ln(27), el: (t, dur) => (<>
     <Cam dur={dur} from={1.0} to={1.05} punch={{ at: t(wd(27, "faster")), frames: 6, to: 1.2, ox: "40%", oy: "50%" }}>
       <Svg bg={<WhiteHouseLawn />}>
-        <Swap t={t(wd(27, "faster"))} a={<V c="william_henry_harrison" p={0} x={1320} y={1010} h={600} />} b={<V c="william_henry_harrison" p={9} x={1340} y={1010} h={560} />} />
+        <Swap t={t(wd(27, "faster"))}
+          a={<Act c="william_henry_harrison" x={1320} y={1010} h={600} e={[[0, 5], [t(wd(27, "tyler")) + R, 0]]} gesture={8} stress />}
+          b={<V c="william_henry_harrison" p={9} x={1340} y={1010} h={560} />} />
         <Swap t={t(wd(27, "promotion"))}
           a={<Rig c="vp_john_tyler" pose="1" x={250} y={1010} h={600} walk={2.6} walkUntil={t(wd(27, "tyler"))} />}
           b={<V c="john_tyler" p={5} x={700} y={1010} h={600} />} />

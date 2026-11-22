@@ -2,7 +2,8 @@ import React from "react";
 import { Easing, interpolate, staticFile, useCurrentFrame } from "remotion";
 import { MONTSERRAT } from "../fonts";
 import { mouthAt } from "../Thanksgiving/LayerPuppet";
-import { PopIn, Spr, SprProps, useExportMode, useShot } from "../Thanksgiving3/Kit";
+import { PopIn, Rig, RigProps, SImg, Spr, SprProps, useExportMode, useShot } from "../Thanksgiving3/Kit";
+import VPRIG from "./vprig.json";
 import HEADS from "../Thanksgiving3/vp_heads.json";
 import META from "../Thanksgiving3/vp_sprites.json";
 
@@ -14,6 +15,7 @@ import META from "../Thanksgiving3/vp_sprites.json";
 export const INK = "#1d1712";
 const HM = HEADS as unknown as Record<string, [number, number, number, number]>;
 const MM = META as unknown as Record<string, number[]>;
+const RIGS = VPRIG as unknown as Record<string, { bodyNoHead?: string }>;
 
 /** Expression-head sprite per character: [neutral, talk, angry, shocked, sad, happy]. */
 export const HEAD: Record<string, (number | string)[]> = {
@@ -38,6 +40,8 @@ export const HEAD: Record<string, (number | string)[]> = {
   harry_truman: [12, 13, 15, 19, 12, 12],
   lyndon_johnson: [11, 12, 13, 14, 15, 16],
   gerald_ford: [12, 13, 14, 15, 16, 17],
+  john_coolidge_senior: [11, 12, 13, 14, 15, 16],
+  jacqueline_kennedy: ["head0", "head1", "head2", "head3", "head4", "head5"],
 };
 export type Expr = 0 | 1 | 2 | 3 | 4 | 5;
 
@@ -50,25 +54,69 @@ export const VH: React.FC<Omit<SprProps, "s"> & { c: string; p: number | string;
   const [x, y, w, hh] = HM[`vp/${c}/${p}|${h}`];
   return (
     <Spr s={`vp/${c}/${p}_nohead`} {...rest}>
-      <image href={staticFile(`tg2/vp/${c}/${h}.png`)} x={x} y={y} width={w} height={hh} />
+      <SImg key={staticFile(`tg2/vp/${c}/${h}.png`)} href={staticFile(`tg2/vp/${c}/${h}.png`)} x={x} y={y} width={w} height={hh} />
     </Spr>
   );
+};
+
+/** Expression timeline: a single expression, or [[frame, expr], ...] (1-frame swaps on the motivating words). */
+export type ExprTL = Expr | [number, Expr][];
+const exprAt = (tl: ExprTL, f: number): Expr => {
+  if (typeof tl === "number") return tl;
+  let e: Expr = tl[0][1];
+  for (const [t, x] of tl) if (f >= t) e = x;
+  return e;
+};
+
+/**
+ * ACTOR: a VP character performing (style bible §2): front body rigged (arms make small idle adjustments,
+ * lift on stressed VO words with `gesture`, legs walk with `walk`), the sheet's expression heads swapped on
+ * an expression timeline, blinking every 3-4.5 s, the head bobbing/tilting a touch behind the breath, and
+ * `talk` = open/closed mouth heads on 3-5 f holds (only for a character who is actually speaking/quoted).
+ */
+export const Act: React.FC<Omit<RigProps, "c" | "pose" | "overlay" | "bodyFile"> & { c: string; e?: ExprTL; talk?: boolean | [number, number]; sweat?: number; vein?: number; tears?: number }> = ({ c, e = 0, talk, sweat, vein, tears, ...rp }) => {
+  const f = useCurrentFrame();
+  const { offset, env } = useShot();
+  const seed = Math.abs(Math.round(rp.x * 7 + rp.y * 3)) % 97;
+  const ex = exprAt(e, f);
+  const talking = talk === true || (Array.isArray(talk) && f >= talk[0] && f < talk[1]);
+  const open = talking && mouthAt(f, env ?? [], offset).open;
+  const h = HEAD[c][open ? 1 : talking && ex === 1 ? 0 : ex];
+  const rect = HM[`vp/${c}/0|${h}`];
+  const blink = !open && MM[`vp/${c}/${h}__blink`] && (f + seed * 3) % (96 + (seed % 41)) < 3;
+  const pre = HEAD[c].flatMap((hh) => [staticFile(`tg2/vp/${c}/${hh}.png`), ...(MM[`vp/${c}/${hh}__blink`] ? [staticFile(`tg2/vp/${c}/${hh}__blink.png`)] : [])]);
+  const hb = Math.sin((f + seed) / 11 - 0.8) * rect[3] * 0.012;            // head follows the breath, slightly late
+  const tilt = Math.sin((f + seed) / 53) * 1.6;
+  const head = (
+    <g transform={`translate(0 ${hb}) rotate(${tilt} ${rect[0] + rect[2] / 2} ${rect[1] + rect[3] * 0.92})`}>
+      <SImg key={staticFile(`tg2/vp/${c}/${h}${blink ? "__blink" : ""}.png`)} also={pre} href={staticFile(`tg2/vp/${c}/${h}${blink ? "__blink" : ""}.png`)} x={rect[0]} y={rect[1]} width={rect[2]} height={rect[3]} />
+      {/* reaction FX ride on the head (frames are shot-relative, like `at`) */}
+      {tears !== undefined && <Tears eyes={[[rect[0] + rect[2] * 0.37, rect[1] + rect[3] * 0.56], [rect[0] + rect[2] * 0.63, rect[1] + rect[3] * 0.56]]} at={tears} len={rect[3] * 0.25} />}
+      {vein !== undefined && <Vein x={rect[0] + rect[2] * 0.86} y={rect[1] + rect[3] * 0.2} at={vein} s={rect[3] / 300} />}
+      {sweat !== undefined && <Sweat x={rect[0] + rect[2] * 0.95} y={rect[1] + rect[3] * 0.3} at={sweat} s={rect[3] / 380} />}
+    </g>
+  );
+  const rig = RIGS[`vp_${c}/0`];
+  if (rig?.bodyNoHead) return <Rig c={`vp_${c}`} pose="0" {...rp} bodyFile={rig.bodyNoHead} overlay={head} />;
+  return <Spr s={`vp/${c}/0_nohead`} x={rp.x} y={rp.y} h={rp.h} flip={rp.flip} at={rp.at} until={rp.until} enter={rp.enter} stress={rp.stress}>{head}</Spr>;
 };
 
 /* Quill is ALWAYS the original Thanksgiving Quill (Kit.Quill, public/tg2/Poses/quill): same mascot in every video. */
 
 /** Expression head as an icon (timelines, vote boards), centred at x,y, height `size`. Pops 7 f with overshoot. */
-export const HeadIcon: React.FC<{ c: string; e?: Expr; x: number; y: number; size: number; at?: number; ring?: string }> = ({ c, e = 0, x, y, size, at = 0, ring }) => {
+export const HeadIcon: React.FC<{ c: string; e?: ExprTL; x: number; y: number; size: number; at?: number; ring?: string }> = ({ c, e = 0, x, y, size, at = 0, ring }) => {
   const f = useCurrentFrame();
+  const ex = exprAt(e, f);
   if (f < at) return null;
   const p = interpolate(f - at, [0, 7], [0, 1], { extrapolateRight: "clamp", easing: Easing.out(Easing.back(2.2)) });
-  const key = `vp/${c}/${HEAD[c][e]}`;
+  const blink = MM[`vp/${c}/${HEAD[c][ex]}__blink`] && (f + x) % 113 < 3;
+  const key = `vp/${c}/${HEAD[c][ex]}${blink ? "__blink" : ""}`;
   const [, , w, h] = MM[key];
   const k = size / h;
   return (
     <g transform={`translate(${x} ${y}) scale(${p})`}>
       {ring && <circle r={size * 0.62} fill={ring} stroke={INK} strokeWidth={8} />}
-      <image href={staticFile(`tg2/${key}.png`)} x={(-w * k) / 2} y={-size / 2} width={w * k} height={size} />
+      <SImg key={staticFile(`tg2/${key}.png`)} href={staticFile(`tg2/${key}.png`)} x={(-w * k) / 2} y={-size / 2} width={w * k} height={size} />
     </g>
   );
 };
@@ -135,7 +183,7 @@ export const DownArrow: React.FC<{ at: number; x?: number; y?: number; w?: numbe
 };
 
 /** Electoral-vote board on a dark-teal plate: head icon + name + bar growing over 12 f + role tag. */
-export const VoteBoard: React.FC<{ title: string; rows: { c: string; name: string; v: number; max: number; role?: string; roleAt?: number; roleColor?: string }[]; at?: number }> = ({ title, rows, at = 0 }) => {
+export const VoteBoard: React.FC<{ title: string; rows: { c: string; name: string; v: number; max: number; role?: string; roleAt?: number; roleColor?: string; e?: ExprTL }[]; at?: number }> = ({ title, rows, at = 0 }) => {
   const f = useCurrentFrame();
   return (
     <g>
@@ -149,7 +197,7 @@ export const VoteBoard: React.FC<{ title: string; rows: { c: string; name: strin
         const W = 1000 * (r.v / r.max);
         return (
           <g key={i}>
-            <HeadIcon c={r.c} x={300} y={y} size={220} at={at + i * 4} ring="#f4f1ea" />
+            <HeadIcon c={r.c} e={r.e ?? 0} x={300} y={y} size={220} at={at + i * 4} ring="#f4f1ea" />
             <text x={470} y={y - 50} fontFamily={MONTSERRAT} fontWeight={800} fontSize={58} fill="#fff" stroke={INK} strokeWidth={7} paintOrder="stroke">{r.name}</text>
             <rect x={470} y={y - 20} width={W * g} height={90} rx={12} fill="#e9b23c" stroke={INK} strokeWidth={7} />
             <text x={470 + W * g + 30} y={y + 50} fontFamily={MONTSERRAT} fontWeight={800} fontSize={70} fill="#fff" stroke={INK} strokeWidth={8} paintOrder="stroke" opacity={g}>{Math.round(r.v * g)}</text>
@@ -352,4 +400,36 @@ export const Splat: React.FC<{ x: number; y: number; at: number; r?: number }> =
   if (f < 0 || f > 5) return null;
   const pts = Array.from({ length: 16 }, (_, i) => { const a = (i / 16) * Math.PI * 2, k = i % 2 ? 0.45 : 1; return `${i ? "L" : "M"} ${(Math.cos(a) * r * k).toFixed(1)} ${(Math.sin(a) * r * k).toFixed(1)}`; }).join(" ") + " Z";
   return <path transform={`translate(${x} ${y}) rotate(${f * 9})`} d={pts} fill="#e02b2b" stroke={INK} strokeWidth={6} strokeLinejoin="round" />;
+};
+
+/** Red anger-vein cross on the temple (style bible §2.2), pops in and throbs on 2s. */
+export const Vein: React.FC<{ x: number; y: number; at?: number; s?: number }> = ({ x, y, at = 0, s = 1 }) => {
+  const f = useCurrentFrame();
+  if (f < at) return null;
+  const k = s * (Math.floor((f - at) / 2) % 2 ? 1.08 : 1) * interpolate(f - at, [0, 4], [0, 1], { extrapolateRight: "clamp" });
+  return (
+    <g transform={`translate(${x} ${y}) scale(${k})`} fill="none" stroke="#e02b2b" strokeWidth={9} strokeLinecap="round">
+      {[0, 90, 180, 270].map((r) => <path key={r} transform={`rotate(${r})`} d="M 8 -30 Q 6 -10 26 -8" />)}
+    </g>
+  );
+};
+
+/** Light-blue tear streaks under both eyes (sad / crying). `eyes` = the two eye points. */
+export const Tears: React.FC<{ eyes: [[number, number], [number, number]]; at?: number; len?: number }> = ({ eyes, at = 0, len = 60 }) => {
+  const f = useCurrentFrame();
+  if (f < at) return null;
+  const l = Math.min(len, (f - at) * 6);
+  return <g fill="#8fd0f2" stroke={INK} strokeWidth={4}>{eyes.map(([x, y], i) => <rect key={i} x={x - 7} y={y} width={14} height={l} rx={7} />)}</g>;
+};
+
+/** Sulking / excluded: the wrapped character tinted grey-purple, 1-frame swap at `at`. */
+export const Sulk: React.FC<{ at: number; children: React.ReactNode }> = ({ at, children }) => {
+  const f = useCurrentFrame();
+  if (f < at) return <>{children}</>;
+  return (
+    <g filter="url(#vp-sulk)">
+      <filter id="vp-sulk"><feColorMatrix type="matrix" values="0.28 0.28 0.28 0 0.06  0.24 0.24 0.24 0 0.03  0.32 0.32 0.32 0 0.12  0 0 0 1 0" /></filter>
+      {children}
+    </g>
+  );
 };
