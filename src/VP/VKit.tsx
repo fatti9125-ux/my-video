@@ -26,11 +26,34 @@ export const HEAD: Record<string, (number | string)[]> = {
   andrew_jackson: [11, 12, 13, 14, 15, 16],
   william_henry_harrison: [11, 12, 13, 14, 15, 16],
   john_tyler: [12, 13, 14, 15, 16, 17],
+  millard_fillmore: [11, 12, 13, 14, 15, 16],
+  zachary_taylor: [11, 12, 13, 14, 15, 16],
+  andrew_johnson: ["head0", "head1", "head2", "head3", "head4", "head5"],
+  abraham_lincoln: [11, 12, 13, 14, 15, 16],
+  chester_arthur: ["h_neutral", "h_talk", "h_angry", "h_shock", "h_sad", "h_happy"],
+  james_garfield: [10, 11, 12, "head0", "head1", "head2"],
+  garfield_attacker: [11, 12, 13, 14, 15, 16],
+  theodore_roosevelt: [14, 15, 16, 17, 18, 19],
+  calvin_coolidge: [11, 12, 13, 14, 15, 16],
+  harry_truman: [12, 13, 15, 19, 12, 12],
+  lyndon_johnson: [11, 12, 13, 14, 15, 16],
+  gerald_ford: [12, 13, 14, 15, 16, 17],
 };
 export type Expr = 0 | 1 | 2 | 3 | 4 | 5;
 
 /** A VP-sheet sprite: character `c`, sheet part `p` (pose number or name). */
 export const V: React.FC<Omit<SprProps, "s"> & { c: string; p: number | string }> = ({ c, p, ...rest }) => <Spr s={`vp/${c}/${p}`} {...rest} />;
+
+/** Character body with its head swapped for an expression head (fitted by head_fit.py into vp_heads.json). */
+export const VH: React.FC<Omit<SprProps, "s"> & { c: string; p: number | string; e: Expr }> = ({ c, p, e, ...rest }) => {
+  const h = HEAD[c][e];
+  const [x, y, w, hh] = HM[`vp/${c}/${p}|${h}`];
+  return (
+    <Spr s={`vp/${c}/${p}_nohead`} {...rest}>
+      <image href={staticFile(`tg2/vp/${c}/${h}.png`)} x={x} y={y} width={w} height={hh} />
+    </Spr>
+  );
+};
 
 /** Quill (front pose, head swapped): beak closed in story scenes; `talk` lip-syncs to the VO in 3-5 f holds. */
 export const Quill: React.FC<Omit<SprProps, "s"> & { talk?: boolean; e?: Expr }> = ({ talk, e = 0, ...p }) => {
@@ -249,4 +272,96 @@ export const Ballot: React.FC<{ x: number; y: number; lines: string[]; at?: numb
       })}
     </g>
   );
+};
+
+// ------------------------------------------------------------------------------------------------
+// US map (style bible: mottled blue water, beige land, white coastline rings, red/colour region fills)
+// ------------------------------------------------------------------------------------------------
+const PX = (lon: number, lat: number): [number, number] => [(lon + 126) * 27.5 + 130, (50.5 - lat) * 33 + 120];
+const poly = (pts: [number, number][]) => pts.map(([lo, la], i) => `${i ? "L" : "M"} ${PX(lo, la).join(" ")}`).join(" ") + " Z";
+const US: [number, number][] = [[-124.7, 48.4], [-123.9, 46.2], [-124.2, 42], [-124.2, 40.4], [-122.4, 37.8], [-120.6, 34.6], [-117.1, 32.5], [-114.7, 32.7], [-111, 31.3], [-108.2, 31.3], [-106.5, 31.8], [-104.5, 29.6], [-103, 29], [-101.4, 29.8], [-99.5, 27.5], [-97.4, 25.9], [-97.4, 27.8], [-94.7, 29.4], [-93.8, 29.7], [-90, 29.2], [-89.4, 30.1], [-88, 30.4], [-85, 29.7], [-83, 29], [-82.7, 27.8], [-81.7, 25.9], [-80.1, 25.8], [-80, 27], [-80.6, 28.5], [-81.4, 30.7], [-80.9, 32], [-79, 33.6], [-77.9, 34.1], [-75.5, 35.2], [-76, 37], [-75.9, 38.3], [-74.9, 38.9], [-74, 40.5], [-72, 41], [-70, 41.6], [-70.6, 42.6], [-70.2, 43.7], [-67, 44.8], [-67.8, 47.1], [-69.2, 47.4], [-71, 45], [-74.9, 45], [-76.8, 43.6], [-79, 43.3], [-79.1, 42.9], [-82.5, 41.7], [-83.1, 42.1], [-82.4, 43], [-82.5, 45.3], [-84.6, 46.4], [-88.4, 48.3], [-89.5, 48], [-94.6, 48.7], [-95.2, 49], [-123.3, 49]];
+export const REGIONS: Record<string, [number, number][]> = {
+  cession: [[-124.2, 42], [-104.5, 42], [-105.8, 38], [-106.5, 35.5], [-106.6, 32], [-114.7, 32.7], [-117.1, 32.5], [-120.6, 34.6], [-122.4, 37.8], [-124.2, 40.4]],
+  california: [[-124.2, 42], [-120, 42], [-120, 39], [-114.6, 35], [-114.7, 32.7], [-117.1, 32.5], [-120.6, 34.6], [-122.4, 37.8], [-124.2, 40.4]],
+  free: [[-95.2, 49], [-95.6, 40.6], [-91.4, 40.4], [-89.1, 37], [-84.8, 39.1], [-80.5, 39.7], [-75.7, 39.7], [-74.9, 38.9], [-74, 40.5], [-72, 41], [-70, 41.6], [-70.6, 42.6], [-70.2, 43.7], [-67, 44.8], [-67.8, 47.1], [-69.2, 47.4], [-71, 45], [-74.9, 45], [-76.8, 43.6], [-79, 43.3], [-79.1, 42.9], [-82.5, 41.7], [-83.1, 42.1], [-82.4, 43], [-82.5, 45.3], [-84.6, 46.4], [-88.4, 48.3], [-89.5, 48], [-94.6, 48.7]],
+};
+export const mapXY = PX;
+/** US map plate; `fills` = [region, colour, frame it cross-fades in over 8 f]; `tint` = whole land colour fade. */
+export const USMap: React.FC<{ fills?: [string, string, number][]; tint?: [string, number]; pins?: { lon: number; lat: number; at: number; name?: string }[] }> = ({ fills = [], tint, pins = [] }) => {
+  const f = useCurrentFrame();
+  const fade = (at: number) => interpolate(f - at, [0, 8], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  return (
+    <g>
+      <rect width={1920} height={1080} fill="#3d7fb3" />
+      {Array.from({ length: 40 }, (_, i) => <circle key={i} cx={(i * 397) % 1920} cy={(i * 251) % 1080} r={90 + (i % 5) * 30} fill="#4a8cc0" opacity={0.35} />)}
+      <path d={poly(US)} fill="none" stroke="#fff" strokeWidth={36} opacity={0.25} strokeLinejoin="round" />
+      <path d={poly(US)} fill="#e9dcb6" stroke="#fff" strokeWidth={12} strokeLinejoin="round" />
+      {tint && <path d={poly(US)} fill={tint[0]} opacity={0.75 * fade(tint[1])} />}
+      {fills.map(([r, c, at], i) => <path key={i} d={poly(REGIONS[r])} fill={c} opacity={0.9 * fade(at)} stroke={INK} strokeWidth={4} strokeDasharray="14 10" />)}
+      <path d={poly(US)} fill="none" stroke={INK} strokeWidth={5} strokeLinejoin="round" />
+      {pins.map((p, i) => f >= p.at && (
+        <g key={i} transform={`translate(${PX(p.lon, p.lat).join(" ")})`}>
+          <path d="M 0 0 C -30 -36 -30 -76 0 -76 C 30 -76 30 -36 0 0 Z" fill="#e02b2b" stroke={INK} strokeWidth={6} /><circle cy={-50} r={11} fill="#fff" />
+          {p.name && <text y={56} textAnchor="middle" fontFamily={MONTSERRAT} fontWeight={800} fontSize={46} fill="#fff" stroke={INK} strokeWidth={8} paintOrder="stroke">{p.name}</text>}
+        </g>
+      ))}
+    </g>
+  );
+};
+
+/** Plain vote bars (no head icons) on the dark-teal plate, with an optional gap marker between two rows. */
+export const Bars: React.FC<{ title: string; rows: { name: string; v: number; color?: string }[]; max: number; at?: number; gap?: { text: string; at: number } }> = ({ title, rows, max, at = 0, gap }) => {
+  const f = useCurrentFrame();
+  return (
+    <g>
+      <rect width={1920} height={1080} fill="#1f4a4f" />
+      <text x={960} y={160} textAnchor="middle" fontFamily={MONTSERRAT} fontWeight={800} fontSize={70} fill="#fff" stroke={INK} strokeWidth={8} paintOrder="stroke">{title}</text>
+      {rows.map((r, i) => {
+        const y = 400 + i * 260;
+        const g = interpolate(f - at - 3 - i * 5, [0, 12], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: Easing.out(Easing.cubic) });
+        const W = 1300 * (r.v / max);
+        return (
+          <g key={i}>
+            <text x={260} y={y - 40} fontFamily={MONTSERRAT} fontWeight={800} fontSize={58} fill="#fff" stroke={INK} strokeWidth={7} paintOrder="stroke">{r.name}</text>
+            <rect x={260} y={y - 10} width={W * g} height={100} rx={12} fill={r.color ?? "#e9b23c"} stroke={INK} strokeWidth={7} />
+            <text x={260 + W * g + 30} y={y + 66} fontFamily={MONTSERRAT} fontWeight={800} fontSize={76} fill="#fff" stroke={INK} strokeWidth={8} paintOrder="stroke" opacity={g}>{Math.round(r.v * g)}</text>
+          </g>
+        );
+      })}
+      {gap && <Big x={960} y={1000} text={gap.text} at={gap.at} size={70} fill="#ff8a7a" />}
+    </g>
+  );
+};
+
+/** Speech bubble above a speaker (bubble bottom well above the hair), tail to the mouth, text types on at 15 cps. */
+export const Bubble: React.FC<{ x: number; y: number; w: number; text: string; at?: number; tail: [number, number]; shout?: boolean; size?: number }> = ({ x, y, w, text, at = 0, tail, shout, size = 50 }) => {
+  const f = useCurrentFrame();
+  if (f < at) return null;
+  const p = interpolate(f - at, [0, 4], [0, 1], { extrapolateRight: "clamp", easing: Easing.out(Easing.back(1.6)) });
+  const n = Math.floor(((f - at) / 30) * 15);
+  const words = text.slice(0, n);
+  const lines: string[] = [];
+  let cur = "";
+  for (const wd of words.split(" ")) { if ((cur + " " + wd).length * size * 0.62 > w - 60 && cur) { lines.push(cur); cur = wd; } else cur = cur ? cur + " " + wd : wd; }
+  if (cur) lines.push(cur);
+  const h = Math.max(1, Math.ceil((text.length * size * 0.62) / (w - 60))) * size * 1.2 + 60;
+  const shape = shout
+    ? Array.from({ length: 22 }, (_, i) => { const a = (i / 22) * Math.PI * 2, r = i % 2 ? 1 : 1.13; return `${i ? "L" : "M"} ${(Math.cos(a) * w * 0.55 * r).toFixed(1)} ${(Math.sin(a) * h * 0.62 * r).toFixed(1)}`; }).join(" ") + " Z"
+    : `M ${-w / 2} ${-h / 2} h ${w} v ${h} h ${-w} Z`;
+  return (
+    <g transform={`translate(${x} ${y}) scale(${p})`}>
+      <path d={`M ${-30} ${h / 2 - 4} L ${tail[0] - x} ${tail[1] - y} L ${30} ${h / 2 - 4} Z`} fill="#fff" stroke={INK} strokeWidth={7} strokeLinejoin="round" />
+      <path d={shape} fill="#fff" stroke={INK} strokeWidth={7} strokeLinejoin="round" rx={30} />
+      <rect x={-36} y={h / 2 - 14} width={72} height={20} fill="#fff" />
+      {lines.map((l, i) => <text key={i} y={-h / 2 + 40 + size * 0.9 + i * size * 1.2} textAnchor="middle" fontFamily={MONTSERRAT} fontWeight={800} fontSize={size} fill={INK}>{l}</text>)}
+    </g>
+  );
+};
+
+/** Red spiky impact splat (4-5 f) - style bible war FX, used for the shot. */
+export const Splat: React.FC<{ x: number; y: number; at: number; r?: number }> = ({ x, y, at, r = 110 }) => {
+  const f = useCurrentFrame() - at;
+  if (f < 0 || f > 5) return null;
+  const pts = Array.from({ length: 16 }, (_, i) => { const a = (i / 16) * Math.PI * 2, k = i % 2 ? 0.45 : 1; return `${i ? "L" : "M"} ${(Math.cos(a) * r * k).toFixed(1)} ${(Math.sin(a) * r * k).toFixed(1)}`; }).join(" ") + " Z";
+  return <path transform={`translate(${x} ${y}) rotate(${f * 9})`} d={pts} fill="#e02b2b" stroke={INK} strokeWidth={6} strokeLinejoin="round" />;
 };
