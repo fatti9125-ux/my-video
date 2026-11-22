@@ -2,7 +2,7 @@ import React from "react";
 import * as B from "../Thanksgiving/Backgrounds";
 import { OvalOffice, WhiteHouseLawn } from "../Thanksgiving3/Bg2";
 import { Episode, epDuration, makeAlign, Shot, Steps, Svg, Swap } from "../Thanksgiving3/Episode";
-import { Cam, Cap, Card, QMarks, Stamp } from "../Thanksgiving3/Kit";
+import { Cam, Cap, Card, QMarks, Stamp, Quill } from "../Thanksgiving3/Kit";
 import { Bars, Big, Bubble, HeadIcon, HouseChamber, Label, Splat, Sweat, USMap, V, VH } from "./VKit";
 import DATA from "./ep/vp2.json";
 
@@ -70,8 +70,7 @@ export const SHOTS: Shot[] = [
       <Svg bg={<B.Chamber />}>
         <V c="john_tyler" p={8} x={1100} y={1010} h={600} />
         <Label x={1100} y={260} text="WHIG PARTY MEMBER" at={t(wd(4, "party"))} size={46} />
-        <V c="quill" p={5} x={230} y={1180} h={600} at={t(wd(4, "regretted"))} />
-        <Sweat x={380} y={760} at={t(wd(4, "having"))} s={0.8} />
+        <Quill pose="nervous_side_glance" x={230} y={1200} h={680} at={t(wd(4, "regretted"))} />
       </Svg>
     </Cam>
   </>) },
@@ -232,7 +231,7 @@ export const SHOTS: Shot[] = [
       <Svg bg={<WhiteHouseLawn />}>
         <Swap t={t(wd(19, "survived"))} a={<V c="andrew_johnson" p={10} x={860} y={1010} h={600} />} b={<V c="andrew_johnson" p={11} x={860} y={1010} h={600} />} />
         <Label x={1440} y={330} text="SAVED BY 1 VOTE" at={t(wd(19, "single"))} size={50} color="#c9f2b8" />
-        <V c="quill" p={5} x={230} y={1180} h={600} at={t(wd(19, "vote"))} />
+        <Quill pose="nervous_side_glance" x={230} y={1200} h={680} at={t(wd(19, "vote"))} />
       </Svg>
     </Cam>
   </>) },

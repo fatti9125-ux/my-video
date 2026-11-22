@@ -3,8 +3,8 @@ import { interpolate, useCurrentFrame } from "remotion";
 import * as B from "../Thanksgiving/Backgrounds";
 import { OvalOffice, WhiteHouseLawn } from "../Thanksgiving3/Bg2";
 import { Episode, epDuration, makeAlign, Shot, Steps, Svg, Swap } from "../Thanksgiving3/Episode";
-import { Arch, Cam, Cap, Card, Cheer, PopIn, Puff, QMarks, Rig } from "../Thanksgiving3/Kit";
-import { Ballot, Big, DownArrow, HeadIcon, HouseChamber, INK, Label, LampGlow, Parlor, PlaneCabin, Quill, Sweat, V, VoteBoard, Timeline } from "./VKit";
+import { Arch, Cam, Cap, Card, Cheer, PopIn, Puff, QMarks, Rig, Quill } from "../Thanksgiving3/Kit";
+import { Ballot, Big, DownArrow, HeadIcon, HouseChamber, INK, Label, LampGlow, Parlor, PlaneCabin, Sweat, V, VoteBoard, Timeline } from "./VKit";
 import DATA from "./ep/vp1.json";
 
 /**
@@ -116,8 +116,7 @@ export const SHOTS: Shot[] = [
   { a: ln(8), el: (t, dur) => (<>
     <Cam dur={dur} from={1.12} to={1.16} oy="40%">
       <Svg bg={<B.Studio v={1} art="whitehouse" />}>
-        <Quill x={960} y={1010} h={600} talk />
-        <Sweat x={1150} y={430} at={t(wd(8, "awkward"))} />
+        <Swap t={t(wd(8, "awkward"))} a={<Quill pose="speaking_facing_right" talk x={960} y={1010} h={720} />} b={<Quill pose="nervous_side_glance" talk x={960} y={1010} h={720} />} />
       </Svg>
     </Cam>
   </>) },
@@ -144,7 +143,7 @@ export const SHOTS: Shot[] = [
         <V c="john_adams" p={8} x={620} y={1010} h={560} flip />
         <V c="thomas_jefferson" p={10} x={1300} y={1010} h={580} flip />
         <Swap t={t(wd(11, "deputy"))} a={<Label x={1300} y={300} text="DEFEATED OPPONENT" size={40} />} b={<Label x={1300} y={300} text="DEPUTY" size={56} color="#ffe08a" />} />
-        <V c="quill" p={5} x={170} y={1180} h={560} at={t(wd(11, "deputy"))} />
+        <Quill pose="nervous_side_glance" x={170} y={1200} h={680} at={t(wd(11, "deputy"))} />
       </Svg>
     </Cam>
   </>), sfx: [] },
@@ -213,8 +212,7 @@ export const SHOTS: Shot[] = [
       <Svg bg={<B.FederalHall />}>
         <V c="aaron_burr" p={7} x={1060} y={1010} h={620} />
         <Label x={1500} y={300} text="ALMOST PRESIDENT" to={[1180, 470]} at={t(wd(17, "almost"))} size={48} />
-        <V c="quill" p={5} x={230} y={1180} h={600} at={t(wd(17, "running"))} />
-        <Sweat x={380} y={760} at={t(wd(17, "intended"))} s={0.8} />
+        <Quill pose="nervous_side_glance" x={230} y={1200} h={680} at={t(wd(17, "running"))} />
       </Svg>
     </Cam>
   </>) },

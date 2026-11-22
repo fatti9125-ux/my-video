@@ -55,19 +55,7 @@ export const VH: React.FC<Omit<SprProps, "s"> & { c: string; p: number | string;
   );
 };
 
-/** Quill (front pose, head swapped): beak closed in story scenes; `talk` lip-syncs to the VO in 3-5 f holds. */
-export const Quill: React.FC<Omit<SprProps, "s"> & { talk?: boolean; e?: Expr }> = ({ talk, e = 0, ...p }) => {
-  const f = useCurrentFrame();
-  const { offset, env } = useShot();
-  const open = talk && mouthAt(f, env ?? [], offset).open;
-  const h = HEAD.quill[open ? 1 : e];
-  const [x, y, w, hh] = HM[`vp/quill/0|${h}`];
-  return (
-    <Spr s="vp/quill/0_nohead" stress={talk} {...p}>
-      <image href={staticFile(`tg2/vp/quill/${h}.png`)} x={x} y={y} width={w} height={hh} />
-    </Spr>
-  );
-};
+/* Quill is ALWAYS the original Thanksgiving Quill (Kit.Quill, public/tg2/Poses/quill): same mascot in every video. */
 
 /** Expression head as an icon (timelines, vote boards), centred at x,y, height `size`. Pops 7 f with overshoot. */
 export const HeadIcon: React.FC<{ c: string; e?: Expr; x: number; y: number; size: number; at?: number; ring?: string }> = ({ c, e = 0, x, y, size, at = 0, ring }) => {

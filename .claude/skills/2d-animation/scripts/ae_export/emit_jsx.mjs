@@ -126,6 +126,15 @@ for (const l of L.layers.sort((p, q) => p.z - q.z)) {
     if (l.drop) body.push(`  easeOut(${pos}, key(${pos}, ${l.at}, ${J([P[0], r2(P[1] - l.drop.height)])})); key(${pos}, ${l.at + l.drop.frames}, ${J(P)});`);
     if (l.walk) body.push(`  key(${pos}, ${a}, ${J([r2(P[0] + l.walk * (a - l.at)), P[1]])}); key(${pos}, ${b}, ${J([r2(P[0] + l.walk * (b - l.at)), P[1]])});`);
     if (l.shake) body.push(`  ${pos}.expression = "var f = timeToFrames(time); value + [Math.sin(f * 2.3) * ${l.shake}, Math.cos(f * 3.1) * ${l.shake * 0.4}]";`);
+    if (l.alt) {
+      // Quill's open-beak drawing: same size/registration as the closed one, swapped on held 3-5 f blocks
+      const af = copy(l.alt.file);
+      body.push(`  (function(){ var o = add(F(${J(af)}), ${a}, ${b}, ${J("beak open " + l.name)}); o.transform.anchorPoint.setValue([0,0]); o.setParentWithJump(l);
+    o.transform.position.setValue([0,0]); o.transform.scale.setValue([100,100]); o.transform.rotation.setValue(0); var op = o.transform.opacity, bp = l.transform.opacity;`);
+      let prev = -1;
+      l.alt.open.forEach((v, j) => { if (v !== prev) { body.push(`    key(op, ${l.alt.from + j}, ${v ? 100 : 0}, true); key(bp, ${l.alt.from + j}, ${v ? 0 : 100}, true);`); prev = v; } });
+      body.push(`  })();`);
+    }
     if (l.heads) {
       // Quill: neutral/expression head + open-beak head, parented to the body, beak open on held 3-5 f blocks
       l.heads.forEach((h, i) => {

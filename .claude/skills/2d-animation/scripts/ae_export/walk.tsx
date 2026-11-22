@@ -80,6 +80,20 @@ export const walk = (SHOTS: E.Shot[], D: E.EpData) => {
         if (p.drop) auto((p.at ?? 0) + p.drop.frames - 1, "thud", 0.12);
         return;
       }
+      if (ty === K.Quill) {                                                                // the original mascot: pose sprites, beak swap
+        const w = span(p.at, p.until); if (!w) return;
+        const talkable = ["speaking_facing_right", "deadpan_wings_folded", "nervous_side_glance", "scoreboard_facing_left", "pardon_plea"].includes(p.pose);
+        const key = talkable ? `Poses/quill/${p.pose}__closed` : `Poses/quill/${p.pose}`;
+        const L: any = { z: z++, kind: "spr", name: `quill/${p.pose}`, file: src(key), meta: M[key], x: p.x, y: p.y, h: p.h, flip: !!p.flip, shot: si, s0,
+          win: [s0 + w[0], s0 + w[1]], at: s0 + (p.at ?? 0), enter: p.enter ?? null, drop: null, walk: 0, shake: 0, cam };
+        if (talkable && p.talk) {
+          L.alt = { file: src(`Poses/quill/${p.pose}__open`), open: [] as number[], from: s0 + w[0] };
+          for (let f = w[0]; f < w[1]; f++) L.alt.open.push(mouthAt(f, D.env, shot.a).open ? 1 : 0);
+        }
+        out.layers.push(L);
+        if (p.enter) auto(p.at ?? 0, "whoosh", 0.1);
+        return;
+      }
       if (ty === K.Rig) {
         const w = span(p.at, p.until); if (!w) return;
         const key = `${p.c}/${p.pose}`, sk = p.c.startsWith("vp_") ? `vp/${p.c.slice(3)}/${p.pose}` : `Poses/${key}`;
