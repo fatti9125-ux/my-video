@@ -37,11 +37,16 @@ export const HEAD: Record<string, (number | string)[]> = {
   garfield_attacker: [11, 12, 13, 14, 15, 16],
   theodore_roosevelt: [14, 15, 16, 17, 18, 19],
   calvin_coolidge: [11, 12, 13, 14, 15, 16],
-  harry_truman: [12, 13, 15, 19, 12, 12],
+  harry_truman: [12, 19, 13, "head0", "head1", 15],
   lyndon_johnson: [11, 12, 13, 14, 15, 16],
   gerald_ford: [12, 13, 14, 15, 16, 17],
   john_coolidge_senior: [11, 12, 13, 14, 15, 16],
   jacqueline_kennedy: ["head0", "head1", "head2", "head3", "head4", "head5"],
+  william_mckinley: [11, 12, 13, 14, 15, 16],
+  warren_harding: [11, 12, 13, 14, 15, 16],
+  thomas_dewey: [12, 13, 14, 15, 16, 17],
+  thomas_platt: [10, 11, 12, 13, 14, 15],
+  franklin_roosevelt: [11, 12, 13, 14, 15, 16],
 };
 export type Expr = 0 | 1 | 2 | 3 | 4 | 5;
 
@@ -323,7 +328,7 @@ export const REGIONS: Record<string, [number, number][]> = {
 };
 export const mapXY = PX;
 /** US map plate; `fills` = [region, colour, frame it cross-fades in over 8 f]; `tint` = whole land colour fade. */
-export const USMap: React.FC<{ fills?: [string, string, number][]; tint?: [string, number]; pins?: { lon: number; lat: number; at: number; name?: string }[] }> = ({ fills = [], tint, pins = [] }) => {
+export const USMap: React.FC<{ fills?: [string, string, number][]; tint?: [string, number]; pins?: { lon: number; lat: number; at: number; name?: string; dy?: number }[] }> = ({ fills = [], tint, pins = [] }) => {
   const f = useCurrentFrame();
   const fade = (at: number) => interpolate(f - at, [0, 8], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
   return (
@@ -338,7 +343,7 @@ export const USMap: React.FC<{ fills?: [string, string, number][]; tint?: [strin
       {pins.map((p, i) => f >= p.at && (
         <g key={i} transform={`translate(${PX(p.lon, p.lat).join(" ")})`}>
           <path d="M 0 0 C -30 -36 -30 -76 0 -76 C 30 -76 30 -36 0 0 Z" fill="#e02b2b" stroke={INK} strokeWidth={6} /><circle cy={-50} r={11} fill="#fff" />
-          {p.name && <text y={56} textAnchor="middle" fontFamily={MONTSERRAT} fontWeight={800} fontSize={46} fill="#fff" stroke={INK} strokeWidth={8} paintOrder="stroke">{p.name}</text>}
+          {p.name && <text y={p.dy ?? 56} textAnchor="middle" fontFamily={MONTSERRAT} fontWeight={800} fontSize={46} fill="#fff" stroke={INK} strokeWidth={8} paintOrder="stroke">{p.name}</text>}
         </g>
       ))}
     </g>
