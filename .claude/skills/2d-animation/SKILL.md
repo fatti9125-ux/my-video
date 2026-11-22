@@ -110,6 +110,9 @@ This repo is a **Remotion** project (`src/Root.tsx`, 1920×1080 @ 30 fps).
    - Walks: `RIG_SCALE=3 autorig_sticks.py public tg2/vpsel src/VP/vprig.json` on copies named `vp_<char>/<n>.png`; use `<Rig c="vp_<char>" pose="1" walk>`. Match a walk's travel to where the next pose stands (no jumps).
    - Studio for non-Thanksgiving films: `<B.Studio art="whitehouse" />` (no turkey portrait). 1920s Avenue has cars: never use it before 1900.
 
+26. **VO envelope is 0..9.** `mouthAt()` treats a 3-5 f block averaging ≥3 as voiced, so `ep/<k>.json` `env` must be integers 0..9 (`scripts/ep_env.py` writes it). A 0..1 envelope silently keeps every talking mouth/beak shut: after building an ep, check `sum(env>=3)/len ≈ 0.7`.
+27. **Editable project export.** Every finished part also gets an After Effects package (`scripts/ae_export`): a `.jsx` that rebuilds the comp with native layers (backgrounds, each character pose, rig limbs with walk expressions, captions/labels as text, camera nulls, VO and each SFX). Keep it saved; hand it over only when the user asks.
+
 ## Attachment rule: nothing floats (every character, body part and prop)
 
 Every body part must stay visibly connected to its parent in **every frame**: at rest, at the extremes of every motion, and in every in-between.

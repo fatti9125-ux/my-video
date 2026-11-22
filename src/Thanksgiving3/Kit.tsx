@@ -28,6 +28,12 @@ const FPS = 30;
 export const ShotCtx = createContext<{ offset: number; env?: number[]; stress?: number[]; sfx?: [number, string, number?][] }>({ offset: 0 });
 export const useShot = () => useContext(ShotCtx);
 
+/** Layer-pass rendering for the After Effects export: "bg" = backgrounds/graphics plates only,
+ *  "fx" = transparent overlay of the drawn FX/graphics only. Characters, captions, labels and
+ *  camera moves are rebuilt natively in AE, so here they are hidden / unmoved. */
+export const ExportMode = createContext<"normal" | "bg" | "fx">("normal");
+export const useExportMode = () => useContext(ExportMode);
+
 /** Automatic SFX for a visual event (pop-ins, tags, drops, entrances, notes): plays at `at` unless the
  *  shot already has an explicit sfx within ±5 frames (so nothing doubles). Quiet: ≤0.12. */
 const AutoSfx: React.FC<{ at: number; name: string; vol: number }> = ({ at, name, vol }) => {
@@ -80,6 +86,8 @@ export type SprProps = {
 
 export const Spr: React.FC<SprProps> = ({ s, x, y, h, flip, at = 0, until, enter, stress, walk, drop, shake = 0, opacity = 1, children }) => {
   const f = useCurrentFrame();
+  const xm = useExportMode();
+  if (xm !== "normal") return null;
   const { offset, stress: stressArr } = useShot();
   if (f < at || (until !== undefined && f >= until)) return null;
   const m = M[s];
@@ -137,6 +145,8 @@ export const Cam: React.FC<{ dur: number; from?: number; to?: number; ox?: strin
   punch?: { at: number; frames: number; to: number; ox?: string; oy?: string }; children: React.ReactNode }> =
   ({ dur, from = 1, to = 1.045, ox = "50%", oy = "55%", panX = 0, punch, children }) => {
     const f = useCurrentFrame();
+    const xm = useExportMode();
+    if (xm !== "normal") return <AbsoluteFill>{children}</AbsoluteFill>;
     let s = interpolate(f, [0, dur], [from, to], { extrapolateRight: "clamp" });
     let o = `${ox} ${oy}`;
     if (punch && f >= punch.at) {
@@ -156,6 +166,7 @@ const outline = "-2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #
 /** Fact caption: white ExtraBold caps, thin black outline + shadow, HARD on/off. */
 export const Cap: React.FC<{ text: string; at?: number; until?: number; pos?: "top" | "bottom"; size?: number }> = ({ text, at = 0, until, pos = "bottom", size = 78 }) => {
   const f = useCurrentFrame();
+  if (useExportMode() !== "normal") return null;
   const sfx = <Sfx at={at} name="pop" vol={0.06} />;
   if (f < at || (until !== undefined && f >= until)) return sfx;
   return (<>{sfx}
@@ -168,6 +179,7 @@ export const Cap: React.FC<{ text: string; at?: number; until?: number; pos?: "t
 /** Name card: current shot darkened ~70%, centred white caps, soft shadow, hard on/off. */
 export const Card: React.FC<{ text: string; sub?: string; at?: number; until?: number }> = ({ text, sub, at = 0, until }) => {
   const f = useCurrentFrame();
+  if (useExportMode() !== "normal") return null;
   const sfx = <Sfx at={at} name="whoosh" vol={0.12} />;
   if (f < at || (until !== undefined && f >= until)) return sfx;
   const sh = "0 4px 18px rgba(0,0,0,0.6)";
@@ -186,6 +198,7 @@ export const Card: React.FC<{ text: string; sub?: string; at?: number; until?: n
 export const Stamp: React.FC<{ lines: string[]; at: number; x: number; y: number; rot?: number;
   variant?: "red" | "dark" | "white"; fadeAt?: number; darken?: boolean }> = ({ lines, at, x, y, rot = -8, variant = "dark", fadeAt, darken = true }) => {
   const f = useCurrentFrame();
+  if (useExportMode() === "bg") return null;
   const sfx = <Sfx at={at + 5} name="sub_thump" vol={0.3} />;
   if (f < at) return sfx;
   const lf = f - at;
@@ -350,6 +363,8 @@ const LIMB = (l: Limb, rot: number) => (
  */
 export const Rig: React.FC<RigProps> = ({ c, pose, x, y, h, flip, at = 0, until, walk = 0, walkUntil, gesture = 0, stress, bounce = 0, enter }) => {
   const f = useCurrentFrame();
+  const xm = useExportMode();
+  if (xm !== "normal") return null;
   const { offset, stress: stressArr } = useShot();
   if (f < at || (until !== undefined && f >= until)) return null;
   const key = `${c}/${pose}`;
@@ -420,6 +435,7 @@ export const Rig: React.FC<RigProps> = ({ c, pose, x, y, h, flip, at = 0, until,
  */
 export const Arch: React.FC<{ src: string; mode?: "doc" | "portrait" | "wide"; dur: number; sepia?: number; focus?: [number, number]; zoom?: [number, number] }> = ({ src: file, mode = "doc", dur, sepia = 0.55, focus = [50, 40], zoom = [1, 1.07] }) => {
   const f = useCurrentFrame();
+  if (useExportMode() === "fx") return null;
   const z = interpolate(f, [0, dur], zoom, { extrapolateRight: "clamp" });
   const have = (ARCHIVES as string[]).includes(file);
   const flick = 1 + Math.sin(f * 1.7) * 0.02 + Math.sin(f * 0.37) * 0.015;

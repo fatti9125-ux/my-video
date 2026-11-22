@@ -3,7 +3,7 @@ import { AbsoluteFill, Audio, Sequence, staticFile, useCurrentFrame } from "remo
 import * as B from "../Thanksgiving/Backgrounds";
 import { MONTSERRAT } from "../fonts";
 import BOARDS from "./boards.json";
-import { ShotCtx } from "./Kit";
+import { ShotCtx, useExportMode } from "./Kit";
 
 /**
  * Generic episode runner for a single VO file + its word alignment (ep/<k>.json from align_words.py).
@@ -23,14 +23,17 @@ export const makeAlign = (d: EpData) => ({
   },
 });
 
-export const Svg: React.FC<{ bg: React.ReactNode; dim?: number; children?: React.ReactNode }> = ({ bg, dim = 0, children }) => (
-  <svg viewBox="0 0 1920 1080" width={1920} height={1080} style={{ position: "absolute", inset: 0 }}>
-    <B.Defs />{bg}
-    {dim > 0 && <rect width={1920} height={1080} fill="#0b0f14" opacity={dim} />}
-    {children}
-    <B.Finish />
-  </svg>
-);
+export const Svg: React.FC<{ bg: React.ReactNode; dim?: number; children?: React.ReactNode }> = ({ bg, dim = 0, children }) => {
+  const xm = useExportMode();   // AE export passes: "bg" = plate only, "fx" = overlay only (transparent)
+  return (
+    <svg viewBox="0 0 1920 1080" width={1920} height={1080} style={{ position: "absolute", inset: 0 }}>
+      <B.Defs />{xm !== "fx" && bg}
+      {xm !== "fx" && dim > 0 && <rect width={1920} height={1080} fill="#0b0f14" opacity={dim} />}
+      {xm !== "bg" && children}
+      {xm !== "fx" && <B.Finish />}
+    </svg>
+  );
+};
 
 export const Over: React.FC<{ children: React.ReactNode }> = ({ children }) => (
   <svg viewBox="0 0 1920 1080" width={1920} height={1080} style={{ position: "absolute", inset: 0 }}>{children}</svg>
@@ -65,7 +68,7 @@ export const Board: React.FC<{ pose: string; top: string; big: string; at?: numb
 };
 
 export const Episode: React.FC<{ data: EpData; shots: Shot[] }> = ({ data, shots }) => (
-  <AbsoluteFill style={{ background: "#000" }}>
+  <AbsoluteFill style={{ background: useExportMode() === "fx" ? "transparent" : "#000" }}>
     {shots.map((s, i) => {
       const b = i + 1 < shots.length ? shots[i + 1].a : data.dur + 0.6;
       const from = Math.round(s.a * FPS), to = Math.round(b * FPS);

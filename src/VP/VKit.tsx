@@ -2,7 +2,7 @@ import React from "react";
 import { Easing, interpolate, staticFile, useCurrentFrame } from "remotion";
 import { MONTSERRAT } from "../fonts";
 import { mouthAt } from "../Thanksgiving/LayerPuppet";
-import { PopIn, Spr, SprProps, useShot } from "../Thanksgiving3/Kit";
+import { PopIn, Spr, SprProps, useExportMode, useShot } from "../Thanksgiving3/Kit";
 import HEADS from "../Thanksgiving3/vp_heads.json";
 import META from "../Thanksgiving3/vp_sprites.json";
 
@@ -64,6 +64,7 @@ export const HeadIcon: React.FC<{ c: string; e?: Expr; x: number; y: number; siz
 
 /** White label box with an ink arrow to a point (hard pop-in, built-in pop SFX via PopIn). */
 export const Label: React.FC<{ x: number; y: number; text: string; to?: [number, number]; at?: number; size?: number; color?: string }> = ({ x, y, text, to, at = 0, size = 48, color = "#fff" }) => {
+  if (useExportMode() === "fx") return null;   // rebuilt natively in AE (labels inside bg plates stay)
   const w = text.length * size * 0.66 + 60;
   return (
     <PopIn at={at} x={x} y={y}>

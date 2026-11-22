@@ -17,6 +17,7 @@ import { CH11_13_DURATION, ThanksgivingCh11to13 } from "./Thanksgiving3/Ch11to13
 import { CH14_END_DURATION, ThanksgivingCh14toEnd } from "./Thanksgiving3/Ch14toEnd";
 import { FINAL_DURATION, ThanksgivingFinal } from "./Thanksgiving3/Final";
 import { VP1_DURATION, VicePresidents1 } from "./VP/VP1";
+import { VP1_BG, VP1_FX } from "./VP/ExportPasses";
 
 export const RemotionRoot: React.FC = () => (
   <>
@@ -33,6 +34,8 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="ThanksgivingFull" component={Thanksgiving3} durationInFrames={TG3_DURATION} fps={30} width={1920} height={1080} />
     <Composition id="ThanksgivingCh4to6" component={ThanksgivingCh4to6} durationInFrames={CH4_6_DURATION} fps={30} width={1920} height={1080} />
     <Composition id="VicePresidents1" component={VicePresidents1} durationInFrames={VP1_DURATION} fps={30} width={1920} height={1080} />
+    <Composition id="VP1-BG" component={VP1_BG} durationInFrames={VP1_DURATION} fps={30} width={1920} height={1080} />
+    <Composition id="VP1-FX" component={VP1_FX} durationInFrames={VP1_DURATION} fps={30} width={1920} height={1080} />
     <Composition id="ThanksgivingCh7" component={ThanksgivingCh7} durationInFrames={CH7_DURATION} fps={30} width={1920} height={1080} />
     <Composition id="ThanksgivingCh8to10" component={ThanksgivingCh8to10} durationInFrames={CH8_10_DURATION} fps={30} width={1920} height={1080} />
     <Composition id="ThanksgivingCh11to13" component={ThanksgivingCh11to13} durationInFrames={CH11_13_DURATION} fps={30} width={1920} height={1080} />

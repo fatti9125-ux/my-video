@@ -25,7 +25,7 @@ const Counter: React.FC<{ a: number; b: number }> = ({ a, b }) => {
   return <Big x={960} y={230} text={`BALLOT #${n}`} size={92} />;
 };
 
-const SHOTS: Shot[] = [
+export const SHOTS: Shot[] = [
   // 0 One became president after his boss lasted just a month.
   { a: ln(0), el: (t, dur) => (<>
     <Cam dur={dur} from={1.02} to={1.08} ox="48%" punch={{ at: t(wd(0, "month")), frames: 6, to: 1.22, ox: "68%", oy: "45%" }}>
