@@ -61,31 +61,31 @@
 ],
 "vp/john_adams/0|13": [
 13,
-0,
+17,
 469,
 374
 ],
 "vp/john_adams/0|14": [
 5,
-0,
+10,
 485,
 381
 ],
 "vp/john_adams/0|15": [
 6,
-0,
+11,
 484,
 380
 ],
 "vp/john_adams/0|16": [
 4,
-0,
+10,
 487,
 381
 ],
 "vp/john_adams/0|17": [
 7,
-0,
+6,
 481,
 385
 ],
@@ -97,31 +97,31 @@
 ],
 "vp/thomas_jefferson/0|14": [
 44,
-1,
+11,
 317,
 371
 ],
 "vp/thomas_jefferson/0|15": [
 50,
-1,
+17,
 307,
 365
 ],
 "vp/thomas_jefferson/0|16": [
 52,
-1,
+19,
 302,
 361
 ],
 "vp/thomas_jefferson/0|17": [
 50,
-1,
+28,
 305,
 355
 ],
 "vp/thomas_jefferson/0|18": [
 47,
-1,
+11,
 312,
 368
 ],
@@ -133,31 +133,31 @@
 ],
 "vp/aaron_burr/0|14": [
 40,
-3,
+15,
 328,
 387
 ],
 "vp/aaron_burr/0|15": [
 40,
-3,
+13,
 328,
 389
 ],
 "vp/aaron_burr/0|16": [
 42,
-3,
+17,
 326,
 385
 ],
 "vp/aaron_burr/0|17": [
 32,
-3,
+19,
 345,
 384
 ],
 "vp/aaron_burr/0|18": [
 34,
-3,
+17,
 341,
 385
 ],
@@ -169,31 +169,31 @@
 ],
 "vp/martin_van_buren/0|head1": [
 23,
-0,
+12,
 541,
 444
 ],
 "vp/martin_van_buren/0|head2": [
 30,
-0,
+17,
 526,
 439
 ],
 "vp/martin_van_buren/0|head3": [
 24,
-0,
+19,
 538,
 437
 ],
 "vp/martin_van_buren/0|head4": [
 26,
-0,
+12,
 535,
 444
 ],
 "vp/martin_van_buren/0|head5": [
 28,
-0,
+11,
 531,
 444
 ],
@@ -241,31 +241,31 @@
 ],
 "vp/andrew_jackson/0|12": [
 2,
-3,
+21,
 381,
 434
 ],
 "vp/andrew_jackson/0|13": [
 8,
-3,
+18,
 370,
 437
 ],
 "vp/andrew_jackson/0|14": [
 9,
-3,
+16,
 367,
 439
 ],
 "vp/andrew_jackson/0|15": [
 -4,
-3,
+18,
 392,
 438
 ],
 "vp/andrew_jackson/0|16": [
 4,
-3,
+22,
 377,
 433
 ],
@@ -277,31 +277,31 @@
 ],
 "vp/william_henry_harrison/0|12": [
 19,
-1,
+12,
 340,
 465
 ],
 "vp/william_henry_harrison/0|13": [
 14,
-1,
+16,
 350,
 460
 ],
 "vp/william_henry_harrison/0|14": [
 15,
-1,
+9,
 348,
 467
 ],
 "vp/william_henry_harrison/0|15": [
 12,
-1,
+17,
 354,
 460
 ],
 "vp/william_henry_harrison/0|16": [
 11,
-1,
+10,
 356,
 467
 ],
@@ -313,31 +313,31 @@
 ],
 "vp/john_tyler/0|13": [
 18,
-0,
+13,
 343,
 434
 ],
 "vp/john_tyler/0|14": [
 17,
-0,
+15,
 346,
 431
 ],
 "vp/john_tyler/0|15": [
 22,
-0,
+21,
 335,
 426
 ],
 "vp/john_tyler/0|16": [
 16,
-0,
+17,
 348,
 430
 ],
 "vp/john_tyler/0|17": [
 16,
-0,
+14,
 347,
 432
 ],
@@ -349,31 +349,31 @@
 ],
 "vp/gerald_ford/0|13": [
 18,
-0,
+16,
 396,
 395
 ],
 "vp/gerald_ford/0|14": [
 16,
-0,
+11,
 400,
 400
 ],
 "vp/gerald_ford/0|15": [
 21,
-0,
+15,
 391,
 397
 ],
 "vp/gerald_ford/0|16": [
 14,
-0,
+15,
 404,
 397
 ],
 "vp/gerald_ford/0|17": [
 12,
-0,
+13,
 409,
 398
 ],
@@ -385,31 +385,31 @@
 ],
 "vp/lyndon_johnson/0|12": [
 2,
-7,
+15,
 417,
 449
 ],
 "vp/lyndon_johnson/0|13": [
 5,
-7,
+20,
 412,
 444
 ],
 "vp/lyndon_johnson/0|14": [
 6,
-7,
+19,
 409,
 445
 ],
 "vp/lyndon_johnson/0|15": [
 4,
-7,
+12,
 413,
 453
 ],
 "vp/lyndon_johnson/0|16": [
 0,
-7,
+12,
 422,
 452
 ],
@@ -421,31 +421,31 @@
 ],
 "vp/calvin_coolidge/0|12": [
 50,
-5,
+21,
 368,
 442
 ],
 "vp/calvin_coolidge/0|13": [
 50,
-5,
+19,
 368,
 444
 ],
 "vp/calvin_coolidge/0|14": [
 54,
-5,
+23,
 360,
 440
 ],
 "vp/calvin_coolidge/0|15": [
 48,
-5,
+20,
 372,
 443
 ],
 "vp/calvin_coolidge/0|16": [
 50,
-5,
+15,
 368,
 448
 ],
@@ -457,31 +457,31 @@
 ],
 "vp/john_coolidge_senior/0|12": [
 18,
-0,
+10,
 388,
 382
 ],
 "vp/john_coolidge_senior/0|13": [
 7,
-0,
+8,
 411,
 384
 ],
 "vp/john_coolidge_senior/0|14": [
 25,
-0,
+9,
 375,
 383
 ],
 "vp/john_coolidge_senior/0|15": [
 28,
-0,
+9,
 369,
 382
 ],
 "vp/john_coolidge_senior/0|16": [
 28,
-0,
+10,
 370,
 381
 ],
@@ -493,31 +493,31 @@
 ],
 "vp/jacqueline_kennedy/0|head1": [
 2,
-54,
+69,
 440,
 425
 ],
 "vp/jacqueline_kennedy/0|head2": [
 2,
-54,
+67,
 440,
 426
 ],
 "vp/jacqueline_kennedy/0|head3": [
 2,
-54,
+68,
 439,
 426
 ],
 "vp/jacqueline_kennedy/0|head4": [
 1,
-54,
+71,
 441,
 422
 ],
 "vp/jacqueline_kennedy/0|head5": [
 1,
-54,
+68,
 441,
 426
 ],
@@ -529,31 +529,31 @@
 ],
 "vp/millard_fillmore/0|12": [
 5,
-8,
+19,
 459,
 405
 ],
 "vp/millard_fillmore/0|13": [
 4,
-8,
+18,
 460,
 406
 ],
 "vp/millard_fillmore/0|14": [
 5,
-8,
+19,
 459,
 406
 ],
 "vp/millard_fillmore/0|15": [
 4,
-8,
+18,
 460,
 407
 ],
 "vp/millard_fillmore/0|16": [
 -4,
-8,
+16,
 477,
 409
 ],
@@ -565,31 +565,31 @@
 ],
 "vp/zachary_taylor/0|12": [
 4,
-6,
+16,
 467,
 404
 ],
 "vp/zachary_taylor/0|13": [
 2,
-6,
+11,
 470,
 409
 ],
 "vp/zachary_taylor/0|14": [
 0,
-6,
+15,
 475,
 406
 ],
 "vp/zachary_taylor/0|15": [
 0,
-6,
+17,
 476,
 403
 ],
 "vp/zachary_taylor/0|16": [
 -3,
-6,
+17,
 481,
 404
 ],
@@ -601,31 +601,31 @@
 ],
 "vp/andrew_johnson/0|head1": [
 26,
-0,
+7,
 462,
 451
 ],
 "vp/andrew_johnson/0|head2": [
 31,
-0,
+16,
 451,
 442
 ],
 "vp/andrew_johnson/0|head3": [
 28,
-0,
+6,
 457,
 452
 ],
 "vp/andrew_johnson/0|head4": [
 32,
-0,
+12,
 448,
 445
 ],
 "vp/andrew_johnson/0|head5": [
 20,
-0,
+13,
 474,
 445
 ],
@@ -637,31 +637,31 @@
 ],
 "vp/abraham_lincoln/0|12": [
 42,
-4,
+15,
 294,
 425
 ],
 "vp/abraham_lincoln/0|13": [
 40,
-4,
+16,
 297,
 424
 ],
 "vp/abraham_lincoln/0|14": [
 44,
-4,
+16,
 291,
 424
 ],
 "vp/abraham_lincoln/0|15": [
 41,
-4,
+14,
 296,
 425
 ],
 "vp/abraham_lincoln/0|16": [
 36,
-4,
+13,
 307,
 426
 ],
@@ -673,31 +673,31 @@
 ],
 "vp/james_garfield/0|11": [
 34,
-2,
+26,
 393,
 448
 ],
 "vp/james_garfield/0|12": [
 32,
-2,
+18,
 396,
 457
 ],
 "vp/james_garfield/0|head0": [
 34,
-2,
+18,
 393,
 457
 ],
 "vp/james_garfield/0|head1": [
 34,
-2,
+26,
 392,
 449
 ],
 "vp/james_garfield/0|head2": [
 32,
-2,
+20,
 397,
 454
 ],
@@ -709,31 +709,31 @@
 ],
 "vp/garfield_attacker/0|12": [
 32,
-0,
+6,
 351,
 442
 ],
 "vp/garfield_attacker/0|13": [
 36,
-0,
+17,
 341,
 432
 ],
 "vp/garfield_attacker/0|14": [
 36,
-0,
+7,
 341,
 442
 ],
 "vp/garfield_attacker/0|15": [
 31,
-0,
+1,
 352,
 448
 ],
 "vp/garfield_attacker/0|16": [
 30,
-0,
+-2,
 353,
 451
 ],
@@ -745,31 +745,31 @@
 ],
 "vp/chester_arthur/0|h_shock": [
 3,
-0,
+9,
 441,
 432
 ],
 "vp/chester_arthur/0|h_sad": [
 4,
-0,
+-1,
 438,
 442
 ],
 "vp/chester_arthur/0|h_talk": [
 2,
-0,
+8,
 444,
 433
 ],
 "vp/chester_arthur/0|h_angry": [
 6,
-0,
+10,
 435,
 431
 ],
 "vp/chester_arthur/0|h_happy": [
 2,
-0,
+-16,
 442,
 456
 ],
@@ -799,25 +799,25 @@
 ],
 "vp/theodore_roosevelt/0|15": [
 58,
-0,
+9,
 354,
 353
 ],
 "vp/theodore_roosevelt/0|16": [
 56,
-0,
+7,
 359,
 355
 ],
 "vp/theodore_roosevelt/0|17": [
 58,
-0,
+7,
 355,
 355
 ],
 "vp/theodore_roosevelt/0|18": [
 53,
-0,
+11,
 364,
 352
 ],
@@ -835,31 +835,31 @@
 ],
 "vp/william_mckinley/0|12": [
 30,
-0,
+12,
 370,
 404
 ],
 "vp/william_mckinley/0|13": [
 24,
-0,
+8,
 382,
 408
 ],
 "vp/william_mckinley/0|14": [
 22,
-0,
+9,
 385,
 407
 ],
 "vp/william_mckinley/0|15": [
 26,
-0,
+8,
 376,
 407
 ],
 "vp/william_mckinley/0|16": [
 24,
-0,
+9,
 381,
 406
 ],
@@ -871,31 +871,31 @@
 ],
 "vp/warren_harding/0|12": [
 40,
-1,
+18,
 381,
 429
 ],
 "vp/warren_harding/0|13": [
 41,
-1,
+19,
 380,
 429
 ],
 "vp/warren_harding/0|14": [
 48,
-1,
+21,
 367,
 426
 ],
 "vp/warren_harding/0|15": [
 38,
-1,
+19,
 385,
 429
 ],
 "vp/warren_harding/0|16": [
 42,
-1,
+17,
 379,
 430
 ],
@@ -907,31 +907,31 @@
 ],
 "vp/harry_truman/0|19": [
 35,
-0,
+3,
 382,
 433
 ],
 "vp/harry_truman/0|13": [
 30,
-0,
+4,
 391,
 431
 ],
 "vp/harry_truman/0|head0": [
 42,
-0,
+-1,
 369,
 437
 ],
 "vp/harry_truman/0|head1": [
 36,
-0,
+8,
 379,
 428
 ],
 "vp/harry_truman/0|15": [
 30,
-0,
+7,
 391,
 429
 ],
@@ -943,31 +943,31 @@
 ],
 "vp/thomas_dewey/0|13": [
 30,
-0,
+12,
 374,
 422
 ],
 "vp/thomas_dewey/0|14": [
 30,
-0,
+22,
 374,
 412
 ],
 "vp/thomas_dewey/0|15": [
 30,
-0,
+13,
 374,
 421
 ],
 "vp/thomas_dewey/0|16": [
 28,
-0,
+13,
 378,
 421
 ],
 "vp/thomas_dewey/0|17": [
 24,
-0,
+11,
 384,
 422
 ],
@@ -979,31 +979,31 @@
 ],
 "vp/thomas_platt/0|11": [
 10,
-0,
+11,
 339,
 490
 ],
 "vp/thomas_platt/0|12": [
 8,
-0,
+4,
 343,
 496
 ],
 "vp/thomas_platt/0|13": [
 8,
-0,
+-6,
 342,
 506
 ],
 "vp/thomas_platt/0|14": [
 6,
-0,
+3,
 348,
 497
 ],
 "vp/thomas_platt/0|15": [
 4,
-0,
+1,
 351,
 500
 ],
@@ -1015,31 +1015,31 @@
 ],
 "vp/franklin_roosevelt/0|12": [
 0,
-3,
+16,
 364,
 427
 ],
 "vp/franklin_roosevelt/0|13": [
 0,
-3,
+14,
 365,
 428
 ],
 "vp/franklin_roosevelt/0|14": [
 2,
-3,
+13,
 362,
 429
 ],
 "vp/franklin_roosevelt/0|15": [
 2,
-3,
+14,
 362,
 428
 ],
 "vp/franklin_roosevelt/0|16": [
 2,
-3,
+15,
 361,
 428
 ],
@@ -1051,31 +1051,31 @@
 ],
 "vp/john_f_kennedy/0|13": [
 28,
-0,
+5,
 437,
 475
 ],
 "vp/john_f_kennedy/0|14": [
 31,
-0,
+14,
 432,
 467
 ],
 "vp/john_f_kennedy/0|15": [
 33,
-0,
+3,
 428,
 478
 ],
 "vp/john_f_kennedy/0|16": [
 36,
-0,
+22,
 423,
 459
 ],
 "vp/john_f_kennedy/0|17": [
 35,
-0,
+5,
 424,
 476
 ],
@@ -1087,31 +1087,31 @@
 ],
 "vp/richard_nixon/0|12": [
 40,
-0,
+14,
 358,
 428
 ],
 "vp/richard_nixon/0|13": [
 37,
-0,
+17,
 364,
 425
 ],
 "vp/richard_nixon/0|14": [
 36,
-0,
+18,
 366,
 424
 ],
 "vp/richard_nixon/0|15": [
 37,
-0,
+17,
 364,
 425
 ],
 "vp/richard_nixon/0|16": [
 36,
-0,
+15,
 365,
 426
 ],
@@ -1123,31 +1123,31 @@
 ],
 "vp/dwight_eisenhower/0|12": [
 39,
-0,
+15,
 383,
 413
 ],
 "vp/dwight_eisenhower/0|13": [
 43,
-0,
+15,
 375,
 412
 ],
 "vp/dwight_eisenhower/0|14": [
 42,
-0,
+15,
 378,
 413
 ],
 "vp/dwight_eisenhower/0|15": [
 42,
-0,
+15,
 378,
 412
 ],
 "vp/dwight_eisenhower/0|16": [
 40,
-0,
+11,
 381,
 416
 ],
@@ -1159,31 +1159,31 @@
 ],
 "vp/spiro_agnew/0|12": [
 54,
-4,
+25,
 330,
 462
 ],
 "vp/spiro_agnew/0|13": [
 54,
-4,
+19,
 328,
 468
 ],
 "vp/spiro_agnew/0|14": [
 49,
-4,
+19,
 339,
 468
 ],
 "vp/spiro_agnew/0|15": [
 56,
-4,
+18,
 325,
 470
 ],
 "vp/spiro_agnew/0|16": [
 50,
-4,
+20,
 338,
 468
 ],
@@ -1195,31 +1195,31 @@
 ],
 "vp/george_hw_bush/0|13": [
 30,
-5,
+14,
 348,
 483
 ],
 "vp/george_hw_bush/0|14": [
 28,
-5,
+23,
 352,
 475
 ],
 "vp/george_hw_bush/0|15": [
 32,
-5,
+27,
 342,
 471
 ],
 "vp/george_hw_bush/0|16": [
 22,
-5,
+9,
 362,
 489
 ],
 "vp/george_hw_bush/0|17": [
 21,
-5,
+16,
 365,
 481
 ],
@@ -1231,31 +1231,31 @@
 ],
 "vp/ronald_reagan/0|12": [
 36,
-0,
+23,
 355,
 446
 ],
 "vp/ronald_reagan/0|13": [
 37,
-0,
+20,
 354,
 448
 ],
 "vp/ronald_reagan/0|14": [
 38,
-0,
+24,
 353,
 445
 ],
 "vp/ronald_reagan/0|15": [
 36,
-0,
+19,
 355,
 450
 ],
 "vp/ronald_reagan/0|16": [
 32,
-0,
+17,
 365,
 452
 ],
@@ -1267,31 +1267,31 @@
 ],
 "vp/jimmy_carter/0|12": [
 10,
-4,
+15,
 413,
 468
 ],
 "vp/jimmy_carter/0|13": [
 11,
-4,
+14,
 410,
 469
 ],
 "vp/jimmy_carter/0|14": [
 12,
-4,
+15,
 408,
 468
 ],
 "vp/jimmy_carter/0|15": [
 8,
-4,
+17,
 417,
 466
 ],
 "vp/jimmy_carter/0|16": [
 3,
-4,
+13,
 426,
 470
 ],
@@ -1303,31 +1303,31 @@
 ],
 "vp/bill_clinton/0|hA1": [
 30,
-0,
+17,
 406,
 466
 ],
 "vp/bill_clinton/0|hA2": [
 26,
-0,
+7,
 414,
 476
 ],
 "vp/bill_clinton/0|head0": [
 33,
-0,
+12,
 401,
 470
 ],
 "vp/bill_clinton/0|head1": [
 36,
-0,
+10,
 396,
 473
 ],
 "vp/bill_clinton/0|head2": [
 28,
-0,
+14,
 412,
 468
 ],
@@ -1339,31 +1339,31 @@
 ],
 "vp/joe_biden/0|13": [
 21,
-1,
+15,
 318,
 462
 ],
 "vp/joe_biden/0|14": [
 22,
-1,
+17,
 315,
 461
 ],
 "vp/joe_biden/0|15": [
 20,
-1,
+16,
 320,
 461
 ],
 "vp/joe_biden/0|16": [
 17,
-1,
+18,
 326,
 459
 ],
 "vp/joe_biden/0|17": [
 16,
-1,
+8,
 327,
 470
 ],
@@ -1375,31 +1375,31 @@
 ],
 "vp/barack_obama/0|12": [
 5,
-0,
+6,
 387,
 452
 ],
 "vp/barack_obama/0|13": [
 6,
-0,
+5,
 385,
 453
 ],
 "vp/barack_obama/0|14": [
 9,
-0,
+3,
 379,
 456
 ],
 "vp/barack_obama/0|15": [
 12,
-0,
+3,
 374,
 456
 ],
 "vp/barack_obama/0|16": [
 -3,
-0,
+2,
 403,
 457
 ],
@@ -1411,31 +1411,31 @@
 ],
 "vp/donald_trump/0|13": [
 45,
-0,
+19,
 418,
 420
 ],
 "vp/donald_trump/0|14": [
 49,
-0,
+21,
 410,
 419
 ],
 "vp/donald_trump/0|15": [
 45,
-0,
+13,
 418,
 427
 ],
 "vp/donald_trump/0|16": [
 42,
-0,
+17,
 423,
 422
 ],
 "vp/donald_trump/0|17": [
 46,
-0,
+13,
 416,
 426
 ]

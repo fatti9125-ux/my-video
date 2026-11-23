@@ -33,16 +33,36 @@ def head_union(c, body, heads, shape, off=(0, 0)):
     return m
 
 
-def strip(img, c, body, heads, off=(0, 0)):
+def strip(img, c, body, heads, off=(0, 0), pivots=()):
     b = np.array(img.convert("RGBA"))
     x, y, w, hh = H[f"vp/{c}/{body}|{heads[0]}"]
     y -= off[1]
     u = head_union(c, body, heads, b.shape[:2], off)
     u = nd.binary_dilation(u, iterations=max(4, int(hh * 0.03)))
     cut = int(y + hh * 0.80)
-    b[: max(0, cut), :, 3] = 0                       # 1. everything above the chin cut
-    low = np.zeros_like(u); low[max(0, cut): int(y + hh * 1.02)] = True
-    b[..., 3][u & low] = 0                           # 2. union of heads around the chin
+    orig = b[..., 3] > 100
+    base = np.array(img.convert("RGBA"))
+    # neutral head chin row (the drawing's own chin): the collar BELOW it is never erased
+    na = np.array(Image.open(f"{PUB}/tg2/vp/{c}/{heads[0]}.png").convert("RGBA").resize((w, hh)))[..., 3] > 100
+    rows = np.nonzero(na[:, int(w * 0.32): int(w * 0.68)].any(1))[0]
+    nchin = y + (int(rows.max()) if len(rows) else hh)
+    ux = np.nonzero(u.any(0))[0]
+    c0, c1 = (max(0, ux.min() - 6), ux.max() + 7) if len(ux) else (0, b.shape[1])
+    b[: max(0, cut), c0:c1, 3] = 0                   # 1. above the chin cut, within the heads' columns only
+    low = np.zeros_like(u); low[max(0, cut): max(0, nchin - 2)] = True
+    b[..., 3][u & low] = 0                           # 2. union of heads between chin cut and the neutral chin
+    # 3. no floating fragments (bits of old hair / outline no longer joined to the body)
+    m = b[..., 3] > 60
+    lab, n = nd.label(m, structure=np.ones((3, 3)))
+    if n > 1:
+        sizes = nd.sum(m, lab, range(1, n + 1)); main = int(np.argmax(sizes)) + 1
+        for i in range(1, n + 1):
+            if i != main and sizes[i - 1] < 0.02 * sizes[main - 1]: b[..., 3][lab == i] = 0
+    # 4. limb joints (shoulders / hips) keep their original pixels so limbs stay attached
+    yy, xx = np.ogrid[: b.shape[0], : b.shape[1]]
+    for (px, py) in pivots:
+        disk = (xx - (px - off[0])) ** 2 + (yy - (py - off[1])) ** 2 <= 22 ** 2
+        b[disk & orig] = base[disk & orig]
     return Image.fromarray(b), u, cut
 
 
@@ -56,7 +76,7 @@ for spec in sys.argv[5:]:
     rk = f"vp_{c}/0"
     if body == "0" and rk in R:
         r = R[rk]; bf = f"{PUB}/{r['body']['file']}"
-        ro, _, _ = strip(Image.open(bf), c, body, heads, off=(r["body"]["x"], r["body"]["y"]))
+        ro, _, _ = strip(Image.open(bf), c, body, heads, off=(r["body"]["x"], r["body"]["y"]), pivots=[tuple(l["pivot"]) for l in r["limbs"]])
         ro.save(bf.replace("body.png", "body_nohead.png"), optimize=True)
         r["bodyNoHead"] = r["body"]["file"].replace("body.png", "body_nohead.png")
     # check: no remaining body ink in the head band outside the (undilated) union of heads

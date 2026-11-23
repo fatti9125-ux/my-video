@@ -183,10 +183,10 @@ for (const l of L.layers.sort((p, q) => p.z - q.z)) {
       const [hx, hy, hw, hh] = hd.rect;
       const on = new Set(hd.frames);
       body.push(`  (function(){ var p = add(F(${J(f)}), ${a}, ${b}, ${J("head " + hd.file.split("/").pop() + " " + l.name)}); p.setParentWithJump(hip);
-    p.transform.anchorPoint.setValue([${r2(hd.wh[0] / 2)}, ${r2(hd.wh[1] * 0.92)}]); p.transform.position.setValue([${r2(hx + hw / 2)}, ${r2(hy + hh * 0.92)}]);
+    p.transform.anchorPoint.setValue([${r2(hd.wh[0] / 2)}, ${r2(hd.wh[1])}]); p.transform.position.setValue([${r2(hx + hw / 2)}, ${r2(hy + hh)}]);
     p.transform.scale.setValue([${r2((hw / hd.wh[0]) * 100)}, ${r2((hh / hd.wh[1]) * 100)}]);
-    p.transform.position.expression = "value + [0, Math.sin((timeToFrames(time) - ${l.s0} + ${l.seed}) / 11 - 0.8) * ${r2(hh * 0.012)}]";
-    p.transform.rotation.expression = "Math.sin((timeToFrames(time) - ${l.s0} + ${l.seed}) / 53) * 1.6";
+    
+    p.transform.rotation.expression = "Math.sin((timeToFrames(time) - ${l.s0} + ${l.seed}) / 53) * 1.2";
     var op = p.transform.opacity;`);
       let prev = -1;
       for (let fr = a; fr < b; fr++) { const v = on.has(fr) ? 100 : 0; if (v !== prev) { body.push(`    key(op, ${fr}, ${v}, true);`); prev = v; } }

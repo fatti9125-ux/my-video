@@ -101,10 +101,11 @@ export const Act: React.FC<Omit<RigProps, "c" | "pose" | "overlay" | "bodyFile">
   const rect = HM[`vp/${c}/0|${h}`];
   const blink = !open && MM[`vp/${c}/${h}__blink`] && (f + seed * 3) % (96 + (seed % 41)) < 3;
   const pre = HEAD[c].flatMap((hh) => [staticFile(`tg2/vp/${c}/${hh}.png`), ...(MM[`vp/${c}/${hh}__blink`] ? [staticFile(`tg2/vp/${c}/${hh}__blink.png`)] : [])]);
-  const hb = Math.sin((f + seed) / 11 - 0.8) * rect[3] * 0.012;            // head follows the breath, slightly late
-  const tilt = Math.sin((f + seed) / 53) * 1.6;
+  // ATTACHMENT: the head never translates on its own (it breathes with the body, which scales from the feet);
+  // it only tilts a little about the CHIN, which is buried in the collar (head_attach.py), so it can't detach.
+  const tilt = Math.sin((f + seed) / 53) * 1.2;
   const head = (
-    <g transform={`translate(0 ${hb}) rotate(${tilt} ${rect[0] + rect[2] / 2} ${rect[1] + rect[3] * 0.92})`}>
+    <g transform={`rotate(${tilt} ${rect[0] + rect[2] / 2} ${rect[1] + rect[3]})`}>
       <SImg key={staticFile(`tg2/vp/${c}/${h}${blink ? "__blink" : ""}.png`)} also={pre} href={staticFile(`tg2/vp/${c}/${h}${blink ? "__blink" : ""}.png`)} x={rect[0]} y={rect[1]} width={rect[2]} height={rect[3]} />
       {/* reaction FX ride on the head (frames are shot-relative, like `at`) */}
       {tears !== undefined && <Tears eyes={[[rect[0] + rect[2] * 0.37, rect[1] + rect[3] * 0.56], [rect[0] + rect[2] * 0.63, rect[1] + rect[3] * 0.56]]} at={tears} len={rect[3] * 0.25} />}

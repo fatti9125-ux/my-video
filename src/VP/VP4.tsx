@@ -124,7 +124,7 @@ export const SHOTS: Shot[] = [
   { a: ln(8), el: (t, dur) => (<>
     <Cam dur={dur} from={1.0} to={1.04}>
       <Svg bg={<B.Hills />}>
-        <V c="richard_nixon" p={5} x={1300} y={1010} h={600} walk={-1.8} />
+        <Act c="richard_nixon" x={1500} y={1010} h={600} e={4} walk={-1} />
         <Quill pose="nervous_side_glance" x={230} y={1200} h={680} at={t(wd(8, "running"))} enter={{ from: "bottom", frames: 9 }} />
       </Svg>
     </Cam>

@@ -120,6 +120,12 @@ This repo is a **Remotion** project (`src/Root.tsx`, 1920×1080 @ 30 fps).
 31. **Eyes must stay right.** Generated blinks (`make_blinks.py`) skip glasses automatically (a lens ring around the eye); never hand-add blinks to glasses-wearers. Some sheet expression heads are mis-drawn (Theodore Roosevelt happy head 19 and pose 13 have a squinted, wrong eye): check the actor contact sheet and remap a bad head in `VKit.HEAD` instead of using it. A character whose head fit is poor (fit score < 0.4, e.g. Washington) is never an `Act`; use his pose sprites.
 32. **Full film = one continuous voiceover.** Parts are timed against slices of the master VO; the full film places every part at its offset in the master file and plays the master once (Episode `noAudio`), so there are no gaps or double pauses at part joins.
 
+33. **ALWAYS: every body part stays attached in every frame (the user's #1 rule; a floating head went out across a whole film).** Before ANY render that has swapped heads or rigged limbs, run all three and never render with a FAIL:
+   - `head_attach.py <vp_heads.json> public <char>:0:<neutral,...>` places every expression head with its CHIN on the neutral head's chin (+3 % into the collar), then checks the neck columns from chin to collar have no transparent row. Heads used to be scaled and aligned by their top, so an open-mouth head ended above the collar.
+   - `head_less.py ... <char>:0:<all heads>` erases the old head only inside the heads' columns and only down to the neutral chin (the collar is never cut), drops detached fragments (old hair ribbons, outline slivers) and keeps every limb pivot's pixels.
+   - `check_vp_rig.py src/VP/vprig.json public` checks every limb pivot is on the body ink (both the body and the headless body), so limbs rotating about it can never detach.
+   Order: head_fit, then head_attach --nocheck, then head_less, then head_attach (check), then check_vp_rig. Then look at the all-actors x all-expressions contact sheet AND a 1080p crop of the neck of a few rendered frames. In code: the head never translates on its own (no separate head bob); it only tilts about the chin. Walkers use a rigged `Act`/`Rig` (legs move), never a sliding sprite.
+
 ## Attachment rule: nothing floats (every character, body part and prop)
 
 Every body part must stay visibly connected to its parent in **every frame**: at rest, at the extremes of every motion, and in every in-between.
