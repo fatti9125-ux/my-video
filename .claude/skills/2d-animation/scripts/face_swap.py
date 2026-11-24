@@ -158,6 +158,27 @@ for spec in sys.argv[5:]:
         filled = cv2.inpaint(src, (old | (nsk & ~keepc & inner)).astype(np.uint8) * 255, 6, cv2.INPAINT_TELEA)
         sm = cv2.GaussianBlur(filled, (0, 0), 2.0)
         Base[old, :3] = sm[old]
+    # GHOSTS: the sheets draw every feature with a pale halo a few px wide around it. After the old features are
+    # erased that halo stayed as faint light outlines of the old brows/eyes/nose (blotchy skin in the video).
+    # Around the old features the skin is replaced by the smooth local skin (filled in from the clean skin around it).
+    if oldf.any():
+        GR = nd.binary_dilation(oldf, iterations=max(10, int(nh * 0.04))) & safe
+        ys_, xs_ = np.where(GR)
+        y0_, y1_ = max(0, ys_.min() - 40), min(B.shape[0], ys_.max() + 41)
+        x0_, x1_ = max(0, xs_.min() - 40), min(B.shape[1], xs_.max() + 41)
+        S = np.ascontiguousarray(Base[y0_:y1_, x0_:x1_, :3]).copy()
+        nonskin = (np.abs(S.astype(int) - skin0.astype(int)).sum(2) >= 60) | ~face[y0_:y1_, x0_:x1_]
+        # the area itself is unknown (its halos would bias any local average): fill it from the clean skin around it
+        unk = nonskin | nd.binary_dilation(GR[y0_:y1_, x0_:x1_], iterations=2)
+        S = cv2.inpaint(S, unk.astype(np.uint8) * 255, 9, cv2.INPAINT_TELEA)
+        est = cv2.GaussianBlur(S, (0, 0), max(4, nh * 0.012)).astype(np.float32)
+        cur = Base[y0_:y1_, x0_:x1_, :3].astype(np.float32)
+        diff = cur.sum(2) - est.sum(2)
+        # the whole area round the old features takes the smooth local skin (feathered edge): the halos are only
+        # 2-4 levels lighter than the skin, too faint to threshold, but they showed as blotches once scaled up
+        g = GR[y0_:y1_, x0_:x1_].astype(np.float32)
+        wgt = np.minimum(g, cv2.GaussianBlur(g, (0, 0), 3) * 1.6).clip(0, 1)
+        Base[y0_:y1_, x0_:x1_, :3] = np.clip(cur * (1 - wgt[..., None]) + est * wgt[..., None], 0, 255).astype(np.uint8)
     # leftover small dark dots of the neutral features (line ends just outside the erase) -> skin
     dk = safe & (Base[..., :3].astype(int).sum(2) < 400)
     dl2, dn2 = nd.label(dk, structure=np.ones((3, 3)))
