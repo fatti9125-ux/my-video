@@ -4,6 +4,7 @@ import { MONTSERRAT } from "../fonts";
 import { mouthAt } from "../Thanksgiving/LayerPuppet";
 import { PopIn, Rig, RigProps, SImg, Spr, SprProps, useExportMode, useShot } from "../Thanksgiving3/Kit";
 import VPRIG from "./vprig.json";
+import FACES from "./faces.json";
 import HEADS from "../Thanksgiving3/vp_heads.json";
 import META from "../Thanksgiving3/vp_sprites.json";
 
@@ -98,24 +99,24 @@ export const Act: React.FC<Omit<RigProps, "c" | "pose" | "overlay" | "bodyFile">
   const talking = talk === true || (Array.isArray(talk) && f >= talk[0] && f < talk[1]);
   const open = talking && mouthAt(f, env ?? [], offset).open;
   const h = HEAD[c][open ? 1 : talking && ex === 1 ? 0 : ex];
-  const rect = HM[`vp/${c}/0|${h}`];
-  const blink = !open && MM[`vp/${c}/${h}__blink`] && (f + seed * 3) % (96 + (seed % 41)) < 3;
-  const pre = HEAD[c].flatMap((hh) => [staticFile(`tg2/vp/${c}/${hh}.png`), ...(MM[`vp/${c}/${hh}__blink`] ? [staticFile(`tg2/vp/${c}/${hh}__blink.png`)] : [])]);
-  // ATTACHMENT: the head never translates on its own (it breathes with the body, which scales from the feet);
-  // it only tilts a little about the CHIN, which is buried in the collar (head_attach.py), so it can't detach.
-  const tilt = Math.sin((f + seed) / 53) * 1.2;
-  const head = (
-    <g transform={`rotate(${tilt} ${rect[0] + rect[2] / 2} ${rect[1] + rect[3]})`}>
-      <SImg key={staticFile(`tg2/vp/${c}/${h}${blink ? "__blink" : ""}.png`)} also={pre} href={staticFile(`tg2/vp/${c}/${h}${blink ? "__blink" : ""}.png`)} x={rect[0]} y={rect[1]} width={rect[2]} height={rect[3]} />
-      {/* reaction FX ride on the head (frames are shot-relative, like `at`) */}
+  // ATTACHED BY CONSTRUCTION (skill rule 34): the expression is baked into the sheet's own full-body drawing
+  // (face_swap.py): head outline, hair, ears and neck are exactly the PNG; only the face inside changes. No
+  // head layer exists at render time, so nothing can float, double or separate. Expressions, talk and blinks
+  // are 1-frame swaps of the whole body image, exactly like the reference's pose/expression swaps.
+  const face = (FACES as unknown as Record<string, Record<string, Record<string, string>>>)[c][String(h)];
+  const blink = !open && !!face["rig__blink"] && (f + seed * 3) % (96 + (seed % 41)) < 3;
+  const rect = HM[`vp/${c}/0|${HEAD[c][0]}`];
+  const fx = (
+    <g>
       {tears !== undefined && <Tears eyes={[[rect[0] + rect[2] * 0.37, rect[1] + rect[3] * 0.56], [rect[0] + rect[2] * 0.63, rect[1] + rect[3] * 0.56]]} at={tears} len={rect[3] * 0.25} />}
       {vein !== undefined && <Vein x={rect[0] + rect[2] * 0.86} y={rect[1] + rect[3] * 0.2} at={vein} s={rect[3] / 300} />}
       {sweat !== undefined && <Sweat x={rect[0] + rect[2] * 0.95} y={rect[1] + rect[3] * 0.3} at={sweat} s={rect[3] / 380} />}
     </g>
   );
   const rig = RIGS[`vp_${c}/0`];
-  if (rig?.bodyNoHead) return <Rig c={`vp_${c}`} pose="0" {...rp} bodyFile={rig.bodyNoHead} overlay={head} />;
-  return <Spr s={`vp/${c}/0_nohead`} x={rp.x} y={rp.y} h={rp.h} flip={rp.flip} at={rp.at} until={rp.until} enter={rp.enter} stress={rp.stress}>{head}</Spr>;
+  if (rig && face.rig) return <Rig c={`vp_${c}`} pose="0" {...rp} bodyFile={blink ? face["rig__blink"] : face.rig} overlay={fx} />;
+  const sk = (blink ? face["sprite__blink"] : face.sprite).slice(4, -4);
+  return <Spr s={sk} x={rp.x} y={rp.y} h={rp.h} flip={rp.flip} at={rp.at} until={rp.until} enter={rp.enter} stress={rp.stress}>{fx}</Spr>;
 };
 
 /* Quill is ALWAYS the original Thanksgiving Quill (Kit.Quill, public/tg2/Poses/quill): same mascot in every video. */

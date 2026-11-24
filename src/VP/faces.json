@@ -1,0 +1,1521 @@
+{
+"john_adams": {
+"_rect": [
+19,
+9,
+452,
+358
+],
+"_fit": 0.948,
+"12": {
+"sprite": "tg2/vp/john_adams/0_f12.png",
+"rig": "tg2/rig/vp_john_adams/0/body_f12.png",
+"sprite__blink": "tg2/vp/john_adams/0_f12__blink.png",
+"rig__blink": "tg2/rig/vp_john_adams/0/body_f12__blink.png"
+},
+"13": {
+"sprite": "tg2/vp/john_adams/0_f13.png",
+"rig": "tg2/rig/vp_john_adams/0/body_f13.png",
+"sprite__blink": "tg2/vp/john_adams/0_f13__blink.png",
+"rig__blink": "tg2/rig/vp_john_adams/0/body_f13__blink.png"
+},
+"14": {
+"sprite": "tg2/vp/john_adams/0_f14.png",
+"rig": "tg2/rig/vp_john_adams/0/body_f14.png",
+"sprite__blink": "tg2/vp/john_adams/0_f14__blink.png",
+"rig__blink": "tg2/rig/vp_john_adams/0/body_f14__blink.png"
+},
+"15": {
+"sprite": "tg2/vp/john_adams/0_f15.png",
+"rig": "tg2/rig/vp_john_adams/0/body_f15.png",
+"sprite__blink": "tg2/vp/john_adams/0_f15__blink.png",
+"rig__blink": "tg2/rig/vp_john_adams/0/body_f15__blink.png"
+},
+"16": {
+"sprite": "tg2/vp/john_adams/0_f16.png",
+"rig": "tg2/rig/vp_john_adams/0/body_f16.png",
+"sprite__blink": "tg2/vp/john_adams/0_f16__blink.png",
+"rig__blink": "tg2/rig/vp_john_adams/0/body_f16__blink.png"
+},
+"17": {
+"sprite": "tg2/vp/john_adams/0_f17.png",
+"rig": "tg2/rig/vp_john_adams/0/body_f17.png",
+"sprite__blink": "tg2/vp/john_adams/0_f17__blink.png",
+"rig__blink": "tg2/rig/vp_john_adams/0/body_f17__blink.png"
+}
+},
+"thomas_jefferson": {
+"_rect": [
+77,
+-2,
+332,
+394
+],
+"_fit": 0.87,
+"13": {
+"sprite": "tg2/vp/thomas_jefferson/0_f13.png",
+"rig": "tg2/rig/vp_thomas_jefferson/0/body_f13.png",
+"sprite__blink": "tg2/vp/thomas_jefferson/0_f13__blink.png",
+"rig__blink": "tg2/rig/vp_thomas_jefferson/0/body_f13__blink.png"
+},
+"14": {
+"sprite": "tg2/vp/thomas_jefferson/0_f14.png",
+"rig": "tg2/rig/vp_thomas_jefferson/0/body_f14.png",
+"sprite__blink": "tg2/vp/thomas_jefferson/0_f14__blink.png",
+"rig__blink": "tg2/rig/vp_thomas_jefferson/0/body_f14__blink.png"
+},
+"15": {
+"sprite": "tg2/vp/thomas_jefferson/0_f15.png",
+"rig": "tg2/rig/vp_thomas_jefferson/0/body_f15.png",
+"sprite__blink": "tg2/vp/thomas_jefferson/0_f15__blink.png",
+"rig__blink": "tg2/rig/vp_thomas_jefferson/0/body_f15__blink.png"
+},
+"16": {
+"sprite": "tg2/vp/thomas_jefferson/0_f16.png",
+"rig": "tg2/rig/vp_thomas_jefferson/0/body_f16.png",
+"sprite__blink": "tg2/vp/thomas_jefferson/0_f16__blink.png",
+"rig__blink": "tg2/rig/vp_thomas_jefferson/0/body_f16__blink.png"
+},
+"17": {
+"sprite": "tg2/vp/thomas_jefferson/0_f17.png",
+"rig": "tg2/rig/vp_thomas_jefferson/0/body_f17.png",
+"sprite__blink": "tg2/vp/thomas_jefferson/0_f17__blink.png",
+"rig__blink": "tg2/rig/vp_thomas_jefferson/0/body_f17__blink.png"
+},
+"18": {
+"sprite": "tg2/vp/thomas_jefferson/0_f18.png",
+"rig": "tg2/rig/vp_thomas_jefferson/0/body_f18.png"
+}
+},
+"aaron_burr": {
+"_rect": [
+-18,
+6,
+367,
+402
+],
+"_fit": 0.695,
+"13": {
+"sprite": "tg2/vp/aaron_burr/0_f13.png",
+"rig": "tg2/rig/vp_aaron_burr/0/body_f13.png",
+"sprite__blink": "tg2/vp/aaron_burr/0_f13__blink.png",
+"rig__blink": "tg2/rig/vp_aaron_burr/0/body_f13__blink.png"
+},
+"14": {
+"sprite": "tg2/vp/aaron_burr/0_f14.png",
+"rig": "tg2/rig/vp_aaron_burr/0/body_f14.png",
+"sprite__blink": "tg2/vp/aaron_burr/0_f14__blink.png",
+"rig__blink": "tg2/rig/vp_aaron_burr/0/body_f14__blink.png"
+},
+"15": {
+"sprite": "tg2/vp/aaron_burr/0_f15.png",
+"rig": "tg2/rig/vp_aaron_burr/0/body_f15.png",
+"sprite__blink": "tg2/vp/aaron_burr/0_f15__blink.png",
+"rig__blink": "tg2/rig/vp_aaron_burr/0/body_f15__blink.png"
+},
+"16": {
+"sprite": "tg2/vp/aaron_burr/0_f16.png",
+"rig": "tg2/rig/vp_aaron_burr/0/body_f16.png",
+"sprite__blink": "tg2/vp/aaron_burr/0_f16__blink.png",
+"rig__blink": "tg2/rig/vp_aaron_burr/0/body_f16__blink.png"
+},
+"17": {
+"sprite": "tg2/vp/aaron_burr/0_f17.png",
+"rig": "tg2/rig/vp_aaron_burr/0/body_f17.png",
+"sprite__blink": "tg2/vp/aaron_burr/0_f17__blink.png",
+"rig__blink": "tg2/rig/vp_aaron_burr/0/body_f17__blink.png"
+},
+"18": {
+"sprite": "tg2/vp/aaron_burr/0_f18.png",
+"rig": "tg2/rig/vp_aaron_burr/0/body_f18.png",
+"sprite__blink": "tg2/vp/aaron_burr/0_f18__blink.png",
+"rig__blink": "tg2/rig/vp_aaron_burr/0/body_f18__blink.png"
+}
+},
+"martin_van_buren": {
+"_rect": [
+31,
+11,
+523,
+426
+],
+"_fit": 0.905,
+"head0": {
+"sprite": "tg2/vp/martin_van_buren/0_fhead0.png",
+"rig": "tg2/rig/vp_martin_van_buren/0/body_fhead0.png",
+"sprite__blink": "tg2/vp/martin_van_buren/0_fhead0__blink.png",
+"rig__blink": "tg2/rig/vp_martin_van_buren/0/body_fhead0__blink.png"
+},
+"head1": {
+"sprite": "tg2/vp/martin_van_buren/0_fhead1.png",
+"rig": "tg2/rig/vp_martin_van_buren/0/body_fhead1.png",
+"sprite__blink": "tg2/vp/martin_van_buren/0_fhead1__blink.png",
+"rig__blink": "tg2/rig/vp_martin_van_buren/0/body_fhead1__blink.png"
+},
+"head2": {
+"sprite": "tg2/vp/martin_van_buren/0_fhead2.png",
+"rig": "tg2/rig/vp_martin_van_buren/0/body_fhead2.png",
+"sprite__blink": "tg2/vp/martin_van_buren/0_fhead2__blink.png",
+"rig__blink": "tg2/rig/vp_martin_van_buren/0/body_fhead2__blink.png"
+},
+"head3": {
+"sprite": "tg2/vp/martin_van_buren/0_fhead3.png",
+"rig": "tg2/rig/vp_martin_van_buren/0/body_fhead3.png",
+"sprite__blink": "tg2/vp/martin_van_buren/0_fhead3__blink.png",
+"rig__blink": "tg2/rig/vp_martin_van_buren/0/body_fhead3__blink.png"
+},
+"head4": {
+"sprite": "tg2/vp/martin_van_buren/0_fhead4.png",
+"rig": "tg2/rig/vp_martin_van_buren/0/body_fhead4.png",
+"sprite__blink": "tg2/vp/martin_van_buren/0_fhead4__blink.png",
+"rig__blink": "tg2/rig/vp_martin_van_buren/0/body_fhead4__blink.png"
+},
+"head5": {
+"sprite": "tg2/vp/martin_van_buren/0_fhead5.png",
+"rig": "tg2/rig/vp_martin_van_buren/0/body_fhead5.png"
+}
+},
+"andrew_jackson": {
+"_rect": [
+13,
+16,
+356,
+408
+],
+"_fit": 0.92,
+"11": {
+"sprite": "tg2/vp/andrew_jackson/0_f11.png",
+"rig": "tg2/rig/vp_andrew_jackson/0/body_f11.png",
+"sprite__blink": "tg2/vp/andrew_jackson/0_f11__blink.png",
+"rig__blink": "tg2/rig/vp_andrew_jackson/0/body_f11__blink.png"
+},
+"12": {
+"sprite": "tg2/vp/andrew_jackson/0_f12.png",
+"rig": "tg2/rig/vp_andrew_jackson/0/body_f12.png",
+"sprite__blink": "tg2/vp/andrew_jackson/0_f12__blink.png",
+"rig__blink": "tg2/rig/vp_andrew_jackson/0/body_f12__blink.png"
+},
+"13": {
+"sprite": "tg2/vp/andrew_jackson/0_f13.png",
+"rig": "tg2/rig/vp_andrew_jackson/0/body_f13.png",
+"sprite__blink": "tg2/vp/andrew_jackson/0_f13__blink.png",
+"rig__blink": "tg2/rig/vp_andrew_jackson/0/body_f13__blink.png"
+},
+"14": {
+"sprite": "tg2/vp/andrew_jackson/0_f14.png",
+"rig": "tg2/rig/vp_andrew_jackson/0/body_f14.png",
+"sprite__blink": "tg2/vp/andrew_jackson/0_f14__blink.png",
+"rig__blink": "tg2/rig/vp_andrew_jackson/0/body_f14__blink.png"
+},
+"15": {
+"sprite": "tg2/vp/andrew_jackson/0_f15.png",
+"rig": "tg2/rig/vp_andrew_jackson/0/body_f15.png",
+"sprite__blink": "tg2/vp/andrew_jackson/0_f15__blink.png",
+"rig__blink": "tg2/rig/vp_andrew_jackson/0/body_f15__blink.png"
+},
+"16": {
+"sprite": "tg2/vp/andrew_jackson/0_f16.png",
+"rig": "tg2/rig/vp_andrew_jackson/0/body_f16.png",
+"sprite__blink": "tg2/vp/andrew_jackson/0_f16__blink.png",
+"rig__blink": "tg2/rig/vp_andrew_jackson/0/body_f16__blink.png"
+}
+},
+"william_henry_harrison": {
+"_rect": [
+-2,
+-10,
+363,
+475
+],
+"_fit": 0.9,
+"11": {
+"sprite": "tg2/vp/william_henry_harrison/0_f11.png",
+"rig": "tg2/rig/vp_william_henry_harrison/0/body_f11.png"
+},
+"12": {
+"sprite": "tg2/vp/william_henry_harrison/0_f12.png",
+"rig": "tg2/rig/vp_william_henry_harrison/0/body_f12.png"
+},
+"13": {
+"sprite": "tg2/vp/william_henry_harrison/0_f13.png",
+"rig": "tg2/rig/vp_william_henry_harrison/0/body_f13.png"
+},
+"14": {
+"sprite": "tg2/vp/william_henry_harrison/0_f14.png",
+"rig": "tg2/rig/vp_william_henry_harrison/0/body_f14.png",
+"sprite__blink": "tg2/vp/william_henry_harrison/0_f14__blink.png",
+"rig__blink": "tg2/rig/vp_william_henry_harrison/0/body_f14__blink.png"
+},
+"15": {
+"sprite": "tg2/vp/william_henry_harrison/0_f15.png",
+"rig": "tg2/rig/vp_william_henry_harrison/0/body_f15.png"
+},
+"16": {
+"sprite": "tg2/vp/william_henry_harrison/0_f16.png",
+"rig": "tg2/rig/vp_william_henry_harrison/0/body_f16.png"
+}
+},
+"john_tyler": {
+"_rect": [
+41,
+-3,
+335,
+438
+],
+"_fit": 0.922,
+"12": {
+"sprite": "tg2/vp/john_tyler/0_f12.png",
+"rig": "tg2/rig/vp_john_tyler/0/body_f12.png"
+},
+"13": {
+"sprite": "tg2/vp/john_tyler/0_f13.png",
+"rig": "tg2/rig/vp_john_tyler/0/body_f13.png",
+"sprite__blink": "tg2/vp/john_tyler/0_f13__blink.png",
+"rig__blink": "tg2/rig/vp_john_tyler/0/body_f13__blink.png"
+},
+"14": {
+"sprite": "tg2/vp/john_tyler/0_f14.png",
+"rig": "tg2/rig/vp_john_tyler/0/body_f14.png",
+"sprite__blink": "tg2/vp/john_tyler/0_f14__blink.png",
+"rig__blink": "tg2/rig/vp_john_tyler/0/body_f14__blink.png"
+},
+"15": {
+"sprite": "tg2/vp/john_tyler/0_f15.png",
+"rig": "tg2/rig/vp_john_tyler/0/body_f15.png",
+"sprite__blink": "tg2/vp/john_tyler/0_f15__blink.png",
+"rig__blink": "tg2/rig/vp_john_tyler/0/body_f15__blink.png"
+},
+"16": {
+"sprite": "tg2/vp/john_tyler/0_f16.png",
+"rig": "tg2/rig/vp_john_tyler/0/body_f16.png",
+"sprite__blink": "tg2/vp/john_tyler/0_f16__blink.png",
+"rig__blink": "tg2/rig/vp_john_tyler/0/body_f16__blink.png"
+},
+"17": {
+"sprite": "tg2/vp/john_tyler/0_f17.png",
+"rig": "tg2/rig/vp_john_tyler/0/body_f17.png",
+"sprite__blink": "tg2/vp/john_tyler/0_f17__blink.png",
+"rig__blink": "tg2/rig/vp_john_tyler/0/body_f17__blink.png"
+}
+},
+"millard_fillmore": {
+"_rect": [
+10,
+11,
+454,
+401
+],
+"_fit": 0.961,
+"11": {
+"sprite": "tg2/vp/millard_fillmore/0_f11.png",
+"rig": "tg2/rig/vp_millard_fillmore/0/body_f11.png",
+"sprite__blink": "tg2/vp/millard_fillmore/0_f11__blink.png",
+"rig__blink": "tg2/rig/vp_millard_fillmore/0/body_f11__blink.png"
+},
+"12": {
+"sprite": "tg2/vp/millard_fillmore/0_f12.png",
+"rig": "tg2/rig/vp_millard_fillmore/0/body_f12.png",
+"sprite__blink": "tg2/vp/millard_fillmore/0_f12__blink.png",
+"rig__blink": "tg2/rig/vp_millard_fillmore/0/body_f12__blink.png"
+},
+"13": {
+"sprite": "tg2/vp/millard_fillmore/0_f13.png",
+"rig": "tg2/rig/vp_millard_fillmore/0/body_f13.png",
+"sprite__blink": "tg2/vp/millard_fillmore/0_f13__blink.png",
+"rig__blink": "tg2/rig/vp_millard_fillmore/0/body_f13__blink.png"
+},
+"14": {
+"sprite": "tg2/vp/millard_fillmore/0_f14.png",
+"rig": "tg2/rig/vp_millard_fillmore/0/body_f14.png",
+"sprite__blink": "tg2/vp/millard_fillmore/0_f14__blink.png",
+"rig__blink": "tg2/rig/vp_millard_fillmore/0/body_f14__blink.png"
+},
+"15": {
+"sprite": "tg2/vp/millard_fillmore/0_f15.png",
+"rig": "tg2/rig/vp_millard_fillmore/0/body_f15.png",
+"sprite__blink": "tg2/vp/millard_fillmore/0_f15__blink.png",
+"rig__blink": "tg2/rig/vp_millard_fillmore/0/body_f15__blink.png"
+},
+"16": {
+"sprite": "tg2/vp/millard_fillmore/0_f16.png",
+"rig": "tg2/rig/vp_millard_fillmore/0/body_f16.png",
+"sprite__blink": "tg2/vp/millard_fillmore/0_f16__blink.png",
+"rig__blink": "tg2/rig/vp_millard_fillmore/0/body_f16__blink.png"
+}
+},
+"zachary_taylor": {
+"_rect": [
+0,
+8,
+470,
+398
+],
+"_fit": 0.945,
+"11": {
+"sprite": "tg2/vp/zachary_taylor/0_f11.png",
+"rig": "tg2/rig/vp_zachary_taylor/0/body_f11.png",
+"sprite__blink": "tg2/vp/zachary_taylor/0_f11__blink.png",
+"rig__blink": "tg2/rig/vp_zachary_taylor/0/body_f11__blink.png"
+},
+"12": {
+"sprite": "tg2/vp/zachary_taylor/0_f12.png",
+"rig": "tg2/rig/vp_zachary_taylor/0/body_f12.png",
+"sprite__blink": "tg2/vp/zachary_taylor/0_f12__blink.png",
+"rig__blink": "tg2/rig/vp_zachary_taylor/0/body_f12__blink.png"
+},
+"13": {
+"sprite": "tg2/vp/zachary_taylor/0_f13.png",
+"rig": "tg2/rig/vp_zachary_taylor/0/body_f13.png",
+"sprite__blink": "tg2/vp/zachary_taylor/0_f13__blink.png",
+"rig__blink": "tg2/rig/vp_zachary_taylor/0/body_f13__blink.png"
+},
+"14": {
+"sprite": "tg2/vp/zachary_taylor/0_f14.png",
+"rig": "tg2/rig/vp_zachary_taylor/0/body_f14.png",
+"sprite__blink": "tg2/vp/zachary_taylor/0_f14__blink.png",
+"rig__blink": "tg2/rig/vp_zachary_taylor/0/body_f14__blink.png"
+},
+"15": {
+"sprite": "tg2/vp/zachary_taylor/0_f15.png",
+"rig": "tg2/rig/vp_zachary_taylor/0/body_f15.png",
+"sprite__blink": "tg2/vp/zachary_taylor/0_f15__blink.png",
+"rig__blink": "tg2/rig/vp_zachary_taylor/0/body_f15__blink.png"
+},
+"16": {
+"sprite": "tg2/vp/zachary_taylor/0_f16.png",
+"rig": "tg2/rig/vp_zachary_taylor/0/body_f16.png"
+}
+},
+"andrew_johnson": {
+"_rect": [
+17,
+-2,
+477,
+444
+],
+"_fit": 0.953,
+"head0": {
+"sprite": "tg2/vp/andrew_johnson/0_fhead0.png",
+"rig": "tg2/rig/vp_andrew_johnson/0/body_fhead0.png",
+"sprite__blink": "tg2/vp/andrew_johnson/0_fhead0__blink.png",
+"rig__blink": "tg2/rig/vp_andrew_johnson/0/body_fhead0__blink.png"
+},
+"head1": {
+"sprite": "tg2/vp/andrew_johnson/0_fhead1.png",
+"rig": "tg2/rig/vp_andrew_johnson/0/body_fhead1.png",
+"sprite__blink": "tg2/vp/andrew_johnson/0_fhead1__blink.png",
+"rig__blink": "tg2/rig/vp_andrew_johnson/0/body_fhead1__blink.png"
+},
+"head2": {
+"sprite": "tg2/vp/andrew_johnson/0_fhead2.png",
+"rig": "tg2/rig/vp_andrew_johnson/0/body_fhead2.png"
+},
+"head3": {
+"sprite": "tg2/vp/andrew_johnson/0_fhead3.png",
+"rig": "tg2/rig/vp_andrew_johnson/0/body_fhead3.png",
+"sprite__blink": "tg2/vp/andrew_johnson/0_fhead3__blink.png",
+"rig__blink": "tg2/rig/vp_andrew_johnson/0/body_fhead3__blink.png"
+},
+"head4": {
+"sprite": "tg2/vp/andrew_johnson/0_fhead4.png",
+"rig": "tg2/rig/vp_andrew_johnson/0/body_fhead4.png",
+"sprite__blink": "tg2/vp/andrew_johnson/0_fhead4__blink.png",
+"rig__blink": "tg2/rig/vp_andrew_johnson/0/body_fhead4__blink.png"
+},
+"head5": {
+"sprite": "tg2/vp/andrew_johnson/0_fhead5.png",
+"rig": "tg2/rig/vp_andrew_johnson/0/body_fhead5.png"
+}
+},
+"abraham_lincoln": {
+"_rect": [
+33,
+5,
+308,
+423
+],
+"_fit": 0.962,
+"11": {
+"sprite": "tg2/vp/abraham_lincoln/0_f11.png",
+"rig": "tg2/rig/vp_abraham_lincoln/0/body_f11.png"
+},
+"12": {
+"sprite": "tg2/vp/abraham_lincoln/0_f12.png",
+"rig": "tg2/rig/vp_abraham_lincoln/0/body_f12.png"
+},
+"13": {
+"sprite": "tg2/vp/abraham_lincoln/0_f13.png",
+"rig": "tg2/rig/vp_abraham_lincoln/0/body_f13.png"
+},
+"14": {
+"sprite": "tg2/vp/abraham_lincoln/0_f14.png",
+"rig": "tg2/rig/vp_abraham_lincoln/0/body_f14.png"
+},
+"15": {
+"sprite": "tg2/vp/abraham_lincoln/0_f15.png",
+"rig": "tg2/rig/vp_abraham_lincoln/0/body_f15.png"
+},
+"16": {
+"sprite": "tg2/vp/abraham_lincoln/0_f16.png",
+"rig": "tg2/rig/vp_abraham_lincoln/0/body_f16.png"
+}
+},
+"chester_arthur": {
+"_rect": [
+-8,
+4,
+437,
+423
+],
+"_fit": 0.908,
+"h_neutral": {
+"sprite": "tg2/vp/chester_arthur/0_fh_neutral.png",
+"rig": "tg2/rig/vp_chester_arthur/0/body_fh_neutral.png",
+"sprite__blink": "tg2/vp/chester_arthur/0_fh_neutral__blink.png",
+"rig__blink": "tg2/rig/vp_chester_arthur/0/body_fh_neutral__blink.png"
+},
+"h_talk": {
+"sprite": "tg2/vp/chester_arthur/0_fh_talk.png",
+"rig": "tg2/rig/vp_chester_arthur/0/body_fh_talk.png",
+"sprite__blink": "tg2/vp/chester_arthur/0_fh_talk__blink.png",
+"rig__blink": "tg2/rig/vp_chester_arthur/0/body_fh_talk__blink.png"
+},
+"h_angry": {
+"sprite": "tg2/vp/chester_arthur/0_fh_angry.png",
+"rig": "tg2/rig/vp_chester_arthur/0/body_fh_angry.png",
+"sprite__blink": "tg2/vp/chester_arthur/0_fh_angry__blink.png",
+"rig__blink": "tg2/rig/vp_chester_arthur/0/body_fh_angry__blink.png"
+},
+"h_shock": {
+"sprite": "tg2/vp/chester_arthur/0_fh_shock.png",
+"rig": "tg2/rig/vp_chester_arthur/0/body_fh_shock.png",
+"sprite__blink": "tg2/vp/chester_arthur/0_fh_shock__blink.png",
+"rig__blink": "tg2/rig/vp_chester_arthur/0/body_fh_shock__blink.png"
+},
+"h_sad": {
+"sprite": "tg2/vp/chester_arthur/0_fh_sad.png",
+"rig": "tg2/rig/vp_chester_arthur/0/body_fh_sad.png",
+"sprite__blink": "tg2/vp/chester_arthur/0_fh_sad__blink.png",
+"rig__blink": "tg2/rig/vp_chester_arthur/0/body_fh_sad__blink.png"
+},
+"h_happy": {
+"sprite": "tg2/vp/chester_arthur/0_fh_happy.png",
+"rig": "tg2/rig/vp_chester_arthur/0/body_fh_happy.png"
+}
+},
+"james_garfield": {
+"_rect": [
+8,
+-4,
+435,
+476
+],
+"_fit": 0.804,
+"10": {
+"sprite": "tg2/vp/james_garfield/0_f10.png",
+"rig": "tg2/rig/vp_james_garfield/0/body_f10.png",
+"sprite__blink": "tg2/vp/james_garfield/0_f10__blink.png",
+"rig__blink": "tg2/rig/vp_james_garfield/0/body_f10__blink.png"
+},
+"11": {
+"sprite": "tg2/vp/james_garfield/0_f11.png",
+"rig": "tg2/rig/vp_james_garfield/0/body_f11.png",
+"sprite__blink": "tg2/vp/james_garfield/0_f11__blink.png",
+"rig__blink": "tg2/rig/vp_james_garfield/0/body_f11__blink.png"
+},
+"12": {
+"sprite": "tg2/vp/james_garfield/0_f12.png",
+"rig": "tg2/rig/vp_james_garfield/0/body_f12.png",
+"sprite__blink": "tg2/vp/james_garfield/0_f12__blink.png",
+"rig__blink": "tg2/rig/vp_james_garfield/0/body_f12__blink.png"
+},
+"head0": {
+"sprite": "tg2/vp/james_garfield/0_fhead0.png",
+"rig": "tg2/rig/vp_james_garfield/0/body_fhead0.png",
+"sprite__blink": "tg2/vp/james_garfield/0_fhead0__blink.png",
+"rig__blink": "tg2/rig/vp_james_garfield/0/body_fhead0__blink.png"
+},
+"head1": {
+"sprite": "tg2/vp/james_garfield/0_fhead1.png",
+"rig": "tg2/rig/vp_james_garfield/0/body_fhead1.png",
+"sprite__blink": "tg2/vp/james_garfield/0_fhead1__blink.png",
+"rig__blink": "tg2/rig/vp_james_garfield/0/body_fhead1__blink.png"
+},
+"head2": {
+"sprite": "tg2/vp/james_garfield/0_fhead2.png",
+"rig": "tg2/rig/vp_james_garfield/0/body_fhead2.png"
+}
+},
+"garfield_attacker": {
+"_rect": [
+23,
+-17,
+367,
+462
+],
+"_fit": 0.965,
+"11": {
+"sprite": "tg2/vp/garfield_attacker/0_f11.png",
+"rig": "tg2/rig/vp_garfield_attacker/0/body_f11.png",
+"sprite__blink": "tg2/vp/garfield_attacker/0_f11__blink.png",
+"rig__blink": "tg2/rig/vp_garfield_attacker/0/body_f11__blink.png"
+},
+"12": {
+"sprite": "tg2/vp/garfield_attacker/0_f12.png",
+"rig": "tg2/rig/vp_garfield_attacker/0/body_f12.png",
+"sprite__blink": "tg2/vp/garfield_attacker/0_f12__blink.png",
+"rig__blink": "tg2/rig/vp_garfield_attacker/0/body_f12__blink.png"
+},
+"13": {
+"sprite": "tg2/vp/garfield_attacker/0_f13.png",
+"rig": "tg2/rig/vp_garfield_attacker/0/body_f13.png",
+"sprite__blink": "tg2/vp/garfield_attacker/0_f13__blink.png",
+"rig__blink": "tg2/rig/vp_garfield_attacker/0/body_f13__blink.png"
+},
+"14": {
+"sprite": "tg2/vp/garfield_attacker/0_f14.png",
+"rig": "tg2/rig/vp_garfield_attacker/0/body_f14.png",
+"sprite__blink": "tg2/vp/garfield_attacker/0_f14__blink.png",
+"rig__blink": "tg2/rig/vp_garfield_attacker/0/body_f14__blink.png"
+},
+"15": {
+"sprite": "tg2/vp/garfield_attacker/0_f15.png",
+"rig": "tg2/rig/vp_garfield_attacker/0/body_f15.png",
+"sprite__blink": "tg2/vp/garfield_attacker/0_f15__blink.png",
+"rig__blink": "tg2/rig/vp_garfield_attacker/0/body_f15__blink.png"
+},
+"16": {
+"sprite": "tg2/vp/garfield_attacker/0_f16.png",
+"rig": "tg2/rig/vp_garfield_attacker/0/body_f16.png",
+"sprite__blink": "tg2/vp/garfield_attacker/0_f16__blink.png",
+"rig__blink": "tg2/rig/vp_garfield_attacker/0/body_f16__blink.png"
+}
+},
+"theodore_roosevelt": {
+"_rect": [
+50,
+-6,
+369,
+362
+],
+"_fit": 0.85,
+"14": {
+"sprite": "tg2/vp/theodore_roosevelt/0_f14.png",
+"rig": "tg2/rig/vp_theodore_roosevelt/0/body_f14.png"
+},
+"15": {
+"sprite": "tg2/vp/theodore_roosevelt/0_f15.png",
+"rig": "tg2/rig/vp_theodore_roosevelt/0/body_f15.png"
+},
+"16": {
+"sprite": "tg2/vp/theodore_roosevelt/0_f16.png",
+"rig": "tg2/rig/vp_theodore_roosevelt/0/body_f16.png"
+},
+"17": {
+"sprite": "tg2/vp/theodore_roosevelt/0_f17.png",
+"rig": "tg2/rig/vp_theodore_roosevelt/0/body_f17.png"
+},
+"18": {
+"sprite": "tg2/vp/theodore_roosevelt/0_f18.png",
+"rig": "tg2/rig/vp_theodore_roosevelt/0/body_f18.png"
+}
+},
+"calvin_coolidge": {
+"_rect": [
+54,
+8,
+371,
+445
+],
+"_fit": 0.929,
+"11": {
+"sprite": "tg2/vp/calvin_coolidge/0_f11.png",
+"rig": "tg2/rig/vp_calvin_coolidge/0/body_f11.png",
+"sprite__blink": "tg2/vp/calvin_coolidge/0_f11__blink.png",
+"rig__blink": "tg2/rig/vp_calvin_coolidge/0/body_f11__blink.png"
+},
+"12": {
+"sprite": "tg2/vp/calvin_coolidge/0_f12.png",
+"rig": "tg2/rig/vp_calvin_coolidge/0/body_f12.png",
+"sprite__blink": "tg2/vp/calvin_coolidge/0_f12__blink.png",
+"rig__blink": "tg2/rig/vp_calvin_coolidge/0/body_f12__blink.png"
+},
+"13": {
+"sprite": "tg2/vp/calvin_coolidge/0_f13.png",
+"rig": "tg2/rig/vp_calvin_coolidge/0/body_f13.png",
+"sprite__blink": "tg2/vp/calvin_coolidge/0_f13__blink.png",
+"rig__blink": "tg2/rig/vp_calvin_coolidge/0/body_f13__blink.png"
+},
+"14": {
+"sprite": "tg2/vp/calvin_coolidge/0_f14.png",
+"rig": "tg2/rig/vp_calvin_coolidge/0/body_f14.png",
+"sprite__blink": "tg2/vp/calvin_coolidge/0_f14__blink.png",
+"rig__blink": "tg2/rig/vp_calvin_coolidge/0/body_f14__blink.png"
+},
+"15": {
+"sprite": "tg2/vp/calvin_coolidge/0_f15.png",
+"rig": "tg2/rig/vp_calvin_coolidge/0/body_f15.png",
+"sprite__blink": "tg2/vp/calvin_coolidge/0_f15__blink.png",
+"rig__blink": "tg2/rig/vp_calvin_coolidge/0/body_f15__blink.png"
+},
+"16": {
+"sprite": "tg2/vp/calvin_coolidge/0_f16.png",
+"rig": "tg2/rig/vp_calvin_coolidge/0/body_f16.png",
+"sprite__blink": "tg2/vp/calvin_coolidge/0_f16__blink.png",
+"rig__blink": "tg2/rig/vp_calvin_coolidge/0/body_f16__blink.png"
+}
+},
+"harry_truman": {
+"_rect": [
+41,
+-5,
+380,
+422
+],
+"_fit": 0.697,
+"12": {
+"sprite": "tg2/vp/harry_truman/0_f12.png",
+"rig": "tg2/rig/vp_harry_truman/0/body_f12.png"
+},
+"19": {
+"sprite": "tg2/vp/harry_truman/0_f19.png",
+"rig": "tg2/rig/vp_harry_truman/0/body_f19.png"
+},
+"13": {
+"sprite": "tg2/vp/harry_truman/0_f13.png",
+"rig": "tg2/rig/vp_harry_truman/0/body_f13.png"
+},
+"head0": {
+"sprite": "tg2/vp/harry_truman/0_fhead0.png",
+"rig": "tg2/rig/vp_harry_truman/0/body_fhead0.png"
+},
+"head1": {
+"sprite": "tg2/vp/harry_truman/0_fhead1.png",
+"rig": "tg2/rig/vp_harry_truman/0/body_fhead1.png"
+},
+"15": {
+"sprite": "tg2/vp/harry_truman/0_f15.png",
+"rig": "tg2/rig/vp_harry_truman/0/body_f15.png"
+}
+},
+"lyndon_johnson": {
+"_rect": [
+-17,
+5,
+426,
+450
+],
+"_fit": 0.783,
+"11": {
+"sprite": "tg2/vp/lyndon_johnson/0_f11.png",
+"rig": "tg2/rig/vp_lyndon_johnson/0/body_f11.png",
+"sprite__blink": "tg2/vp/lyndon_johnson/0_f11__blink.png",
+"rig__blink": "tg2/rig/vp_lyndon_johnson/0/body_f11__blink.png"
+},
+"12": {
+"sprite": "tg2/vp/lyndon_johnson/0_f12.png",
+"rig": "tg2/rig/vp_lyndon_johnson/0/body_f12.png",
+"sprite__blink": "tg2/vp/lyndon_johnson/0_f12__blink.png",
+"rig__blink": "tg2/rig/vp_lyndon_johnson/0/body_f12__blink.png"
+},
+"13": {
+"sprite": "tg2/vp/lyndon_johnson/0_f13.png",
+"rig": "tg2/rig/vp_lyndon_johnson/0/body_f13.png",
+"sprite__blink": "tg2/vp/lyndon_johnson/0_f13__blink.png",
+"rig__blink": "tg2/rig/vp_lyndon_johnson/0/body_f13__blink.png"
+},
+"14": {
+"sprite": "tg2/vp/lyndon_johnson/0_f14.png",
+"rig": "tg2/rig/vp_lyndon_johnson/0/body_f14.png",
+"sprite__blink": "tg2/vp/lyndon_johnson/0_f14__blink.png",
+"rig__blink": "tg2/rig/vp_lyndon_johnson/0/body_f14__blink.png"
+},
+"15": {
+"sprite": "tg2/vp/lyndon_johnson/0_f15.png",
+"rig": "tg2/rig/vp_lyndon_johnson/0/body_f15.png",
+"sprite__blink": "tg2/vp/lyndon_johnson/0_f15__blink.png",
+"rig__blink": "tg2/rig/vp_lyndon_johnson/0/body_f15__blink.png"
+},
+"16": {
+"sprite": "tg2/vp/lyndon_johnson/0_f16.png",
+"rig": "tg2/rig/vp_lyndon_johnson/0/body_f16.png"
+}
+},
+"gerald_ford": {
+"_rect": [
+17,
+-2,
+401,
+396
+],
+"_fit": 0.957,
+"12": {
+"sprite": "tg2/vp/gerald_ford/0_f12.png",
+"rig": "tg2/rig/vp_gerald_ford/0/body_f12.png",
+"sprite__blink": "tg2/vp/gerald_ford/0_f12__blink.png",
+"rig__blink": "tg2/rig/vp_gerald_ford/0/body_f12__blink.png"
+},
+"13": {
+"sprite": "tg2/vp/gerald_ford/0_f13.png",
+"rig": "tg2/rig/vp_gerald_ford/0/body_f13.png",
+"sprite__blink": "tg2/vp/gerald_ford/0_f13__blink.png",
+"rig__blink": "tg2/rig/vp_gerald_ford/0/body_f13__blink.png"
+},
+"14": {
+"sprite": "tg2/vp/gerald_ford/0_f14.png",
+"rig": "tg2/rig/vp_gerald_ford/0/body_f14.png",
+"sprite__blink": "tg2/vp/gerald_ford/0_f14__blink.png",
+"rig__blink": "tg2/rig/vp_gerald_ford/0/body_f14__blink.png"
+},
+"15": {
+"sprite": "tg2/vp/gerald_ford/0_f15.png",
+"rig": "tg2/rig/vp_gerald_ford/0/body_f15.png",
+"sprite__blink": "tg2/vp/gerald_ford/0_f15__blink.png",
+"rig__blink": "tg2/rig/vp_gerald_ford/0/body_f15__blink.png"
+},
+"16": {
+"sprite": "tg2/vp/gerald_ford/0_f16.png",
+"rig": "tg2/rig/vp_gerald_ford/0/body_f16.png",
+"sprite__blink": "tg2/vp/gerald_ford/0_f16__blink.png",
+"rig__blink": "tg2/rig/vp_gerald_ford/0/body_f16__blink.png"
+},
+"17": {
+"sprite": "tg2/vp/gerald_ford/0_f17.png",
+"rig": "tg2/rig/vp_gerald_ford/0/body_f17.png",
+"sprite__blink": "tg2/vp/gerald_ford/0_f17__blink.png",
+"rig__blink": "tg2/rig/vp_gerald_ford/0/body_f17__blink.png"
+}
+},
+"john_coolidge_senior": {
+"_rect": [
+13,
+5,
+393,
+380
+],
+"_fit": 0.909,
+"11": {
+"sprite": "tg2/vp/john_coolidge_senior/0_f11.png",
+"rig": "tg2/rig/vp_john_coolidge_senior/0/body_f11.png",
+"sprite__blink": "tg2/vp/john_coolidge_senior/0_f11__blink.png",
+"rig__blink": "tg2/rig/vp_john_coolidge_senior/0/body_f11__blink.png"
+},
+"12": {
+"sprite": "tg2/vp/john_coolidge_senior/0_f12.png",
+"rig": "tg2/rig/vp_john_coolidge_senior/0/body_f12.png",
+"sprite__blink": "tg2/vp/john_coolidge_senior/0_f12__blink.png",
+"rig__blink": "tg2/rig/vp_john_coolidge_senior/0/body_f12__blink.png"
+},
+"13": {
+"sprite": "tg2/vp/john_coolidge_senior/0_f13.png",
+"rig": "tg2/rig/vp_john_coolidge_senior/0/body_f13.png",
+"sprite__blink": "tg2/vp/john_coolidge_senior/0_f13__blink.png",
+"rig__blink": "tg2/rig/vp_john_coolidge_senior/0/body_f13__blink.png"
+},
+"14": {
+"sprite": "tg2/vp/john_coolidge_senior/0_f14.png",
+"rig": "tg2/rig/vp_john_coolidge_senior/0/body_f14.png",
+"sprite__blink": "tg2/vp/john_coolidge_senior/0_f14__blink.png",
+"rig__blink": "tg2/rig/vp_john_coolidge_senior/0/body_f14__blink.png"
+},
+"15": {
+"sprite": "tg2/vp/john_coolidge_senior/0_f15.png",
+"rig": "tg2/rig/vp_john_coolidge_senior/0/body_f15.png",
+"sprite__blink": "tg2/vp/john_coolidge_senior/0_f15__blink.png",
+"rig__blink": "tg2/rig/vp_john_coolidge_senior/0/body_f15__blink.png"
+},
+"16": {
+"sprite": "tg2/vp/john_coolidge_senior/0_f16.png",
+"rig": "tg2/rig/vp_john_coolidge_senior/0/body_f16.png"
+}
+},
+"jacqueline_kennedy": {
+"_rect": [
+-2,
+57,
+432,
+418
+],
+"_fit": 0.91,
+"head0": {
+"sprite": "tg2/vp/jacqueline_kennedy/0_fhead0.png",
+"rig": "tg2/rig/vp_jacqueline_kennedy/0/body_fhead0.png",
+"sprite__blink": "tg2/vp/jacqueline_kennedy/0_fhead0__blink.png",
+"rig__blink": "tg2/rig/vp_jacqueline_kennedy/0/body_fhead0__blink.png"
+},
+"head1": {
+"sprite": "tg2/vp/jacqueline_kennedy/0_fhead1.png",
+"rig": "tg2/rig/vp_jacqueline_kennedy/0/body_fhead1.png",
+"sprite__blink": "tg2/vp/jacqueline_kennedy/0_fhead1__blink.png",
+"rig__blink": "tg2/rig/vp_jacqueline_kennedy/0/body_fhead1__blink.png"
+},
+"head2": {
+"sprite": "tg2/vp/jacqueline_kennedy/0_fhead2.png",
+"rig": "tg2/rig/vp_jacqueline_kennedy/0/body_fhead2.png",
+"sprite__blink": "tg2/vp/jacqueline_kennedy/0_fhead2__blink.png",
+"rig__blink": "tg2/rig/vp_jacqueline_kennedy/0/body_fhead2__blink.png"
+},
+"head3": {
+"sprite": "tg2/vp/jacqueline_kennedy/0_fhead3.png",
+"rig": "tg2/rig/vp_jacqueline_kennedy/0/body_fhead3.png",
+"sprite__blink": "tg2/vp/jacqueline_kennedy/0_fhead3__blink.png",
+"rig__blink": "tg2/rig/vp_jacqueline_kennedy/0/body_fhead3__blink.png"
+},
+"head4": {
+"sprite": "tg2/vp/jacqueline_kennedy/0_fhead4.png",
+"rig": "tg2/rig/vp_jacqueline_kennedy/0/body_fhead4.png",
+"sprite__blink": "tg2/vp/jacqueline_kennedy/0_fhead4__blink.png",
+"rig__blink": "tg2/rig/vp_jacqueline_kennedy/0/body_fhead4__blink.png"
+},
+"head5": {
+"sprite": "tg2/vp/jacqueline_kennedy/0_fhead5.png",
+"rig": "tg2/rig/vp_jacqueline_kennedy/0/body_fhead5.png"
+}
+},
+"william_mckinley": {
+"_rect": [
+20,
+5,
+369,
+400
+],
+"_fit": 0.944,
+"11": {
+"sprite": "tg2/vp/william_mckinley/0_f11.png",
+"rig": "tg2/rig/vp_william_mckinley/0/body_f11.png",
+"sprite__blink": "tg2/vp/william_mckinley/0_f11__blink.png",
+"rig__blink": "tg2/rig/vp_william_mckinley/0/body_f11__blink.png"
+},
+"12": {
+"sprite": "tg2/vp/william_mckinley/0_f12.png",
+"rig": "tg2/rig/vp_william_mckinley/0/body_f12.png",
+"sprite__blink": "tg2/vp/william_mckinley/0_f12__blink.png",
+"rig__blink": "tg2/rig/vp_william_mckinley/0/body_f12__blink.png"
+},
+"13": {
+"sprite": "tg2/vp/william_mckinley/0_f13.png",
+"rig": "tg2/rig/vp_william_mckinley/0/body_f13.png",
+"sprite__blink": "tg2/vp/william_mckinley/0_f13__blink.png",
+"rig__blink": "tg2/rig/vp_william_mckinley/0/body_f13__blink.png"
+},
+"14": {
+"sprite": "tg2/vp/william_mckinley/0_f14.png",
+"rig": "tg2/rig/vp_william_mckinley/0/body_f14.png",
+"sprite__blink": "tg2/vp/william_mckinley/0_f14__blink.png",
+"rig__blink": "tg2/rig/vp_william_mckinley/0/body_f14__blink.png"
+},
+"15": {
+"sprite": "tg2/vp/william_mckinley/0_f15.png",
+"rig": "tg2/rig/vp_william_mckinley/0/body_f15.png",
+"sprite__blink": "tg2/vp/william_mckinley/0_f15__blink.png",
+"rig__blink": "tg2/rig/vp_william_mckinley/0/body_f15__blink.png"
+},
+"16": {
+"sprite": "tg2/vp/william_mckinley/0_f16.png",
+"rig": "tg2/rig/vp_william_mckinley/0/body_f16.png",
+"sprite__blink": "tg2/vp/william_mckinley/0_f16__blink.png",
+"rig__blink": "tg2/rig/vp_william_mckinley/0/body_f16__blink.png"
+}
+},
+"warren_harding": {
+"_rect": [
+41,
+4,
+382,
+429
+],
+"_fit": 0.959,
+"11": {
+"sprite": "tg2/vp/warren_harding/0_f11.png",
+"rig": "tg2/rig/vp_warren_harding/0/body_f11.png",
+"sprite__blink": "tg2/vp/warren_harding/0_f11__blink.png",
+"rig__blink": "tg2/rig/vp_warren_harding/0/body_f11__blink.png"
+},
+"12": {
+"sprite": "tg2/vp/warren_harding/0_f12.png",
+"rig": "tg2/rig/vp_warren_harding/0/body_f12.png",
+"sprite__blink": "tg2/vp/warren_harding/0_f12__blink.png",
+"rig__blink": "tg2/rig/vp_warren_harding/0/body_f12__blink.png"
+},
+"13": {
+"sprite": "tg2/vp/warren_harding/0_f13.png",
+"rig": "tg2/rig/vp_warren_harding/0/body_f13.png",
+"sprite__blink": "tg2/vp/warren_harding/0_f13__blink.png",
+"rig__blink": "tg2/rig/vp_warren_harding/0/body_f13__blink.png"
+},
+"14": {
+"sprite": "tg2/vp/warren_harding/0_f14.png",
+"rig": "tg2/rig/vp_warren_harding/0/body_f14.png",
+"sprite__blink": "tg2/vp/warren_harding/0_f14__blink.png",
+"rig__blink": "tg2/rig/vp_warren_harding/0/body_f14__blink.png"
+},
+"15": {
+"sprite": "tg2/vp/warren_harding/0_f15.png",
+"rig": "tg2/rig/vp_warren_harding/0/body_f15.png",
+"sprite__blink": "tg2/vp/warren_harding/0_f15__blink.png",
+"rig__blink": "tg2/rig/vp_warren_harding/0/body_f15__blink.png"
+},
+"16": {
+"sprite": "tg2/vp/warren_harding/0_f16.png",
+"rig": "tg2/rig/vp_warren_harding/0/body_f16.png",
+"sprite__blink": "tg2/vp/warren_harding/0_f16__blink.png",
+"rig__blink": "tg2/rig/vp_warren_harding/0/body_f16__blink.png"
+}
+},
+"thomas_dewey": {
+"_rect": [
+25,
+2,
+377,
+411
+],
+"_fit": 0.949,
+"12": {
+"sprite": "tg2/vp/thomas_dewey/0_f12.png",
+"rig": "tg2/rig/vp_thomas_dewey/0/body_f12.png",
+"sprite__blink": "tg2/vp/thomas_dewey/0_f12__blink.png",
+"rig__blink": "tg2/rig/vp_thomas_dewey/0/body_f12__blink.png"
+},
+"13": {
+"sprite": "tg2/vp/thomas_dewey/0_f13.png",
+"rig": "tg2/rig/vp_thomas_dewey/0/body_f13.png",
+"sprite__blink": "tg2/vp/thomas_dewey/0_f13__blink.png",
+"rig__blink": "tg2/rig/vp_thomas_dewey/0/body_f13__blink.png"
+},
+"14": {
+"sprite": "tg2/vp/thomas_dewey/0_f14.png",
+"rig": "tg2/rig/vp_thomas_dewey/0/body_f14.png",
+"sprite__blink": "tg2/vp/thomas_dewey/0_f14__blink.png",
+"rig__blink": "tg2/rig/vp_thomas_dewey/0/body_f14__blink.png"
+},
+"15": {
+"sprite": "tg2/vp/thomas_dewey/0_f15.png",
+"rig": "tg2/rig/vp_thomas_dewey/0/body_f15.png",
+"sprite__blink": "tg2/vp/thomas_dewey/0_f15__blink.png",
+"rig__blink": "tg2/rig/vp_thomas_dewey/0/body_f15__blink.png"
+},
+"16": {
+"sprite": "tg2/vp/thomas_dewey/0_f16.png",
+"rig": "tg2/rig/vp_thomas_dewey/0/body_f16.png",
+"sprite__blink": "tg2/vp/thomas_dewey/0_f16__blink.png",
+"rig__blink": "tg2/rig/vp_thomas_dewey/0/body_f16__blink.png"
+},
+"17": {
+"sprite": "tg2/vp/thomas_dewey/0_f17.png",
+"rig": "tg2/rig/vp_thomas_dewey/0/body_f17.png"
+}
+},
+"thomas_platt": {
+"_rect": [
+14,
+5,
+334,
+476
+],
+"_fit": 0.71,
+"10": {
+"sprite": "tg2/vp/thomas_platt/0_f10.png",
+"rig": "tg2/rig/vp_thomas_platt/0/body_f10.png"
+},
+"11": {
+"sprite": "tg2/vp/thomas_platt/0_f11.png",
+"rig": "tg2/rig/vp_thomas_platt/0/body_f11.png"
+},
+"12": {
+"sprite": "tg2/vp/thomas_platt/0_f12.png",
+"rig": "tg2/rig/vp_thomas_platt/0/body_f12.png"
+},
+"13": {
+"sprite": "tg2/vp/thomas_platt/0_f13.png",
+"rig": "tg2/rig/vp_thomas_platt/0/body_f13.png"
+},
+"14": {
+"sprite": "tg2/vp/thomas_platt/0_f14.png",
+"rig": "tg2/rig/vp_thomas_platt/0/body_f14.png"
+},
+"15": {
+"sprite": "tg2/vp/thomas_platt/0_f15.png",
+"rig": "tg2/rig/vp_thomas_platt/0/body_f15.png"
+}
+},
+"franklin_roosevelt": {
+"_rect": [
+-2,
+8,
+361,
+422
+],
+"_fit": 0.84,
+"11": {
+"sprite": "tg2/vp/franklin_roosevelt/0_f11.png",
+"rig": "tg2/rig/vp_franklin_roosevelt/0/body_f11.png"
+},
+"12": {
+"sprite": "tg2/vp/franklin_roosevelt/0_f12.png",
+"rig": "tg2/rig/vp_franklin_roosevelt/0/body_f12.png"
+},
+"13": {
+"sprite": "tg2/vp/franklin_roosevelt/0_f13.png",
+"rig": "tg2/rig/vp_franklin_roosevelt/0/body_f13.png"
+},
+"14": {
+"sprite": "tg2/vp/franklin_roosevelt/0_f14.png",
+"rig": "tg2/rig/vp_franklin_roosevelt/0/body_f14.png"
+},
+"15": {
+"sprite": "tg2/vp/franklin_roosevelt/0_f15.png",
+"rig": "tg2/rig/vp_franklin_roosevelt/0/body_f15.png"
+},
+"16": {
+"sprite": "tg2/vp/franklin_roosevelt/0_f16.png",
+"rig": "tg2/rig/vp_franklin_roosevelt/0/body_f16.png"
+}
+},
+"john_f_kennedy": {
+"_rect": [
+28,
+-9,
+447,
+476
+],
+"_fit": 0.963,
+"12": {
+"sprite": "tg2/vp/john_f_kennedy/0_f12.png",
+"rig": "tg2/rig/vp_john_f_kennedy/0/body_f12.png",
+"sprite__blink": "tg2/vp/john_f_kennedy/0_f12__blink.png",
+"rig__blink": "tg2/rig/vp_john_f_kennedy/0/body_f12__blink.png"
+},
+"13": {
+"sprite": "tg2/vp/john_f_kennedy/0_f13.png",
+"rig": "tg2/rig/vp_john_f_kennedy/0/body_f13.png",
+"sprite__blink": "tg2/vp/john_f_kennedy/0_f13__blink.png",
+"rig__blink": "tg2/rig/vp_john_f_kennedy/0/body_f13__blink.png"
+},
+"14": {
+"sprite": "tg2/vp/john_f_kennedy/0_f14.png",
+"rig": "tg2/rig/vp_john_f_kennedy/0/body_f14.png",
+"sprite__blink": "tg2/vp/john_f_kennedy/0_f14__blink.png",
+"rig__blink": "tg2/rig/vp_john_f_kennedy/0/body_f14__blink.png"
+},
+"15": {
+"sprite": "tg2/vp/john_f_kennedy/0_f15.png",
+"rig": "tg2/rig/vp_john_f_kennedy/0/body_f15.png",
+"sprite__blink": "tg2/vp/john_f_kennedy/0_f15__blink.png",
+"rig__blink": "tg2/rig/vp_john_f_kennedy/0/body_f15__blink.png"
+},
+"16": {
+"sprite": "tg2/vp/john_f_kennedy/0_f16.png",
+"rig": "tg2/rig/vp_john_f_kennedy/0/body_f16.png",
+"sprite__blink": "tg2/vp/john_f_kennedy/0_f16__blink.png",
+"rig__blink": "tg2/rig/vp_john_f_kennedy/0/body_f16__blink.png"
+},
+"17": {
+"sprite": "tg2/vp/john_f_kennedy/0_f17.png",
+"rig": "tg2/rig/vp_john_f_kennedy/0/body_f17.png"
+}
+},
+"richard_nixon": {
+"_rect": [
+38,
+11,
+336,
+407
+],
+"_fit": 0.754,
+"11": {
+"sprite": "tg2/vp/richard_nixon/0_f11.png",
+"rig": "tg2/rig/vp_richard_nixon/0/body_f11.png",
+"sprite__blink": "tg2/vp/richard_nixon/0_f11__blink.png",
+"rig__blink": "tg2/rig/vp_richard_nixon/0/body_f11__blink.png"
+},
+"12": {
+"sprite": "tg2/vp/richard_nixon/0_f12.png",
+"rig": "tg2/rig/vp_richard_nixon/0/body_f12.png",
+"sprite__blink": "tg2/vp/richard_nixon/0_f12__blink.png",
+"rig__blink": "tg2/rig/vp_richard_nixon/0/body_f12__blink.png"
+},
+"13": {
+"sprite": "tg2/vp/richard_nixon/0_f13.png",
+"rig": "tg2/rig/vp_richard_nixon/0/body_f13.png",
+"sprite__blink": "tg2/vp/richard_nixon/0_f13__blink.png",
+"rig__blink": "tg2/rig/vp_richard_nixon/0/body_f13__blink.png"
+},
+"14": {
+"sprite": "tg2/vp/richard_nixon/0_f14.png",
+"rig": "tg2/rig/vp_richard_nixon/0/body_f14.png",
+"sprite__blink": "tg2/vp/richard_nixon/0_f14__blink.png",
+"rig__blink": "tg2/rig/vp_richard_nixon/0/body_f14__blink.png"
+},
+"15": {
+"sprite": "tg2/vp/richard_nixon/0_f15.png",
+"rig": "tg2/rig/vp_richard_nixon/0/body_f15.png",
+"sprite__blink": "tg2/vp/richard_nixon/0_f15__blink.png",
+"rig__blink": "tg2/rig/vp_richard_nixon/0/body_f15__blink.png"
+},
+"16": {
+"sprite": "tg2/vp/richard_nixon/0_f16.png",
+"rig": "tg2/rig/vp_richard_nixon/0/body_f16.png",
+"sprite__blink": "tg2/vp/richard_nixon/0_f16__blink.png",
+"rig__blink": "tg2/rig/vp_richard_nixon/0/body_f16__blink.png"
+}
+},
+"dwight_eisenhower": {
+"_rect": [
+35,
+4,
+379,
+399
+],
+"_fit": 0.921,
+"11": {
+"sprite": "tg2/vp/dwight_eisenhower/0_f11.png",
+"rig": "tg2/rig/vp_dwight_eisenhower/0/body_f11.png",
+"sprite__blink": "tg2/vp/dwight_eisenhower/0_f11__blink.png",
+"rig__blink": "tg2/rig/vp_dwight_eisenhower/0/body_f11__blink.png"
+},
+"12": {
+"sprite": "tg2/vp/dwight_eisenhower/0_f12.png",
+"rig": "tg2/rig/vp_dwight_eisenhower/0/body_f12.png",
+"sprite__blink": "tg2/vp/dwight_eisenhower/0_f12__blink.png",
+"rig__blink": "tg2/rig/vp_dwight_eisenhower/0/body_f12__blink.png"
+},
+"13": {
+"sprite": "tg2/vp/dwight_eisenhower/0_f13.png",
+"rig": "tg2/rig/vp_dwight_eisenhower/0/body_f13.png",
+"sprite__blink": "tg2/vp/dwight_eisenhower/0_f13__blink.png",
+"rig__blink": "tg2/rig/vp_dwight_eisenhower/0/body_f13__blink.png"
+},
+"14": {
+"sprite": "tg2/vp/dwight_eisenhower/0_f14.png",
+"rig": "tg2/rig/vp_dwight_eisenhower/0/body_f14.png",
+"sprite__blink": "tg2/vp/dwight_eisenhower/0_f14__blink.png",
+"rig__blink": "tg2/rig/vp_dwight_eisenhower/0/body_f14__blink.png"
+},
+"15": {
+"sprite": "tg2/vp/dwight_eisenhower/0_f15.png",
+"rig": "tg2/rig/vp_dwight_eisenhower/0/body_f15.png",
+"sprite__blink": "tg2/vp/dwight_eisenhower/0_f15__blink.png",
+"rig__blink": "tg2/rig/vp_dwight_eisenhower/0/body_f15__blink.png"
+},
+"16": {
+"sprite": "tg2/vp/dwight_eisenhower/0_f16.png",
+"rig": "tg2/rig/vp_dwight_eisenhower/0/body_f16.png"
+}
+},
+"spiro_agnew": {
+"_rect": [
+54,
+6,
+327,
+469
+],
+"_fit": 0.932,
+"11": {
+"sprite": "tg2/vp/spiro_agnew/0_f11.png",
+"rig": "tg2/rig/vp_spiro_agnew/0/body_f11.png"
+},
+"12": {
+"sprite": "tg2/vp/spiro_agnew/0_f12.png",
+"rig": "tg2/rig/vp_spiro_agnew/0/body_f12.png"
+},
+"13": {
+"sprite": "tg2/vp/spiro_agnew/0_f13.png",
+"rig": "tg2/rig/vp_spiro_agnew/0/body_f13.png"
+},
+"14": {
+"sprite": "tg2/vp/spiro_agnew/0_f14.png",
+"rig": "tg2/rig/vp_spiro_agnew/0/body_f14.png",
+"sprite__blink": "tg2/vp/spiro_agnew/0_f14__blink.png",
+"rig__blink": "tg2/rig/vp_spiro_agnew/0/body_f14__blink.png"
+},
+"15": {
+"sprite": "tg2/vp/spiro_agnew/0_f15.png",
+"rig": "tg2/rig/vp_spiro_agnew/0/body_f15.png"
+},
+"16": {
+"sprite": "tg2/vp/spiro_agnew/0_f16.png",
+"rig": "tg2/rig/vp_spiro_agnew/0/body_f16.png"
+}
+},
+"george_hw_bush": {
+"_rect": [
+36,
+11,
+344,
+464
+],
+"_fit": 0.92,
+"12": {
+"sprite": "tg2/vp/george_hw_bush/0_f12.png",
+"rig": "tg2/rig/vp_george_hw_bush/0/body_f12.png"
+},
+"13": {
+"sprite": "tg2/vp/george_hw_bush/0_f13.png",
+"rig": "tg2/rig/vp_george_hw_bush/0/body_f13.png"
+},
+"14": {
+"sprite": "tg2/vp/george_hw_bush/0_f14.png",
+"rig": "tg2/rig/vp_george_hw_bush/0/body_f14.png"
+},
+"15": {
+"sprite": "tg2/vp/george_hw_bush/0_f15.png",
+"rig": "tg2/rig/vp_george_hw_bush/0/body_f15.png"
+},
+"16": {
+"sprite": "tg2/vp/george_hw_bush/0_f16.png",
+"rig": "tg2/rig/vp_george_hw_bush/0/body_f16.png"
+},
+"17": {
+"sprite": "tg2/vp/george_hw_bush/0_f17.png",
+"rig": "tg2/rig/vp_george_hw_bush/0/body_f17.png"
+}
+},
+"ronald_reagan": {
+"_rect": [
+27,
+-27,
+376,
+478
+],
+"_fit": 0.962,
+"11": {
+"sprite": "tg2/vp/ronald_reagan/0_f11.png",
+"rig": "tg2/rig/vp_ronald_reagan/0/body_f11.png",
+"sprite__blink": "tg2/vp/ronald_reagan/0_f11__blink.png",
+"rig__blink": "tg2/rig/vp_ronald_reagan/0/body_f11__blink.png"
+},
+"12": {
+"sprite": "tg2/vp/ronald_reagan/0_f12.png",
+"rig": "tg2/rig/vp_ronald_reagan/0/body_f12.png",
+"sprite__blink": "tg2/vp/ronald_reagan/0_f12__blink.png",
+"rig__blink": "tg2/rig/vp_ronald_reagan/0/body_f12__blink.png"
+},
+"13": {
+"sprite": "tg2/vp/ronald_reagan/0_f13.png",
+"rig": "tg2/rig/vp_ronald_reagan/0/body_f13.png"
+},
+"14": {
+"sprite": "tg2/vp/ronald_reagan/0_f14.png",
+"rig": "tg2/rig/vp_ronald_reagan/0/body_f14.png",
+"sprite__blink": "tg2/vp/ronald_reagan/0_f14__blink.png",
+"rig__blink": "tg2/rig/vp_ronald_reagan/0/body_f14__blink.png"
+},
+"15": {
+"sprite": "tg2/vp/ronald_reagan/0_f15.png",
+"rig": "tg2/rig/vp_ronald_reagan/0/body_f15.png",
+"sprite__blink": "tg2/vp/ronald_reagan/0_f15__blink.png",
+"rig__blink": "tg2/rig/vp_ronald_reagan/0/body_f15__blink.png"
+},
+"16": {
+"sprite": "tg2/vp/ronald_reagan/0_f16.png",
+"rig": "tg2/rig/vp_ronald_reagan/0/body_f16.png"
+}
+},
+"jimmy_carter": {
+"_rect": [
+11,
+13,
+410,
+456
+],
+"_fit": 0.842,
+"11": {
+"sprite": "tg2/vp/jimmy_carter/0_f11.png",
+"rig": "tg2/rig/vp_jimmy_carter/0/body_f11.png",
+"sprite__blink": "tg2/vp/jimmy_carter/0_f11__blink.png",
+"rig__blink": "tg2/rig/vp_jimmy_carter/0/body_f11__blink.png"
+},
+"12": {
+"sprite": "tg2/vp/jimmy_carter/0_f12.png",
+"rig": "tg2/rig/vp_jimmy_carter/0/body_f12.png",
+"sprite__blink": "tg2/vp/jimmy_carter/0_f12__blink.png",
+"rig__blink": "tg2/rig/vp_jimmy_carter/0/body_f12__blink.png"
+},
+"13": {
+"sprite": "tg2/vp/jimmy_carter/0_f13.png",
+"rig": "tg2/rig/vp_jimmy_carter/0/body_f13.png",
+"sprite__blink": "tg2/vp/jimmy_carter/0_f13__blink.png",
+"rig__blink": "tg2/rig/vp_jimmy_carter/0/body_f13__blink.png"
+},
+"14": {
+"sprite": "tg2/vp/jimmy_carter/0_f14.png",
+"rig": "tg2/rig/vp_jimmy_carter/0/body_f14.png",
+"sprite__blink": "tg2/vp/jimmy_carter/0_f14__blink.png",
+"rig__blink": "tg2/rig/vp_jimmy_carter/0/body_f14__blink.png"
+},
+"15": {
+"sprite": "tg2/vp/jimmy_carter/0_f15.png",
+"rig": "tg2/rig/vp_jimmy_carter/0/body_f15.png",
+"sprite__blink": "tg2/vp/jimmy_carter/0_f15__blink.png",
+"rig__blink": "tg2/rig/vp_jimmy_carter/0/body_f15__blink.png"
+},
+"16": {
+"sprite": "tg2/vp/jimmy_carter/0_f16.png",
+"rig": "tg2/rig/vp_jimmy_carter/0/body_f16.png"
+}
+},
+"bill_clinton": {
+"_rect": [
+42,
+6,
+385,
+445
+],
+"_fit": 0.938,
+"hA0": {
+"sprite": "tg2/vp/bill_clinton/0_fhA0.png",
+"rig": "tg2/rig/vp_bill_clinton/0/body_fhA0.png",
+"sprite__blink": "tg2/vp/bill_clinton/0_fhA0__blink.png",
+"rig__blink": "tg2/rig/vp_bill_clinton/0/body_fhA0__blink.png"
+},
+"hA1": {
+"sprite": "tg2/vp/bill_clinton/0_fhA1.png",
+"rig": "tg2/rig/vp_bill_clinton/0/body_fhA1.png",
+"sprite__blink": "tg2/vp/bill_clinton/0_fhA1__blink.png",
+"rig__blink": "tg2/rig/vp_bill_clinton/0/body_fhA1__blink.png"
+},
+"hA2": {
+"sprite": "tg2/vp/bill_clinton/0_fhA2.png",
+"rig": "tg2/rig/vp_bill_clinton/0/body_fhA2.png",
+"sprite__blink": "tg2/vp/bill_clinton/0_fhA2__blink.png",
+"rig__blink": "tg2/rig/vp_bill_clinton/0/body_fhA2__blink.png"
+},
+"head0": {
+"sprite": "tg2/vp/bill_clinton/0_fhead0.png",
+"rig": "tg2/rig/vp_bill_clinton/0/body_fhead0.png",
+"sprite__blink": "tg2/vp/bill_clinton/0_fhead0__blink.png",
+"rig__blink": "tg2/rig/vp_bill_clinton/0/body_fhead0__blink.png"
+},
+"head1": {
+"sprite": "tg2/vp/bill_clinton/0_fhead1.png",
+"rig": "tg2/rig/vp_bill_clinton/0/body_fhead1.png",
+"sprite__blink": "tg2/vp/bill_clinton/0_fhead1__blink.png",
+"rig__blink": "tg2/rig/vp_bill_clinton/0/body_fhead1__blink.png"
+},
+"head2": {
+"sprite": "tg2/vp/bill_clinton/0_fhead2.png",
+"rig": "tg2/rig/vp_bill_clinton/0/body_fhead2.png"
+}
+},
+"joe_biden": {
+"_rect": [
+11,
+1,
+325,
+467
+],
+"_fit": 0.904,
+"12": {
+"sprite": "tg2/vp/joe_biden/0_f12.png",
+"rig": "tg2/rig/vp_joe_biden/0/body_f12.png"
+},
+"13": {
+"sprite": "tg2/vp/joe_biden/0_f13.png",
+"rig": "tg2/rig/vp_joe_biden/0/body_f13.png"
+},
+"14": {
+"sprite": "tg2/vp/joe_biden/0_f14.png",
+"rig": "tg2/rig/vp_joe_biden/0/body_f14.png"
+},
+"15": {
+"sprite": "tg2/vp/joe_biden/0_f15.png",
+"rig": "tg2/rig/vp_joe_biden/0/body_f15.png"
+},
+"16": {
+"sprite": "tg2/vp/joe_biden/0_f16.png",
+"rig": "tg2/rig/vp_joe_biden/0/body_f16.png"
+},
+"17": {
+"sprite": "tg2/vp/joe_biden/0_f17.png",
+"rig": "tg2/rig/vp_joe_biden/0/body_f17.png"
+}
+},
+"barack_obama": {
+"_rect": [
+18,
+9,
+370,
+422
+],
+"_fit": 0.936,
+"11": {
+"sprite": "tg2/vp/barack_obama/0_f11.png",
+"rig": "tg2/rig/vp_barack_obama/0/body_f11.png",
+"sprite__blink": "tg2/vp/barack_obama/0_f11__blink.png",
+"rig__blink": "tg2/rig/vp_barack_obama/0/body_f11__blink.png"
+},
+"12": {
+"sprite": "tg2/vp/barack_obama/0_f12.png",
+"rig": "tg2/rig/vp_barack_obama/0/body_f12.png",
+"sprite__blink": "tg2/vp/barack_obama/0_f12__blink.png",
+"rig__blink": "tg2/rig/vp_barack_obama/0/body_f12__blink.png"
+},
+"13": {
+"sprite": "tg2/vp/barack_obama/0_f13.png",
+"rig": "tg2/rig/vp_barack_obama/0/body_f13.png",
+"sprite__blink": "tg2/vp/barack_obama/0_f13__blink.png",
+"rig__blink": "tg2/rig/vp_barack_obama/0/body_f13__blink.png"
+},
+"14": {
+"sprite": "tg2/vp/barack_obama/0_f14.png",
+"rig": "tg2/rig/vp_barack_obama/0/body_f14.png",
+"sprite__blink": "tg2/vp/barack_obama/0_f14__blink.png",
+"rig__blink": "tg2/rig/vp_barack_obama/0/body_f14__blink.png"
+},
+"15": {
+"sprite": "tg2/vp/barack_obama/0_f15.png",
+"rig": "tg2/rig/vp_barack_obama/0/body_f15.png",
+"sprite__blink": "tg2/vp/barack_obama/0_f15__blink.png",
+"rig__blink": "tg2/rig/vp_barack_obama/0/body_f15__blink.png"
+},
+"16": {
+"sprite": "tg2/vp/barack_obama/0_f16.png",
+"rig": "tg2/rig/vp_barack_obama/0/body_f16.png",
+"sprite__blink": "tg2/vp/barack_obama/0_f16__blink.png",
+"rig__blink": "tg2/rig/vp_barack_obama/0/body_f16__blink.png"
+}
+},
+"donald_trump": {
+"_rect": [
+45,
+1,
+406,
+422
+],
+"_fit": 0.894,
+"12": {
+"sprite": "tg2/vp/donald_trump/0_f12.png",
+"rig": "tg2/rig/vp_donald_trump/0/body_f12.png",
+"sprite__blink": "tg2/vp/donald_trump/0_f12__blink.png",
+"rig__blink": "tg2/rig/vp_donald_trump/0/body_f12__blink.png"
+},
+"13": {
+"sprite": "tg2/vp/donald_trump/0_f13.png",
+"rig": "tg2/rig/vp_donald_trump/0/body_f13.png",
+"sprite__blink": "tg2/vp/donald_trump/0_f13__blink.png",
+"rig__blink": "tg2/rig/vp_donald_trump/0/body_f13__blink.png"
+},
+"14": {
+"sprite": "tg2/vp/donald_trump/0_f14.png",
+"rig": "tg2/rig/vp_donald_trump/0/body_f14.png",
+"sprite__blink": "tg2/vp/donald_trump/0_f14__blink.png",
+"rig__blink": "tg2/rig/vp_donald_trump/0/body_f14__blink.png"
+},
+"15": {
+"sprite": "tg2/vp/donald_trump/0_f15.png",
+"rig": "tg2/rig/vp_donald_trump/0/body_f15.png",
+"sprite__blink": "tg2/vp/donald_trump/0_f15__blink.png",
+"rig__blink": "tg2/rig/vp_donald_trump/0/body_f15__blink.png"
+},
+"16": {
+"sprite": "tg2/vp/donald_trump/0_f16.png",
+"rig": "tg2/rig/vp_donald_trump/0/body_f16.png",
+"sprite__blink": "tg2/vp/donald_trump/0_f16__blink.png",
+"rig__blink": "tg2/rig/vp_donald_trump/0/body_f16__blink.png"
+},
+"17": {
+"sprite": "tg2/vp/donald_trump/0_f17.png",
+"rig": "tg2/rig/vp_donald_trump/0/body_f17.png"
+}
+}
+}

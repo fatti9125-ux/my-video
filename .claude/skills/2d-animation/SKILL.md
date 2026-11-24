@@ -126,6 +126,13 @@ This repo is a **Remotion** project (`src/Root.tsx`, 1920×1080 @ 30 fps).
    - `check_vp_rig.py src/VP/vprig.json public` checks every limb pivot is on the body ink (both the body and the headless body), so limbs rotating about it can never detach.
    Order: head_fit, then head_attach --nocheck, then head_less, then head_attach (check), then check_vp_rig. Then look at the all-actors x all-expressions contact sheet AND a 1080p crop of the neck of a few rendered frames. In code: the head never translates on its own (no separate head bob); it only tilts about the chin. Walkers use a rigged `Act`/`Rig` (legs move), never a sliding sprite.
 
+34. **FACE SWAP, NEVER HEAD SWAP (supersedes the head-swap parts of rules 25, 29, 30, 33).** Pasting a separately drawn expression head on a body always looked stuck-on for some characters (different outline, hair and jaw than the body's own head), even when the chin overlapped the collar. Now every expression is BAKED into the character's own sheet drawing with `scripts/face_swap.py <vp_heads.json> <vprig.json> public src/VP/faces.json <char>:0:<neutral,talk,angry,shock,sad,happy>`:
+   - the head outline, hair, ears, glasses, beard and neck stay pixel-identical to the PNG (the script FAILs if anything outside the head interior changes);
+   - only the facial FEATURES (brows, eyes, nose, mouth, cheek lines) are erased and replaced with the expression head's features, fitted by features to the body's own face;
+   - it writes full-body sprites and rig bodies per expression (+ blink); `VKit.Act` swaps the WHOLE body image per frame. No head layer exists at render time, so nothing can float, double or separate.
+   After running it, contact-sheet every actor in every expression against the original PNG and look at it before rendering.
+35. **Never compromise the animation or the expressions to fix a technical problem.** Expression changes on the motivating words, talking mouths, blinks, breathing, gestures, walks, reactions (sweat, tears, vein, sulk) and pose swaps all stay exactly as directed. A fix changes how a part is built, never what the scene performs.
+
 ## Attachment rule: nothing floats (every character, body part and prop)
 
 Every body part must stay visibly connected to its parent in **every frame**: at rest, at the extremes of every motion, and in every in-between.
