@@ -132,6 +132,12 @@ This repo is a **Remotion** project (`src/Root.tsx`, 1920×1080 @ 30 fps).
    - it writes full-body sprites and rig bodies per expression (+ blink); `VKit.Act` swaps the WHOLE body image per frame. No head layer exists at render time, so nothing can float, double or separate.
    After running it, contact-sheet every actor in every expression against the original PNG and look at it before rendering.
 35. **Never compromise the animation or the expressions to fix a technical problem.** Expression changes on the motivating words, talking mouths, blinks, breathing, gestures, walks, reactions (sweat, tears, vein, sulk) and pose swaps all stay exactly as directed. A fix changes how a part is built, never what the scene performs.
+36. **No white lines or specks around faces. WATCH THE FINISHED VIDEO AT FULL SIZE BEFORE SENDING.** A film went out with white specks and lines just inside every face outline (Tyler, Jefferson, Harrison). I had only checked a downscaled contact sheet, which hides them. Causes and the rules now in `face_swap.py`:
+   - The sheet drawings have a **pale anti-alias fringe just inside every outline**. Pasting "non-skin" pixels copied that fringe and paper-white specks onto the face, and nearest-pixel erasing smeared it. Rule: **paste ink only.** Copy dark pixels (sum < 300; components smaller than 0.025 % of the head area are dropped). Copy closed shapes inside them (teeth, eye whites) and coloured features (blush) only inside the SAFE area. Blend the edges by darkness. **A face pixel is never made lighter by a paste.**
+   - **SAFE area** = face skin eroded by 3 % of head height. Near the outline, only the old feature's dark line (+2 px) may be erased, and only dark ink may be pasted; the drawn outline and its fringe are never touched.
+   - Erase old features with **inpaint plus a slight blur** (not nearest-pixel copies, which leave blotches), then remove any leftover small dark dots (old mouth ends) inside SAFE.
+   - **WHITE-SPECK check** (exit 1): outside SAFE, a pixel may only get darker, except where an old feature line was erased. `face_swap.py` must print `BAD 0`.
+   - **Before sending ANY video:** extract frames from the FINAL encoded file at every actor shot and crop each face at 2x at full resolution, then look for specks, lines, leftover dots, double outlines and gaps at the neck. A full-frame thumbnail is not a check.
 
 ## Attachment rule: nothing floats (every character, body part and prop)
 

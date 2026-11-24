@@ -18,7 +18,12 @@ How:
      removes the neutral features), remove a neutral mouth drawn inside a beard, then paste the expression's
      features: (a) non-skin ink enclosed by skin and not connected to the expression head's outline/hair,
      (b) black blobs in the central face zone (mouth inside a beard / under a moustache).
-Check: everything outside the head's inner area is pixel-identical to the sheet PNG (prints BAD if not).
+  4. NO WHITE SPECKS (user saw white lines around faces): the sheets have a pale anti-alias fringe just inside
+     every outline. Only INK is pasted (dark pixels; teeth/eye whites/colour only inside SAFE = face eroded 3 %
+     of head height); edges blend by darkness, so a paste never lightens a pixel. Old features are erased by
+     inpaint + slight blur; near the outline only their dark line is erased; leftover dots are removed.
+Checks: everything outside the head's inner area is pixel-identical to the sheet PNG, and outside SAFE no pixel
+got lighter except an erased old feature line (prints BAD / WHITE SPECKS if not; exit 1).
 """
 import sys, json, os, numpy as np, cv2
 from PIL import Image
@@ -63,7 +68,10 @@ def blur(m, s=4): return cv2.GaussianBlur(m.astype(np.float32), (0, 0), s)
 
 
 for spec in sys.argv[5:]:
-    c, body, heads = spec.split(":"); heads = heads.split(",")
+    parts = spec.split(":"); c, body, heads = parts[:3]; heads = heads.split(",")
+    opts = set(parts[3].split(",")) if len(parts) > 3 else set()
+    # "keepeyes": the eyes inside glasses lenses come from the neutral face in every expression (smudgy sheets
+    # where a pupil touches the lens rim and cannot be cut cleanly; Platt)
     B = rgba(f"{PUB}/tg2/vp/{c}/{body}.png")
     N = rgba(f"{PUB}/tg2/vp/{c}/{heads[0]}.png")
     k0 = max(6, int(N.shape[0] * 0.035))
@@ -110,17 +118,21 @@ for spec in sys.argv[5:]:
     skin0 = skin_of(B, inner)
     near = (np.abs(B[..., :3].astype(int) - skin0.astype(int)).sum(2) < 75) & inner
     lab, n = nd.label(near)
-    face = np.zeros_like(near)
+    face = np.zeros_like(near); lens = np.zeros_like(near)
     if n:
         sz = nd.sum(near, lab, range(1, n + 1)); big = int(np.argmax(sz)) + 1
         face = lab == big
         cms = nd.center_of_mass(near, lab, range(1, n + 1))
+        lens = np.zeros_like(near)
         for i in range(1, n + 1):          # glasses: skin inside the lenses belongs to the face too
             if i == big: continue
             cy, cx = cms[i - 1]; fr = sz[i - 1] / float(nw * nh)
             if 0.003 < fr < 0.06 and nx + nw * 0.15 < cx < nx + nw * 0.85 and ny + nh * 0.25 < cy < ny + nh * 0.7:
-                face |= lab == i
+                face |= lab == i; lens |= lab == i
     face = nd.binary_fill_holes(face) & inner
+    # SAFE area: the face skin kept a margin away from the head outline. The sheets have a pale anti-alias fringe
+    # just inside every outline; touching it (erase or paste) produced white specks/lines around the faces.
+    safe = nd.binary_erosion(face, iterations=max(5, int(nh * 0.03)))
     zone = np.zeros_like(face); zone[int(ny + nh * 0.25): int(ny + nh * 0.98), int(nx + nw * 0.18): int(nx + nw * 0.82)] = True
     # base body with the neutral features removed
     # erase ONLY the neutral features (enclosed non-skin ink not joined to the outline/hair/glasses); every other
@@ -130,12 +142,32 @@ for spec in sys.argv[5:]:
     nsk = inner & (np.abs(B[..., :3].astype(int) - skin0.astype(int)).sum(2) >= 75)
     nl, nn = nd.label(nsk, structure=np.ones((3, 3)))
     nt = set(np.unique(nl[ringF])) - {0}
-    old = np.isin(nl, [i for i in range(1, nn + 1) if i not in nt]) & face
-    old = nd.binary_dilation(nd.binary_fill_holes(old), iterations=4) & inner
+    kept = np.zeros_like(face)          # (reserved: pixels of the sheet face that are never erased)
+    old = np.isin(nl, [i for i in range(1, nn + 1) if i not in nt]) & face & ~kept
+    oldf = nd.binary_fill_holes(old)
+    # full erase inside the safe area; near the outline only the dark feature line itself (+2 px), never the fringe
+    old = (nd.binary_dilation(oldf, iterations=4) & inner & safe) | (nd.binary_dilation(oldf, iterations=2) & inner)
+    old &= ~kept
     keepc = inner & ~old & ~nsk
     if old.any() and keepc.any():
+        # smooth skin fill (inpaint from the surrounding skin), not nearest-pixel copies (those left blotches)
+        src = np.ascontiguousarray(B[..., :3]).copy()
         _, (iy, ix) = nd.distance_transform_edt(~keepc, return_indices=True)
-        Base[old, :3] = B[iy[old], ix[old], :3]
+        src[old] = B[iy[old], ix[old], :3]
+        src[nsk & ~old & inner] = skin0.astype(np.uint8)
+        filled = cv2.inpaint(src, (old | (nsk & ~keepc & inner)).astype(np.uint8) * 255, 6, cv2.INPAINT_TELEA)
+        sm = cv2.GaussianBlur(filled, (0, 0), 2.0)
+        Base[old, :3] = sm[old]
+    # leftover small dark dots of the neutral features (line ends just outside the erase) -> skin
+    dk = safe & (Base[..., :3].astype(int).sum(2) < 400)
+    dl2, dn2 = nd.label(dk, structure=np.ones((3, 3)))
+    if dn2:
+        dsz = nd.sum(dk, dl2, range(1, dn2 + 1))
+        speck = np.isin(dl2, [i + 1 for i in range(dn2) if dsz[i] < nw * nh * 0.002])
+        speck = nd.binary_dilation(speck, iterations=3) & safe
+        if speck.any():
+            fill2 = cv2.inpaint(np.ascontiguousarray(Base[..., :3]), speck.astype(np.uint8) * 255, 6, cv2.INPAINT_TELEA)
+            Base[speck, :3] = cv2.GaussianBlur(fill2, (0, 0), 1.5)[speck]
     ringB = inner & ~nd.binary_erosion(inner, iterations=max(3, k // 2))
     allblack = inner & (B[..., :3].astype(int).sum(2) < 130)
     al, an = nd.label(allblack, structure=np.ones((3, 3)))
@@ -156,6 +188,7 @@ for spec in sys.argv[5:]:
     rb = rgba(f"{PUB}/{rig['body']['file']}") if rig else None
     faces[c] = {"_rect": [int(nx), int(ny), int(nw), int(nh)], "_fit": round(float(score), 3)}
     Ne = blur(cv2.Canny((Nsil * 255).astype(np.uint8), 50, 150) > 0, 3)
+    neutral_out = {}
     for h in heads:
         entry = {}
         for blink in ("", "__blink"):
@@ -182,9 +215,46 @@ for spec in sys.argv[5:]:
             Efull = np.zeros_like(B)
             Y0, X0 = max(0, ey), max(0, ex); Y1, X1 = min(B.shape[0], ey + hh), min(B.shape[1], ex + w)
             if Y1 > Y0 and X1 > X0: Efull[Y0:Y1, X0:X1] = Es[Y0 - ey:Y1 - ey, X0 - ex:X1 - ex]
-            Bo = Base.copy(); Bo[mask, :3] = Efull[mask, :3]
+            # paste ONLY ink: a pixel lighter than the skin under it is never copied (the sheets' pale anti-alias
+            # fringe and paper-white specks became white lines around faces), except inside closed dark shapes
+            # (teeth / eye whites inside a mouth or eye outline). Edges are blended by darkness, tiny bits dropped.
+            el = Efull[..., :3].astype(np.float32).sum(2); bl_ = Base[..., :3].astype(np.float32).sum(2)
+            core = mask & (el < 300)
+            cl, cn = nd.label(core, structure=np.ones((3, 3)))
+            if cn:
+                csz = nd.sum(core, cl, range(1, cn + 1))
+                core = np.isin(cl, [i + 1 for i in range(cn) if csz[i] >= max(12, nh * nw * 0.00025)])
+            holes = nd.binary_fill_holes(core) & ~core & mask
+            col = mask & ~core & ~holes & (np.abs(Efull[..., :3].astype(int) - skin0.astype(int)).sum(2) >= 75) & (el < float(skin0.sum()) - 30)
+            kl, kn = nd.label(col, structure=np.ones((3, 3)))
+            if kn:
+                ksz = nd.sum(col, kl, range(1, kn + 1))
+                col = np.isin(kl, [i + 1 for i in range(kn) if ksz[i] >= nh * nw * 0.0004])
+            # a dark component entirely outside SAFE is a stray mark at the outline (not a feature): drop it
+            ol, on_ = nd.label(core, structure=np.ones((3, 3)))
+            if on_:
+                ins = nd.sum(safe, ol, range(1, on_ + 1))
+                cms_ = nd.center_of_mass(core, ol, range(1, on_ + 1))
+                central = lambda cy, cx: nx + nw * 0.3 < cx < nx + nw * 0.7 and ny + nh * 0.25 < cy < ny + nh * 0.98
+                # keep: touches SAFE, or sits in the central face (mouth inside a beard, pupil inside a lens)
+                core = np.isin(ol, [i + 1 for i in range(on_) if ins[i] > 0 or central(*cms_[i])])
+            hard = (core & (safe | (el < bl_ + 30))) | ((holes | col) & safe)   # near the outline: only darkens
+            hard &= ~kept
+            soft = nd.binary_dilation(hard, iterations=2) & mask & ~hard & (el < bl_) & ~kept
+            Bo = Base.copy(); Bo[hard, :3] = Efull[hard, :3]
+            a = np.clip((bl_ - el) / np.maximum(bl_ - 150.0, 1.0), 0, 1)[soft][:, None]
+            Bo[soft, :3] = (Base[soft, :3] * (1 - a) + Efull[soft, :3] * a).astype(np.uint8)
+            if "keepeyes" in opts and lens.any():
+                L = nd.binary_fill_holes(lens)
+                if h == heads[0]: neutral_out[blink] = Bo.copy()
+                elif blink in neutral_out: Bo[L] = neutral_out[blink][L]
             name = f"{body}_f{h}{blink}"
             Image.fromarray(Bo).save(f"{PUB}/tg2/vp/{c}/{name}.png", optimize=True)
+            # WHITE-SPECK check: near the outline (outside SAFE) a pixel may only get darker, except where a neutral
+            # feature line was erased. Any lightened pixel there is a white speck/line around the face.
+            lt = (Bo[..., :3].astype(int).sum(2) - B[..., :3].astype(int).sum(2) > 45) & ~safe & ~old & ~mouth
+            lt &= Bo[..., :3].astype(int).sum(2) > 450                    # ... and became LIGHT (a visible speck)
+            if lt.sum() > 3: bad += 1; print(f"{c} {h}{blink}: WHITE SPECKS near outline: {int(lt.sum())} px")
             diff = np.abs(Bo.astype(int) - B.astype(int)).max(2); diff[inner] = 0
             if diff.max() > 0: bad += 1; print(f"{c} {h}{blink}: changed outside the head interior! {diff.max()}")
             entry["sprite" + blink] = f"tg2/vp/{c}/{name}.png"
