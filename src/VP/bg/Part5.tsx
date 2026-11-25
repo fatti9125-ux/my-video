@@ -204,16 +204,16 @@ const Paper: React.FC<{ x: number; y: number; rot: number; at: number; head: str
       <line x1={-350} y1={-320} x2={350} y2={-320} stroke="#1d1712" strokeWidth={4} />
       <text x={-350} y={-292} fontFamily={MONTSERRAT} fontWeight={800} fontSize={22} fill="#4a4036">{date}</text>
       <line x1={-350} y1={-280} x2={350} y2={-280} stroke="#1d1712" strokeWidth={2} />
-      <text x={0} y={-190} textAnchor="middle" fontFamily={MONTSERRAT} fontWeight={800} fontSize={84} fill="#1d1712">{head}</text>
+      <text x={0} y={-192} textAnchor="middle" fontFamily={MONTSERRAT} fontWeight={800} fontSize={84} fill="#1d1712" textLength={680} lengthAdjust="spacingAndGlyphs">{head}</text>
       <rect x={-350} y={-140} width={330} height={360} fill="#b9b1a0" stroke="#1d1712" strokeWidth={3} />
       <g filter="url(#p5-gray)"><SImg key={img} href={staticFile(img)} x={-330} y={-120} width={290} height={330} preserveAspectRatio="xMidYMid meet" /></g>
       {Array.from({ length: 11 }, (_, i) => <rect key={i} x={10} y={-130 + i * 32} width={i % 4 === 3 ? 200 : 340} height={12} fill="#9a9080" />)}
       {Array.from({ length: 5 }, (_, i) => <rect key={i} x={-350} y={250 + i * 32} width={i % 3 === 2 ? 420 : 700} height={12} fill="#9a9080" />)}
       {/* red pen X on "failed" */}
-      <g stroke="#d62828" strokeWidth={26} strokeLinecap="round" fill="none" opacity={0.92}>
+      {f >= xAt && <g stroke="#d62828" strokeWidth={26} strokeLinecap="round" fill="none" opacity={0.92}>
         <line x1={-300} y1={-300} x2={-300 + 600 * xp(0)} y2={-300 + 640 * xp(0)} />
-        <line x1={300} y1={-300} x2={300 - 600 * xp(3)} y2={-300 + 640 * xp(3)} />
-      </g>
+        {xp(3) > 0 && <line x1={300} y1={-300} x2={300 - 600 * xp(3)} y2={-300 + 640 * xp(3)} />}
+      </g>}
     </g>
   );
 };
@@ -637,10 +637,10 @@ export const slotXY = (c: string): [number, number] => {
 const BACKS = ["#6f5f4a", "#56656e", "#6a5664", "#5d6a55", "#6e5a48"];
 
 /** Small black mourning oval with the dead predecessor's head (grey), tucked onto a frame's corner. */
-const MournInset: React.FC<{ c: string; x: number; y: number; at: number }> = ({ c, x, y, at }) => {
+const MournInset: React.FC<{ c: string; x: number; y: number; at: number; s?: number }> = ({ c, x, y, at, s: k = 1 }) => {
   const f = useCurrentFrame();
   if (f < at) return null;
-  const s = interpolate(f - at, [0, 11], [0.11, 1], { extrapolateRight: "clamp", easing: Easing.inOut(Easing.cubic) });
+  const s = k * interpolate(f - at, [0, 11], [0.11, 1], { extrapolateRight: "clamp", easing: Easing.inOut(Easing.cubic) });
   const img = `tg2/vp/${c}/${HEAD[c][0]}.png`;
   return (
     <g transform={`translate(${x} ${y}) scale(${s})`}>
@@ -717,10 +717,10 @@ export const Gallery: React.FC<WallProps> = ({ e = {}, only, onlyAt = 0, mournAt
             <HeadIcon c={s.c} e={e[s.c] ?? 0} x={x} y={y + 6} size={170} at={-30} />
             <path d={`M ${x - 84} ${y - 98} L ${x - 20} ${y - 98} L ${x - 84} ${y - 20} Z`} fill="#fff" opacity={0.08} />
             {!lit && <rect x={x - 112} y={y - 126} width={224} height={252} fill="#0b0e13" opacity={0.62} />}
-            {s.pred && mournAt !== undefined && <MournInset c={s.pred} x={x + 96} y={y - 92} at={mournAt + d * 5} />}
-            {s.how === "E" && electAt !== undefined && <Rosette x={x - 96} y={y + 70} at={electAt + k * 5} />}
+            {s.pred && mournAt !== undefined && <MournInset c={s.pred} x={x + 100} y={y - 100} at={mournAt + d * 5} s={0.78} />}
+            {s.how === "E" && electAt !== undefined && <Rosette x={x - 112} y={y + 96} at={electAt + k * 5} />}
             {s.how === "R" && resignAt !== undefined && f >= resignAt && (
-              <g transform={`translate(${x + 70} ${y + 60}) rotate(12) scale(${interpolate(f - resignAt, [0, 11], [0.11, 1], { extrapolateRight: "clamp", easing: Easing.inOut(Easing.cubic) })})`}>
+              <g transform={`translate(${x + 118} ${y + 92}) rotate(12) scale(${0.62 * interpolate(f - resignAt, [0, 11], [0.11, 1], { extrapolateRight: "clamp", easing: Easing.inOut(Easing.cubic) })})`}>
                 <SImg href={staticFile("tg2/vp/shared_props_modern/12.png")} x={-80} y={-80} width={160} height={162} />
               </g>
             )}
@@ -811,7 +811,6 @@ export const AF1Stateroom: React.FC = () => (
     {[140, 330, 1580, 1790].map((x, i) => (
       <g key={i} transform={`translate(${x} 620)`} fill="#4a4540" stroke={L} strokeWidth={3}>
         <ellipse cx={0} cy={-70} rx={52} ry={60} fill={["#3a2a22", "#6b6058", "#2a2420", "#5a4a3a"][i]} />
-        <ellipse cx={0} cy={-52} rx={40} ry={40} fill="#d9b796" />
         <path d="M -90 240 L -90 40 Q -80 -6 0 -10 Q 80 -6 90 40 L 90 240 Z" fill={["#2a2e38", "#3a3a40", "#2c3240", "#3a342e"][i]} />
       </g>
     ))}

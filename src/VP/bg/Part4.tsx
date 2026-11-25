@@ -269,7 +269,6 @@ export const JudgeFG: React.FC<{ x: number; y?: number }> = ({ x, y = 0 }) => (
   <g transform={`translate(${x} ${y})`}>
     <defs><pattern id="p4-dots" width={34} height={34} patternUnits="userSpaceOnUse"><rect width={34} height={34} fill="#5a3a26" /><circle cx={8} cy={8} r={5} fill="#d9c7a8" /><circle cx={25} cy={25} r={5} fill="#d9c7a8" /></pattern></defs>
     <path d="M -210 1090 L -200 780 Q -180 690 -80 676 L 80 676 Q 180 690 200 780 L 210 1090 Z" fill="url(#p4-dots)" stroke="#120d09" strokeWidth={5} />
-    <path d="M -186 760 Q -260 760 -300 790 L -296 830 Q -240 812 -178 840 Z" fill="url(#p4-dots)" stroke="#120d09" strokeWidth={5} />
     <path d="M -36 676 L -30 640 L 30 640 L 36 676 Z" fill="#c99b7a" stroke="#120d09" strokeWidth={4} />
     {[[-40, 590], [0, 570], [40, 590], [-56, 630], [56, 630], [-20, 610], [24, 612], [0, 640]].map(([cx, cy], i) => <circle key={i} cx={cx} cy={cy} r={40} fill="#6e6862" stroke="#120d09" strokeWidth={4} />)}
     {[[-30, 600], [10, 585], [30, 620]].map(([cx, cy], i) => <path key={i} d={`M ${cx - 16} ${cy} q 16 -14 32 0`} stroke="#8d8780" strokeWidth={4} fill="none" />)}
@@ -410,7 +409,7 @@ export const SenateChamber: React.FC = () => (
     <path d="M 640 520 L 1280 520 L 1280 760 L 640 760 Z" fill="#7a5a40" stroke={L} strokeWidth={lw} />
     <path d="M 560 640 L 1360 640 L 1360 800 L 560 800 Z" fill="#c9b99a" stroke={L} strokeWidth={lw} />
     <rect x={860} y={420} width={200} height={110} rx={12} fill="#6b2b2b" stroke={L} strokeWidth={lw} />
-    <FlagPole x={760} y={640} h={330} kind="us" s={0.8} /><FlagPole x={1100} y={640} h={330} kind="us" s={0.8} />
+    <FlagPole x={600} y={640} h={330} kind="us" s={0.8} /><FlagPole x={1200} y={640} h={330} kind="us" s={0.8} />
     <text x={960} y={370} textAnchor="middle" fontFamily="DejaVu Serif, serif" fontSize={34} fill="#5a4a2a" letterSpacing={8}>E PLURIBUS UNUM</text>
     {/* floor + desks */}
     <rect y={760} width={1920} height={320} fill="#2f4878" />
@@ -661,7 +660,7 @@ export const HiltonPress: React.FC = () => (
 /** Lectern with a mic cluster (foreground of the speaker). */
 export const Lectern: React.FC<{ x: number; y?: number; w?: number; seal?: boolean; sign?: string; color?: string }> = ({ x, y = 720, w = 300, seal, sign, color = "#6b4a2a" }) => (
   <g stroke={L} strokeWidth={lw}>
-    {[-40, -10, 20, 50].map((dx, i) => <g key={i}><line x1={x + dx * 0.6} y1={y} x2={x + dx} y2={y - 90 - (i % 2) * 20} stroke="#333" strokeWidth={6} /><rect x={x + dx - 14} y={y - 128 - (i % 2) * 20} width={28} height={44} rx={12} fill="#2c2c2c" /></g>)}
+    {[-40, -10, 20, 50].map((dx, i) => <g key={i}><line x1={x + dx * 0.6} y1={y} x2={x + dx * 1.3} y2={y - 50 - (i % 2) * 14} stroke="#333" strokeWidth={6} /><rect x={x + dx * 1.3 - 12} y={y - 82 - (i % 2) * 14} width={24} height={38} rx={11} fill="#2c2c2c" /></g>)}
     <path d={`M ${x - w / 2 - 20} ${y} L ${x + w / 2 + 20} ${y} L ${x + w / 2} ${y + 40} L ${x - w / 2} ${y + 40} Z`} fill={color} />
     <path d={`M ${x - w / 2} ${y + 40} L ${x + w / 2} ${y + 40} L ${x + w / 2 - 20} 1090 L ${x - w / 2 + 20} 1090 Z`} fill={color} />
     <path d={`M ${x - w / 2} ${y + 40} L ${x + w / 2} ${y + 40} L ${x + w / 2 - 20} 1090 L ${x - w / 2 + 20} 1090 Z`} fill="#000" opacity={0.15} />
@@ -734,10 +733,10 @@ export const Waldorf1968: React.FC = () => (
       );
     }))}
     <rect y={560} width={1920} height={220} fill="#d9c9a0" />
-    <rect x={260} y={420} width={1400} height={140} fill="#f4f0e6" stroke={L} strokeWidth={lw} />
-    <text x={960} y={520} textAnchor="middle" fontFamily={MONTSERRAT} fontWeight={800} fontSize={92} fill="#1d3a7a">NIXON'S THE ONE!</text>
+    <rect x={380} y={8} width={1160} height={112} fill="#f4f0e6" stroke={L} strokeWidth={lw} />
+    <text x={960} y={96} textAnchor="middle" fontFamily={MONTSERRAT} fontWeight={800} fontSize={84} fill="#1d3a7a">NIXON'S THE ONE!</text>
     <rect y={780} width={1920} height={300} fill="#5a2a2a" />
-    <Chandelier x={960} y={130} s={1.2} glow={0.7} />
+    <Chandelier x={480} y={250} s={0.9} glow={0.6} /><Chandelier x={1440} y={250} s={0.9} glow={0.6} />
     <Paint vig={0.35} />
   </g>
 );
@@ -998,7 +997,7 @@ export const NavalObservatory: React.FC = () => {
 const DC = { obs: [420, 360] as [number, number], dupont: [1000, 560] as [number, number], wh: [1330, 760] as [number, number] };
 /** Hand-painted DC map: the Potomac, Rock Creek, Massachusetts Ave from Observatory Circle to Dupont Circle,
  *  down to the White House. The route draws on from `at`; a small Bush rides along. */
-export const DCRoute: React.FC<{ at: number; frames: number; rider?: React.ReactNode }> = ({ at, frames }) => {
+export const DCRoute: React.FC<{ at: number; frames: number }> = ({ at, frames }) => {
   const f = useCurrentFrame();
   const p = interpolate(f - at, [0, frames], [0, 1], { ...clamp, easing: Easing.inOut(Easing.cubic) });
   const seg1 = Math.hypot(DC.dupont[0] - DC.obs[0], DC.dupont[1] - DC.obs[1]);
@@ -1025,9 +1024,7 @@ export const DCRoute: React.FC<{ at: number; frames: number; rider?: React.React
       <text x={DC.wh[0] + 40} y={DC.wh[1] + 90} textAnchor="middle" fontFamily={MONTSERRAT} fontWeight={800} fontSize={42} fill="#fff" stroke={INK} strokeWidth={8} paintOrder="stroke">WHITE HOUSE</text>
       <text x={360} y={760} fontFamily="DejaVu Serif, serif" fontStyle="italic" fontSize={36} fill="#3e6f98" transform="rotate(28 360 760)">Potomac River</text>
       {p > 0 && <path d={path} stroke="#e02b2b" strokeWidth={12} strokeDasharray="26 18" strokeLinecap="round" fill="none" />}
-      <circle cx={pt[0]} cy={pt[1]} r={0} />
       <Paint vig={0.35} />
-      <g data-rider={`${pt[0]},${pt[1]}`} />
     </g>
   );
 };
@@ -1096,8 +1093,8 @@ export const Superdome1988: React.FC = () => (
     {Array.from({ length: 4 }, (_, i) => <path key={i} d={`M -100 ${80 + i * 70} Q 960 ${-40 + i * 70} 2020 ${80 + i * 70}`} stroke="#4a5060" strokeWidth={8} fill="none" />)}
     <path d="M -100 330 Q 960 230 2020 330 L 2020 700 L -100 700 Z" fill="#3a3040" />
     {Array.from({ length: 8 }, (_, r) => Array.from({ length: 60 }, (_, i) => <circle key={`${r}-${i}`} cx={i * 33 + (r % 2) * 16} cy={330 + r * 44 - Math.sin((i / 60) * Math.PI) * 60} r={9} fill={["#c8302b", "#f4f0e6", "#2b4a9c", "#d9b07a"][(r * 7 + i) % 4]} opacity={0.55} />))}
-    <rect x={560} y={440} width={800} height={220} fill="#1f3a7a" stroke={L} strokeWidth={lw} />
-    <text x={960} y={590} textAnchor="middle" fontFamily={MONTSERRAT} fontWeight={800} fontSize={120} fill="#f4f0e6">1988</text>
+    <rect x={900} y={420} width={620} height={220} fill="#1f3a7a" stroke={L} strokeWidth={lw} />
+    <text x={1210} y={575} textAnchor="middle" fontFamily={MONTSERRAT} fontWeight={800} fontSize={120} fill="#f4f0e6">1988</text>
     <rect y={700} width={1920} height={380} fill="#1d2a50" />
     <Bunting x0={0} x1={1920} y={700} n={8} d={60} />
     <Paint vig={0.45} warm={false} />

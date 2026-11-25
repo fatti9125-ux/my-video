@@ -142,7 +142,7 @@ export const HarrisonRoom: React.FC<{ lit?: number }> = ({ lit = 1 }) => {
       <path d="M 1690 200 L 1610 230 L 1610 880 L 1690 870 Z" fill="#4b4436" stroke={L} strokeWidth={3} />
       <path d="M 1760 330 Q 1790 300 1810 330 L 1820 870 L 1752 870 Z" fill="#3a352c" opacity={0.55} />
       {/* portrait of Harrison above the bed */}
-      <Portrait x={1150} y={70} w={250} h={320} c="william_henry_harrison" />
+      <Portrait x={1400} y={90} w={210} h={270} c="william_henry_harrison" />
       {/* bed canopy: tester rod, crimson swags, green inner curtain */}
       <rect x={260} y={30} width={980} height={26} rx={8} fill="#8a6a2e" stroke={L} strokeWidth={3} />
       <path d="M 420 56 L 1060 56 L 1040 760 L 440 760 Z" fill="#2c5440" stroke={L} strokeWidth={3} />
@@ -389,7 +389,7 @@ export const IndianQueenExt: React.FC = () => {
           <rect x={-9} y={-52} width={18} height={52} /><circle cy={-60} r={9} />{b ? <path d="M -18 0 L -10 -40 L 10 -40 L 18 0 Z" fill="#6a4a5a" /> : <rect x={-8} y={-84} width={16} height={18} />}
         </g>
       ))}
-      <Tree x={560} y={880} s={1.05} /><Tree x={960} y={880} s={1.1} /><Tree x={1380} y={880} s={1.0} />
+      <Tree x={560} y={880} s={1.05} /><Tree x={1380} y={880} s={1.0} />
       <Paint2 vig={0.35} warm={false} />
     </g>
   );
@@ -445,7 +445,7 @@ export const ParlorTableFG: React.FC<{ x?: number }> = ({ x = 1350 }) => (
 
 // ================================================================== 1840-41: a Whig hall ("Tippecanoe and Tyler too")
 /** Plank-walled Whig meeting hall: bunting, the 1840 banner TIPPECANOE AND TYLER TOO! with log cabin + cider
- * barrel, a hard-cider barrel and a coonskin on stage. From `tornAt`, the "AND TYLER TOO!" half hangs torn. */
+ * barrel, a hard-cider barrel on stage. From `tornAt`, the "AND TYLER TOO!" half hangs torn. */
 export const WhigHall: React.FC<{ tornAt?: number }> = ({ tornAt = 99999 }) => {
   const f = useCurrentFrame();
   const torn = f >= tornAt;
@@ -472,21 +472,18 @@ export const WhigHall: React.FC<{ tornAt?: number }> = ({ tornAt = 99999 }) => {
         <text x={640} y={352} textAnchor="middle" fontFamily={SERIF} fontStyle="italic" fontSize={36} fill="#b8362f" stroke="none">and hard cider!</text>
         <g transform={`rotate(${sw} 1020 182)`}>
           <rect x={1020} y={180} width={640} height={200} fill="#f2ead2" />
-          <text x={1340} y={300} textAnchor="middle" fontFamily={SERIF} fontWeight={700} fontSize={76} fill="#b8362f" stroke="none">AND TYLER TOO!</text>
+          <text x={1340} y={298} textAnchor="middle" fontFamily={SERIF} fontWeight={700} fontSize={64} fill="#b8362f" stroke="none">AND TYLER TOO!</text>
           {torn && <path d="M 1020 180 L 1032 220 L 1018 260 L 1034 300 L 1020 340 L 1030 380" fill="none" strokeWidth={5} />}
         </g>
         {torn && <path d="M 1020 180 L 1008 220 L 1022 260 L 1006 300 L 1020 340 L 1010 380" fill="none" strokeWidth={5} />}
       </g>
-      {/* stage, cider barrel, coonskin */}
+      {/* stage, cider barrel */}
       <rect y={760} width={1920} height={60} fill="#5a3a22" stroke={L} strokeWidth={lw} />
       <rect y={820} width={1920} height={260} fill="#3f2816" />
       <g stroke={L} strokeWidth={lw} transform="translate(1500 640)">
         <ellipse cx={0} cy={0} rx={90} ry={120} fill="#9a6a3a" /><rect x={-90} y={-30} width={180} height={14} fill="#4a4a4a" /><rect x={-90} y={30} width={180} height={14} fill="#4a4a4a" />
         <text x={0} y={-50} textAnchor="middle" fontFamily={SERIF} fontWeight={700} fontSize={26} fill="#f2ead2" stroke="none">HARD</text>
         <text x={0} y={-22} textAnchor="middle" fontFamily={SERIF} fontWeight={700} fontSize={26} fill="#f2ead2" stroke="none">CIDER</text>
-      </g>
-      <g stroke={L} strokeWidth={3} transform="translate(1760 470)">
-        <ellipse cx={0} cy={0} rx={50} ry={80} fill="#7a6a5a" />{[0, 1, 2, 3].map((i) => <rect key={i} x={-12} y={70 + i * 26} width={24} height={14} fill={i % 2 ? "#2a2220" : "#8a7a6a"} />)}
       </g>
       <Paint2 vig={0.45} />
     </g>
@@ -771,10 +768,10 @@ export const BundleInsert: React.FC<{ ripAt: number }> = ({ ripAt }) => {
           <rect x={560} y={330} width={800} height={460} fill={["#efe3c3", "#f2e8cc", "#ebdfbd", "#f0e6c8", "#ece0c0"][i]} stroke="#7a5d34" strokeWidth={4} />
         </g>
       ))}
-      <text x={960} y={330} textAnchor="middle" fontFamily={SERIF} fontWeight={700} fontSize={58} fill="#2e1e10">THE COMPROMISE OF 1850</text>
-      {Array.from({ length: 5 }, (_, i) => <line key={i} x1={640} y1={400 + i * 50} x2={1270 - (i % 2) * 80} y2={400 + i * 50} stroke="#8a7656" strokeWidth={6} />)}
-      <rect x={930} y={220} width={60} height={600} fill="#b8241f" stroke={L} strokeWidth={3} />
-      <rect x={540} y={520} width={840} height={56} fill="#b8241f" stroke={L} strokeWidth={3} />
+      <text x={940} y={420} textAnchor="middle" fontFamily={SERIF} fontWeight={700} fontSize={56} fill="#2e1e10">THE COMPROMISE OF 1850</text>
+      {Array.from({ length: 5 }, (_, i) => <line key={i} x1={640} y1={480 + i * 50} x2={1270 - (i % 2) * 80} y2={480 + i * 50} stroke="#8a7656" strokeWidth={6} />)}
+      <rect x={1230} y={220} width={56} height={600} fill="#b8241f" stroke={L} strokeWidth={3} />
+      <rect x={540} y={560} width={840} height={52} fill="#b8241f" stroke={L} strokeWidth={3} />
       <g transform="rotate(-6 1250 690)"><rect x={1110} y={640} width={300} height={110} fill="#f6efd9" stroke={L} strokeWidth={4} /><circle cx={1130} cy={695} r={10} fill="#b8241f" />
         <text x={1265} y={688} textAnchor="middle" fontFamily={SERIF} fontStyle="italic" fontWeight={700} fontSize={30} fill="#2e1e10">"A final</text>
         <text x={1265} y={726} textAnchor="middle" fontFamily={SERIF} fontStyle="italic" fontWeight={700} fontSize={30} fill="#2e1e10">settlement"</text></g>
@@ -999,7 +996,7 @@ export const Senate1859: React.FC<{ trial?: boolean }> = ({ trial }) => (
 );
 
 /** Senators' desks + seated senators from behind (foreground arc); at the trial also the managers' long table. */
-export const Senate1859FG: React.FC<{ trial?: boolean }> = ({ trial }) => {
+export const Senate1859FG: React.FC<{ trial?: boolean; hide?: number[] }> = ({ trial, hide = [] }) => {
   const f = useCurrentFrame();
   return (
     <g>
@@ -1008,7 +1005,7 @@ export const Senate1859FG: React.FC<{ trial?: boolean }> = ({ trial }) => {
         {[[500, 890], [700, 900], [1000, 892], [1260, 898]].map(([x, y], i) => <rect key={i} x={x} y={y} width={120} height={40} fill="#f1ead6" strokeWidth={2} transform={`rotate(${i % 2 ? 4 : -3} ${x} ${y})`} />)}
         <path d="M 1420 880 L 1430 840 L 1460 840 L 1470 880 Z" fill="#c9c6ba" />
       </g>}
-      {[[150, 1010, 1.25], [480, 990, 1.05], [1440, 990, 1.05], [1770, 1010, 1.25]].map(([x, y, k], i) => (
+      {[[150, 1010, 1.25], [480, 990, 1.05], [1440, 990, 1.05], [1770, 1010, 1.25]].map(([x, y, k], i) => !hide.includes(i) && (
         <g key={i} transform={`translate(${x} ${y + Math.sin((f + i * 19) / 23) * 3}) scale(${k})`} fill="#1a1510">
           <path d="M -110 200 L -110 -40 Q -110 -150 -40 -165 L 40 -165 Q 110 -150 110 -40 L 110 200 Z" /><ellipse cx={0} cy={-215} rx={58} ry={64} />
         </g>

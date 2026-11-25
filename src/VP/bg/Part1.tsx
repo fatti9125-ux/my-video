@@ -80,7 +80,7 @@ const Sash: React.FC<{ x: number; y: number; w: number; h: number; glass?: strin
  * Crowd seen from behind (foreground occluder): heads + shoulders in 1-2 rows, era hats, gentle bob.
  * `era`: 1789 tricorns + queues, 1801 queues, 1837 top hats + bonnets, 1963 short hair + suits.
  */
-export const CrowdBack: React.FC<{ y: number; x0?: number; x1?: number; n: number; s?: number; era: "1789" | "1801" | "1837" | "1963"; seed?: number; wave?: number; dark?: number }> = ({ y, x0 = -40, x1 = 1960, n, s = 1, era, seed = 1, wave, dark = 0 }) => {
+export const CrowdBack: React.FC<{ y: number; x0?: number; x1?: number; n: number; s?: number; era: "1789" | "1801" | "1837" | "1963"; seed?: number; wave?: boolean; dark?: number }> = ({ y, x0 = -40, x1 = 1960, n, s = 1, era, seed = 1, wave, dark = 0 }) => {
   const f = useCurrentFrame();
   const coats = era === "1963" ? ["#2c2f36", "#3a3d44", "#4b4f57", "#5a524a"] : era === "1837" ? ["#2a2522", "#3b2f2a", "#24303a", "#4a3a2a", "#5b3a3a"] : ["#2b3550", "#4a3326", "#3b4a35", "#5a2e2a", "#2e2a26"];
   const hair = ["#3a2a1e", "#6b5338", "#c9c2b5", "#2a221c", "#8a6a48"];
@@ -163,6 +163,35 @@ export const ChairFG: React.FC<{ x?: number }> = ({ x = 1700 }) => (
   </g>
 );
 
+/** Single-candle grade: warm pool around the flame, dark corners, no hard disk. */
+export const CandleGrade: React.FC<{ cx: number; cy: number }> = ({ cx, cy }) => {
+  const f = useCurrentFrame();
+  const fl = 1 + Math.sin(f / 3.3) * 0.025 + Math.sin(f / 7.1) * 0.015;
+  return (
+    <g pointerEvents="none">
+      <defs>
+        <radialGradient id="p1-cpool" cx={cx} cy={cy} r={1100 * fl} gradientUnits="userSpaceOnUse">
+          <stop offset="0" stopColor="#000" stopOpacity={0} /><stop offset="0.3" stopColor="#120c06" stopOpacity={0.1} /><stop offset="1" stopColor="#0d0905" stopOpacity={0.8} />
+        </radialGradient>
+        <radialGradient id="p1-cglow" cx={cx} cy={cy} r={520 * fl} gradientUnits="userSpaceOnUse">
+          <stop offset="0" stopColor="#ffd27a" stopOpacity={0.5} /><stop offset="0.15" stopColor="#ffd27a" stopOpacity={0.3} /><stop offset="1" stopColor="#ffd27a" stopOpacity={0} />
+        </radialGradient>
+      </defs>
+      <rect width={1920} height={1080} fill="url(#p1-cpool)" />
+      <rect width={1920} height={1080} fill="url(#p1-cglow)" style={{ mixBlendMode: "screen" }} />
+    </g>
+  );
+};
+
+/** Writing-table front (foreground) under a seated writing pose. */
+export const WritingTable: React.FC<{ x: number; y: number }> = ({ x, y }) => (
+  <g stroke={L} strokeWidth={lw}>
+    <rect x={x - 340} y={y - 10} width={680} height={30} fill="#7a4626" />
+    <rect x={x - 310} y={y + 20} width={620} height={1080 - y} fill="#5a3219" />
+    <rect x={x - 270} y={y + 44} width={240} height={50} fill="#4a2814" /><rect x={x + 30} y={y + 44} width={240} height={50} fill="#4a2814" />
+  </g>
+);
+
 // =========================================================================== 1. Air Force One, 22 Nov 1963
 /** SAM 26000 stateroom at Love Field: low curved ceiling, beige panels, two window ports, gold drapes. */
 export const AF1Stateroom: React.FC = () => (
@@ -204,8 +233,6 @@ export const AF1FG: React.FC = () => (
       <path d="M -150 1080 L -140 760 Q -130 690 -40 680 L 60 680 Q 150 690 160 760 L 170 1080 Z" fill="#20242c" stroke={L} strokeWidth={lw} />
       <ellipse cx={10} cy={600} rx={78} ry={90} fill="#2a1d16" stroke={L} strokeWidth={lw} />
       <path d="M -70 560 Q 10 480 90 560 Q 60 520 10 520 Q -40 520 -70 560 Z" fill="#3a2a20" />
-      <path d="M 120 760 Q 200 720 250 700" stroke="#20242c" strokeWidth={40} strokeLinecap="round" fill="none" />
-      <rect x={232} y={660} width={70} height={56} rx={6} fill="#3d2414" stroke={L} strokeWidth={3} transform="rotate(-12 260 690)" />
     </g>
     <g fill="#191a1f">
       <path d="M 1640 1080 L 1660 880 Q 1760 820 1920 830 L 1920 1080 Z" />
@@ -575,7 +602,7 @@ export const GazetteInsert: React.FC<{ at?: number; head: string; headline: [str
       <g transform={`translate(960 540) rotate(${-4 - (1 - p) * 360}) scale(${0.15 + 0.85 * p})`}>
         <rect x={-560} y={-440} width={1120} height={880} fill="#000" opacity={0.35} transform="translate(20 24)" />
         <rect x={-560} y={-440} width={1120} height={880} fill="#efe4c6" stroke={L} strokeWidth={5} />
-        <text x={0} y={-350} textAnchor="middle" fontFamily="DejaVu Serif, serif" fontWeight={700} fontSize={60} fill="#1d1712">GAZETTE OF THE UNITED STATES</text>
+        <text x={0} y={-350} textAnchor="middle" fontFamily="DejaVu Serif, serif" fontWeight={700} fontSize={50} fill="#1d1712">GAZETTE OF THE UNITED STATES</text>
         <line x1={-520} y1={-320} x2={520} y2={-320} stroke="#1d1712" strokeWidth={4} /><line x1={-520} y1={-300} x2={520} y2={-300} stroke="#1d1712" strokeWidth={2} />
         <text x={0} y={-270} textAnchor="middle" fontFamily="DejaVu Serif, serif" fontSize={28} fill="#3a2e22">{date}</text>
         <text x={0} y={-170} textAnchor="middle" fontFamily={MONTSERRAT} fontWeight={800} fontSize={96} fill="#1d1712">{headline[0]}</text>

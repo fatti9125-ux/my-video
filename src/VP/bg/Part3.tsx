@@ -57,13 +57,13 @@ export const Sil: React.FC<SilProps> = ({ x, y, h, face = 1, hat = "none", c = "
           <path d="M -17 -78 Q -21 -50 -19 -24 L 19 -24 Q 21 -50 17 -78 Q 0 -84 -17 -78 Z" fill={c} /></>}
       <rect x={-5} y={-84} width={10} height={8} fill={c} />
       <ellipse cx={1.5} cy={-91} rx={8.5} ry={9.5} fill={skin ?? c} />
-      {skin && <path d="M 9 -92 l 3 3 l -3 1" fill={skin} />}
+      <path d="M 9 -94 l 3.5 3.5 l -3.5 1.5" fill={skin ?? c} />
       {beard && <path d="M -6 -88 Q 2 -72 11 -86 Z" fill={skin ? "#4a3626" : c} />}
       {hat === "top" && <g fill={c}><rect x={-7} y={-116} width={16} height={18} /><rect x={-11} y={-100} width={24} height={3} rx={1.5} /></g>}
       {hat === "bowler" && <g fill={c}><path d="M -8 -97 Q -8 -110 1 -110 Q 10 -110 10 -97 Z" /><ellipse cx={1} cy={-97} rx={13} ry={2.5} /></g>}
       {hat === "fedora" && <g fill={c}><path d="M -8 -97 L -7 -106 Q 1 -110 9 -106 L 10 -97 Z" /><ellipse cx={1} cy={-97} rx={14} ry={3} /></g>}
       {hat === "lady" && <g fill={c}><ellipse cx={1} cy={-99} rx={12} ry={4} /><circle cx={1} cy={-101} r={6} /></g>}
-      {arm && <g><path d="M 10 -74 L 21 -112" stroke={c} strokeWidth={6} strokeLinecap="round" fill="none" /><circle cx={21} cy={-114} r={3.6} fill={skin ?? c} />
+      {arm && <g><path d="M 6 -76 L 15 -80 L 23 -110 L 18 -111 L 10 -84 Z" fill={c} /><circle cx={21} cy={-114} r={3.6} fill={skin ?? c} />
         <g transform={`translate(21 -114) scale(${face} 1)`}>{children}</g></g>}
     </g>
   );
@@ -135,9 +135,9 @@ export const ElberonSickroom: React.FC<{ cal: { month: string; day: string; chan
         <path d="M 230 690 Q 420 760 560 900" fill="none" strokeWidth={3} />
       </g>
       {/* the doctors keeping watch */}
-      <Sil x={600} y={960} h={560} face={1} beard c="#4a4650" skin="#d9b79a" bob={1} />
-      <Sil x={1390} y={965} h={570} face={-1} beard c="#3e3b45" skin="#d4b294" bob={1} />
-      <Sil x={1560} y={985} h={590} face={-1} c="#4a4650" skin="#dcb999" bob={1} />
+      <Sil x={600} y={960} h={560} face={1} beard c="#56525c" bob={1} />
+      <Sil x={1390} y={965} h={570} face={-1} beard c="#4a4752" bob={1} />
+      <Sil x={1560} y={985} h={590} face={-1} c="#56525c" bob={1} />
       <Paint3 vig={0.35} />
     </g>
   );
@@ -258,8 +258,8 @@ export const JudgeFG: React.FC = () => (
     <path d="M 1450 1080 L 1470 760 Q 1490 660 1600 640 L 1760 640 Q 1870 660 1890 760 L 1920 1080 Z" />
     <ellipse cx={1680} cy={560} rx={92} ry={104} />
     <path d="M 1600 520 Q 1680 430 1770 520 Q 1700 480 1600 520 Z" fill="#3a3a3a" />
-    <path d="M 1500 700 L 1420 470" stroke="#120c0a" strokeWidth={56} strokeLinecap="round" />
-    <ellipse cx={1412} cy={440} rx={34} ry={46} />
+    <path d="M 1490 760 Q 1480 690 1520 660 L 1450 470 L 1392 480 L 1450 700 Z" />
+    <path d="M 1392 482 Q 1380 420 1396 392 Q 1420 380 1448 400 Q 1456 440 1450 472 Z" fill="#d8b394" stroke={INK} strokeWidth={5} />
   </g>
 );
 
@@ -333,7 +333,7 @@ export const Allies: React.FC<{ at: number[]; kind: "cert" | "exam" }> = ({ at, 
     <g>
       {q.map(([x, y, h, hat, c], i) => {
         const got = f >= (at[3 - i] ?? 99999);
-        return <Sil key={i} x={x} y={y} h={h} face={-1} hat={hat} c={c} skin="#d8b394" beard={i % 2 === 0} arm={got} bob={2}>{got && <HeldPaper kind={kind} />}</Sil>;
+        return <Sil key={i} x={x} y={y} h={h} face={-1} hat={hat} c={c} beard={i % 2 === 0} arm={got} bob={2}>{got && <HeldPaper kind={kind} />}</Sil>;
       })}
     </g>
   );
@@ -436,7 +436,7 @@ export const ExamHall: React.FC = () => (
     <text x={960} y={410} textAnchor="middle" fontFamily={MONTSERRAT} fontWeight={800} fontSize={30} fill="#eceee6" opacity={0.75}>NO TALKING · 3 HOURS</text>
     <g transform="translate(1440 200)" stroke={L} strokeWidth={4}><circle r={46} fill="#f2ead4" /><line x1={0} y1={0} x2={0} y2={-30} stroke="#111" strokeWidth={5} /><line x1={0} y1={0} x2={22} y2={0} stroke="#111" strokeWidth={5} /></g>
     {/* proctor's desk + proctor */}
-    <Sil x={1180} y={690} h={330} face={-1} beard c="#3a3530" skin="#d8b394" />
+    <Sil x={1262} y={690} h={330} face={-1} beard c="#3a3530" />
     <rect x={820} y={560} width={420} height={130} fill="#6b4529" stroke={L} strokeWidth={lw} />
     <rect y={690} width={1920} height={390} fill="#a07a52" />
     {Array.from({ length: 8 }, (_, i) => <line key={i} x1={0} y1={700 + i * 50} x2={1920} y2={700 + i * 50} stroke="#8a663f" strokeWidth={3} />)}
@@ -489,7 +489,7 @@ export const SenateChamber: React.FC = () => (
     <rect y={125} width={1920} height={24} fill="#8a6a3a" />
     {/* gallery with spectators */}
     <rect y={149} width={1920} height={200} fill="#5a4a34" />
-    {Array.from({ length: 34 }, (_, i) => <Sil key={i} x={30 + i * 57} y={330} h={130 + (i % 3) * 8} face={i % 2 ? 1 : -1} c={i % 4 ? "#3a3028" : "#4a3a30"} hat={i % 5 === 0 ? "lady" : "none"} skin={i % 3 ? "#cfae90" : undefined} />)}
+    {Array.from({ length: 34 }, (_, i) => <Sil key={i} x={30 + i * 57} y={330} h={130 + (i % 3) * 8} face={i % 2 ? 1 : -1} c={i % 4 ? "#3a3028" : "#4a3a30"} hat={i % 5 === 0 ? "lady" : "none"} />)}
     <rect y={300} width={1920} height={60} fill="#d9caa0" stroke={L} strokeWidth={lw} />
     {Array.from({ length: 48 }, (_, i) => <rect key={i} x={i * 40 + 10} y={305} width={16} height={50} rx={6} fill="#b9a878" />)}
     {/* wall with pilasters + doors */}
@@ -620,10 +620,10 @@ export const CabinetRoom: React.FC = () => (
     <rect y={620} width={1920} height={260} fill="#d8d0c0" /><rect y={615} width={1920} height={8} fill="#bdb4a0" />
     {/* cabinet officers standing in an arc */}
     {[[110, 1, "#3a3a40"], [240, 1, "#45434a"], [370, 1, "#2e2e34"], [500, 1, "#4a4850"], [620, 1, "#38363d"], [1250, -1, "#2e2e34"], [1380, -1, "#45434a"], [1510, -1, "#38363d"], [1640, -1, "#4a4850"], [1780, -1, "#3a3a40"]].map(([x, fc, c], i) => (
-      <Sil key={i} x={x as number} y={930 + (i % 2) * 14} h={520 + (i % 3) * 22} face={fc as 1 | -1} c={c as string} skin="#d6c2a8" />
+      <Sil key={i} x={x as number} y={930 + (i % 2) * 14} h={520 + (i % 3) * 22} face={fc as 1 | -1} c={c as string} />
     ))}
     {/* Bess Truman (hat) beside him */}
-    <Sil x={1010} y={940} h={500} face={-1} hat="lady" c="#8f8a82" skin="#d6c2a8" />
+    <Sil x={1010} y={940} h={500} face={-1} hat="lady" c="#8f8a82" />
     <rect y={880} width={1920} height={200} fill="#6b5a48" />
     <Paint3 vig={0.35} />
   </g>
@@ -637,12 +637,13 @@ export const CabinetTableFG: React.FC<{ judge?: boolean }> = ({ judge = true }) 
       <path d="M -40 920 Q 960 860 1960 920" fill="none" stroke="#7a5030" strokeWidth={10} />
       <rect x={420} y={920} width={170} height={36} fill="#f4ecd6" transform="rotate(4 420 920)" />
       <ellipse cx={760} cy={930} rx={56} ry={16} fill="#1d1712" />
-      <g transform="translate(1040 900)"><rect x={-50} y={-50} width={100} height={60} fill="#f4ecd6" /><rect x={-50} y={-50} width={100} height={16} fill="#b8362f" /><text y={2} textAnchor="middle" fontFamily={MONTSERRAT} fontWeight={800} fontSize={26} fill="#2b2119" stroke="none">APR 12</text></g>
+      <g transform="translate(150 905)"><rect x={-50} y={-50} width={100} height={60} fill="#f4ecd6" /><rect x={-50} y={-50} width={100} height={16} fill="#b8362f" /><text y={2} textAnchor="middle" fontFamily={MONTSERRAT} fontWeight={800} fontSize={26} fill="#2b2119" stroke="none">APR 12</text></g>
     </g>
     {judge && <g fill="#0f0d10">
       <path d="M 1270 1080 L 1300 800 Q 1320 700 1420 690 L 1560 690 Q 1660 700 1680 800 L 1710 1080 Z" />
       <ellipse cx={1490} cy={620} rx={78} ry={90} fill="#141216" /><path d="M 1420 580 Q 1490 510 1560 580 Q 1500 560 1420 580 Z" fill="#d8d8d8" />
-      <path d="M 1340 740 L 1290 540" stroke="#0f0d10" strokeWidth={48} strokeLinecap="round" /><ellipse cx={1285} cy={515} rx={28} ry={38} fill="#e0c4a8" />
+      <path d="M 1330 800 Q 1320 730 1360 700 L 1320 560 L 1272 568 L 1300 740 Z" />
+      <path d="M 1272 570 Q 1262 520 1276 496 Q 1298 486 1320 502 Q 1328 536 1320 562 Z" fill="#e0c4a8" stroke={INK} strokeWidth={5} />
     </g>}
   </g>
 );
@@ -660,7 +661,6 @@ export const WarGlobe: React.FC<{ at: number; x: number; y: number }> = ({ at, x
       <path d="M -110 -260 Q -60 -300 -20 -250 Q 0 -200 -60 -180 Q -100 -200 -110 -260 Z M 10 -300 Q 80 -320 110 -260 Q 120 -200 60 -170 Q 40 -230 10 -300 Z M -40 -140 Q 0 -150 30 -110 Q 0 -80 -40 -100 Z" fill="#c9b27a" strokeWidth={5} />
       <path d="M -150 -200 A 150 150 0 0 0 150 -200" fill="none" stroke="#b08a3c" strokeWidth={10} />
       <g stroke="#e02b2b" strokeWidth={14} strokeLinecap="round" fill="none"><path d="M -90 -250 Q -40 -230 -10 -260" /><path d="M 70 -280 Q 40 -220 70 -180" /></g>
-      {f - at >= 7 && [0, 1, 2].map((i) => <circle key={i} cx={-120 + i * 120} cy={-360 - ((f - at) % 30) * 2} r={34 + i * 6} fill="#8a8580" opacity={0.6} strokeWidth={4} />)}
     </g>
   );
 };
@@ -762,12 +762,12 @@ export const SecretFolder: React.FC<{ stampAt: number; lockAt: number }> = ({ st
         <rect x={600} y={330} width={480} height={70} fill="#f4ecd6" strokeWidth={3} />
         <text x={620} y={378} fontFamily="DejaVu Sans Mono, monospace" fontWeight={700} fontSize={40} fill="#2b2119" stroke="none">S-1  MANHATTAN PROJECT</text>
         <text x={620} y={470} fontFamily="DejaVu Sans Mono, monospace" fontWeight={700} fontSize={30} fill="#5a4a2a" stroke="none">WAR DEPARTMENT · EYES ONLY</text>
-        {f >= stampAt && <g transform={`translate(950 640) rotate(-10) scale(${s})`}>
-          <rect x={-300} y={-70} width={600} height={140} fill="none" stroke="#d62828" strokeWidth={14} />
+        {f >= stampAt && <g transform={`translate(960 790) rotate(-8) scale(${s})`}>
+          <rect x={-300} y={-62} width={600} height={124} fill="none" stroke="#d62828" strokeWidth={14} />
           <text y={34} textAnchor="middle" fontFamily={MONTSERRAT} fontWeight={800} fontSize={96} fill="#d62828" stroke="none">TOP SECRET</text>
         </g>}
       </g>
-      {f >= lockAt && <g transform={`translate(960 600) scale(${lk})`} stroke={INK} strokeWidth={8}>
+      {f >= lockAt && <g transform={`translate(960 610) scale(${lk})`} stroke={INK} strokeWidth={8}>
         {Array.from({ length: 9 }, (_, i) => <ellipse key={i} cx={-560 + i * 140} cy={-40 + (i - 4) * 12} rx={60} ry={28} fill="none" stroke="#8a8a8a" strokeWidth={16} />)}
         <path d="M -60 -40 L -60 -110 A 60 60 0 0 1 60 -110 L 60 -40" fill="none" stroke="#9a9a9a" strokeWidth={22} />
         <rect x={-90} y={-50} width={180} height={150} rx={18} fill="#c9a24a" /><circle cy={10} r={16} fill={INK} /><rect x={-6} y={14} width={12} height={40} fill={INK} />
@@ -870,7 +870,6 @@ export const RearPlatform: React.FC<{ where: "whistle" | "stlouis" }> = ({ where
         <rect x={520} y={834} width={880} height={60} fill="#151515" />
         {[620, 1300].map((x, i) => <circle key={i} cx={x} cy={900} r={48} fill="#2a2a2a" />)}
       </g>
-      <text x={960} y={290} textAnchor="middle" fontFamily={MONTSERRAT} fontWeight={800} fontSize={30} fill="#c9a24a" letterSpacing={4}>FERDINAND MAGELLAN</text>
       {where === "whistle" && <rect y={930} width={1920} height={150} fill="#b9a45a" />}
       <Paint3 vig={where === "whistle" ? 0.3 : 0.5} />
     </g>
@@ -895,12 +894,12 @@ export const PlatformRail: React.FC = () => (
 export const CrowdFG: React.FC<{ papers?: boolean; cheerAt?: number }> = ({ papers, cheerAt = 99999 }) => {
   const f = useCurrentFrame();
   const people: [number, number, number, SilProps["hat"], string][] = [
-    [60, 1200, 520, "fedora", "#1d1a17"], [250, 1230, 560, "none", "#26211c"], [450, 1190, 500, "lady", "#3a2a2a"], [1460, 1210, 520, "fedora", "#221e1a"],
-    [1660, 1240, 580, "none", "#1d1a17"], [1860, 1200, 520, "fedora", "#2a241f"], [700, 1290, 520, "fedora", "#151310"], [1220, 1300, 540, "fedora", "#1a1714"],
+    [60, 1340, 520, "fedora", "#1d1a17"], [250, 1370, 560, "none", "#26211c"], [450, 1330, 500, "lady", "#3a2a2a"], [1460, 1350, 520, "fedora", "#221e1a"],
+    [1660, 1380, 580, "none", "#1d1a17"], [1860, 1340, 520, "fedora", "#2a241f"], [700, 1420, 520, "fedora", "#151310"], [1220, 1430, 540, "fedora", "#1a1714"],
   ];
   return (
     <g>
-      {people.map(([x, y, h, hat, c], i) => <Sil key={i} x={x} y={y - (f >= cheerAt && i % 3 === 0 ? Math.abs(Math.sin((f - cheerAt + i * 5) / 6)) * 18 : 0)} h={h} face={i % 2 ? 1 : -1} hat={hat} c={c} arm={f >= cheerAt && i % 2 === 0} />)}
+      {people.map(([x, y, h, hat, c], i) => <Sil key={i} x={x} y={y - (f >= cheerAt && i % 3 === 0 ? Math.abs(Math.sin((f - cheerAt + i * 5) / 6)) * 18 : 0)} h={h} face={i % 2 ? 1 : -1} hat={hat} c={c} />)}
       {papers && (
         <g transform="translate(180 760) rotate(-6)" stroke={L} strokeWidth={4}>
           <rect x={0} y={0} width={470} height={300} fill="#efe9da" />
@@ -933,7 +932,7 @@ export const DeweySuite: React.FC<{ talkAt?: number }> = ({ talkAt = 99999 }) =>
       <path d="M 120 130 L 230 130 Q 200 420 240 720 L 110 720 Z" fill="#7a2a2a" stroke={L} strokeWidth={lw} />
       <path d="M 820 130 L 710 130 Q 740 420 700 720 L 830 720 Z" fill="#7a2a2a" stroke={L} strokeWidth={lw} />
       {/* pennant */}
-      <g transform="translate(1000 200) rotate(6)" stroke={L} strokeWidth={4}><path d="M 0 0 L 460 50 L 0 110 Z" fill="#2b3f74" /><text x={30} y={68} fontFamily={MONTSERRAT} fontWeight={800} fontSize={34} fill="#fff" stroke="none">DEWEY · WARREN</text></g>
+      <g transform="translate(830 190) rotate(6)" stroke={L} strokeWidth={4}><path d="M 0 0 L 460 50 L 0 110 Z" fill="#2b3f74" /><text x={30} y={68} fontFamily={MONTSERRAT} fontWeight={800} fontSize={34} fill="#fff" stroke="none">DEWEY · WARREN</text></g>
       {/* console radio */}
       <g stroke={L} strokeWidth={lw}>
         <path d="M 1440 880 L 1440 420 Q 1560 360 1680 420 L 1680 880 Z" fill="#6b4226" />
@@ -945,8 +944,8 @@ export const DeweySuite: React.FC<{ talkAt?: number }> = ({ talkAt = 99999 }) =>
       <circle cx={1560} cy={505} r={90} fill="#f2c96a" opacity={0.18} />
       {f >= talkAt && [0, 1, 2].map((i) => { const k = ((f - talkAt) / 4 + i) % 3; return <path key={i} d={`M ${1380 - k * 40} ${560 - k * 40} Q ${1340 - k * 50} 640 ${1380 - k * 40} ${720 + k * 40}`} fill="none" stroke="#fff" strokeWidth={8} opacity={1 - k / 3} />; })}
       {/* floor lamp */}
-      <g stroke={L} strokeWidth={lw}><line x1={1250} y1={300} x2={1250} y2={880} strokeWidth={10} /><path d="M 1180 300 L 1320 300 L 1290 220 L 1210 220 Z" fill="#f2e6c4" /></g>
-      <circle cx={1250} cy={300} r={200} fill="#ffe6a8" opacity={0.12} />
+      <g stroke={L} strokeWidth={lw}><line x1={1360} y1={330} x2={1360} y2={880} strokeWidth={10} /><path d="M 1300 330 L 1420 330 L 1394 260 L 1326 260 Z" fill="#f2e6c4" /></g>
+      <circle cx={1360} cy={330} r={200} fill="#ffe6a8" opacity={0.12} />
       <rect y={880} width={1920} height={200} fill="#5a4a3a" />
       <ellipse cx={960} cy={1000} rx={820} ry={80} fill="#7a5a3a" opacity={0.7} />
       <Paint3 vig={0.45} />
