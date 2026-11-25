@@ -75,7 +75,7 @@ export const SHOTS: Shot[] = [
     return (<>
       <Steps s={[
         [0, <Cam dur={dur} from={1.0} to={1.1} ox="30%" oy="66%"><Svg bg={<ClauseInsert circleAt={t(wd(1, "dealt"))} />}>
-          <QMarks x={470} y={820} at={t(wd(1, "dead")) + 4} spread={330} />
+          <QMarks x={1150} y={900} at={t(wd(1, "dead")) + 4} spread={150} />
         </Svg></Cam>],
         [and, <Cam dur={dur} from={1.0} to={1.06} oy="45%"><Svg bg={<CabinetRoom1841 />}>
           <Act c="john_tyler" x={960} y={1010} h={560} e={[[0, 0], [t(wd(1, "argued")) + R, 3], [t(wd(1, "temporarily")) + R, 2]]} vein={t(wd(1, "temporarily")) + R} stress />
@@ -230,7 +230,7 @@ export const SHOTS: Shot[] = [
     return (<>
       <Steps s={[
         [0, <Cam dur={dur} from={1.04} to={1.1} oy="50%"><Svg bg={<BundleInsert ripAt={t(wd(11, "deepened"))} />} /></Cam>],
-        [an, <Cam dur={dur} from={1.0} to={1.1} ox="50%" oy="30%"><Svg bg={<BostonWall />} /></Cam>],
+        [an, <Cam dur={dur} from={1.0} to={1.06} ox="50%" oy="45%"><Svg bg={<BostonWall />} /></Cam>],
       ]} />
       <Cap text="Boston, April 1851" at={an} />
     </>);
@@ -260,7 +260,7 @@ export const SHOTS: Shot[] = [
       <Cam dur={dur} from={1.0} to={1.06} oy="55%">
         <Svg bg={<CapitolEast1865 />}>
           <Act c="andrew_johnson" x={700} y={1020} h={580} at={wh} enter={{ from: "left", frames: 10, dist: 700 }} e={[[0, 0], [ds + R, 3]]} sweat={ds + R} />
-          <Quill pose="nervous_side_glance" x={1420} y={1040} h={340} at={t(wd(13, "already"))} />
+          <Quill pose="nervous_side_glance" x={1700} y={1040} h={340} at={t(wd(13, "already"))} />
         </Svg>
       </Cam>
       <Card text="Andrew Johnson" sub="16th Vice President · 17th President" until={wh} />
@@ -280,7 +280,7 @@ export const SHOTS: Shot[] = [
           ]} />
           <Swap t={wa + R} a={<V c="abraham_lincoln" p={6} x={1380} y={1040} h={620} />} b={<V c="abraham_lincoln" p={7} x={1380} y={1040} h={620} />} />
           <Senate1859FG hide={[2]} />
-          <Bubble x={640} y={200} w={620} text="I AM A PLEBEIAN, AND PROUD OF IT!" at={rm} tail={[640, 470]} size={44} />
+          <Bubble x={900} y={220} w={560} text="I'M A PLEBEIAN!" at={rm} tail={[720, 400]} size={50} />
         </Svg>
       </Cam>
       <Cap text="Senate Chamber, March 4, 1865" size={66} until={dr} />
@@ -312,7 +312,7 @@ export const SHOTS: Shot[] = [
           <OfficeTableFG billsAt={[cg, cg + 5, cg + 10]} />
         </Svg></Cam>],
         [cv, <Cam dur={dur} from={1.0} to={1.04} punch={{ at: cv + 6, frames: 4, to: 1.06 }}><Svg bg={<CivilRightsBill />}>
-          <V c="shared_props_early" p={10} x={1000} y={900} h={560} drop={{ frames: 6, height: 900 }} />
+          <V c="shared_props_early" p={10} x={1250} y={1010} h={460} drop={{ frames: 6, height: 900 }} />
         </Svg></Cam>],
       ]} />
       <Cap text="The White House, 1866" until={cv} />
@@ -345,8 +345,8 @@ export const SHOTS: Shot[] = [
           </Quill>
         </Svg>
       </Cam>
-      <Cap text="Senate trial, May 1868" until={vo} />
-      <Cap text="One vote short" at={t(wd(18, "short"))} />
+      <Cap text="Senate trial, May 1868" pos="top" until={vo} />
+      <Cap text="One vote short" pos="top" at={t(wd(18, "short"))} />
     </>);
   } },
   // 19 His presidency survived by a single vote.
@@ -392,9 +392,9 @@ export const SHOTS: Shot[] = [
           <BenchFG />
         </Svg></Cam>],
         [gm, <Cam dur={dur} from={1.08} to={1.12} ox="30%" oy="55%"><Svg bg={<BPWaitingRoom />}>
-          <Swap t={an} a={<Act c="garfield_attacker" x={620} y={1010} h={620} e={2} talk={[dc, an]} />} b={<V c="garfield_attacker" p={8} x={620} y={1010} h={620} />} />
-          <Swap t={an} a={<Bubble x={1080} y={210} w={760} text="I AM A STALWART OF THE STALWARTS!" at={dc} tail={[700, 450]} size={46} />}
-            b={<Bubble x={1080} y={210} w={760} text="ARTHUR IS PRESIDENT NOW!" at={an} tail={[700, 450]} shout size={50} />} />
+          <Act c="garfield_attacker" x={620} y={1010} h={620} e={[[0, 2], [an, 5]]} talk={[dc, 9999]} gesture={14} stress />
+          <Swap t={an} a={<Bubble x={1080} y={210} w={760} text="I AM A STALWART OF THE STALWARTS!" at={dc} tail={[690, 340]} size={46} />}
+            b={<Bubble x={1080} y={210} w={760} text="ARTHUR IS PRESIDENT NOW!" at={an} tail={[690, 340]} shout size={50} />} />
         </Svg></Cam>],
         [ar, <Cam dur={dur} from={1.05} to={1.1} ox="60%" oy="50%"><Svg bg={<Brownstone1881 />}>
           <Act c="chester_arthur" x={1180} y={1010} h={560} e={[[0, 0], [R, 3]]} sweat={t(wd(21, "president")) + R} />

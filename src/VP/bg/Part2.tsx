@@ -720,7 +720,7 @@ export const FillmoreLibrary: React.FC = () => (
     <rect x={760} y={150} width={400} height={600} fill="url(#p2-sky50)" stroke="#efe6cf" strokeWidth={14} />
     <path d="M 760 600 Q 960 560 1160 600 L 1160 750 L 760 750 Z" fill="#8aa66a" />
     <path d="M 760 640 Q 960 620 1160 650 L 1160 680 Q 960 650 760 670 Z" fill="#7d9fb8" />
-    <g stroke={L} strokeWidth={3}><path d="M 1020 600 L 1026 520 L 1050 520 L 1056 600 Z" fill="#f2efe6" /><line x1={1038} y1={520} x2={1038} y2={480} /><line x1={1038} y1={480} x2={1070} y2={510} /></g>
+    <g stroke={L} strokeWidth={3}><path d="M 1020 600 L 1026 520 L 1050 520 L 1056 600 Z" fill="#f2efe6" /><path d="M 1028 520 L 1038 494 L 1048 520" fill="none" strokeWidth={3} /></g>
     <line x1={960} y1={150} x2={960} y2={750} stroke="#efe6cf" strokeWidth={8} />
     {[300, 450, 600].map((y) => <line key={y} x1={760} y1={y} x2={1160} y2={y} stroke="#efe6cf" strokeWidth={6} />)}
     <path d="M 700 110 L 820 110 Q 790 420 830 780 L 690 780 Z" fill="#d9a520" stroke={L} strokeWidth={3} /><path d="M 1220 110 L 1100 110 Q 1130 420 1090 780 L 1230 780 Z" fill="#d9a520" stroke={L} strokeWidth={3} />
@@ -768,9 +768,9 @@ export const BundleInsert: React.FC<{ ripAt: number }> = ({ ripAt }) => {
           <rect x={560} y={330} width={800} height={460} fill={["#efe3c3", "#f2e8cc", "#ebdfbd", "#f0e6c8", "#ece0c0"][i]} stroke="#7a5d34" strokeWidth={4} />
         </g>
       ))}
-      <text x={940} y={420} textAnchor="middle" fontFamily={SERIF} fontWeight={700} fontSize={56} fill="#2e1e10">THE COMPROMISE OF 1850</text>
+      <text x={920} y={420} textAnchor="middle" fontFamily={SERIF} fontWeight={700} fontSize={42} fill="#2e1e10">THE COMPROMISE OF 1850</text>
       {Array.from({ length: 5 }, (_, i) => <line key={i} x1={640} y1={480 + i * 50} x2={1270 - (i % 2) * 80} y2={480 + i * 50} stroke="#8a7656" strokeWidth={6} />)}
-      <rect x={1230} y={220} width={56} height={600} fill="#b8241f" stroke={L} strokeWidth={3} />
+      <rect x={1290} y={220} width={50} height={600} fill="#b8241f" stroke={L} strokeWidth={3} />
       <rect x={540} y={560} width={840} height={52} fill="#b8241f" stroke={L} strokeWidth={3} />
       <g transform="rotate(-6 1250 690)"><rect x={1110} y={640} width={300} height={110} fill="#f6efd9" stroke={L} strokeWidth={4} /><circle cx={1130} cy={695} r={10} fill="#b8241f" />
         <text x={1265} y={688} textAnchor="middle" fontFamily={SERIF} fontStyle="italic" fontWeight={700} fontSize={30} fill="#2e1e10">"A final</text>
@@ -818,7 +818,7 @@ export const BostonWall: React.FC = () => {
       <g transform="rotate(-1.5 960 500)" fontFamily={SERIF} textAnchor="middle" fill="#1d1712">
         <rect x={560} y={60} width={800} height={860} fill="#000" opacity={0.3} transform="translate(12 14)" />
         <rect x={560} y={60} width={800} height={860} fill="#e9dfc2" stroke="#7a6a4a" strokeWidth={4} />
-        <text x={960} y={210} fontWeight={700} fontSize={150} letterSpacing={6}>CAUTION!!</text>
+        <text x={960} y={200} fontWeight={700} fontSize={118} letterSpacing={2}>CAUTION!!</text>
         <text x={960} y={290} fontWeight={700} fontSize={50}>COLORED PEOPLE</text>
         <text x={960} y={350} fontWeight={700} fontSize={50}>OF BOSTON, ONE &amp; ALL,</text>
         <text x={960} y={410} fontStyle="italic" fontSize={28}>You are hereby respectfully CAUTIONED and</text>
@@ -1062,7 +1062,7 @@ export const JohnsonOffice: React.FC = () => (
     {/* window + the Monument stump */}
     <rect x={1300} y={140} width={300} height={520} fill="url(#p2-sky66)" stroke="#e6dcc3" strokeWidth={14} />
     <path d="M 1300 520 Q 1450 500 1600 520 L 1600 660 L 1300 660 Z" fill="#8aa66a" /><path d="M 1300 560 Q 1450 545 1600 565 L 1600 590 Q 1450 575 1300 590 Z" fill="#7d9fb8" />
-    <g stroke={L} strokeWidth={3}><path d="M 1430 530 L 1436 440 L 1468 440 L 1474 530 Z" fill="#f2efe6" /><path d="M 1452 440 L 1452 400 L 1490 432" fill="none" strokeWidth={3} /></g>
+    <g stroke={L} strokeWidth={3}><path d="M 1430 530 L 1436 440 L 1468 440 L 1474 530 Z" fill="#f2efe6" /><path d="M 1440 440 L 1452 410 L 1464 440" fill="none" strokeWidth={3} /></g>
     <line x1={1450} y1={140} x2={1450} y2={660} stroke="#e6dcc3" strokeWidth={8} />{[310, 480].map((y) => <line key={y} x1={1300} y1={y} x2={1600} y2={y} stroke="#e6dcc3" strokeWidth={6} />)}
     <path d="M 1240 110 L 1350 110 Q 1320 400 1360 680 L 1230 680 Z" fill="#7a1f2a" stroke={L} strokeWidth={3} /><path d="M 1660 110 L 1550 110 Q 1580 400 1540 680 L 1670 680 Z" fill="#7a1f2a" stroke={L} strokeWidth={3} />
     {/* marble mantel + Jackson portrait */}
@@ -1205,7 +1205,8 @@ export const Brownstone1881: React.FC = () => {
         <path d="M -38 40 L 38 40 L 26 -40 L -26 -40 Z" fill="#f6dc8a" opacity={0.95} /><path d="M -46 -40 L 46 -40 L 0 -76 Z" fill="#1f1f22" />
         <ellipse cx={0} cy={0} rx={14 * (1 + Math.sin(f / 3) * 0.05)} ry={20} fill="#fff3c4" stroke="none" />
       </g>
-      <circle cx={560} cy={300} r={240} fill="#ffd88a" opacity={0.14} style={{ mixBlendMode: "screen" }} />
+      <radialGradient id="p2-ny-lamp" cx={560} cy={300} r={300} gradientUnits="userSpaceOnUse"><stop offset="0" stopColor="#ffd88a" stopOpacity={0.35} /><stop offset="1" stopColor="#ffd88a" stopOpacity={0} /></radialGradient>
+      <rect width={1920} height={1080} fill="url(#p2-ny-lamp)" style={{ mixBlendMode: "screen" }} />
       <Paint2 vig={0.45} />
     </g>
   );
@@ -1213,7 +1214,7 @@ export const Brownstone1881: React.FC = () => {
 
 // ================================================================== 1881: Baltimore & Potomac station
 /** The B&P depot at 6th & B Streets on the Mall, 2 July 1881, 9:30 a.m.: red-brick Victorian Gothic with the
- * tall clock tower and its steep spire, pointed-arch windows, the train shed behind, a cab at the kerb. */
+ * tall clock tower and its steep spire, pointed-arch windows, the train shed behind. */
 export const BPStationExt: React.FC = () => {
   const f = useCurrentFrame();
   return (
@@ -1245,12 +1246,6 @@ export const BPStationExt: React.FC = () => {
       {/* B Street, cab */}
       <rect y={840} width={1920} height={60} fill="#cfc3aa" />
       <rect y={900} width={1920} height={180} fill="#a99878" />
-      <g transform="translate(1460 960)" stroke={L} strokeWidth={4}>
-        <path d="M -120 -150 L 60 -150 L 90 -40 L -130 -40 Z" fill="#2a2a30" /><rect x={-90} y={-132} width={70} height={60} fill="#7a8a9a" />
-        <circle cx={-90} cy={-10} r={44} fill="none" strokeWidth={8} /><circle cx={60} cy={-10} r={44} fill="none" strokeWidth={8} />
-        <path d="M 90 -100 L 260 -100 L 270 -60 L 100 -60 Z" fill="#5a3a26" /><ellipse cx={240} cy={-130} rx={40} ry={30} fill="#5a3a26" /><path d="M 266 -150 L 300 -120 L 280 -110 Z" fill="#5a3a26" />
-        {[120, 160, 220, 250].map((x, i) => <line key={x} x1={x} y1={-60} x2={x + (i % 2 ? -8 : 8)} y2={10} strokeWidth={8} />)}
-      </g>
       <Paint2 vig={0.3} />
     </g>
   );
