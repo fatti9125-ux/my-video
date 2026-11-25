@@ -1,0 +1,119 @@
+VP1
+  0 0.0 One became president after his boss lasted just a month.
+  1 2.87 Another took the oath beside a grieving first lady on an airplane.
+  2 6.57 And one reached the White House without ever winning a presidential or vice-presidential election.
+  3 12.16 These are all fifteen U.S. vice presidents who became president, how they got there, and what happened after the promotion.
+  4 18.75 One new president's dad even has to bring out a lamp.
+  5 21.6 It starts with John Adams, George Washington's vice president.
+  6 24.91 For eight years, Washington leaned on his cabinet while Adams complained about how insignificant his own job was.
+  7 30.93 Then Washington retired, and Adams won the election of 1796.
+  8 35.88 There was one awkward detail.
+  9 37.75 Under the original electoral system, the runner-up became vice president.
+  10 41.78 So Adams got Thomas Jefferson, the man who had just run against him.
+  11 45.33 His defeated opponent was now his deputy.
+  12 47.64 Four years later, Jefferson ran against him again.
+  13 49.92 This time Adams lost, but Jefferson still had somebody to beat.
+  14 53.9 His own running mate, Aaron Burr, had received exactly as many electoral votes.
+  15 57.74 Back then, electors didn't cast separate votes for president and vice president.
+  16 62.14 The tie went to the House of Representatives, which took thirty-six ballots to choose Jefferson.
+  17 66.73 America had almost elected the running mate instead of the intended president.
+  18 70.44 Jefferson finally took office in 1801 and later approved the Louisiana Purchase.
+  19 75.3 The Twelfth Amendment changed the electoral system afterward.
+  20 78.97 After Jefferson, another sitting vice president wouldn't win the presidency until Martin Van Buren in 1836.
+  21 85.95 Andrew Jackson's trusted ally looked like a natural successor.
+  22 89.32 Then, just months into his presidency, the Panic of 1837 hit.
+  23 94.07 Banks failed, businesses collapsed, and the country fell into a depression.
+  24 98.46 Van Buren inherited troubles that had been building before he arrived.
+  25 102.02 Voters still handed him the bill.
+  26 104.3 In 1840, they replaced him with William Henry Harrison.
+  27 107.92 Harrison's vice president was John Tyler, and Tyler's promotion came much faster.
+VP2
+  0 0.0 Harrison died after thirty-one days in office.
+  1 2.97 Nobody had dealt with a dead president before, and some argued that Tyler was only supposed to exercise presidential powers temporarily.
+  2 10.92 Tyler insisted he had become president outright and took a new oath.
+  3 15.1 His decision established the precedent later vice presidents followed.
+  4 18.49 His own party soon regretted having him.
+  5 21.32 Tyler vetoed its banking plans, nearly his entire cabinet resigned, and the Whigs expelled him.
+  6 26.44 He kept the presidency and lost the party that put him there.
+  7 29.48 Millard Fillmore got his turn when Zachary Taylor died in 1850.
+  8 33.57 The country was fighting over slavery and the territories taken from Mexico.
+  9 37.52 Fillmore backed the Compromise of 1850 and signed its separate measures into law.
+  10 42.19 California entered as a free state, but the package also included a stronger Fugitive Slave Act, helping enslavers seize people who had escaped, even in free states.
+  11 51.44 The supposed settlement deepened anger over slavery.
+  12 54.55 Fillmore finished Taylor's term, but his party picked someone else for the next election.
+  13 59.64 Then came Andrew Johnson, whose start as vice president was already a disaster.
+  14 64.65 At his inauguration in March 1865, Johnson had been drinking and delivered a rambling speech while Lincoln watched.
+  15 71.54 About six weeks later, Lincoln was dead, and that same man was president.
+  16 75.91 Johnson clashed with Congress over Reconstruction and vetoed a civil rights bill.
+  17 80.83 The fight eventually produced the first presidential impeachment.
+  18 84.46 At his Senate trial, the votes for conviction fell one short of the number needed to remove him.
+  19 89.58 His presidency survived by a single vote.
+  20 92.54 Chester A. Arthur's promotion came with a deeply uncomfortable association.
+  21 96.86 When James Garfield was shot in 1881, the gunman declared his support for Arthur's Republican faction and announced that Arthur would be president.
+VP3
+  0 0.0 Garfield lingered for weeks before dying, leaving Arthur with the office and a deeply uncomfortable association.
+  1 6.54 Arthur had risen through a system that rewarded allies with government jobs.
+  2 10.21 He surprised critics by signing the Pendleton Act, requiring competitive examinations for certain federal positions.
+  3 16.23 The politician associated with handing out jobs helped change how those jobs were filled.
+  4 21.34 Theodore Roosevelt's party bosses had their own staffing solution.
+  5 25.08 New York boss Thomas Platt helped push the troublesome governor toward the vice presidency, getting him out of Albany.
+  6 31.42 In 1901, President McKinley was assassinated, and Roosevelt became president at forty-two.
+  7 37.59 The plan to move him into a quieter job had put him in the most powerful one.
+  8 42.11 He pursued corporate regulation and conservation, then won the presidency himself in 1904.
+  9 48.1 Being parked in the vice presidency had worked out rather well for Roosevelt.
+  10 52.3 Calvin Coolidge's promotion came with considerably less noise.
+  11 55.85 In August 1923, he was visiting his father in Vermont when news arrived that President Warren Harding had died.
+  12 62.42 The house had no electricity.
+  13 64.28 So his father, a notary public, administered the presidential oath by the light of a kerosene lamp.
+  14 70.32 There's the lamp.
+  15 71.22 The new president had been sworn in by his dad in the family parlor.
+  16 74.92 Coolidge went on to win the 1924 election.
+  17 77.54 Harry Truman had only eighty-two days to get used to being vice president.
+  18 81.72 When Franklin Roosevelt died in April 1945, Truman suddenly inherited a world war.
+  19 88.4 Roosevelt had barely included him in major decisions and hadn't briefed him on the atomic bomb project.
+  20 93.68 Truman became president before learning the full details of the weapon he would authorize against Japan.
+  21 98.9 He later faced an election many expected him to lose, then defeated Thomas Dewey in 1948.
+  22 104.5 The replacement won a term of his own.
+VP4
+  0 0.07 Lyndon B. Johnson also took over after a sudden death, but the transition happened in front of cameras.
+  1 5.65 After Kennedy was assassinated in Dallas in 1963, Johnson took the oath aboard Air Force One.
+  2 11.79 Jacqueline Kennedy stood beside him, with Kennedy's casket elsewhere on the plane.
+  3 16.27 Johnson used his congressional experience to help secure the Civil Rights Act and Voting Rights Act, and he won the 1964 election.
+  4 24.1 His escalation of the Vietnam War helped tear apart his presidency.
+  5 27.86 In 1968, he announced he wouldn't seek another term.
+  6 31.53 Richard Nixon had spent eight years as Eisenhower's vice president, then lost the 1960 election to Kennedy.
+  7 37.69 Two years later, he lost the California governor's race as well.
+  8 40.97 His career seemed to be running backward.
+  9 43.15 Then he won the presidency in 1968.
+  10 46.44 Eight years as vice president, eight years out of office, then the top job.
+  11 50.44 Watergate eventually destroyed that comeback.
+  12 53.15 In 1974, Nixon became the first U.S. president to resign.
+  13 57.83 Which brings us to Gerald Ford.
+  14 60.06 Nixon's original vice president, Spiro Agnew, had already resigned.
+  15 64.12 Nixon nominated Ford to replace him, and Congress confirmed him.
+  16 67.92 Eight months later, Nixon resigned too.
+  17 70.38 Ford became president without winning an election for either national office.
+  18 74.57 A month afterward, he pardoned Nixon, igniting another political firestorm.
+  19 78.87 He tried to move the country past Watergate, but the pardon followed him into his losing campaign against Jimmy Carter.
+  20 85.09 George H.W. Bush took a more familiar route.
+  21 88.5 After eight years as Ronald Reagan's vice president, he won the 1988 election.
+  22 93.3 He was the first sitting vice president to win since Van Buren, a gap of 152 years.
+  23 99.24 Bush led the coalition that drove Iraqi forces out of Kuwait.
+  24 102.9 At home, he agreed to a budget deal that raised taxes after campaigning against new ones.
+  25 107.76 His foreign-policy success didn't secure another term.
+  26 111.27 Bill Clinton defeated him in 1992.
+VP5
+  0 0.0 Joe Biden needed three presidential campaigns.
+  1 2.8 His bids for the 1988 and 2008 nominations failed, but Barack Obama chose him as his running mate.
+  2 9.23 Biden served eight years as vice president, spent four years out of office, then defeated Donald Trump in 2020.
+  3 15.28 He took office at seventy-eight, setting the age record at the time.
+  4 18.88 His presidency included a bipartisan infrastructure law, and he ended his reelection campaign in 2024.
+  5 25.51 Decades after his first attempt, he'd served a full term.
+  6 28.89 That makes fifteen.
+  7 30.22 Eight first became president because a president died.
+  8 33.14 Ford got there through a resignation.
+  9 34.96 Six reached it by winning an election, including Nixon and Biden after time out of office.
+  10 40.24 Their first days ranged from a family parlor to an airplane carrying a murdered president home.
+  11 45.07 And the precedent behind the emergency promotions goes back to Tyler, the man whose own party threw him out while he kept the White House.
+  12 51.99 Of course, plenty of vice presidents spent years waiting for that promotion and never got it.
+  13 56.74 Their attempts produced a whole different collection of political disasters.

@@ -29,7 +29,7 @@ const PART3 = 220.02;
 const R = 4;                               // listener / reaction delay (frames), spec §2.2
 
 /** Knock-back: victim flung off-frame in 4 f with a tilt (spec §2.3 fling exit, clip 08:240-244). */
-const Fling: React.FC<{ at: number; dx: number; children: React.ReactNode }> = ({ at, dx, children }) => {
+export const Fling: React.FC<{ at: number; dx: number; children: React.ReactNode }> = ({ at, dx, children }) => {
   const f = useCurrentFrame();
   const p = interpolate(f - at, [0, 4], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: Easing.in(Easing.quad) });
   if (p >= 1) return null;
@@ -37,14 +37,14 @@ const Fling: React.FC<{ at: number; dx: number; children: React.ReactNode }> = (
 };
 
 /** Linear slide between two x positions (constant speed, hard stop: clip 07:867-876). */
-const Slide: React.FC<{ at: number; frames: number; dx: number; children: React.ReactNode }> = ({ at, frames, dx, children }) => {
+export const Slide: React.FC<{ at: number; frames: number; dx: number; children: React.ReactNode }> = ({ at, frames, dx, children }) => {
   const f = useCurrentFrame();
   const p = interpolate(f - at, [0, frames], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
   return <g transform={`translate(${dx * p} 0)`}>{children}</g>;
 };
 
 /** Icon + label group: pops 0 -> 1 over 11 f on an S-curve, no overshoot (clip 10:541-551); falls out at `out` (clip 13:607). */
-const Pop: React.FC<{ at: number; out?: number; x: number; y: number; label: string; children: React.ReactNode }> = ({ at, out, x, y, label, children }) => {
+export const Pop: React.FC<{ at: number; out?: number; x: number; y: number; label: string; children: React.ReactNode }> = ({ at, out, x, y, label, children }) => {
   const f = useCurrentFrame();
   if (f < at) return null;
   const s = interpolate(f - at, [0, 11], [0.11, 1], { extrapolateRight: "clamp", easing: Easing.inOut(Easing.cubic) });
@@ -58,7 +58,7 @@ const Pop: React.FC<{ at: number; out?: number; x: number; y: number; label: str
   );
 };
 
-const Factory = () => (
+export const Factory = () => (
   <g stroke={INK} strokeWidth={8}>
     <path d="M -150 120 L -150 -20 L -90 -70 L -90 -20 L -30 -70 L -30 -20 L 30 -70 L 30 -20 L 150 -20 L 150 120 Z" fill="#9aa3ad" />
     <rect x={90} y={-150} width={40} height={130} fill="#7a828c" />
@@ -67,7 +67,7 @@ const Factory = () => (
     <g fill="none" stroke="#c9a14a" strokeWidth={12}><ellipse cx={-60} cy={70} rx={34} ry={22} /><ellipse cx={0} cy={70} rx={34} ry={22} /><ellipse cx={60} cy={70} rx={34} ry={22} /></g>
   </g>
 );
-const Pine = () => (
+export const Pine = () => (
   <g stroke={INK} strokeWidth={8}>
     <rect x={-18} y={60} width={36} height={70} fill="#6b4529" />
     <path d="M 0 -170 L -80 -50 L -40 -50 L -110 50 L -50 50 L -130 140 L 130 140 L 50 50 L 110 50 L 40 -50 L 80 -50 Z" fill="#3f7a3a" />
@@ -75,7 +75,7 @@ const Pine = () => (
 );
 
 /** Cartoon light bulb that pops, then gets a red X (no electricity gag). */
-const NoBulb: React.FC<{ x: number; y: number; at: number; xAt: number }> = ({ x, y, at, xAt }) => {
+export const NoBulb: React.FC<{ x: number; y: number; at: number; xAt: number }> = ({ x, y, at, xAt }) => {
   const f = useCurrentFrame();
   if (f < at) return null;
   const s = interpolate(f - at, [0, 4], [0, 1], { extrapolateRight: "clamp", easing: Easing.out(Easing.cubic) });
@@ -89,7 +89,7 @@ const NoBulb: React.FC<{ x: number; y: number; at: number; xAt: number }> = ({ x
 };
 
 /** "z z z" drifting up from a dark window. */
-const Zzz: React.FC<{ x: number; y: number; at: number }> = ({ x, y, at }) => {
+export const Zzz: React.FC<{ x: number; y: number; at: number }> = ({ x, y, at }) => {
   const f = useCurrentFrame();
   if (f < at) return null;
   return (
@@ -103,7 +103,7 @@ const Zzz: React.FC<{ x: number; y: number; at: number }> = ({ x, y, at }) => {
  * Coolidge in bed, ATTACHED BY CONSTRUCTION: asleep = his whole sheet drawing (eyes-closed variant) rotated to lie
  * with the head on the pillow; awake = the whole drawing sitting up. The Blanket foreground covers the body.
  */
-const Sleeper: React.FC<{ wakeAt: number }> = ({ wakeAt }) => {
+export const Sleeper: React.FC<{ wakeAt: number }> = ({ wakeAt }) => {
   const f = useCurrentFrame();
   if (f >= wakeAt) return (<>
     <defs><clipPath id="pl-bed"><rect x={0} y={0} width={1920} height={830} /></clipPath></defs>
@@ -119,7 +119,7 @@ const Sleeper: React.FC<{ wakeAt: number }> = ({ wakeAt }) => {
 };
 
 /** Map route Albany -> Washington drawn progressively, with TR's head travelling along it. */
-const Route: React.FC<{ a: [number, number]; b: [number, number]; at: number; frames: number }> = ({ a, b, at, frames }) => {
+export const Route: React.FC<{ a: [number, number]; b: [number, number]; at: number; frames: number }> = ({ a, b, at, frames }) => {
   const f = useCurrentFrame();
   if (f < at) return null;
   const p = interpolate(f - at, [0, frames], [0, 1], { extrapolateRight: "clamp", easing: Easing.inOut(Easing.cubic) });
