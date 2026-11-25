@@ -223,23 +223,29 @@ export const Card: React.FC<{ text: string; sub?: string; at?: number; until?: n
  * scene darkens ~40% over 7 f AFTER landing, optional fade-out over 5 f.
  */
 export const Stamp: React.FC<{ lines: string[]; at: number; x: number; y: number; rot?: number;
-  variant?: "red" | "dark" | "white"; fadeAt?: number; darken?: boolean }> = ({ lines, at, x, y, rot = -8, variant = "dark", fadeAt, darken = true }) => {
+  variant?: "red" | "dark" | "white"; fadeAt?: number; darken?: boolean; contain?: boolean }> = ({ lines, at, x, y, rot = -8, variant = "dark", fadeAt, darken = true, contain = true }) => {
   const f = useCurrentFrame();
   if (useExportMode() === "bg") return null;
   const sfx = <Sfx at={at + 5} name="sub_thump" vol={0.3} />;
   if (f < at) return sfx;
   const lf = f - at;
   const e = interpolate(lf, [0, 6], [0, 1], { extrapolateRight: "clamp", easing: Easing.out(Easing.cubic) });
-  const sc = interpolate(e, [0, 1], [3, 1]);
-  const cx = interpolate(e, [0, 1], [960, x]), cy = interpolate(e, [0, 1], [540, y]);
+  // contain (default): slam in place from 2.2x, clipped to the stamp's own corner of the frame, so the
+  // oversized first frames never pass over a face (user rule: text never covers faces).
+  const sc = interpolate(e, [0, 1], [contain ? 2.2 : 3, 1]);
+  const cx = contain ? x : interpolate(e, [0, 1], [960, x]), cy = contain ? y : interpolate(e, [0, 1], [540, y]);
   const fade = fadeAt !== undefined ? interpolate(f, [fadeAt, fadeAt + 5], [1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }) : 1;
   const dim = darken ? interpolate(lf, [6, 13], [0, 0.4], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }) * fade : 0;
   const ink = variant === "red" ? "#d62828" : "#f4f1ea";
   const box = variant === "dark" ? "rgba(30,30,30,0.55)" : variant === "white" ? "rgba(255,255,255,0.35)" : "none";
   const lh = 78, w = 820, hh = lines.length * lh + 64;
+  const ra = Math.abs(rot) * Math.PI / 180, ex = w / 2 * Math.cos(ra) + hh / 2 * Math.sin(ra) + 30, ey = w / 2 * Math.sin(ra) + hh / 2 * Math.cos(ra) + 30;
+  const x0 = x > 960 ? x - ex : 0, x1 = x > 960 ? 1920 : x + ex, y0 = y > 540 ? y - ey : 0, y1 = y > 540 ? 1080 : y + ey;
+  const cid = `stamp-clip-${at}`;
   return (<>{sfx}
     <svg viewBox="0 0 1920 1080" width={1920} height={1080} style={{ position: "absolute", inset: 0 }}>
       <rect width={1920} height={1080} fill="#000" opacity={dim} />
+      {contain && <clipPath id={cid}><rect x={x0} y={y0} width={x1 - x0} height={y1 - y0} /></clipPath>}
       <defs>
         <filter id="tg2-grunge" x="-10%" y="-10%" width="120%" height="120%">
           <feTurbulence type="fractalNoise" baseFrequency="0.07 0.45" numOctaves={3} seed={5} result="n" />
@@ -247,7 +253,7 @@ export const Stamp: React.FC<{ lines: string[]; at: number; x: number; y: number
           <feComposite in="SourceGraphic" in2="holes" operator="out" />
         </filter>
       </defs>
-      <g transform={`translate(${cx} ${cy}) rotate(${rot}) scale(${sc})`} opacity={fade}>
+      <g clipPath={contain ? `url(#${cid})` : undefined}><g transform={`translate(${cx} ${cy}) rotate(${rot}) scale(${sc})`} opacity={fade}>
         {box !== "none" && <rect x={-w / 2} y={-hh / 2} width={w} height={hh} fill={box} />}
         <g filter="url(#tg2-grunge)">
           <rect x={-w / 2 + 12} y={-hh / 2 + 12} width={w - 24} height={hh - 24} fill="none" stroke={ink} strokeWidth={12} />
@@ -255,7 +261,7 @@ export const Stamp: React.FC<{ lines: string[]; at: number; x: number; y: number
             <text key={i} x={0} y={-hh / 2 + 32 + lh * (i + 0.82)} textAnchor="middle" fontFamily={MONTSERRAT} fontWeight={800} fontSize={66} fill={ink}>{l}</text>
           ))}
         </g>
-      </g>
+      </g></g>
     </svg>
   </>);
 };
