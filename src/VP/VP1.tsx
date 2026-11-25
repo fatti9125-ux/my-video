@@ -186,7 +186,7 @@ export const SHOTS: Shot[] = [
         </Svg></Cam>],
         [ad, <Cam dur={dur} from={1.0} to={1.1} oy="40%"><Svg bg={<CongressHallSenate />}>
           <Swap t={r("job") + R} a={<V c="john_adams" p={6} x={960} y={890} h={560} stress />} b={<Act c="john_adams" x={960} y={890} h={540} e={4} />} />
-          <Vein x={1030} y={420} at={r("insignificant")} />
+          <Swap t={r("job") + R} a={<Vein x={1030} y={420} at={r("insignificant")} />} b={null} />
           <SenateDais />
           <SenateChairsFG />
         </Svg></Cam>],

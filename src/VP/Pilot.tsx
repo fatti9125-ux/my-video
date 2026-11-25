@@ -167,9 +167,9 @@ export const SHOTS: Shot[] = [
         </Svg></Cam>],
         [t(wd(5, "toward")), <Cam dur={dur} from={1.45} to={1.55} ox={pct(MID[0], 1920)} oy={pct(MID[1], 1080)}><Svg bg={<USMap pins={[
           { lon: -73.75, lat: 42.65, at: 0, name: "ALBANY", dy: -96 },
-          { lon: -77.03, lat: 38.9, at: t(wd(5, "vice")) - t(wd(5, "toward")), name: "WASHINGTON", dy: 50 },
+          { lon: -77.03, lat: 38.9, at: t(wd(5, "vice")), name: "WASHINGTON", dy: 50 },
         ]} />}>
-          <Route a={ALB} b={DC} at={t(wd(5, "getting")) - t(wd(5, "toward"))} frames={t(wd(5, "albany")) - t(wd(5, "getting")) + 12} />
+          <Route a={ALB} b={DC} at={t(wd(5, "getting"))} frames={t(wd(5, "albany")) - t(wd(5, "getting")) + 12} />
         </Svg></Cam>],
       ]} />
       <Cap text="Thomas Platt" at={t(wd(5, "thomas"))} until={t(wd(5, "toward"))} />
@@ -252,7 +252,7 @@ export const SHOTS: Shot[] = [
           <Blanket />
           <V c="john_coolidge_senior" p={10} x={1600} y={1010} h={600} flip at={news} enter={{ from: "right", frames: 8, dist: 500 }} />
         </Svg></Cam>],
-        [t(wd(11, "president")), <Cam dur={dur} from={1.02} to={1.08}><Svg bg={<Telegram at={t(wd(11, "warren")) - t(wd(11, "president"))} lines={["PRESIDENT HARDING", "DIED TONIGHT IN", "SAN FRANCISCO"]} />} /></Cam>],
+        [t(wd(11, "president")), <Cam dur={dur} from={1.02} to={1.08}><Svg bg={<Telegram at={t(wd(11, "warren"))} lines={["PRESIDENT HARDING", "DIED TONIGHT IN", "SAN FRANCISCO"]} />} /></Cam>],
       ]} />
       <Cap text="August 2, 1923" at={t(wd(11, "august"))} until={t(wd(11, "vermont"))} />
       <Cap text="Plymouth Notch, Vermont" at={t(wd(11, "vermont"))} until={t(wd(11, "president"))} />
