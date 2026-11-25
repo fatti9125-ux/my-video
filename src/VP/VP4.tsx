@@ -341,7 +341,7 @@ export const SHOTS: Shot[] = [
       </Svg>
     </Cam>
     <Cap text="Sworn in · East Room" at={2} until={t(wd(17, "without"))} />
-    <Cap text="Elections won: 0" at={t(wd(17, "either"))} />
+    <Cap text="Elections won: 0" pos="top" at={t(wd(17, "either"))} />
   </>) },
   // 18 A month afterward, he pardoned Nixon, igniting another political firestorm.
   { a: ln(18), el: (t, dur) => {

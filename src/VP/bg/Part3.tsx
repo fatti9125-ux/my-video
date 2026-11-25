@@ -636,7 +636,6 @@ export const CabinetTableFG: React.FC<{ judge?: boolean }> = ({ judge = true }) 
       <path d="M -40 920 Q 960 860 1960 920 L 1960 1080 L -40 1080 Z" fill="#3a2414" />
       <path d="M -40 920 Q 960 860 1960 920" fill="none" stroke="#7a5030" strokeWidth={10} />
       <rect x={420} y={920} width={170} height={36} fill="#f4ecd6" transform="rotate(4 420 920)" />
-      <ellipse cx={760} cy={930} rx={56} ry={16} fill="#1d1712" />
       <g transform="translate(150 905)"><rect x={-50} y={-50} width={100} height={60} fill="#f4ecd6" /><rect x={-50} y={-50} width={100} height={16} fill="#b8362f" /><text y={2} textAnchor="middle" fontFamily={MONTSERRAT} fontWeight={800} fontSize={26} fill="#2b2119" stroke="none">APR 12</text></g>
     </g>
     {judge && <g fill="#0f0d10">

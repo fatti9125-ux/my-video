@@ -185,7 +185,8 @@ export const SHOTS: Shot[] = [
           <CabinetBacks />
         </Svg></Cam>],
         [ad, <Cam dur={dur} from={1.0} to={1.1} oy="40%"><Svg bg={<CongressHallSenate />}>
-          <Act c="john_adams" x={960} y={890} h={560} e={[[0, 2], [r("job"), 4]]} talk={[ad, r("job")]} gesture={14} stress vein={r("insignificant")} />
+          <Swap t={r("job") + R} a={<V c="john_adams" p={6} x={960} y={890} h={560} stress />} b={<Act c="john_adams" x={960} y={890} h={540} e={4} />} />
+          <Vein x={1030} y={420} at={r("insignificant")} />
           <SenateDais />
           <SenateChairsFG />
         </Svg></Cam>],
@@ -210,11 +211,11 @@ export const SHOTS: Shot[] = [
   }, sfx: [[Math.round((wd(7, "won") - ln(7)) * 30), "cheer", 0.08]] },
   // 8 There was one awkward detail.  (Congress Hall Senate: the presiding chair Adams has just left)
   { a: ln(8), el: (t, dur) => (
-    <Cam dur={dur} from={1.0} to={1.06} oy="50%" punch={{ at: t(wd(8, "awkward")), frames: 5, to: 1.14, ox: "50%", oy: "40%" }}>
+    <Cam dur={dur} from={1.0} to={1.06} oy="55%" punch={{ at: t(wd(8, "awkward")), frames: 5, to: 1.14, ox: "50%", oy: "55%" }}>
       <Svg bg={<CongressHallSenate />}>
         <SenateDais />
         <SenateChairsFG />
-        <Swap t={t(wd(8, "awkward"))} a={<Quill pose="speaking_facing_right" x={640} y={1075} h={420} />} b={<Quill pose="nervous_side_glance" x={640} y={1075} h={420} />} />
+        <Swap t={t(wd(8, "awkward"))} a={<Quill pose="speaking_facing_right" x={640} y={1050} h={390} />} b={<Quill pose="nervous_side_glance" x={640} y={1050} h={390} />} />
       </Svg>
     </Cam>
   ) },
