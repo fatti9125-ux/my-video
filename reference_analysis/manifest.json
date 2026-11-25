@@ -1,0 +1,544 @@
+{
+ "brief": "_brief.md",
+ "spec": "Animation_Production_Spec.md",
+ "clips": [
+  {
+   "id": "01",
+   "file": "01_Washington_Marching_Army.mp4",
+   "sha256": "dace4a5adfb2bf727fe410fcc1008e081d921ff1de06fecaa77427cab9cacf8d",
+   "duration_s": 34.0,
+   "video": {
+    "codec": "h264",
+    "width": 426,
+    "height": 240,
+    "dar": "71:40",
+    "r_frame_rate": "30/1",
+    "time_base": "1/15360",
+    "frames_decoded": 1020
+   },
+   "audio": {
+    "codec": "aac",
+    "sample_rate": "44100",
+    "channels": 2,
+    "start_time": "0.000000"
+   },
+   "coverage": {
+    "frames_indexed": 1020,
+    "inspection_status": {
+     "inspected (sheet+crop)": 93,
+     "inspected (sheet)": 927
+    },
+    "shots": 7,
+    "events": 34,
+    "audio_cues": 13,
+    "audio_verification": "waveform only (no playback); VO from offline ASR, approximate"
+   },
+   "evidence": {
+    "analysis": "01/analysis.md",
+    "frames_index": "01/frames.csv",
+    "events": "01/events.csv",
+    "audio_cues": "01/audio_cues.csv",
+    "progress": "01/progress.md",
+    "frame_pngs_local_only": "01/frames/%06d.png",
+    "sheets_local_only": "01/sheets/"
+   }
+  },
+  {
+   "id": "02",
+   "file": "02_Adams_Jefferson_Reactions.mp4",
+   "sha256": "698440fbe6434666c9cb4a21467249c20a192368382f8e540bb380acd6264e09",
+   "duration_s": 35.0,
+   "video": {
+    "codec": "h264",
+    "width": 426,
+    "height": 240,
+    "dar": "71:40",
+    "r_frame_rate": "30/1",
+    "time_base": "1/15360",
+    "frames_decoded": 1050
+   },
+   "audio": {
+    "codec": "aac",
+    "sample_rate": "44100",
+    "channels": 2,
+    "start_time": "0.000000"
+   },
+   "coverage": {
+    "frames_indexed": 1050,
+    "inspection_status": {
+     "inspected (sheet+crop)": 107,
+     "inspected (sheet)": 943
+    },
+    "shots": 6,
+    "events": 41,
+    "audio_cues": 15,
+    "audio_verification": "waveform only (no playback); VO from offline ASR, approximate"
+   },
+   "evidence": {
+    "analysis": "02/analysis.md",
+    "frames_index": "02/frames.csv",
+    "events": "02/events.csv",
+    "audio_cues": "02/audio_cues.csv",
+    "progress": "02/progress.md",
+    "frame_pngs_local_only": "02/frames/%06d.png",
+    "sheets_local_only": "02/sheets/"
+   }
+  },
+  {
+   "id": "03",
+   "file": "03_Jackson_Battle_and_Debt.mp4",
+   "sha256": "83123384e8f41f5e5d426b7053d749685fccdc68ce89fad5da2e91ba15d76ac4",
+   "duration_s": 35.0,
+   "video": {
+    "codec": "h264",
+    "width": 426,
+    "height": 240,
+    "dar": "71:40",
+    "r_frame_rate": "30/1",
+    "time_base": "1/15360",
+    "frames_decoded": 1050
+   },
+   "audio": {
+    "codec": "aac",
+    "sample_rate": "44100",
+    "channels": 2,
+    "start_time": "0.000000"
+   },
+   "coverage": {
+    "frames_indexed": 1050,
+    "inspection_status": {
+     "inspected (sheet+crop)": 272,
+     "inspected (sheet)": 778
+    },
+    "shots": 5,
+    "events": 57,
+    "audio_cues": 19,
+    "audio_verification": "waveform only (no playback); VO from offline ASR, approximate"
+   },
+   "evidence": {
+    "analysis": "03/analysis.md",
+    "frames_index": "03/frames.csv",
+    "events": "03/events.csv",
+    "audio_cues": "03/audio_cues.csv",
+    "progress": "03/progress.md",
+    "frame_pngs_local_only": "03/frames/%06d.png",
+    "sheets_local_only": "03/sheets/"
+   }
+  },
+  {
+   "id": "04",
+   "file": "04_Van_Buren_Maps_and_Dialogue.mp4",
+   "sha256": "03036ebb792b76fe569c32edd7213047d8fe29a5b76e1916cc7d991c354625f8",
+   "duration_s": 31.0,
+   "video": {
+    "codec": "h264",
+    "width": 426,
+    "height": 240,
+    "dar": "71:40",
+    "r_frame_rate": "30/1",
+    "time_base": "1/15360",
+    "frames_decoded": 930
+   },
+   "audio": {
+    "codec": "aac",
+    "sample_rate": "44100",
+    "channels": 2,
+    "start_time": "0.000000"
+   },
+   "coverage": {
+    "frames_indexed": 930,
+    "inspection_status": {
+     "inspected (sheet+crop)": 131,
+     "inspected (sheet)": 799
+    },
+    "shots": 6,
+    "events": 33,
+    "audio_cues": 72,
+    "audio_verification": "waveform only (no playback); VO from offline ASR, approximate"
+   },
+   "evidence": {
+    "analysis": "04/analysis.md",
+    "frames_index": "04/frames.csv",
+    "events": "04/events.csv",
+    "audio_cues": "04/audio_cues.csv",
+    "progress": "04/progress.md",
+    "frame_pngs_local_only": "04/frames/%06d.png",
+    "sheets_local_only": "04/sheets/"
+   }
+  },
+  {
+   "id": "05",
+   "file": "05_Fillmore_Fire_and_Territory_Map.mp4",
+   "sha256": "5b800050a516004c1d358e1f1ac84140177a05ab97531c7dd6aa42084944db2a",
+   "duration_s": 35.0,
+   "video": {
+    "codec": "h264",
+    "width": 426,
+    "height": 240,
+    "dar": "71:40",
+    "r_frame_rate": "30/1",
+    "time_base": "1/15360",
+    "frames_decoded": 1050
+   },
+   "audio": {
+    "codec": "aac",
+    "sample_rate": "44100",
+    "channels": 2,
+    "start_time": "0.000000"
+   },
+   "coverage": {
+    "frames_indexed": 1050,
+    "inspection_status": {
+     "inspected (sheet)": 1015,
+     "inspected (sheet+crop)": 35
+    },
+    "shots": 8,
+    "events": 32,
+    "audio_cues": 12,
+    "audio_verification": "waveform only (no playback); VO from offline ASR, approximate"
+   },
+   "evidence": {
+    "analysis": "05/analysis.md",
+    "frames_index": "05/frames.csv",
+    "events": "05/events.csv",
+    "audio_cues": "05/audio_cues.csv",
+    "progress": "05/progress.md",
+    "frame_pngs_local_only": "05/frames/%06d.png",
+    "sheets_local_only": "05/sheets/"
+   }
+  },
+  {
+   "id": "06",
+   "file": "06_Lincoln_Battlefield_Action.mp4",
+   "sha256": "f020540639aa06938b77aa47f92c5550f0ebbb58702dc4d62c2478377ca1110e",
+   "duration_s": 35.0,
+   "video": {
+    "codec": "h264",
+    "width": 426,
+    "height": 240,
+    "dar": "71:40",
+    "r_frame_rate": "30/1",
+    "time_base": "1/15360",
+    "frames_decoded": 1050
+   },
+   "audio": {
+    "codec": "aac",
+    "sample_rate": "44100",
+    "channels": 2,
+    "start_time": "0.000000"
+   },
+   "coverage": {
+    "frames_indexed": 1050,
+    "inspection_status": {
+     "inspected (sheet+crop)": 98,
+     "inspected (sheet)": 952
+    },
+    "shots": 7,
+    "events": 36,
+    "audio_cues": 19,
+    "audio_verification": "waveform only (no playback); VO from offline ASR, approximate"
+   },
+   "evidence": {
+    "analysis": "06/analysis.md",
+    "frames_index": "06/frames.csv",
+    "events": "06/events.csv",
+    "audio_cues": "06/audio_cues.csv",
+    "progress": "06/progress.md",
+    "frame_pngs_local_only": "06/frames/%06d.png",
+    "sheets_local_only": "06/sheets/"
+   }
+  },
+  {
+   "id": "07",
+   "file": "07_Cleveland_Archive_to_Animation.mp4",
+   "sha256": "8b2ce1b79dd6ecd48fb6f1e536c79c87d327b78d7e524d4218f6fcfc32b83219",
+   "duration_s": 35.0,
+   "video": {
+    "codec": "h264",
+    "width": 426,
+    "height": 240,
+    "dar": "71:40",
+    "r_frame_rate": "30/1",
+    "time_base": "1/15360",
+    "frames_decoded": 1050
+   },
+   "audio": {
+    "codec": "aac",
+    "sample_rate": "44100",
+    "channels": 2,
+    "start_time": "0.000000"
+   },
+   "coverage": {
+    "frames_indexed": 1050,
+    "inspection_status": {
+     "inspected (sheet+crop)": 127,
+     "inspected (sheet)": 923
+    },
+    "shots": 5,
+    "events": 30,
+    "audio_cues": 16,
+    "audio_verification": "waveform only (no playback); VO from offline ASR, approximate"
+   },
+   "evidence": {
+    "analysis": "07/analysis.md",
+    "frames_index": "07/frames.csv",
+    "events": "07/events.csv",
+    "audio_cues": "07/audio_cues.csv",
+    "progress": "07/progress.md",
+    "frame_pngs_local_only": "07/frames/%06d.png",
+    "sheets_local_only": "07/sheets/"
+   }
+  },
+  {
+   "id": "08",
+   "file": "08_Roosevelt_Diagram_and_Crowd.mp4",
+   "sha256": "d887b33c86bd38bc7ea2118e526dd005b18ccc207e077896b302069fd39e48c7",
+   "duration_s": 31.0,
+   "video": {
+    "codec": "h264",
+    "width": 426,
+    "height": 240,
+    "dar": "71:40",
+    "r_frame_rate": "30/1",
+    "time_base": "1/15360",
+    "frames_decoded": 930
+   },
+   "audio": {
+    "codec": "aac",
+    "sample_rate": "44100",
+    "channels": 2,
+    "start_time": "0.000000"
+   },
+   "coverage": {
+    "frames_indexed": 930,
+    "inspection_status": {
+     "inspected (sheet+crop)": 162,
+     "inspected (sheet)": 768
+    },
+    "shots": 8,
+    "events": 38,
+    "audio_cues": 15,
+    "audio_verification": "waveform only (no playback); VO from offline ASR, approximate"
+   },
+   "evidence": {
+    "analysis": "08/analysis.md",
+    "frames_index": "08/frames.csv",
+    "events": "08/events.csv",
+    "audio_cues": "08/audio_cues.csv",
+    "progress": "08/progress.md",
+    "frame_pngs_local_only": "08/frames/%06d.png",
+    "sheets_local_only": "08/sheets/"
+   }
+  },
+  {
+   "id": "09",
+   "file": "09_Coolidge_Night_Swearing_In.mp4",
+   "sha256": "2362adc23e3e72e117c0164476866193478ddbde914ae0ebb789dc0be512a2f1",
+   "duration_s": 34.0,
+   "video": {
+    "codec": "h264",
+    "width": 426,
+    "height": 240,
+    "dar": "71:40",
+    "r_frame_rate": "30/1",
+    "time_base": "1/15360",
+    "frames_decoded": 1020
+   },
+   "audio": {
+    "codec": "aac",
+    "sample_rate": "44100",
+    "channels": 2,
+    "start_time": "0.000000"
+   },
+   "coverage": {
+    "frames_indexed": 1020,
+    "inspection_status": {
+     "inspected (sheet+crop)": 140,
+     "inspected (sheet)": 880
+    },
+    "shots": 7,
+    "events": 35,
+    "audio_cues": 17,
+    "audio_verification": "waveform only (no playback); VO from offline ASR, approximate"
+   },
+   "evidence": {
+    "analysis": "09/analysis.md",
+    "frames_index": "09/frames.csv",
+    "events": "09/events.csv",
+    "audio_cues": "09/audio_cues.csv",
+    "progress": "09/progress.md",
+    "frame_pngs_local_only": "09/frames/%06d.png",
+    "sheets_local_only": "09/sheets/"
+   }
+  },
+  {
+   "id": "10",
+   "file": "10_Roosevelt_Election_Timeline.mp4",
+   "sha256": "403cff8744d32c81bc7a83bbee6b03b157cfc5cdfdaed7fada5647a4e653b00b",
+   "duration_s": 35.0,
+   "video": {
+    "codec": "h264",
+    "width": 426,
+    "height": 240,
+    "dar": "71:40",
+    "r_frame_rate": "30/1",
+    "time_base": "1/15360",
+    "frames_decoded": 1050
+   },
+   "audio": {
+    "codec": "aac",
+    "sample_rate": "44100",
+    "channels": 2,
+    "start_time": "0.000000"
+   },
+   "coverage": {
+    "frames_indexed": 1050,
+    "inspection_status": {
+     "inspected (sheet+crop)": 129,
+     "inspected (sheet)": 921
+    },
+    "shots": 4,
+    "events": 31,
+    "audio_cues": 12,
+    "audio_verification": "waveform only (no playback); VO from offline ASR, approximate"
+   },
+   "evidence": {
+    "analysis": "10/analysis.md",
+    "frames_index": "10/frames.csv",
+    "events": "10/events.csv",
+    "audio_cues": "10/audio_cues.csv",
+    "progress": "10/progress.md",
+    "frame_pngs_local_only": "10/frames/%06d.png",
+    "sheets_local_only": "10/sheets/"
+   }
+  },
+  {
+   "id": "11",
+   "file": "11_Nixon_Moon_Landing.mp4",
+   "sha256": "d738e08e0450a60501899f3bd2f616d3af3cb56a21d93f4e87d08d045f7a9a3d",
+   "duration_s": 35.0,
+   "video": {
+    "codec": "h264",
+    "width": 426,
+    "height": 240,
+    "dar": "71:40",
+    "r_frame_rate": "30/1",
+    "time_base": "1/15360",
+    "frames_decoded": 1050
+   },
+   "audio": {
+    "codec": "aac",
+    "sample_rate": "44100",
+    "channels": 2,
+    "start_time": "0.000000"
+   },
+   "coverage": {
+    "frames_indexed": 1050,
+    "inspection_status": {
+     "inspected (sheet+crop)": 71,
+     "inspected (sheet)": 979
+    },
+    "shots": 7,
+    "events": 41,
+    "audio_cues": 11,
+    "audio_verification": "waveform only (no playback); VO from offline ASR, approximate"
+   },
+   "evidence": {
+    "analysis": "11/analysis.md",
+    "frames_index": "11/frames.csv",
+    "events": "11/events.csv",
+    "audio_cues": "11/audio_cues.csv",
+    "progress": "11/progress.md",
+    "frame_pngs_local_only": "11/frames/%06d.png",
+    "sheets_local_only": "11/sheets/"
+   }
+  },
+  {
+   "id": "12",
+   "file": "12_Bush_Plane_and_Rescue.mp4",
+   "sha256": "7960415054fd4afe44a78053eee03d9d97481cc17b2a928f9d169b2fb136312d",
+   "duration_s": 35.0,
+   "video": {
+    "codec": "h264",
+    "width": 426,
+    "height": 240,
+    "dar": "71:40",
+    "r_frame_rate": "30/1",
+    "time_base": "1/15360",
+    "frames_decoded": 1050
+   },
+   "audio": {
+    "codec": "aac",
+    "sample_rate": "44100",
+    "channels": 2,
+    "start_time": "0.000000"
+   },
+   "coverage": {
+    "frames_indexed": 1050,
+    "inspection_status": {
+     "inspected (sheet+crop)": 70,
+     "inspected (sheet)": 980
+    },
+    "shots": 10,
+    "events": 41,
+    "audio_cues": 16,
+    "audio_verification": "waveform only (no playback); VO from offline ASR, approximate"
+   },
+   "evidence": {
+    "analysis": "12/analysis.md",
+    "frames_index": "12/frames.csv",
+    "events": "12/events.csv",
+    "audio_cues": "12/audio_cues.csv",
+    "progress": "12/progress.md",
+    "frame_pngs_local_only": "12/frames/%06d.png",
+    "sheets_local_only": "12/sheets/"
+   }
+  },
+  {
+   "id": "13",
+   "file": "13_Clinton_Budget_Graphics.mp4",
+   "sha256": "0d004e92220efcd052cc237778d904d395c00acfc36ff2db097bd75410f4c46d",
+   "duration_s": 31.0,
+   "video": {
+    "codec": "h264",
+    "width": 426,
+    "height": 240,
+    "dar": "71:40",
+    "r_frame_rate": "30/1",
+    "time_base": "1/15360",
+    "frames_decoded": 930
+   },
+   "audio": {
+    "codec": "aac",
+    "sample_rate": "44100",
+    "channels": 2,
+    "start_time": "0.000000"
+   },
+   "coverage": {
+    "frames_indexed": 930,
+    "inspection_status": {
+     "inspected (sheet+crop)": 155,
+     "inspected (sheet)": 775
+    },
+    "shots": 5,
+    "events": 20,
+    "audio_cues": 14,
+    "audio_verification": "waveform only (no playback); VO from offline ASR, approximate"
+   },
+   "evidence": {
+    "analysis": "13/analysis.md",
+    "frames_index": "13/frames.csv",
+    "events": "13/events.csv",
+    "audio_cues": "13/audio_cues.csv",
+    "progress": "13/progress.md",
+    "frame_pngs_local_only": "13/frames/%06d.png",
+    "sheets_local_only": "13/sheets/"
+   }
+  }
+ ],
+ "totals": {
+  "clips": 13,
+  "frames": 13230,
+  "duration_s": 441.0
+ }
+}
