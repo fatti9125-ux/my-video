@@ -1,3 +1,10 @@
 node_modules/
 out/
 .DS_Store
+
+# reference analysis: decoded media is local only
+reference_analysis/*/frames/
+reference_analysis/*/sheets/
+reference_analysis/*/mix.wav
+reference_analysis/*/crops/
+reference_analysis/_src/
