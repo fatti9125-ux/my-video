@@ -3,7 +3,7 @@
 source: 01_Washington_Marching_Army.mp4
 frames decoded: 1020
 sheets: 85 seq sheets (12 frames each)
-last verified frame: none
+last verified frame: F1019 (all frames verified)
 
 ## Log
 - sheets F000000-F000299 opened (first pass; notes lost from context, to be re-crop-checked)
@@ -25,3 +25,10 @@ last verified frame: none
 - F952-955 W still smug; F956: one-frame face swap to worried (arched raised brows, dot eyes, flat mouth, light-blue sweat drop right cheek). 4 frames after landing.
 - F956-1019: final hold, worried face + sweat drop + stamp static to clip end (64 frames, 2.13 s). No mouth movement, no blink observed.
 - ALL 85 seq sheets opened (F000-F1019). Early sheets (F0-551) content scrolled out of context; re-checking with compact step-3 montages + crops.
+
+## Final status
+- frames decoded 1020; inspected 1020 (all 85 seq sheets opened; 93 frames also in native/2x crops, see frames.csv)
+- shots verified: S01-S07 (7 shots, 6 hard cuts at F55, F127, F261, F609, F709, F897)
+- deliverables: analysis.md (text handed to lead, not written by agent), frames.csv, events.csv (34 events), audio_cues.csv (13 candidates, waveform only); generator _gen/build.py
+- audio: not played (no playback); all cues unverified
+- uncertain: SFX identities, stamp thud vs VO, parallax in the F440-491 reveal, exact rider fade curve F840-876, ASR words

@@ -3,7 +3,7 @@
 source: 04_Van_Buren_Maps_and_Dialogue.mp4
 frames decoded: 930
 sheets: 78 seq sheets (12 frames each)
-last verified frame: none
+last verified frame: F000929 (all 930 frames inspected on seq sheets; 131 also on native crops)
 
 ## Log
 
@@ -31,3 +31,11 @@ last verified frame: none
 - 853: rip hit: officer face swaps to manic laugh (one wide white eye, wide open toothy red mouth), paper now torn half (zigzag edge) held at center; red jagged slash FX 853-854 (2 frames) at paper/coat; teacher+child hold sad state. 855+: laugh loop (head/jaw alternates ~every 2-3 frames).
 - sheets 828-875 opened.
 - sheets 828-929 opened => ALL 78 seq sheets opened. Measurements done (bob periods, bubble growth, ?-mark pop, mouth cadence 8f holds, push/pan curves, stamp, dim profile, officer slide, map zoom path). Writing deliverables next.
+
+## Status (final)
+- frames decoded 930; inspected 930 (sheet), 131 of them also (sheet+crop). Sheets opened: 78/78 + overview + wave.
+- shots verified: S01 0-51, S02 52-163, S03 164-214, S04 215-441, S05 442-602, S06 603-929 (all hard cuts, verified on sheets + metrics).
+- deliverables: frames.csv, events.csv (33 events), audio_cues.csv (72 waveform onsets, 16 matched to visual hits) written by scratchpad gen.py.
+- analysis.md: hook blocks subagent Write; full text handed back to lead in final reply for saving.
+- audio: not played; all cues "unverified (waveform only)". VO = pocketsphinx ASR (poor accuracy).
+- uncertain: exact stamp scale per frame and rotation (estimated from sheets); whether torn paper half is in teacher's or officer's hand; eagle idle amplitude in S01 vs camera; stamp fade end frame (~781).

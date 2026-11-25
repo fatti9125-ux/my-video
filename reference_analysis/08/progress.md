@@ -20,3 +20,9 @@ last verified frame: none
 - S07 687-779 fire wall: Taft (anger mark) vs TR shouting; eagle head rises behind Taft F689-698 (eased ~10f) then peeks; heads butt F736-747; Taft shoved out left F748-756; TR walks right 756-779. Fire = smooth continuous morph (~30f undulation), not on 2s; embers.
 - S08 780-929 forest: TR fist-up stomp rock (~27f period, continuous); slow push to 1.026 by F834; fast push F843-852 to 1.407 (ease in-out); STAMP F848 huge (~2.5x, semi-transparent, overflowing) -> settled F853 (box 210x81px, rot -8deg, center 0.298,0.383); BG dims 124->64 mean over 848-853; hold to F929 (clip end).
 - Audio onsets lead visual hits by ~4 frames consistently (bullet 340/344, spark 421/425, 494/498, hit 236/240, stamp 844/848).
+
+## Status (final)
+- frames decoded 930; inspected 930 (768 sheet, 162 sheet+crop); sheets opened 78/78 + overview + wave.
+- shots verified: S01-S08 (all 8); last verified frame F000929.
+- deliverables: frames.csv, events.csv (38), audio_cues.csv (15, waveform-only). analysis.md content handed to lead in final reply (hook blocks subagent writes).
+- uncertain: no audio playback; crowd micro-idle S05; S05 eagle path; stamp oversized scale F848-851 (clipped); walk step length.

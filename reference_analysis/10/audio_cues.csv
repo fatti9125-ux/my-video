@@ -1,0 +1,13 @@
+onset_s,tail_s,mapped_frame,visual_frame,delta_frames,category,description,confidence,verification
+5.860,6.750,176,175,1,edit/transition,onset candidate at the hard cut to the name card; mapped onset frame has near-silent RMS (-145 dB) = a brief gap in the mix at the cut,low,unverified (waveform only)
+7.640,9.190,229,231,-2,edit/transition,weak onset (-50.7 dB) 2 frames before the cut into the founders room; louder onset at 7.49 s (F225) also near,low,unverified (waveform only)
+11.570,11.750,347,346,1,VO or SFX (unidentified),"strong onset (-11.2 dB) 1 frame after Washington gesture + Jefferson worried swap; overlaps VO ""walked away"" (ASR 11.49 s) so likely VO syllable",medium,unverified (waveform only)
+13.900,14.150,417,417,0,VO or SFX (unidentified; estimated whoosh possible),"strong onset (-16.4 dB) on the exact frame Washington swaps to smug pose and starts sliding off; overlaps VO ""hundred"" (ASR 13.79 s)",low,unverified (waveform only)
+14.800,15.420,444,444,0,VO or SFX (unidentified),onset (-22.2 dB) as Washington clears the right edge,low,unverified (waveform only)
+17.590,18.230,528,529,-1,edit/transition,"onset (-25.9 dB) 1 frame before the cut to the timeline plate; VO ""nineteen thirty-two""-region (ASR garbled ""body"")",low,unverified (waveform only)
+18.460,18.800,554,541,13,VO,"onset (-16.1 dB) 13 frames after 1940 pop starts; aligns with VO ""forty"" (ASR 18.55 s) - the pop starts on ""nineteen""",medium,unverified (waveform only)
+22.630,23.880,679,679,0,VO or SFX (unidentified),strong onset (-15.0 dB) on the exact frame the 1940 head swaps to the smile,medium,unverified (waveform only)
+24.330,24.990,730,732,-2,VO or SFX (unidentified; estimated pop possible),onset (-31.2 dB) 2 frames before the 1944 pop begins,low,unverified (waveform only)
+28.360,28.520,851,848,3,VO,"onset (-38.7 dB) 3 frames after ""1951"" cuts on; VO ""...past/passed the twenty-second amendment"" region",low,unverified (waveform only)
+33.330,33.590,1000,998,2,estimated: stamp impact,onset (-31.1 dB) 2 frames after the stamp appears oversized,low,unverified (waveform only)
+33.660,34.110,1010,1003,7,estimated: stamp thud / VO,"strongest late onset (-15.6 dB) 7 frames after the stamp lands (33.59 s, F1008, also an onset at +5)",low,unverified (waveform only)
