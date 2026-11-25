@@ -393,8 +393,8 @@ export const SHOTS: Shot[] = [
         </Svg></Cam>],
         [gm, <Cam dur={dur} from={1.08} to={1.12} ox="30%" oy="55%"><Svg bg={<BPWaitingRoom />}>
           <Act c="garfield_attacker" x={620} y={1010} h={620} e={[[0, 2], [an, 5]]} talk={[dc, 9999]} gesture={14} stress />
-          <Swap t={an} a={<Bubble x={1080} y={210} w={760} text="I AM A STALWART OF THE STALWARTS!" at={dc} tail={[690, 340]} size={46} />}
-            b={<Bubble x={1080} y={210} w={760} text="ARTHUR IS PRESIDENT NOW!" at={an} tail={[690, 340]} shout size={50} />} />
+          <Swap t={an} a={<Bubble x={900} y={210} w={760} text="I AM A STALWART OF THE STALWARTS!" at={dc} tail={[690, 340]} size={46} />}
+            b={<Bubble x={900} y={210} w={760} text="ARTHUR IS PRESIDENT NOW!" at={an} tail={[690, 340]} shout size={50} />} />
         </Svg></Cam>],
         [ar, <Cam dur={dur} from={1.05} to={1.1} ox="60%" oy="50%"><Svg bg={<Brownstone1881 />}>
           <Act c="chester_arthur" x={1180} y={1010} h={560} e={[[0, 0], [R, 3]]} sweat={t(wd(21, "president")) + R} />
