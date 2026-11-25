@@ -1,6 +1,6 @@
 # Crop every face from the FINAL encoded 4K file (native res) into review grids <outdir>/fin/gNNN.png.
 # usage: python3 final_face_audit.py <final.mp4> <outdir> <seconds-between-samples>   (run from the repo root)
-import json,subprocess,sys,numpy as np
+import json,os,subprocess,sys,numpy as np
 from PIL import Image
 import scipy.ndimage as nd
 SP=sys.argv[2]; F=json.load(open('src/VP/faces.json'))
@@ -38,7 +38,7 @@ while True:
     crops.append((t,cr))
 print(len(crops),'crops')
 from PIL import ImageDraw
-per=12
+per=12; os.makedirs(f'{SP}/fin', exist_ok=True)
 for g in range(0,len(crops),per):
   G=Image.new('RGB',(4*430,3*450),'white'); d=ImageDraw.Draw(G)
   for k,(t,cr) in enumerate(crops[g:g+per]):
