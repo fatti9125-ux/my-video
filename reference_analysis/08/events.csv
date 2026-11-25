@@ -1,0 +1,39 @@
+event_id,shot_id,first_frame,last_frame,start_s,end_s,layer,event_type,observed_change,measured_values,confidence,evidence_paths
+E01,S01,0,142,0.000,4.767,camera,pull-out,slow continuous pull-out on poster tableau,"scale 1.000->0.970 over 142f (~-0.02%/f), tx +5px, ty ~+1px (ORB affine)",observed (measured),crops/m_000_142.png
+E02,S01,73,142,2.433,4.767,text,caption-on,"BULL MOOSE caption hard-cuts on at bottom centre, held to cut","1-frame pop, no scale/fade; white heavy sans, dark soft shadow; centre x~0.50, y~0.86, cap height ~0.07h",observed,crops/m_000_142.png
+E03,S01,0,44,0.000,1.500,Taft face,hold,Taft smug smile with sweat drop on temple,held 45f,observed,crops/c_taft_swap.png
+E04,S01,45,45,1.500,1.533,Taft face,expression swap,"1-frame swap to worried: inner brows up, frown, sweat drop removed; held to F142","swap on 1 frame, no in-between; VO ~""is all according to""",observed,crops/c_taft_swap.png
+E05,S01,0,142,0.000,4.767,TR face,eye swaps,"TR (left poster) grumpy, eyelids/pupils toggle forward vs lowered side-glance","irregular holds 3-6f (F0-2 fwd, F3-8 lowered, ...)",estimated,crops/c_tr_eyes.png;crops/c_tr_mouth.png
+E06,S02,143,239,4.767,8.000,BG+characters,tracking walk,3-character group walks right in place; BG scrolls left,BG top strip tx -196px over 88f (~2.2-2.6 px/f = 0.0055w/f); legs stroke-bend on 1s,observed (measured),crops/m_143_239.png
+E07,S02,143,195,4.767,6.533,text,caption,"OCTOBER 14, 1912 already on at the cut","bottom centre, white heavy sans, ~0.08h cap",observed,crops/m_143_239.png
+E08,S02,196,256,6.533,8.567,text,caption swap,hard swap to MILWAUKEE; caption off F257,1-frame swap; 53f + 61f holds,observed,crops/m_143_239.png;crops/m_236_259.png
+E09,S02,143,239,4.767,8.000,camera,push-in,slow push during walk,scale 1.000->1.073 over 88f,observed (measured),crops/m_143_239.png
+E10,S02,240,244,8.000,8.167,TR + FX,hit/knockback,red jagged burst at TR chest; TR flung left out of frame carrying the burst,"F240 burst at chest, F241 TR overlaps bodyguard, F242 at left edge, F243 gone (burst at edge), F244 sliver; ~45px/f leftward",observed,crops/m_236_259.png
+E11,S02,240,280,8.000,9.367,BG,scroll stop,"walk scroll stops on the hit, tiny residual drift",~1px/f F236-252 easing to 0 by F280,observed (measured),crops/m_258_317.png
+E12,S02,247,250,8.233,8.367,FX,speed streak,white wedge streaks from top-left corner (TR exit trail accent),"4 frames, hard on/off; covers x 0-0.35, y 0-0.6",observed,crops/m_236_259.png
+E13,S02,245,317,8.167,10.600,bodyguard+eagle,deadpan hold,"remaining two freeze in mid-stride, stern frowns, no reaction","73f hold, compression-level motion only",observed,crops/m_258_317.png
+E14,S03,318,528,10.600,17.633,camera,drift,diagram plate drifts slowly right,paper edge x 72->88px over 210f (0.08px/f),observed (measured),crops/m_318_528.png
+E15,S03,344,424,11.467,14.167,bullet,travel,red bullet with white flame trail enters from right and creeps left,tip x 423->244; 2.6px/f decelerating to 2.0px/f,observed (measured),crops/m_318_528.png
+E16,S03,425,431,14.167,14.400,FX,impact spark,yellow jagged spark burst with glow at chest wall/glasses case contact,7 frames hard on/off; bullet hidden under it,observed,crops/m_318_528.png
+E17,S03,426,432,14.200,14.433,eagle,slide-in,"eagle presenter slides in from right edge, points left at bullet, other hand index finger up","~7f, ends x~0.73-1.0, bottom-anchored",observed,crops/m_318_528.png
+E18,S03,432,497,14.400,16.600,bullet,travel,bullet tip moves through glasses case,x 230->144; 1.6 decelerating to 1.1 px/f,observed (measured),crops/m_318_528.png
+E19,S03,498,504,16.600,16.833,FX,impact spark,second yellow spark at case/paper contact,7 frames,observed,crops/m_318_528.png
+E20,S03,505,528,16.833,17.633,bullet,settle,bullet nearly stops in paper strip,x 136->122; 0.6px/f,observed (measured),crops/m_318_528.png
+E21,S04,529,618,17.633,20.633,camera,pull-out,continuous pull-out across lying and get-up,"scale 1.000->0.902 over 88f, tx +20, ty +17",observed (measured),crops/m_528_575.png
+E22,S04,529,569,17.633,19.000,TR/bodyguard/eagle/FX,reaction hold,TR flat on back eyes open; grey smoke wisp rises from chest; bodyguard sweating open mouth; eagle sweat drops,smoke wisp animates continuously,observed,crops/m_528_575.png
+E23,S04,570,570,19.000,19.033,TR,pose swap (get-up),"1-frame swap from lying to upright angry walking, red blood spot on chest","no in-between, no anticipation",observed,crops/m_528_575.png
+E24,S04,570,618,19.000,20.633,TR,walk exit,TR marches right and exits frame right; bodyguard/eagle hold,"legs on 1s, one step ~16-20f (est.); exits ~F604-618",estimated,crops/c_walk2.png
+E25,S05,619,663,20.633,22.133,camera,push-in,push toward stage/TR,"scale 1.000->1.078 over 44f, tx -22, ty -14 (linear)",observed (measured),sheets/seq (F000619-F000663)
+E26,S05,640,663,21.333,22.133,eagle,cross crowd,eagle head appears at left edge and moves right through the crowd,x ~0.0 -> ~0.35 over 23f,estimated,sheets/seq (F000640-F000663)
+E27,S05,657,663,21.900,22.133,TR,gesture,TR raises speech paper and shouts at podium,pose swap,observed,sheets/seq (F000657-F000663)
+E28,S06,664,686,22.133,22.900,TR mouth/body,shout,close-up shout; mouth swaps grimace-teeth / open O,"holds ~7f (664-666 grimace, 667-673 O, 674-680 grimace, 681-686 O); body jitter per frame",estimated,sheets/seq (F000664-F000686)
+E29,S07,687,779,22.900,26.000,BG fire,loop,"flat flame wall (red/orange/yellow, black smoke top) morphs smoothly with ember particles","continuous per-frame morph, ~30f undulation; not on 2s",observed (measured),sheets/seq (F000687-F000779)
+E30,S07,689,698,22.967,23.300,eagle,rise/peek,"eagle head rises from behind Taft at top-left, worried",~10f eased in-out,observed (measured),sheets/seq (F000689-F000698)
+E31,S07,736,747,24.533,24.933,Taft+TR,head-butt,TR leans in until faces touch,~11f,observed,sheets/seq (F000736-F000747)
+E32,S07,748,756,24.933,25.233,Taft,shoved out,Taft slides out frame-left as TR shoves forward,~9f,observed,sheets/seq (F000748-F000756)
+E33,S07,757,779,25.233,26.000,TR,walk,"TR walks right along fire wall, eagle head stays top-left",legs on 1s,observed,sheets/seq (F000757-F000779)
+E34,S08,780,842,26.000,28.100,TR + camera,stomp idle,TR fists-up boxer stance rocking/stomping in place; slow push,rock period ~27f (continuous); push scale 1.000->1.026 by F834,observed (measured),sheets/seq (F000780-F000842)
+E35,S08,843,852,28.100,28.433,camera,fast push-in,fast push toward TR leading into stamp,"scale 1.022,1.055,1.098,1.151,1.205,1.254,1.309,1.359,1.385,1.406 (F843-852), 1.407 F853; ease in-out",observed (measured),crops/c_stamp.png
+E36,S08,848,853,28.267,28.467,text stamp,stamp land,THE LAST THIRD-PARTY / CANDIDATE TO EVER BEAT / ONE OF THE BIG TWO slams from oversized to settled,"est. scale ~2.5,2.15,1.95,1.68,1.27,1.00; semi-transparent while large; rot -8deg; settled box 210x81px centre (0.298,0.383), AABB x0.042 y0.158 w0.512 h0.45",observed (measured),crops/c_stamp.png
+E37,S08,848,853,28.267,28.467,grade,dim,scene darkens while stamp lands,frame mean 124 -> 64 (~-50%),observed (measured),crops/c_stamp.png
+E38,S08,853,929,28.433,31.000,stamp + TR,hold,stamp static; TR rock continues under dim,77f to clip end; TR region diff cycles ~27f,observed (measured),crops/c_stamp.png

@@ -1,0 +1,17 @@
+onset_s,tail_s,mapped_frame,visual_frame,delta_frames,category,description,confidence,verification
+1.640,,49,49,0,cut/undim,"onset at undim F49 coincides with VO ""turned""; likely VO consonant",low,unverified (waveform only)
+4.330,,130,123,7,cut,"nearest onset after cut to plane shot (+7 f); coincides with VO ""join""",low,unverified (waveform only)
+7.890,,237,241,-4,cut,"onset 4 f before map cut (VO ""legs""/""pilots"")",low,unverified (waveform only)
+8.890,,267,268,-1,caption,"date caption pop vs onset (VO ""September"")",low,unverified (waveform only)
+11.930,,358,357,1,caption,"place caption swap vs onset (VO ""Chichi"", ASR ""court"")",low,unverified (waveform only)
+13.390,,402,399,3,cut,"onset after cut to hit shot (VO ""his bomber"")",low,unverified (waveform only)
+14.310,,429,432,-3,impact,red flak streak; onset 3 f before visual; estimated: flak hit/explosion SFX possible but masked by VO,low,unverified (waveform only)
+14.430,,433,435,-2,impact,white burst frame; onset 2 f before,low,unverified (waveform only)
+20.660,,620,627,-7,cut,"onset 7 f before cut to burning wreck (VO ""out"")",low,unverified (waveform only)
+22.220,,667,665,2,caption,"crew caption on VO ""John""; onset +2 f",low,unverified (waveform only)
+24.860,,746,747,-1,cut,onset 1 f before raft cut,low,unverified (waveform only)
+27.370,,821,822,-1,cut,onset 1 f before sub cut,low,unverified (waveform only)
+28.590,,858,856,2,caption,"USS FINBACK caption; onset +2 f (VO ""USS"")",low,unverified (waveform only)
+30.330,,910,905,5,caption_off,"caption off; onset +5 f, likely VO",low,unverified (waveform only)
+34.670,,1040,1045,-5,cut,onset 5 f before next-segment cut,low,unverified (waveform only)
+0.060,34.740,2,,,VO,"Narration lane runs continuously across all cuts (ASR transcript, approximate; vo_words.csv)",medium,"ASR transcript, approximate"
