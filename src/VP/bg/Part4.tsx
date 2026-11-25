@@ -209,8 +209,9 @@ export const AF1Stateroom: React.FC = () => (
         <rect x={x - 62} y={310} width={124} height={160} rx={46} fill="#b8a780" stroke={L} strokeWidth={lw} />
         <rect x={x - 46} y={326} width={92} height={128} rx={36} fill="#dfeaf0" />
         <rect x={x - 46} y={420} width={92} height={34} fill="#9aa2a6" opacity={0.6} />
-        <path d={`M ${x - 70} 296 Q ${x - 40} 390 ${x - 64} 490 L ${x - 20} 490 Q ${x - 30} 390 ${x - 10} 296 Z`} fill="#a98d5a" stroke={L} strokeWidth={3} />
-        <path d={`M ${x + 70} 296 Q ${x + 40} 390 ${x + 64} 490 L ${x + 30} 490 Q ${x + 30} 390 ${x + 22} 296 Z`} fill="#a98d5a" stroke={L} strokeWidth={3} />
+        <path d={`M ${x - 96} 290 Q ${x - 70} 390 ${x - 92} 500 L ${x - 52} 500 Q ${x - 58} 390 ${x - 44} 290 Z`} fill="#a98d5a" stroke={L} strokeWidth={3} />
+        <path d={`M ${x + 96} 290 Q ${x + 70} 390 ${x + 92} 500 L ${x + 52} 500 Q ${x + 58} 390 ${x + 44} 290 Z`} fill="#a98d5a" stroke={L} strokeWidth={3} />
+        <rect x={x - 104} y={280} width={208} height={14} rx={6} fill="#8a6a3a" stroke={L} strokeWidth={2} />
       </g>
     ))}
     {/* bulkhead with presidential seal plaque, centred above the oath */}
