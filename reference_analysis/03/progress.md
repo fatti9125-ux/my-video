@@ -18,3 +18,11 @@ last verified frame: none
 - 684-743: push-in continues (slow), arms wiggle (2-pose alternation, check crop). Caption exits F734 (hard off). F744-751 reframe: Jackson moves left/camera pans/zooms (check).
 - F752 stamp "LAST PRESIDENT / TO TAKE OUR DEBT / TO ZERO" slams in huge (covers frame), F753-757 shrinking, settled F758 top-right, rotated CW ~+20deg; white grungy text + translucent white grungy outline box. Hold to 791+ with arm wiggle.
 - 792-865 stamp hold, arm wiggle, no change. F866 hard cut to grey board room: old Jackson (frown, squint, small open mouth) L, eagle w/ glasses + suit holding pointer centre-left, blank white board right on stand. Pointer slowly rotates up (tip creeping right/up) F866-899; board empty so far. Very slow push? check.
+
+## Status (final)
+- frames decoded 1050; inspected 1050 (all 88 seq sheets opened, every frame); 272 of them also native/region crops (see crops/).
+- shots verified: S01 F0-63, S02 F64-342, S03 F343-646, S04 F647-865 (continuation, no editorial cut), S05 F866-1049.
+- last verified frame: F1049.
+- deliverables: frames.csv, events.csv (57 events), audio_cues.csv (19 waveform cues, unverified). analysis.md text handed to lead in final reply (Write blocked by hook).
+- Uncertain: stamp in-flight scales (grunge semi-transparent box defeats auto-measure; visual estimates); eagle blinks in S01/S05 (eye region too small at 240p); exact DEBT letter overshoot; all sound identities (no playback); ASR words are garbled in places.
+- Correction to prior notes: no camera reverse at F435 (only a back-view puppet swap, same BG framing); S02 close-up has no camera track (characters bob over a static BG); pointer rotates linearly rather than tracking the line tip.
