@@ -1,0 +1,12 @@
+onset_s,tail_s,mapped_frame,visual_frame,delta_frames,category,description,confidence,verification
+3.780,,113,113,0,transition candidate,"onset at name-card dim-on (also -3 f onset 3.680 at -15 dB, likely VO ""richard"")",low,unverified (waveform only)
+4.840,,145,151,-6,transition candidate,onset 6 f before name-card off; probably VO,low,unverified (waveform only)
+11.550,,346,350,-4,transition / whoosh candidate,onset 4 f before office->space cut,low,unverified (waveform only)
+15.610,,468,467,1,transition / money SFX candidate,"onset at cut to Apollo logo + falling bills (estimated: cash/whoosh type, unverified)",low,unverified (waveform only)
+22.470,,674,669,5,transition candidate,onset 5 f after cut back to office,low,unverified (waveform only)
+24.730,,742,740,2,VO,"onset at APOLLO 17 caption = VO ""apollo""",medium,unverified (waveform only)
+25.570,,767,766,1,VO,"onset with sad face swap; VO word boundary ""seventeen/lifted""",low,unverified (waveform only)
+28.080,,842,844,-2,stamp hit candidate,"strong onset (-18.9 dB) 2 f before stamp first frame, during fast push (estimated: stamp whoosh/thud, unverified)",medium,unverified (waveform only)
+28.240,,847,850,-3,stamp land candidate,onset near stamp settle F850,low,unverified (waveform only)
+30.440,,913,911,2,transition candidate,onset 2 f after cut to podium,low,unverified (waveform only)
+32.810,,984,982,2,transition candidate,onset 2 f after cut to family/TV,low,unverified (waveform only)
