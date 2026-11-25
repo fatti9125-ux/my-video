@@ -22,6 +22,7 @@ import { VP3_DURATION, VicePresidents3 } from "./VP/VP3";
 import { VP4_DURATION, VicePresidents4 } from "./VP/VP4";
 import { VP5_DURATION, VicePresidents5 } from "./VP/VP5";
 import { VP_FULL_DURATION, VicePresidentsFull } from "./VP/Full";
+import { PILOT_DURATION, VPPilot } from "./VP/Pilot";
 import { VP2_DURATION, VicePresidents2 } from "./VP/VP2";
 
 export const RemotionRoot: React.FC = () => (
@@ -38,6 +39,7 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="TgWalkTest" component={WalkTest} durationInFrames={64} fps={30} width={1920} height={1080} />
     <Composition id="ThanksgivingFull" component={Thanksgiving3} durationInFrames={TG3_DURATION} fps={30} width={1920} height={1080} />
     <Composition id="ThanksgivingCh4to6" component={ThanksgivingCh4to6} durationInFrames={CH4_6_DURATION} fps={30} width={1920} height={1080} />
+    <Composition id="VPPilot" component={VPPilot} durationInFrames={PILOT_DURATION} fps={30} width={1920} height={1080} />
     <Composition id="VicePresidents1" component={VicePresidents1} durationInFrames={VP1_DURATION} fps={30} width={1920} height={1080} />
     <Composition id="VicePresidents1-BG" component={VP1_BG} durationInFrames={VP1_DURATION} fps={30} width={1920} height={1080} />
     <Composition id="VicePresidents1-FX" component={VP1_FX} durationInFrames={VP1_DURATION} fps={30} width={1920} height={1080} />
